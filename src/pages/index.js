@@ -1,23 +1,15 @@
 import React from "react"
+import Layout from "../components/layout"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { Helmet } from "react-helmet"
 
 export default function Home() {
   return (
-    <div className="container">
+    <Layout>
       <Helmet>
         <title>CY is here. | A website of a fullstack developer.</title>
       </Helmet>
-      <header>
-        <h1>
-          &lt;c
-          <span role="img" aria-label="Vulcan Salute">
-            🖖🏻
-          </span>
-          ishere /&gt;
-        </h1>
-      </header>
       <main>
         <p>
           <span role="img" aria-label="Wave Hand">
@@ -40,6 +32,6 @@ export default function Home() {
           </a>
         </p>
       </main>
-    </div>
+    </Layout>
   )
 }
