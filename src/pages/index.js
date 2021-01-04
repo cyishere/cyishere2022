@@ -18,6 +18,10 @@ export default function Home() {
           Hi, there! I'm <strong>CY</strong>.
         </p>
         <p>
+          I'm a front-end developer who's learning to be{" "}
+          <strong className="color-blue">full-stack</strong> developer.
+        </p>
+        <p>
           <em>This website is under construction.</em>
         </p>
         <p>
