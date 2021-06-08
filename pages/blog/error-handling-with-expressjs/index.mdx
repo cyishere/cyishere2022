@@ -1,0 +1,77 @@
+import PostLayout from "@/components/PostLayout";
+
+export const meta = {
+  title: "Error Handling with Express.js",
+  description:
+    "Use middleware in Express.js to catch error messages and send them to frontend.",
+  createdAt: "2021-05-11",
+};
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+I think error handling is a very tricky part of development. When I started as a self-taught Node.js full-stack developer, I know use `throw new Error` would throw out the errors in the terminal, but I don't know how to let my frontend "know" these errors and show them in the UI for users. I really struggled with this for a while.
+
+In this article, I'll showcase how I deal with error handling in REST API with Express.js.
+
+## Catch Errors in Backend
+
+I use a middleware like this:
+
+```js{2,4-6}
+const errorHandler = (err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+
+  res.status(statusCode).json({
+    type: "error",
+    message: err.message,
+  });
+
+  next();
+};
+```
+
+In the business logic, when there's an error occurred, I handle it this way (code below), use the guard clause concept throw the error, and catch it by the middleware.
+
+```js
+router.post("/", (req, res, next) => {
+  try {
+    // register a new user, but the username is already taken
+    if (usernameUsed) {
+      const error = new Error("The username is taken.");
+      error.statusCode = 409;
+      throw error;
+    }
+  } catch (error) {
+    // the error will catched by the middleware above and response as an object:
+    // { type: "error", message: "The username is taken." } with 409 status code.
+    next(error);
+  }
+});
+```
+
+## Show Error Messages in Frontend
+
+In the front end, I use `fetch` to communicate with the server. I don't like `axios` because when there's a non-2xx status code, `axios` just break and cannot show any message from the server. So the code in the frontend is something like this:
+
+```js
+const addNewUser = (userInfo) => {
+  return fetch("/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userInfo),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.type === "error") {
+        // the `type` we defined in the backend middleware
+        alert(data.message);
+      }
+    });
+};
+```
+
+Thus, the users could know what is happening thereby adjust their inputs.
