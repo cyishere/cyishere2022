@@ -20,7 +20,9 @@ const PortfolioLayout = ({ meta, children, otherProjectName }) => {
         {/* HEADER */}
         <header className="w-full grid gap-4 grid-cols-1 mb-10 lg:grid-cols-2">
           <div className="mb-4 px-6 flex flex-col justify-center items-start lg:mb-0 lg:pl-16">
-            <h1 className="text-5xl font-black mb-6">{meta.title}</h1>
+            <h1 className="text-2xl font-black mb-6 lg:text-5xl">
+              {meta.title}
+            </h1>
             <div className="font-mono text-gray-500">
               <p>{meta.description}</p>
             </div>

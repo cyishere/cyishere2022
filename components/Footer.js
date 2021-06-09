@@ -10,8 +10,8 @@ const Footer = () => {
 
   return (
     <footer className="footer bg-green-100">
-      <div className="w-full mx-auto px-6 py-12 flex flex-col justify-between items-center lg:w-2/3 lg:px-0 lg:flex-row">
-        <ul className="flex flex-row justify-start items-center mb-4 lg:mb-0">
+      <div className="w-full mx-auto px-2 py-12 flex flex-col items-center lg:w-2/3 lg:px-0 lg:flex-row lg:justify-between">
+        <ul className="flex flex-col items-center mb-4 lg:flex-row lg:mb-0">
           <li className="mr-4">
             &copy; {createdAt === year ? year : `${createdAt} - ${year}`}
           </li>
@@ -21,7 +21,7 @@ const Footer = () => {
           </li>
         </ul>
 
-        <ul className="flex flex-row justify-end items-center icons">
+        <ul className="flex flex-row justify-center items-center icons lg:justify-end">
           <li className="mr-4">
             <ExternalLink href="https://twitter.com/cyishere">
               <Icon iconUrl="/icons/twitter.svg" text="CY's Twitter" />

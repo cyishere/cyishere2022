@@ -15,9 +15,9 @@ const Home = () => {
 
       <section>
         <FeaturedProjects featuredProjects={featuredProjects} />
-        <div className="flex justify-center items-center pb-20 mb-20">
+        <div className="flex justify-center items-center pb-10 mb-10 mt-6 lg:mt-0 lg:pb-20 lg:mb-20">
           <ButtonLink
-            classes="bg-pink-500 px-8 py-4 text-white hover:bg-pink-300 hover:text-black"
+            classes="bg-pink-500 text-white px-4 py-2 hover:bg-pink-300 hover:text-black lg:px-8 lg:py-4"
             href="/portfolio#moreProjects"
           >
             More Projects <ChevronRight />
