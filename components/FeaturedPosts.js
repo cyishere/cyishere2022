@@ -16,7 +16,7 @@ const FeaturedPosts = () => {
           classes="pl-2 hover:bg-green-50"
           href="/blog"
         >
-          More <ChevronRight />
+          More Posts <ChevronRight />
         </ButtonLink>
       </header>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
@@ -27,7 +27,7 @@ const FeaturedPosts = () => {
 
       <div className="flex justify-center items-center md:hidden">
         <ButtonLink classes="pl-2 hover:bg-green-50" href="/blog">
-          More <ChevronRight />
+          More Posts <ChevronRight />
         </ButtonLink>
       </div>
     </section>
