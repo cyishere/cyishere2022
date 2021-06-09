@@ -6,7 +6,7 @@ const Card = ({ project }) => {
 
   return (
     <article className="flex flex-col justify-start items-stretch text-center">
-      <h3 className="text-3xl font-semibold mb-4">
+      <h3 className="text-xl font-semibold mb-4 lg:text-3xl">
         <TextLink href={href}>{name}</TextLink>
       </h3>
       <img

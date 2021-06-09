@@ -1,7 +1,7 @@
 const Figure = ({ src, alt, styles }) => {
   const classes = styles
-    ? `flex flex-col items-center ${styles}`
-    : "flex flex-col items-center";
+    ? `flex flex-col items-center mb-6 lg:mb-0 ${styles}`
+    : "flex flex-col items-center mb-6 lg:mb-0";
 
   return (
     <figure className={classes}>

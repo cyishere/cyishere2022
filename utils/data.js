@@ -152,7 +152,7 @@ export const fccProjects = [
         url: "https://glitch.com/edit/#!/cy-fcc-timestamps",
       },
       {
-        name: "Request Header Parser Microservice",
+        name: "Request Header Parser\nMicroservice",
         url: "https://glitch.com/edit/#!/cy-fcc-request-header",
       },
       {

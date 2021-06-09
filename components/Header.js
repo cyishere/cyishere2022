@@ -2,15 +2,15 @@ import { TextLink } from "./Link";
 
 const Header = ({ pageSection }) => {
   return (
-    <header className="mb-20 px-8 mx-auto lg:px-0 lg:w-2/3">
-      <div className="lg:container mx-auto py-4 flex flex-row justify-between items-center">
-        <h1 className="logo text-5xl font-black">
+    <header className="mb-20 px-2 mx-auto md:px-6 lg:px-0 lg:w-2/3">
+      <div className="w-full mx-auto py-4 flex flex-col items-center md:flex-row md:justify-between lg:max-w-screen-lg">
+        <h1 className="logo font-black text-xl lg:text-5xl">
           <TextLink href="/" classes="text-yellow-500">
             cyishere
           </TextLink>
         </h1>
         <nav>
-          <ul className="nav-list flex flex-row justify-end items-center">
+          <ul className="nav-list flex flex-col items-center md:flex-row md:justify-end">
             <li>
               <TextLink
                 href="/"

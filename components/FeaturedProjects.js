@@ -3,10 +3,11 @@ import { Icon, ChevronRight } from "./Icon";
 
 const FeaturedProjects = ({ featuredProjects }) => (
   <>
-    <div className="bg-green-100 py-20">
-      <div className="w-full mx-auto grid grid-cols-1 px-6 lg:w-2/3 lg:grid-cols-2 lg:px-0">
-        <article className="pr-20 mb-10 lg:mb-0">
-          <h3 className="text-3xl font-semibold mb-4">
+    <h2 className="sr-only">Featured Projects</h2>
+    <div className="bg-green-100 py-10 lg:py-20">
+      <div className="w-full mx-auto grid grid-cols-1 gap-4 px-6 lg:w-2/3 lg:grid-cols-2 lg:gap-16 lg:px-0">
+        <article className="mb-10 lg:mb-0">
+          <h3 className="text-xl font-semibold mb-4 lg:text-3xl">
             <TextLink href={featuredProjects[0].href}>
               {featuredProjects[0].name}
             </TextLink>
@@ -41,14 +42,14 @@ const FeaturedProjects = ({ featuredProjects }) => (
       </div>
     </div>
 
-    <div className="w-full mx-auto grid grid-cols-1 py-20 px-6 lg:w-2/3 lg:grid-cols-2 lg:px-0">
+    <div className="w-full mx-auto grid grid-cols-1 gap-4 py-10 px-6 lg:w-2/3 lg:grid-cols-2 lg:gap-16 lg:py-20 lg:px-0">
       <img
-        className="w-full shadow-lg mb-10 lg:mb-0"
+        className="w-full shadow-lg order-last lg:order-none"
         src={featuredProjects[1].imageUrl}
         alt={`${featuredProjects[1].name} screenshot`}
       />
-      <article className="pl-20">
-        <h3 className="text-3xl font-semibold mb-4">
+      <article className="mb-10 lg:mb-0">
+        <h3 className="text-xl font-semibold mb-4 lg:text-3xl">
           <TextLink href={featuredProjects[1].href}>
             {featuredProjects[1].name}
           </TextLink>

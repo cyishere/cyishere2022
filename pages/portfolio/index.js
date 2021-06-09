@@ -22,8 +22,11 @@ const Portfolio = () => {
         <FeaturedProjects featuredProjects={featuredProjects} />
 
         {/* Three columns */}
-        <div className="bg-gray-100 pt-20 pb-40" id="moreProjects">
-          <div className="w-full mx-auto grid grid-cols-1 gap-8 px-6 lg:w-2/3 md:grid-cols-3 lg:px-0">
+        <div
+          className="bg-gray-100 py-20 mt-20 lg:mt-0 lg:pt-20 lg:pb-40"
+          id="moreProjects"
+        >
+          <div className="w-full mx-auto grid grid-cols-1 gap-20 px-6 lg:w-2/3 md:grid-cols-3 lg:px-0 lg:gap-8">
             {otherProjects.map((project) => (
               <Card key={project.id} project={project} />
             ))}
@@ -32,11 +35,11 @@ const Portfolio = () => {
 
         {/* FCC */}
         <div
-          className="w-full mx-auto grid grid-cols-1 py-20 px-6 lg:w-2/3 lg:grid-cols-2 lg:px-0"
+          className="w-full mx-auto grid grid-cols-1 gap-4 py-20 px-6 lg:w-2/3 lg:grid-cols-2 lg:px-0"
           id="fcc"
         >
-          <article className="pr-20 mb-10 lg:mb-0">
-            <h3 className="text-3xl font-semibold mb-6">
+          <article className="mb-10 lg:mb-0">
+            <h3 className="text-xl font-semibold mb-6 lg:text-3xl">
               <TextLink href="/portfolio/fcc">
                 FreeCodeCamp Certifications
               </TextLink>
