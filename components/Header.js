@@ -3,6 +3,47 @@ import { useState } from "react";
 import { CloseX, MenuIcon } from "./Icon";
 import { TextLink } from "./Link";
 
+const NavLinkContent = ({ pageSection }) => (
+  <>
+    <li>
+      <TextLink
+        href="/"
+        classes={pageSection === "" ? "active" : ""}
+        noBg={true}
+      >
+        home
+      </TextLink>
+    </li>
+    <li>
+      <TextLink
+        href="/portfolio"
+        classes={pageSection === "portfolio" ? "active" : ""}
+        noBg={true}
+      >
+        portfolio
+      </TextLink>
+    </li>
+    <li>
+      <TextLink
+        href="/blog"
+        classes={pageSection === "blog" ? "active" : ""}
+        noBg={true}
+      >
+        blog
+      </TextLink>
+    </li>
+    <li>
+      <TextLink
+        href="/about"
+        classes={pageSection === "about" ? "active" : ""}
+        noBg={true}
+      >
+        about
+      </TextLink>
+    </li>
+  </>
+);
+
 const Header = ({ pageSection }) => {
   const [showSlideNav, setShowSlideNav] = useState(false);
 
@@ -22,42 +63,7 @@ const Header = ({ pageSection }) => {
           </h1>
           <nav>
             <ul className="nav-list flex flex-col items-center md:flex-row md:justify-end">
-              <li>
-                <TextLink
-                  href="/"
-                  classes={pageSection === "" ? "active" : ""}
-                  noBg={true}
-                >
-                  home
-                </TextLink>
-              </li>
-              <li>
-                <TextLink
-                  href="/portfolio"
-                  classes={pageSection === "portfolio" ? "active" : ""}
-                  noBg={true}
-                >
-                  portfolio
-                </TextLink>
-              </li>
-              <li>
-                <TextLink
-                  href="/blog"
-                  classes={pageSection === "blog" ? "active" : ""}
-                  noBg={true}
-                >
-                  blog
-                </TextLink>
-              </li>
-              <li>
-                <TextLink
-                  href="/about"
-                  classes={pageSection === "about" ? "active" : ""}
-                  noBg={true}
-                >
-                  about
-                </TextLink>
-              </li>
+              <NavLinkContent pageSection={pageSection} />
             </ul>
           </nav>
         </div>
@@ -84,42 +90,7 @@ const Header = ({ pageSection }) => {
         } md:hidden`}
       >
         <ul className="w-full h-full p10 flex flex-col justify-evenly items-center text-3xl">
-          <li>
-            <TextLink
-              href="/"
-              classes={pageSection === "" ? "active" : ""}
-              noBg={true}
-            >
-              home
-            </TextLink>
-          </li>
-          <li>
-            <TextLink
-              href="/portfolio"
-              classes={pageSection === "portfolio" ? "active" : ""}
-              noBg={true}
-            >
-              portfolio
-            </TextLink>
-          </li>
-          <li>
-            <TextLink
-              href="/blog"
-              classes={pageSection === "blog" ? "active" : ""}
-              noBg={true}
-            >
-              blog
-            </TextLink>
-          </li>
-          <li>
-            <TextLink
-              href="/about"
-              classes={pageSection === "about" ? "active" : ""}
-              noBg={true}
-            >
-              about
-            </TextLink>
-          </li>
+          <NavLinkContent pageSection={pageSection} />
         </ul>
 
         <button
