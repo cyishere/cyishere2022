@@ -74,3 +74,37 @@ export const ExternalLinkSolid = () => (
     <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
   </svg>
 );
+
+export const CloseX = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-10 w-10"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M6 18L18 6M6 6l12 12"
+    />
+  </svg>
+);
+
+export const MenuIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-10 w-10"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M4 6h16M4 12h16M4 18h16"
+    />
+  </svg>
+);

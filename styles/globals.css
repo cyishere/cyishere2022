@@ -52,6 +52,22 @@ svg {
     inset 0 -0.375em 0 0 rgb(165 243 252 / 80%);
 }
 
+.slide-nav li a {
+  background-image: linear-gradient(hsl(324, 84%, 89%), hsl(324, 84%, 89%));
+  background-size: 100% 40%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  transition: background 0.35s;
+}
+
+.slide-nav li a:hover {
+  background-size: 100% 100%;
+}
+
+.slide-nav li a.active {
+  background-size: 100% 100%;
+}
+
 .icons-group > * {
   @apply mr-4;
 }
