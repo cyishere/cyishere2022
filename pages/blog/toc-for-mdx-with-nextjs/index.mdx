@@ -1,0 +1,99 @@
+import PostLayout from "@/components/PostLayout";
+import { ExternalLink } from "@/components/Link";
+
+export const meta = {
+  title: "Table of Content for MDX with Next.js",
+  description: "Add a table of content for MDX/Markdown file with Next.js.",
+  createdAt: "2021-06-21",
+};
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+I use Next.js & MDX for my personal website and some documents, I want to display a "table of content", a list of headings, for each article.
+
+I've tried the plugin <ExternalLink href="https://github.com/remarkjs/remark-toc">remark-toc</ExternalLink> but it's too complex (for me). I spend hours still couldn't make the toc work... So, I tried to write it by myself.
+
+## Get The List of Headings
+
+Here's the code for getting the list of headings:
+
+```javascript
+// ./components/PostLayout.js
+
+import { renderToString } from "react-dom/server";
+import { MDXProvider } from "@mdx-js/react";
+
+import MDXComponents from "./MDXComponents";
+
+const PostLayout = ({ children }) => {
+  const contentString = renderToString(children);
+
+  const getHeadings = (source) => {
+    const regex = /<h2>(.*?)<\/h2>/g;
+
+    if (source.match(regex)) {
+      return source.match(regex).map((heading) => {
+        const headingText = heading.replace("<h2>", "").replace("</h2>", "");
+
+        const link = "#" + headingText.replace(/ /g, "_").toLowerCase();
+
+        return {
+          text: headingText,
+          link,
+        };
+      });
+    }
+
+    return [];
+  };
+
+  const headings = getHeadings(contentString);
+
+  return (
+    <>
+      {/* ... */}
+
+      {headings.length > 0 ? (
+        <ol>
+          {headings.map((heading) => (
+            <li key={heading.text}>
+              <a href={heading.link}>{heading.text}</a>
+            </li>
+          ))}
+        </ol>
+      ) : null}
+
+      <MDXProvider components={MDXComponents}>
+        <Container>{children}</Container>
+      </MDXProvider>
+    </>
+  );
+};
+```
+
+## Add IDs to Headings
+
+I use the `MDXProvider` to render the Markdown content, then customize the components in a separated file.
+
+Here's the customized `h2`:
+
+```javascript
+// ./components/MDXComponents.js
+
+const Heading2 = ({ children }) => {
+  const idText = children.replace(/ /g, "_").toLowerCase();
+
+  return <h2 id={idText}>{children}</h2>;
+};
+
+const MDXComponents = {
+  h2: Heading2,
+  // ...
+};
+
+export default MDXComponents;
+```
+
+Now, everything works as I expected. I made a Next.js & MDX starter, <ExternalLink href="https://github.com/cyishere/nextjs-starter">click here to visit the repo</ExternalLink> could find the whole code.
