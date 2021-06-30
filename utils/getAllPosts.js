@@ -1,5 +1,11 @@
 const importAllPosts = (files) => {
-  return files.keys().map((file) => ({
+  const sortedFiles = files.keys().sort((a, b) => {
+    return (
+      new Date(files(b).meta.createdAt) - new Date(files(a).meta.createdAt)
+    );
+  });
+
+  return sortedFiles.map((file) => ({
     slug: file.split("/")[1],
     module: files(file),
   }));
