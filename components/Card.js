@@ -1,4 +1,3 @@
-import { ExternalLinkSolid } from "./Icon";
 import { ExternalLink, TextLink } from "./Link";
 
 const Card = ({ project }) => {

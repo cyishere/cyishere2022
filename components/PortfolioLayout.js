@@ -1,10 +1,10 @@
 import Link from "next/link";
+
 import Layout from "./Layout";
 import { ExternalLink } from "./Link";
 import { ArrowNarrowRight } from "./Icon";
-
-import { projects } from "@/utils/data";
 import Emoji from "./Emoji";
+import { projects } from "@/utils/data";
 
 const PortfolioLayout = ({ meta, children, otherProjectName }) => {
   let otherProject = null;

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Prism from "prismjs";
+
 import Layout from "./Layout";
 
 const PostLayout = ({ meta, children }) => {
