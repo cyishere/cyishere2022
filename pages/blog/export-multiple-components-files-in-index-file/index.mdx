@@ -2,7 +2,7 @@ import PostLayout from "@/components/PostLayout";
 import { ExternalLink } from "@/components/Link";
 
 export const meta = {
-  title: "Export Multiple Components(Files) in Index File",
+  title: "Export Multiple Components in Index File",
   description: "ES6 modules, JavaScript modules & how to export/import modules",
   createdAt: "2021-06-30",
 };
@@ -11,19 +11,19 @@ export default ({ children }) => (
   <PostLayout meta={meta}>{children}</PostLayout>
 );
 
-## Export Mulitiple Components
+## Export Multiple Components
 
 When I structure a React app, I'd like to put the components which are in the same category but with different styles in the same folder. Something like this:
 
 ```bash
 /- components
-		/- Card
-				/- CardLeftMedia.js
-				/- CardRightMedia.js
-				/- CardTopMedia.js
+	/- Card
+		/- CardLeftMedia.js
+		/- CardRightMedia.js
+		/- CardTopMedia.js
 ```
 
-So, I need to import & export them in an `index.js` file. Here's the simple solution:
+So, I need to import & export them in a `index.js` file. Here's the simple solution:
 
 ```javascript
 // components/Card/index.js
@@ -47,9 +47,9 @@ There's another scenario like this:
 
 ```bash
 /- components
-		/- Card
-				/- Card.js
-				/- Card.module.css
+	/- Card
+		/- Card.js
+		/- Card.module.css
 ```
 
 To export `Card.js`, I also add an index file:
@@ -60,7 +60,7 @@ To export `Card.js`, I also add an index file:
 export { default } import "./Card";
 ```
 
-It's a default export and we import it directly:
+It's a default export and I could import it directly:
 
 ```javascript
 // pages/Home.js
