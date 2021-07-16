@@ -28,15 +28,16 @@ const Intro = () => {
       </p>
       <p className="text-xl leading-relaxed text-gray-500 mb-6 lg:text-2xl">
         I was a frontend developer from 2007-2010 and a UX designer from
-        2010-2012. But in the recent 8 years, I&#39;ve been a screenplay writer
-        & producer. So there&#39;re a lot of new tech stacks for me to catch up
-        to re-start my career as a developer.
+        2010-2012. Then I changed my career path, and in recent years I've
+        worked as a screenwriter and producer. So there&#39;re a lot of new tech
+        stacks for me to catch up in order to relaunch my career as a developer.
       </p>
       <p className="text-xl leading-relaxed text-gray-500 lg:text-2xl">
-        I started to re-build my knowledge and learn React in March 2020. I got{" "}
+        I began re-building my knowledge and learning React in March 2020. In
+        three months, I received{" "}
         <TextLink href="/portfolio#fcc">4 certifications</TextLink> from
-        freeCodeCamp in three months. And here&#39;re some projects I made for
-        learning the amazing React.
+        freeCodeCamp.org. And here are some projects I created whilst learning
+        the incredible React.
       </p>
       <div className="flex justify-center items-center py-20 text-green-400">
         <ChevronDown />

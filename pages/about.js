@@ -29,19 +29,19 @@ const About = () => (
         </p>
         <p>
           I got my first development job in 2007. From 2007 to 2012, I was a
-          frontend developer, most of my work was writing CSS hacks for IE6, and
-          playing around with jQuery. Made a lot of templates for WordPress and
-          e-commerce websites.
+          frontend developer and UX designer, most of my work was writing CSS
+          hacks for IE6, and playing around with jQuery. Made a lot of templates
+          for WordPress and e-commerce websites.
         </p>
         <p>
-          Later something happened in my life and I switched my career path
-          started a production company with my friends. I was a screenplay
-          writer in the last four years (<strong>also self-taught</strong>). But
-          I still love web development a lot. Developers work on code and take
-          films as entertainment, I worked on films and take programming as
-          entertainment. When I didn’t study films, I read articles about web
-          development and follow along with the tutorials on{" "}
-          <ExternalLink href="https://scotch.io">scotch.io</ExternalLink>.
+          Later I switched my career path and started a production company with
+          my friends. I was a screenplay writer in the last four years (
+          <strong>also self-taught</strong>). But I still love web development a
+          lot. Developers work on code and take films as entertainment, I worked
+          on films and take programming as entertainment. When I didn’t study
+          films, I read articles about web development and follow along with the
+          tutorials on{" "}
+          <ExternalLink href="https://scotch.io">🥃 scotch.io</ExternalLink>.
         </p>
         <p>
           I spend last year catching up on the new tech stacks. Now, I&apos;m a
