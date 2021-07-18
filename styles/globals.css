@@ -133,6 +133,10 @@ svg {
   @apply font-medium;
 }
 
+.post p {
+  line-height: 1.7;
+}
+
 .post img {
   max-width: min(55rem, 100%);
 }
