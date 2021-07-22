@@ -213,6 +213,28 @@ svg {
   @apply mt-16;
 }
 
+.post hr {
+  @apply my-16;
+}
+
+/* ============== TABLE OF CONTENT ================ */
+.toc a {
+  @apply text-indigo-600;
+}
+
+.toc a:hover {
+  @apply text-green-600;
+}
+
+.post .toc h2 {
+  margin: 0;
+  @apply text-xl;
+}
+
+.toc li p {
+  margin-left: 1.75rem;
+}
+
 /* ============== MEDIA QUERY ================ */
 
 @media screen and (min-width: 768px) {

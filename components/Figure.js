@@ -5,7 +5,13 @@ const Figure = ({ src, alt, styles }) => {
 
   return (
     <figure className={classes}>
-      <img className="w-full mb-2" src={src} alt={alt} />
+      <img
+        className="mb-2"
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+      />
       <figcaption className="text-base text-gray-400">{alt}</figcaption>
     </figure>
   );
