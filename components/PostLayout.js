@@ -3,11 +3,7 @@ import Prism from "prismjs";
 import { MDXProvider } from "@mdx-js/react";
 
 import Layout from "./Layout";
-import Hr from "./Hr";
-
-const components = {
-  hr: Hr,
-};
+import MDXComponents from "./MDXComponents";
 
 const PostLayout = ({ meta, children }) => {
   useEffect(() => {
@@ -24,7 +20,7 @@ const PostLayout = ({ meta, children }) => {
           <p className="text-base text-gray-400 mt-8">{meta.createdAt}</p>
         </header>
         <article className="post flow mb-40">
-          <MDXProvider components={components}>{children}</MDXProvider>
+          <MDXProvider components={MDXComponents}>{children}</MDXProvider>
         </article>
       </div>
     </Layout>
