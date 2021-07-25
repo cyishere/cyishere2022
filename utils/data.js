@@ -43,24 +43,35 @@ export const projects = [
   },
   {
     id: "3",
-    name: "Covid-19 Tracker",
-    href: "https://github.com/cyishere/react-covid19-tracker",
-    description: "Exercise about React with API & Leaf.",
-    imageUrl: "/img/portfolio/covid-19-tracker/covid-19-tracker-screenshot.png",
+    name: "Bejamas Clone",
+    href: "/blog/what-ive-learned-from-being-a-copycat",
+    description: `bejamas.io is very beautiful and full of elegant details. I create a clone of its home page to hone my front-end skills.`,
+    imageUrl:
+      "/img/blog/what-ive-learned-from-being-a-copycat/bejamas_screenshot.jpg",
   },
   {
     id: "4",
+    name: "Covid-19 Tracker",
+    href: "https://github.com/cyishere/react-covid19-tracker",
+    description: "Exercise about React with API & Leaflet.",
+    imageUrl: "/img/portfolio/covid-19-tracker/covid-19-tracker-screenshot.png",
+    demo: "https://react-covid19-tracker-cy.herokuapp.com/",
+  },
+  {
+    id: "5",
     name: "Flashcard",
     href: "https://github.com/cyishere/react-flashcard",
     description: "Exercise about React with store data on Firebase.",
     imageUrl: "/img/portfolio/flashcard/flashcard-screenshot.png",
+    demo: "https://react-flashcard-cy.herokuapp.com/",
   },
   {
-    id: "5",
+    id: "6",
     name: "Find A Movie",
     href: "https://github.com/cyishere/find-a-movie",
     description: "Exercise about React with API & localStorage.",
     imageUrl: "/img/portfolio/find-a-movie/find-a-movie-screenshot.png",
+    demo: "https://frozen-gorge-59869.herokuapp.com/",
   },
 ];
 

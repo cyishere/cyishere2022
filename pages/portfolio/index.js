@@ -8,8 +8,7 @@ import PageHeader from "@/components/PageHeader";
 import { projects } from "@/utils/data";
 
 const Portfolio = () => {
-  const featuredProjects = projects.slice(0, 2);
-  const otherProjects = projects.slice(2);
+  const otherProjects = projects.slice(3);
 
   return (
     <Layout seoTitle="Portfolio">
@@ -19,7 +18,7 @@ const Portfolio = () => {
         </PageHeader>
       </div>
       <main>
-        <FeaturedProjects featuredProjects={featuredProjects} />
+        <FeaturedProjects />
 
         {/* Three columns */}
         <div
