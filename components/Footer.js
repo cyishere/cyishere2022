@@ -28,9 +28,14 @@ const Footer = () => {
               <Icon iconUrl="/icons/twitter.svg" text="CY's Twitter" />
             </ExternalLink>
           </li>
-          <li>
+          <li className="mr-4">
             <ExternalLink href="https://github.com/cyishere">
               <Icon iconUrl="/icons/github.svg" text="CY's GitHub" />
+            </ExternalLink>
+          </li>
+          <li>
+            <ExternalLink href="https://codepen.io/cyishere">
+              <Icon iconUrl="/icons/codepen.svg" text="CY's Codepen" />
             </ExternalLink>
           </li>
         </ul>
