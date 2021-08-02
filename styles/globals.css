@@ -169,7 +169,7 @@ svg {
 .post ol,
 .portfolio ul,
 .portfolio ol {
-  @apply list-inside;
+  @apply list-outside;
   @apply ml-6;
   @apply mr-4;
 }
@@ -184,7 +184,7 @@ svg {
 
 .post ul li,
 .portfolio ul li {
-  @apply mb-2;
+  @apply mb-4;
 }
 
 .post time {
