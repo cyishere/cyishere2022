@@ -1,10 +1,12 @@
-import { posts } from "@/utils/getAllPosts";
+import { posts as allPosts } from "@/utils/getAllPosts";
 import Emoji from "./Emoji";
 import { ChevronRight } from "./Icon";
 import { ButtonLink } from "./Link";
 import PostListItem from "./PostListItem";
 
 const FeaturedPosts = () => {
+  const posts = allPosts.slice(0, 6);
+
   return (
     <section className="w-full mx-auto mb-40 px-6 lg:w-2/3 lg:px-0">
       <header className="flex flex-row justify-between items-center uppercase py-10 lg:py-20">
@@ -23,6 +25,15 @@ const FeaturedPosts = () => {
         {posts.map((post) => (
           <PostListItem key={post.slug} post={post} />
         ))}
+      </div>
+
+      <div className="hidden justify-center items-center pb-10 my-10 md:flex lg:pb-20 lg:my-20">
+        <ButtonLink
+          classes="bg-green-500 text-white px-4 py-2 hover:bg-pink-300 hover:text-black lg:px-8 lg:py-4"
+          href="/blog"
+        >
+          More Posts <ChevronRight />
+        </ButtonLink>
       </div>
 
       <div className="flex justify-center items-center md:hidden">
