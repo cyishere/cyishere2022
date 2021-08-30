@@ -12,7 +12,7 @@ const Card = ({ project }) => {
       <p className="text-gray-500">{description}</p>
       <p>
         <ExternalLink
-          href={href}
+          href={demo}
           noBg={true}
           classes="flex flex-row justify-center items-center py-2 bg-green-400 text-white mb-2 hover:bg-white hover:text-black"
         >
