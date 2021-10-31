@@ -54,6 +54,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     --clr-white: hsl(${COLORS.white});
     --clr-khaki-light: hsl(${COLORS.khakiLight});
+    --clr-yellow-light: hsl(${COLORS.yellowLight});
     --clr-purple-light: hsl(${COLORS.purpleLight});
     --clr-khaki: hsl(${COLORS.khaki});
     --clr-cyan: hsl(${COLORS.cyan});
@@ -61,6 +62,20 @@ const GlobalStyles = createGlobalStyle`
     --clr-purple-primary: hsl(${COLORS.purplePrimary});
     --clr-text-secondary: hsl(${COLORS.textSecondary});
     --clr-text-primary: hsl(${COLORS.textPrimary});
+
+    --clr-react: hsl(${COLORS.react});
+    --clr-html: hsl(${COLORS.html});
+    --clr-css: hsl(${COLORS.css});
+    --clr-javascript: hsl(${COLORS.javascript});
+    --clr-typescript: hsl(${COLORS.typescript});
+    --clr-gatsby: hsl(${COLORS.gatsby});
+    --clr-apollo: hsl(${COLORS.apollo});
+    --clr-graphql: hsl(${COLORS.graphql});
+    --clr-prisma: hsl(${COLORS.prisma});
+    --clr-mongodb: hsl(${COLORS.mongodb});
+    --clr-posgresql: hsl(${COLORS.posgresql});
+    --clr-styled: hsl(${COLORS.styled});
+    --clr-gsap: hsl(${COLORS.gsap});
 
     --font-weight-normal: ${WEIGHTS.normal};
     --font-weight-medium: ${WEIGHTS.medium};
@@ -75,12 +90,25 @@ const GlobalStyles = createGlobalStyle`
     --font-size-xxxl: ${FONT_SIZES.xxxl};
     --font-size-big: ${FONT_SIZES.big};
 
+    --ff-main: ${FAMILIES.main};
+    --ff-heading: ${FAMILIES.heading};
+    --ff-special: ${FAMILIES.special};
+    --ff-logo: ${FAMILIES.logo};
+    --ff-chinese: ${FAMILIES.chinese};
+    --ff-mono: ${FAMILIES.mono};
+
     font-size: 18px;
     scroll-behavior: smooth;
   }
+  
+    @media ${QUERIES.tabletAndSmaller} {
+      html {
+        font-size: 16px;
+      }
+    }
 
   body {
-    font-family: ${FAMILIES.main};
+    font-family: var(--ff-main);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
@@ -103,7 +131,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2, h3, h4 {
-    font-family: ${FAMILIES.heading};
+    font-family: var(--ff-heading);
     line-height: 1.2;
     color: var(--clr-text-secondary);
     margin-top: 1.5em;

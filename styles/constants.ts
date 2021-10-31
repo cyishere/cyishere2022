@@ -27,6 +27,7 @@ export const WEIGHTS = {
 export const COLORS = {
   white: "0deg 0% 100%",
   khakiLight: "0deg 0% 98%",
+  yellowLight: "60deg 38% 94%",
   purpleLight: "246deg 62.5% 96.9%",
   khaki: "47.4deg 95% 68.6%",
   cyan: "170.2deg 42.7% 72%",
@@ -34,6 +35,21 @@ export const COLORS = {
   purplePrimary: "248.4deg 74.2% 47.1%",
   textSecondary: "215.6deg 64.8% 17.8%",
   textPrimary: "240deg 2% 30%",
+  black: "0deg 0% 0%",
+
+  react: "192.9deg 95.1% 68.2%",
+  html: "13deg 77.1% 52%",
+  css: "205.3deg 79.3% 39.8%",
+  javascript: "53.4deg 93.1% 54.3%",
+  typescript: "211.4deg 60.3% 48.4%",
+  gatsby: "270deg 50% 40%",
+  apollo: "251.8deg 65.6% 32%",
+  graphql: "319.5deg 100% 44.1%",
+  prisma: "217.8deg 23.1% 22.9%",
+  mongodb: "120.7deg 39.1% 45.7%",
+  posgresql: "225deg 72.7% 56.9%",
+  styled: "340.4deg 59.8% 64.9%",
+  gsap: "80.6deg 98.1% 40.8%",
 };
 
 export const BREAKPOINTS = {
