@@ -57,6 +57,8 @@ export default class MyDocument extends Document {
           `,
             }}
           />
+
+          {/* Google Fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -64,7 +66,7 @@ export default class MyDocument extends Document {
             crossOrigin="true"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Charmonman:wght@400;700&family=Poppins&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Aref+Ruqaa&family=Barlow:ital,wght@0,600;0,700;1,500&family=Noto+Serif+SC&family=Poppins&display=swap"
             rel="stylesheet"
           />
         </Head>

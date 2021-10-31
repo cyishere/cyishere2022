@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { COLORS, FONTS, SCREENS } from "./constants";
+import { COLORS, FAMILIES, FONT_SIZES, QUERIES, WEIGHTS } from "./constants";
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -52,17 +52,40 @@ const GlobalStyles = createGlobalStyle`
 
   /* CUSTOM STYLES ========================= */
   html {
-    font-size: 16px;
+    --clr-white: hsl(${COLORS.white});
+    --clr-khaki-light: hsl(${COLORS.khakiLight});
+    --clr-purple-light: hsl(${COLORS.purpleLight});
+    --clr-khaki: hsl(${COLORS.khaki});
+    --clr-cyan: hsl(${COLORS.cyan});
+    --clr-salmon: hsl(${COLORS.salmon});
+    --clr-purple-primary: hsl(${COLORS.purplePrimary});
+    --clr-text-secondary: hsl(${COLORS.textSecondary});
+    --clr-text-primary: hsl(${COLORS.textPrimary});
+
+    --font-weight-normal: ${WEIGHTS.normal};
+    --font-weight-medium: ${WEIGHTS.medium};
+    --font-weight-semi-bold: ${WEIGHTS.semiBold};
+    --font-weight-bold: ${WEIGHTS.bold};
+
+    --font-size-base: ${FONT_SIZES.base};
+    --font-size-md: ${FONT_SIZES.md};
+    --font-size-lg: ${FONT_SIZES.lg};
+    --font-size-xl: ${FONT_SIZES.xl};
+    --font-size-xxl: ${FONT_SIZES.xxl};
+    --font-size-xxxl: ${FONT_SIZES.xxxl};
+    --font-size-big: ${FONT_SIZES.big};
+
+    font-size: 18px;
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: ${FONTS.main};
-    font-size: ${FONTS.base};
-    font-weight: ${FONTS.regular};
+    font-family: ${FAMILIES.main};
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
     line-height: 1.5;
-    background-color: ${COLORS.khakiLight};
-    color: ${COLORS.textPrimary};
+    background-color: var(--clr-khaki-light);
+    color: var(--clr-text-primary);
   }
 
   :focus {
@@ -76,26 +99,26 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${COLORS.purplePrimary};
+    color: var(--clr-purple-primary);
   }
 
   h1, h2, h3, h4 {
-    font-family: ${FONTS.heading};
+    font-family: ${FAMILIES.heading};
     line-height: 1.2;
-    color: ${COLORS.textSecondary};
+    color: var(--clr-text-secondary);
     margin-top: 1.5em;
   }
 
   h1, h2 {
-    font-weight: ${FONTS.bold};
+    font-weight: var(--font-weight-bold);
   }
 
   h3, h4 {
-    font-weight: ${FONTS.semiBold};
+    font-weight: var(--font-weight-semi-bold);
   }
 
   h1 {
-    font-size: ${FONTS.xl};
+    font-size: var(--font-size-xl);
   }
 
   button {
@@ -111,9 +134,9 @@ const GlobalStyles = createGlobalStyle`
     height: 1.5rem;
   }
 
-  @media (min-width: ${SCREENS.sm}) {
+  @media ${QUERIES.tabletAndSmaller} {
     h1, h2 {
-      font-size: ${FONTS.big};
+      font-size: var(--font-size-big);
     }
   }
 `;

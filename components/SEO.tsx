@@ -3,7 +3,7 @@ import Head from "next/head";
 interface Props {
   title: string;
   description?: string;
-  pathname?: string;
+  pathname: string;
 }
 
 const SEO: React.FC<Props> = ({ title, description, pathname }) => {
@@ -12,7 +12,7 @@ const SEO: React.FC<Props> = ({ title, description, pathname }) => {
   const content = description
     ? description
     : "Thoughts on JavaScript, React, CSS, GraphQL and Prisma.";
-  const canonical = pathname ? `${domainUrl}${pathname}` : domainUrl;
+  const canonical = pathname !== "/" ? `${domainUrl}${pathname}` : domainUrl;
 
   return (
     <Head>
