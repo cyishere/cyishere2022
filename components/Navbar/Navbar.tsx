@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 import { CSSProperties } from "react";
 
-import { QUERIES } from "@/styles/constants";
+import { COLORS, QUERIES } from "@/styles/constants";
 
 interface NavbarProps {
   isOpen: boolean;
@@ -67,7 +67,7 @@ const Wrapper = styled.nav<NavbarProps>`
     display: ${(p) => (p.isOpen ? "block" : "none")};
     position: fixed;
     inset: 0;
-    background-color: hsl(var(--clr-purple-primary) / 0.2);
+    background-color: hsl(${COLORS.purpleLight} / 0.7);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     animation: ${slideIn} 300ms ease-in-out;
