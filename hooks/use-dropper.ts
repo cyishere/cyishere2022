@@ -60,7 +60,7 @@ export const useDropper = () => {
       isStatic: true,
       render: {
         fillStyle: "transparent",
-        strokeStyle: "red",
+        strokeStyle: "transparent",
       },
     };
 
