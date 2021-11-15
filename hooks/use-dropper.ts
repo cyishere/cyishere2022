@@ -56,33 +56,36 @@ export const useDropper = () => {
       },
     });
 
-    const boundaries = {
+    const boundaryOptions = {
       isStatic: true,
       render: {
         fillStyle: "transparent",
-        strokeStyle: "transparent",
+        strokeStyle: "red",
       },
     };
+
     const ground = Bodies.rectangle(
       width / 2,
       height,
       width + 20,
       4,
-      boundaries
+      boundaryOptions
     );
+
     const leftWall = Bodies.rectangle(
       0,
       height / 2,
       4,
       height + 60,
-      boundaries
+      boundaryOptions
     );
+
     const rightWall = Bodies.rectangle(
       width,
       height / 2,
       4,
       height + 60,
-      boundaries
+      boundaryOptions
     );
 
     World.add(engine.world, [ground, leftWall, rightWall]);

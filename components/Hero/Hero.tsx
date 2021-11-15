@@ -4,23 +4,10 @@ import { Volume2 } from "react-feather";
 import Emoji from "../Emoji";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
 import LogoDropper from "../LogoDropper";
-import { useEffect } from "react";
-import { useDropper } from "@/hooks/useDropper";
-import { logoUrls } from "@/utils/logos";
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = () => {
-  const { addDropper, count } = useDropper();
-  console.log("count:", count);
-
-  useEffect(() => {
-    if (count < logoUrls.length) {
-      setTimeout(() => addDropper(), 500);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count]);
-
   return (
     <Wrapper>
       <MaxWidthContainer>

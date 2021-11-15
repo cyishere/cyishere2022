@@ -1,10 +1,25 @@
-import { useDropper } from "@/hooks/useDropper";
+import { useEffect } from "react";
 import styled from "styled-components";
+
+import { useDropper } from "@/hooks/use-dropper";
+import { logoUrls } from "@/utils/logos";
 
 interface LogoDropperProps {}
 
 const LogoDropper: React.FC<LogoDropperProps> = () => {
-  const { dropperRef } = useDropper();
+  const { dropperRef, addDropper, count } = useDropper();
+  console.log("count:", count);
+
+  useEffect(() => {
+    let timer: any;
+
+    if (count < logoUrls.length - 1) {
+      timer = setTimeout(() => addDropper(), 500);
+    }
+
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   return <Wrapper ref={dropperRef} />;
 };
