@@ -6,7 +6,7 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 
 const Home: NextPage = () => {
   return (
-    <Layout title="Home">
+    <Layout title="Home | Chen Yang, aka CY">
       <main>
         <Hero />
         <FeaturedProjects />
