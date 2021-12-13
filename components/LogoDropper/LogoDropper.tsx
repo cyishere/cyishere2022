@@ -8,7 +8,6 @@ interface LogoDropperProps {}
 
 const LogoDropper: React.FC<LogoDropperProps> = () => {
   const { dropperRef, addDropper, count } = useDropper();
-  console.log("count:", count);
 
   useEffect(() => {
     let timer: any;
