@@ -11,7 +11,7 @@ const Hero: React.FC<HeroProps> = () => {
   return (
     <Wrapper>
       <MaxWidthContainer>
-        <LogoDropper />
+        {/* <LogoDropper /> */}
         <IntroWraper>
           <Greeting>
             <Emoji name="Vulcan Salute">🖖🏻</Emoji> Hi, <Chinese>你好</Chinese>!

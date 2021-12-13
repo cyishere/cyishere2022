@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { CSSProperties, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,10 +14,10 @@ const Album: React.FC<AlbumProps> = ({ album }) => {
   const mediaItemsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
-    if (mediaItemsRef.current) {
+    if (mediaItemsRef.current && mediaItemsRef.current.length > 1) {
       mediaItemsRef.current.forEach((item) => {
-        const x = 25 * Math.floor(Math.random() * 5) - 50;
-        const y = 25 * Math.floor(Math.random() * 5) - 50;
+        const x = 20 * Math.floor(Math.random() * 5) - 50;
+        const y = 20 * Math.floor(Math.random() * 5) - 50;
 
         item.style.transform = `translate(${x}px, ${y}px)`;
       });
@@ -59,6 +59,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 64px;
+  align-items: center;
 
   @media ${QUERIES.laptopAndSmaller} {
     gap: 49px;
@@ -79,15 +80,18 @@ const Excerpt = styled.div`
 
 const Media = styled.div`
   grid-area: 1 / 7 / -1 / -1;
-  height: 30rem;
+  height: 300px;
+  padding: 50px;
   position: relative;
 `;
 
 const MediaItem = styled.div`
-  box-shadow: 0 0 10px hsl(0deg 0% 0% / 0.1);
+  box-shadow: 0 0 10px 6px hsl(0deg 0% 0% / 0.1);
+  width: 500px;
+  height: 300px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50px;
+  left: 50px;
   transition: transform 500ms;
 
   &:first-of-type {

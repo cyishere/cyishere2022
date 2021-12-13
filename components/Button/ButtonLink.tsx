@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { COLORS, FONTS } from "styles/constants";
+
+import { COLORS, FONT_SIZES } from "@/styles/constants";
 
 interface ButtonLinkProps {
   variant?: "default" | "primary";
@@ -24,7 +25,7 @@ const ButtonLink: React.FC<LinkProps> = ({
 
 const Wrapper = styled.a<ButtonLinkProps>`
   display: inline-block;
-  font-size: ${FONTS.base};
+  font-size: ${FONT_SIZES.base};
   color: ${COLORS.textPrimary};
   text-align: center;
   padding: 8px 20px;
