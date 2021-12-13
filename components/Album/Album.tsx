@@ -1,10 +1,10 @@
-import { CSSProperties, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
 
 import { AlbumType } from "@/data/projects";
 import { QUERIES } from "@/styles/constants";
+import { ButtonLink } from "../Button";
 
 interface AlbumProps {
   album: AlbumType;
@@ -19,38 +19,43 @@ const Album: React.FC<AlbumProps> = ({ album }) => {
         const x = 20 * Math.floor(Math.random() * 5) - 50;
         const y = 20 * Math.floor(Math.random() * 5) - 50;
 
-        item.style.transform = `translate(${x}px, ${y}px)`;
+        if (item) {
+          item.style.transform = `translate(${x}px, ${y}px)`;
+        }
       });
     }
   }, [mediaItemsRef]);
 
   return (
-    <Link href={album.link} passHref>
-      <Wrapper as="a">
-        <Content>
-          <Title>{album.title}</Title>
-          <Excerpt>{album.excerpt}</Excerpt>
-        </Content>
-        <Media>
-          {album.screenshots.map((screenshot) => (
-            <MediaItem
-              key={screenshot.alt}
-              ref={(element: HTMLDivElement) =>
-                mediaItemsRef.current.push(element)
-              }
-            >
-              <Image
-                src={screenshot.src}
-                alt={`Clone of ${screenshot.alt}`}
-                width={500}
-                height={300}
-                layout="fixed"
-              />
-            </MediaItem>
-          ))}
-        </Media>
-      </Wrapper>
-    </Link>
+    <Wrapper>
+      <Content>
+        <Title>{album.title}</Title>
+        <Excerpt>{album.excerpt}</Excerpt>
+        <ButtonWrapper>
+          <ButtonLink variant="primary" href={album.link}>
+            Checkout
+          </ButtonLink>
+        </ButtonWrapper>
+      </Content>
+      <Media>
+        {album.screenshots.map((screenshot) => (
+          <MediaItem
+            key={screenshot.alt}
+            ref={(element: HTMLDivElement) =>
+              mediaItemsRef.current.push(element)
+            }
+          >
+            <Image
+              src={screenshot.src}
+              alt={`Clone of ${screenshot.alt}`}
+              width={500}
+              height={300}
+              layout="fixed"
+            />
+          </MediaItem>
+        ))}
+      </Media>
+    </Wrapper>
   );
 };
 
@@ -75,6 +80,10 @@ const Title = styled.h3`
 `;
 
 const Excerpt = styled.div`
+  margin-top: 1em;
+`;
+
+const ButtonWrapper = styled.div`
   margin-top: 1em;
 `;
 
