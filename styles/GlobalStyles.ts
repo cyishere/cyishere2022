@@ -97,7 +97,7 @@ const GlobalStyles = createGlobalStyle`
     --ff-chinese: ${FAMILIES.chinese};
     --ff-mono: ${FAMILIES.mono};
 
-    font-size: 18px;
+    font-size: 16px;
     scroll-behavior: smooth;
   }
   
