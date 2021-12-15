@@ -95,7 +95,8 @@ const Media = styled.div`
 `;
 
 const MediaItem = styled.div`
-  box-shadow: 0 0 10px 6px hsl(0deg 0% 0% / 0.1);
+  /* box-shadow: 0 0 10px 6px hsl(0deg 0% 0% / 0.1); */
+  box-shadow: 5px 10px 8px hsl(0deg 0% 0% / 0.15);
   width: 500px;
   height: 300px;
   position: absolute;
