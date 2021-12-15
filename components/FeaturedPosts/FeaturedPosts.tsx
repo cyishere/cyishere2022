@@ -15,7 +15,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = () => {
         <SectionTitle variant="cyan">Blog Posts</SectionTitle>
         <PostList>
           {posts.map((post) => (
-            <PostListItem key={post.title} post={post} />
+            <PostListItem key={post.slug} post={post} />
           ))}
         </PostList>
       </Container>

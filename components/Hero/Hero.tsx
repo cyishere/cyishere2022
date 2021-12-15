@@ -14,9 +14,8 @@ const Hero: React.FC<HeroProps> = () => {
         {/* <LogoDropper /> */}
         <IntroWraper>
           <Greeting>
-            <Emoji name="Vulcan Salute">🖖🏻</Emoji> Hi, <Chinese>你好</Chinese>!
-            My name is Chen Yang (<Chinese>陈扬</Chinese> <Volume2 size="20" />
-            ), CY for short.
+            <Emoji name="Vulcan Salute">🖖🏻</Emoji> Hi, My name is Chen Yang, CY
+            for short.
           </Greeting>
 
           <Callout>I make websites.</Callout>
@@ -46,23 +45,20 @@ const IntroWraper = styled.div`
 `;
 
 const Greeting = styled.p`
+  font-size: var(--font-size-md);
   letter-spacing: 2px;
-`;
-
-const Chinese = styled.span`
-  font-family: var(--ff-chinese);
 `;
 
 const Callout = styled.h1`
   font-family: var(--ff-special);
-  font-size: ${64 / 16}rem;
+  font-size: ${72 / 16}rem;
   color: var(--clr-purple-primary);
   font-weight: var(--font-weight-bold);
   margin-top: 0.5em;
 `;
 
 const Intro = styled.p`
-  font-size: ${36 / 16}rem;
+  font-size: var(--font-size-xxxl);
   margin-top: 0.5em;
 `;
 
