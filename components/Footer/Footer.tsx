@@ -80,7 +80,7 @@ const SocialLinks = styled.div`
 `;
 
 const SocialIcon = styled.a`
-  background-color: var(--clr-text-primary);
+  background-color: var(--clr-black);
   color: var(--clr-white);
   border-radius: 50%;
   width: 46px;

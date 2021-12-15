@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
-  reactStrictMode: true,
-}
+const withMDX = require("@next/mdx")({
+  extension: /\.(md|mdx)$/,
+});
+
+module.exports = withMDX({
+  pageExtensions: ["ts", "tsx", "mdx", "md"],
+  // reactStrictMode: true,
+});

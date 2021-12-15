@@ -1,0 +1,29 @@
+// import PostLayout from "@/components/PostLayout";
+// import Figure from "@/components/Figure";
+// import { ExternalLink } from "@/components/Link";
+// import Video from "@/components/Video";
+
+export const meta = {
+  title: "Auth with Express and React",
+  description: "What's authentication? What's authorization?",
+  createdAt: "2021-05-27",
+  tags: ["authentication", "authorization"],
+};
+
+export default ({ children }) => <div meta={meta}>{children}</div>;
+
+Accutally this is about the logic of "auth", because there're two parts in it: "authentication" and "authorization".
+
+First of all, let me clear the difference between these two concepts.
+
+**Authentication**: You are who you say you are.
+
+**Authorization**: You can do what you want to do.
+
+## Authentication
+
+When a user tries to log in, we need to find out who the user really is, this is "authentication". The logic of this is we get the information the user gives us, such as the user's name and password, we compare this info in our database to find out whether there's a user who has the same data. If there is, then the user is "authenticated".
+
+After we verify the user is really who she is, we give her a encode string which is known as a "token". The token is her passport in our app.
+
+That is the "authentication" flow. A graph shows blew.

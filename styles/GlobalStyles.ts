@@ -62,6 +62,7 @@ const GlobalStyles = createGlobalStyle`
     --clr-purple-primary: hsl(${COLORS.purplePrimary});
     --clr-text-secondary: hsl(${COLORS.textSecondary});
     --clr-text-primary: hsl(${COLORS.textPrimary});
+    --clr-black: hsl(${COLORS.black});
 
     --clr-react: hsl(${COLORS.react});
     --clr-html: hsl(${COLORS.html});

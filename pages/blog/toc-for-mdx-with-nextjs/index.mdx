@@ -1,0 +1,17 @@
+// import PostLayout from "@/components/PostLayout";
+// import { ExternalLink } from "@/components/Link";
+
+export const meta = {
+  title: "Table of Content for MDX with Next.js",
+  description: "Add a table of content for MDX/Markdown file with Next.js.",
+  createdAt: "2021-06-21",
+  tags: ["mdx", "next.js"],
+};
+
+export default ({ children }) => <div meta={meta}>{children}</div>;
+
+I use Next.js & MDX for my personal website and some documents, I want to display a "table of content", a list of headings, for each article.
+
+## Get The List of Headings
+
+Here's the code for getting the list of headings:

@@ -1,0 +1,28 @@
+// import PostLayout from "@/components/PostLayout";
+// import { ExternalLink } from "@/components/Link";
+// import Figure from "@/components/Figure";
+// import Emoji from "@/components/Emoji";
+
+export const meta = {
+  title: "Error Handling with Apollo and Prisma",
+  description:
+    "Error handling in a GraphQL API with the help of Apollo and Prisma",
+  createdAt: "2021-05-14",
+  tags: ["apollo", "prisma"],
+};
+
+export default ({ children }) => <div meta={meta}>{children}</div>;
+
+I think error handling is a very tricky part of development. When I started as a self-taught Node.js full-stack developer, I know use `throw new Error` would throw out the errors in the terminal, but I don't know how to let my frontend "know" these errors and show them in the UI for users. I really struggled with this for a while.
+
+In this article, I'll showcase how to handle errors with Apollo Server & Prisma, then show the error messages in the frontend with Apollo Client & React. Thus, the users could know what is happening thereby adjust their inputs.
+
+I'll make a register form as demonstration.
+
+![Register form with error messages](/img/blog/error-handling-with-apollo-and-prisma/register-form-w-errors.jpg)
+
+## 1. Setup the Project
+
+Please download <ExternalLink href="https://github.com/cyishere/error-handling-w-apollo-prisma/tree/starter">the starter repo</ExternalLink>, it contains the basic server structures and frontend UI.
+
+The main part we concern is the register mutation in the `resolvers.js` file, take a look at it:

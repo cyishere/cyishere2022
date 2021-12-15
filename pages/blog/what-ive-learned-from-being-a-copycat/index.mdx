@@ -1,0 +1,28 @@
+// import PostLayout from "@/components/PostLayout";
+// import Toc from "@/components/Toc";
+// import { ExternalLink } from "@/components/Link";
+// import Figure from "@/components/Figure";
+// import { FlexCenter } from "@/components/FlexContainer";
+
+export const meta = {
+  title: "What I've Learned from Being a Copycat",
+  description:
+    "css round dashed garient border,css loop animation, frontend structure plan, re-usable components, frontend mobile-first",
+  excerpt: "Learn how to be a better developer by cloning a website.",
+  createdAt: "2021-07-15",
+  tags: ["frontend", "css"],
+};
+
+export default ({ children }) => <div meta={meta}>{children}</div>;
+
+Because I didn't consider the complexity of the desktop version when I started structuring the DOM. That means I'll have to create a completely new DOM structure for a larger screen rather than relying on CSS to do the fancy responsive work. So after spending a significant amount of time refactoring my code, I ended up using three `<header>`s and letting the media query in CSS decide which one would be displayed which other two would be `display: none;`. I think it's a little messy.
+
+The lesson I've learned here is **although starting with mobile-first, I need to think in the big picture, consider all the variants rather than "abandoning" the version for larger screens at first.**
+
+## Plan first and document well
+
+I tried to implement the concept of re-usable components in this project as much as possible. During coding, I assigned multiple tasks to one component, such as there's a `<TwoColumns />` component displayed as grid, because I wanted it to be used in every situation, I put several props on it. Then I forgot what they were and when I was supposed to use which...🤦🏻‍♀️
+
+The lesson I've learned here is similar to the first one which **I need to plan ahead of time, consider all of the possibilities, and write document for them.**
+
+There are several tools for writing documents for React projects; however, because this project is small, I decided to convert it to TypeScript in order to use types to specify variant props. (I could use `prop-types`, but I like TypeScript more and want to use it as much as possible. 😄)
