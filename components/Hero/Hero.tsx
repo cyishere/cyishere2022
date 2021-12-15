@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Volume2 } from "react-feather";
 
 import Emoji from "../Emoji";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
@@ -11,7 +10,7 @@ const Hero: React.FC<HeroProps> = () => {
   return (
     <Wrapper>
       <MaxWidthContainer>
-        {/* <LogoDropper /> */}
+        <LogoDropper />
         <IntroWraper>
           <Greeting>
             <Emoji name="Vulcan Salute">🖖🏻</Emoji> Hi, My name is Chen Yang, CY

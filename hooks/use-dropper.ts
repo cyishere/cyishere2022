@@ -1,5 +1,5 @@
 import * as Matter from "matter-js";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { logoUrls } from "@/utils/logos";
 
@@ -32,9 +32,12 @@ const createDropper = (url: string) => {
 };
 
 export const useDropper = () => {
+  /**
+   * For the canvas
+   */
   const ref = useRef<HTMLCanvasElement>(null);
-  const [count, setCount] = useState(0);
 
+  // Setup the canvas
   useEffect(() => {
     const canvas = ref.current;
 
@@ -94,10 +97,10 @@ export const useDropper = () => {
     Runner.run(runner, engine);
   }, [ref]);
 
-  const addDropper = () => {
+  const addDropper = (count: number) => {
+    console.log("count in dropper:", count);
     createDropper(logoUrls[count]);
-    setCount(count + 1);
   };
 
-  return { dropperRef: ref, addDropper, count };
+  return { dropperRef: ref, addDropper };
 };
