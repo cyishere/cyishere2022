@@ -1,12 +1,7 @@
 import { useEffect, useRef } from "react";
 
-const useInterval = (
-  callback: (i: number) => void,
-  delay: number | null,
-  maxTimes: number
-) => {
+const useInterval = (callback: () => void, delay: number | null) => {
   const intervalRef = useRef<number | null>(null);
-  const countRef = useRef(0);
   const savedCallback = useRef(callback);
 
   useEffect(() => {
@@ -14,23 +9,16 @@ const useInterval = (
   }, [callback]);
 
   useEffect(() => {
-    const tick = savedCallback.current;
+    const tick = () => savedCallback.current();
 
-    if (typeof delay === "number") {
-      if (typeof window !== "undefined") {
-        intervalRef.current = window.setInterval(() => {
-          console.log("count in interval:", countRef.current);
-          if (countRef.current >= maxTimes) {
-            return window.clearInterval(intervalRef.current!);
-          }
-          tick(countRef.current);
-          countRef.current++;
-        }, delay);
-
-        return () => window.clearInterval(intervalRef.current!);
-      }
+    if (typeof delay === "number" && typeof window !== "undefined") {
+      intervalRef.current = window.setInterval(tick, delay);
     }
-  }, [delay, maxTimes]);
+    return () => {
+      console.log("clear!");
+      window.clearInterval(intervalRef.current!);
+    };
+  }, [delay]);
 
   return intervalRef.current;
 };

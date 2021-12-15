@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "react-feather";
 
 import { COLORS } from "@/styles/constants";

@@ -9,6 +9,7 @@ const engine = Engine.create();
 const runner = Runner.create();
 
 const createDropper = (url: string) => {
+  console.log("create!");
   const dropper = Bodies.circle(
     Math.round(Math.random() * window.innerWidth),
     -30,
