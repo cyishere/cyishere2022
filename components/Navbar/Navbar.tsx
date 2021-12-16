@@ -89,13 +89,23 @@ const NavLink = styled.ul`
 `;
 
 const NavLinkAnchor = styled.a`
+  padding: 2px 0;
   display: block;
   position: relative;
   color: var(--clr-text-primary);
   transition: transform 300ms;
 
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    outline-offset: 0;
+  }
+
   &::before {
     content: attr(data-content);
+    padding: 2px 0;
     position: absolute;
     top: 0;
     left: 0;
