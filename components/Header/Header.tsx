@@ -28,7 +28,11 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
           <Logo>CY is here.</Logo>
         </Link>
 
-        <Navbar isOpen={isOpen} pathname={pathname} />
+        <Navbar
+          isOpen={isOpen}
+          pathname={pathname}
+          toggleMobileMenu={toggleMobileMenu}
+        />
 
         <MenuToggleButton
           aria-controls="primary-navigation"
@@ -39,9 +43,6 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
           <MenuIconWrapper isOpen={isOpen}>
             <Menu />
           </MenuIconWrapper>
-          <CloseIconWrapper isOpen={isOpen}>
-            <X />
-          </CloseIconWrapper>
         </MenuToggleButton>
       </Wrapper>
     </MaxWidthWrapper>
@@ -70,6 +71,7 @@ const Logo = styled.a`
 
 const MenuToggleButton = styled.button`
   display: none;
+  cursor: pointer;
 
   @media ${QUERIES.tabletAndSmaller} {
     display: block;
@@ -81,10 +83,6 @@ const MenuToggleButton = styled.button`
 
 const MenuIconWrapper = styled.div<MobileNavProps>`
   display: ${(p) => (p.isOpen ? "none" : "block")};
-`;
-
-const CloseIconWrapper = styled.div<MobileNavProps>`
-  display: ${(p) => (p.isOpen ? "block" : "none")};
 `;
 
 export default Header;

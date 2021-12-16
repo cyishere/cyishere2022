@@ -1,15 +1,23 @@
 import { CSSProperties } from "react";
 import Link from "next/link";
 import styled, { keyframes } from "styled-components";
+import { DialogOverlay } from "@reach/dialog";
 
 import { COLORS, QUERIES } from "@/styles/constants";
+import { VisuallyHidden } from "../VisuallyHidden";
+import { X } from "react-feather";
 
 interface NavbarProps {
   isOpen: boolean;
   pathname?: string;
+  toggleMobileMenu: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isOpen, pathname }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  isOpen,
+  pathname,
+  toggleMobileMenu,
+}) => {
   const backgroundImage = `url(/images/decorator-cyan-small.svg)`;
 
   const getBgImage = (conditon: boolean) => {
@@ -19,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, pathname }) => {
   };
 
   return (
-    <Wrapper isOpen={isOpen}>
+    <Wrapper isOpen={isOpen} onDismiss={toggleMobileMenu}>
       <NavLink id="primary-navigation">
         <NavLinkItem style={getBgImage(pathname === "/")}>
           <Link href="/" passHref>
@@ -49,6 +57,16 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, pathname }) => {
           </Link>
         </NavLinkItem>
       </NavLink>
+      <MenuToggleButton
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+        onClick={toggleMobileMenu}
+      >
+        <VisuallyHidden>Close</VisuallyHidden>
+        <CloseIconWrapper>
+          <X />
+        </CloseIconWrapper>
+      </MenuToggleButton>
     </Wrapper>
   );
 };
@@ -62,15 +80,16 @@ const slideIn = keyframes`
   }
 `;
 
-const Wrapper = styled.nav<NavbarProps>`
-  @media ${QUERIES.tabletAndSmaller} {
-    display: ${(p) => (p.isOpen ? "block" : "none")};
-    position: fixed;
-    inset: 0;
-    background-color: hsl(${COLORS.purpleLight} / 0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    animation: ${slideIn} 300ms ease-in-out;
+const Wrapper = styled(DialogOverlay)`
+  position: fixed;
+  inset: 0;
+  background-color: hsl(${COLORS.purpleLight} / 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${slideIn} 500ms both cubic-bezier(0, 0.6, 0.32, 1.06);
+    animation-delay: 200ms;
   }
 `;
 
@@ -82,6 +101,8 @@ const NavLink = styled.ul`
   @media ${QUERIES.tabletAndSmaller} {
     --gap: 3rem;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     font-size: var(--font-size-lg);
     padding-top: var(--gap);
     padding-left: var(--gap);
@@ -95,6 +116,10 @@ const NavLinkAnchor = styled.a`
   position: relative;
   color: var(--clr-text-primary);
   transition: transform 300ms;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    margin-bottom: 0;
+  }
 
   &:active {
     outline: 0;
@@ -147,5 +172,19 @@ const NavLinkAnchorEm = styled.em`
   color: var(--clr-purple-primary);
   font-style: italic;
 `;
+
+const MenuToggleButton = styled.button`
+  display: none;
+  cursor: pointer;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+`;
+
+const CloseIconWrapper = styled.div``;
 
 export default Navbar;
