@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Menu, X } from "react-feather";
 
-import { FONT_SIZES, QUERIES } from "styles/constants";
+import { QUERIES } from "styles/constants";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
 import { VisuallyHidden } from "../VisuallyHidden";
 import { Navbar } from "../Navbar";
@@ -63,7 +63,7 @@ const Wrapper = styled.header`
 const Logo = styled.a`
   font-family: var(--ff-logo);
   font-weight: var(--font-weight-normal);
-  font-size: ${FONT_SIZES.big};
+  font-size: var(--font-size-big);
   color: var(--clr-text-primary);
   letter-spacing: 4px;
 `;

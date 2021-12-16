@@ -59,7 +59,7 @@ const PostItem = styled.article`
   align-items: center;
   gap: 1rem;
 
-  @media ${QUERIES.phoneAndSmaller} {
+  @media ${QUERIES.tabletAndSmaller} {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -83,7 +83,7 @@ const Tag = styled.span`
 `;
 
 const Date = styled.div`
-  color: var(--clr-text-secondary);
+  color: var(--clr-text-primary);
   font-size: var(--font-size-base);
 `;
 
