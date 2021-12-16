@@ -7,13 +7,10 @@ import { QUERIES } from "@/styles/constants";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
 import { VisuallyHidden } from "../VisuallyHidden";
 import { Navbar } from "../Navbar";
+import MenuToggleButton from "../MenuToggleButton";
 
 interface HeaderProps {
   pathname: string;
-}
-
-interface MobileNavProps {
-  isOpen: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({ pathname }) => {
@@ -40,9 +37,7 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
           onClick={toggleMobileMenu}
         >
           <VisuallyHidden>Menu</VisuallyHidden>
-          <MenuIconWrapper isOpen={isOpen}>
-            <Menu />
-          </MenuIconWrapper>
+          <Menu />
         </MenuToggleButton>
       </Wrapper>
     </MaxWidthWrapper>
@@ -67,22 +62,6 @@ const Logo = styled.a`
   font-size: var(--font-size-big);
   color: var(--clr-text-primary);
   letter-spacing: 4px;
-`;
-
-const MenuToggleButton = styled.button`
-  display: none;
-  cursor: pointer;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    display: block;
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-  }
-`;
-
-const MenuIconWrapper = styled.div<MobileNavProps>`
-  display: ${(p) => (p.isOpen ? "none" : "block")};
 `;
 
 export default Header;

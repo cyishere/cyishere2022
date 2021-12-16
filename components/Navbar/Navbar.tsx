@@ -2,10 +2,11 @@ import { CSSProperties } from "react";
 import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 import { DialogOverlay } from "@reach/dialog";
+import { X } from "react-feather";
 
 import { COLORS, QUERIES } from "@/styles/constants";
 import { VisuallyHidden } from "../VisuallyHidden";
-import { X } from "react-feather";
+import MenuToggleButton from "../MenuToggleButton";
 
 interface NavbarProps {
   isOpen: boolean;
@@ -63,9 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({
         onClick={toggleMobileMenu}
       >
         <VisuallyHidden>Close</VisuallyHidden>
-        <CloseIconWrapper>
-          <X />
-        </CloseIconWrapper>
+        <X />
       </MenuToggleButton>
     </Wrapper>
   );
@@ -172,19 +171,5 @@ const NavLinkAnchorEm = styled.em`
   color: var(--clr-purple-primary);
   font-style: italic;
 `;
-
-const MenuToggleButton = styled.button`
-  display: none;
-  cursor: pointer;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    display: block;
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-  }
-`;
-
-const CloseIconWrapper = styled.div``;
 
 export default Navbar;
