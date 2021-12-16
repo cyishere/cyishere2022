@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Menu, X } from "react-feather";
 
-import { QUERIES } from "styles/constants";
+import { QUERIES } from "@/styles/constants";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
 import { VisuallyHidden } from "../VisuallyHidden";
 import { Navbar } from "../Navbar";

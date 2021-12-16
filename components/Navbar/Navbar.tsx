@@ -1,6 +1,6 @@
+import { CSSProperties } from "react";
 import Link from "next/link";
 import styled, { keyframes } from "styled-components";
-import { CSSProperties } from "react";
 
 import { COLORS, QUERIES } from "@/styles/constants";
 
@@ -75,7 +75,7 @@ const Wrapper = styled.nav<NavbarProps>`
 `;
 
 const NavLink = styled.ul`
-  --gap: 1.5rem;
+  --gap: 1rem;
   display: flex;
   gap: var(--gap);
 
@@ -89,14 +89,15 @@ const NavLink = styled.ul`
 `;
 
 const NavLinkAnchor = styled.a`
-  padding: 2px 0;
+  /* This margin can push the outline out of the view */
+  margin-bottom: 1px;
   display: block;
   position: relative;
   color: var(--clr-text-primary);
   transition: transform 300ms;
 
   &:active {
-    outline: none;
+    outline: 0;
   }
 
   &:focus {
@@ -105,7 +106,6 @@ const NavLinkAnchor = styled.a`
 
   &::before {
     content: attr(data-content);
-    padding: 2px 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -116,7 +116,7 @@ const NavLinkAnchor = styled.a`
 
 const NavLinkItem = styled.li`
   padding-left: 6px;
-  padding-right: 6px;
+  padding-right: 12px;
   background-image: var(--backgroundImage);
   background-position: left center;
   background-repeat: no-repeat;

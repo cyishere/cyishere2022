@@ -117,6 +117,10 @@ const GlobalStyles = createGlobalStyle`
     color: var(--clr-text-primary);
   }
 
+  #__next {
+    isolation: isolate;
+  }
+
   :focus {
     outline: 2px dashed;
     outline-offset: 0.25rem;
