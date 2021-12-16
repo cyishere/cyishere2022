@@ -6,7 +6,7 @@ import { Menu } from "react-feather";
 import { QUERIES } from "@/styles/constants";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
 import { VisuallyHidden } from "../VisuallyHidden";
-import { Navbar } from "../Navbar";
+import { MobileNavbar, DesktopNavbar } from "../Navbar";
 import MenuToggleButton from "../MenuToggleButton";
 
 interface HeaderProps {
@@ -25,7 +25,9 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
           <Logo>CY is here.</Logo>
         </Link>
 
-        <Navbar
+        <DesktopNavbar pathname={pathname} />
+
+        <MobileNavbar
           isOpen={isOpen}
           pathname={pathname}
           toggleMobileMenu={toggleMobileMenu}
