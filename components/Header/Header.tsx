@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { Menu, X } from "react-feather";
+import { Menu } from "react-feather";
 
 import { QUERIES } from "@/styles/constants";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
