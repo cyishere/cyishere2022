@@ -34,7 +34,6 @@ const BouncingLogos: React.FC = () => {
 
   useEffect(() => {
     if (!canvasRef.current) return;
-    console.log(logosRef.current);
 
     const canvas = canvasRef.current;
     const width = canvas.offsetWidth;
