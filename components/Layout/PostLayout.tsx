@@ -82,7 +82,7 @@ const Post = styled.article`
   margin-right: auto;
 
   & > * + * {
-    margin-top: 1em;
+    margin-top: 1.6em;
   }
 
   & hr {

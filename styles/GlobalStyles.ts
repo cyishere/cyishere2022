@@ -159,6 +159,10 @@ const GlobalStyles = createGlobalStyle`
     font-size: var(--font-size-xl);
   }
 
+  h3 {
+    font-size: var(--font-size-lg);
+  }
+
   button {
     background: none;
     border: none;

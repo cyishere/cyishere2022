@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { QUERIES } from "@/styles/constants";
 
 interface FigureProps {
   src: string;
@@ -26,12 +27,16 @@ const Figure: React.FC<FigureProps> = ({ src, alt, width, height }) => {
 };
 
 const Wrapper = styled.figure`
-  /* width: min(50vw, 100%); */
   margin-left: -64px;
   margin-right: -64px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
 `;
 
 const ImgWrapper = styled.div`

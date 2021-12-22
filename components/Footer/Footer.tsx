@@ -51,7 +51,7 @@ const Wrapper = styled.footer`
 
 const Container = styled.div`
   background: url(/images/footer-top-line.svg) center 4px no-repeat;
-  max-width: ${1100 / 16}rem;
+  max-width: min(1100px, 100%);
   margin: 0 auto;
   padding: 3rem 0;
   display: flex;
