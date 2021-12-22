@@ -38,7 +38,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ meta, children }) => {
             <Date>
               <time>{meta.createdAt}</time>
             </Date>
-            <Excerpt>{meta.excerpt}</Excerpt>
+            {meta.excerpt ? <Excerpt>{meta.excerpt}</Excerpt> : null}
           </PostHeader>
           <MDXProvider components={MDXComponents}>{children}</MDXProvider>
         </Post>
