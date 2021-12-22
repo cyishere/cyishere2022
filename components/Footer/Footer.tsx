@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
 };
 
 const Wrapper = styled.footer`
-  padding: 0 2rem;
+  padding: 0.5rem 2rem;
 `;
 
 const Container = styled.div`

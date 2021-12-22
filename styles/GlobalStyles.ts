@@ -59,7 +59,10 @@ const GlobalStyles = createGlobalStyle`
     --clr-khaki: hsl(${COLORS.khaki});
     --clr-cyan: hsl(${COLORS.cyan});
     --clr-salmon: hsl(${COLORS.salmon});
+    --clr-crimson: hsl(${COLORS.crimson});
     --clr-purple-primary: hsl(${COLORS.purplePrimary});
+    --clr-purple-secondary: hsl(${COLORS.purplePrimary} / 0.5);
+    --clr-text-light: hsl(${COLORS.textLight});
     --clr-text-secondary: hsl(${COLORS.textSecondary});
     --clr-text-primary: hsl(${COLORS.textPrimary});
     --clr-black: hsl(${COLORS.black});
@@ -83,6 +86,7 @@ const GlobalStyles = createGlobalStyle`
     --font-weight-semi-bold: ${WEIGHTS.semiBold};
     --font-weight-bold: ${WEIGHTS.bold};
 
+    --font-size-sm: ${FONT_SIZES.sm};
     --font-size-base: ${FONT_SIZES.base};
     --font-size-md: ${FONT_SIZES.md};
     --font-size-lg: ${FONT_SIZES.lg};
@@ -98,7 +102,7 @@ const GlobalStyles = createGlobalStyle`
     --ff-chinese: ${FAMILIES.chinese};
     --ff-mono: ${FAMILIES.mono};
 
-    font-size: 16px;
+    font-size: 18px;
     scroll-behavior: smooth;
   }
   
@@ -115,6 +119,11 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     background-color: var(--clr-khaki-light);
     color: var(--clr-text-primary);
+  }
+
+  ::selection {
+    color: var(--clr-white);
+    background-color: var(--clr-purple-primary);
   }
 
   :focus {
@@ -167,6 +176,16 @@ const GlobalStyles = createGlobalStyle`
     h1, h2 {
       font-size: var(--font-size-big);
     }
+  }
+
+  em {
+    --accent-color: #e60067;
+    font-style: italic;
+    color: var(--accent-color);
+  }
+
+  strong {
+    font-weight: var(--font-weight-bold);
   }
 `;
 

@@ -3,11 +3,12 @@ export const FAMILIES = {
   heading: `'Barlow', sans-serif;`,
   special: `'Aleo', serif`,
   logo: `'Aref Ruqaa', serif`,
-  mono: "Menlo, Courier, Courier New, Andale Mono, monospace",
+  mono: "'IBM Plex Mono', monospace",
   chinese: `'Noto Serif SC', serif`,
 };
 
 export const FONT_SIZES = {
+  sm: `${14 / 16}rem`,
   base: `${16 / 16}rem`,
   md: `${18 / 16}rem`,
   lg: `${24 / 16}rem`,
@@ -32,7 +33,9 @@ export const COLORS = {
   khaki: "47.4deg 95% 68.6%",
   cyan: "170.2deg 42.7% 72%",
   salmon: "1.3deg 87.3% 69.2%",
+  crimson: "1deg 88% 55%",
   purplePrimary: "248.4deg 74.2% 47.1%",
+  textLight: "218deg 11% 65%",
   textSecondary: "216deg 65% 18%",
   textPrimary: "240deg 2% 30%",
   black: "0deg 0% 0%",
