@@ -61,12 +61,25 @@ export const CodeInLine = styled.code`
 `;
 
 /**
+ * The component of <ul />
+ */
+export const UnorderList = styled.ul`
+  list-style-position: inside;
+  list-style-type: disc;
+
+  li::marker {
+    color: var(--clr-text-light);
+  }
+`;
+
+/**
  * The default component
  */
 const MDXComponents = {
   h2: Heading2,
   hr: Hr,
   inlineCode: CodeInLine,
+  ul: UnorderList,
 };
 
 export default MDXComponents;
