@@ -125,6 +125,11 @@ const GlobalStyles = createGlobalStyle`
     isolation: isolate;
   }
 
+  ::selection {
+    color: var(--clr-white);
+    background-color: var(--clr-purple-primary);
+  }
+
   :focus {
     outline: 2px dashed;
     outline-offset: 0.25rem;
