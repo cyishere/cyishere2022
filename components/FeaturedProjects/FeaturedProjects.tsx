@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { CSSProperties, useState } from "react";
 import styled from "styled-components";
 import { ArrowLeft, ArrowRight } from "react-feather";
 
