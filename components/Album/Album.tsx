@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 import { AlbumType } from "@/data/projects";
 import { QUERIES } from "@/styles/constants";
@@ -8,9 +9,14 @@ import { ButtonLink } from "../Button";
 
 interface AlbumProps {
   album: AlbumType;
+  featured?: boolean;
 }
 
-const Album: React.FC<AlbumProps> = ({ album }) => {
+interface AlbumStyleType {
+  featured: boolean;
+}
+
+const Album: React.FC<AlbumProps> = ({ album, featured = false }) => {
   const mediaItemsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
@@ -27,8 +33,14 @@ const Album: React.FC<AlbumProps> = ({ album }) => {
   }, [mediaItemsRef]);
 
   return (
-    <Wrapper>
-      <Content>
+    <Wrapper
+      style={
+        {
+          "--width": featured ? `100vw` : `100%`,
+        } as CSSProperties
+      }
+    >
+      <Content featured={featured}>
         <Title>{album.title}</Title>
         <Excerpt>{album.excerpt}</Excerpt>
         <ButtonWrapper>
@@ -37,7 +49,7 @@ const Album: React.FC<AlbumProps> = ({ album }) => {
           </ButtonLink>
         </ButtonWrapper>
       </Content>
-      <Media>
+      <Media featured={featured}>
         {album.screenshots.map((screenshot) => (
           <MediaItem
             key={screenshot.alt}
@@ -48,9 +60,7 @@ const Album: React.FC<AlbumProps> = ({ album }) => {
             <Image
               src={screenshot.src}
               alt={`Clone of ${screenshot.alt}`}
-              width={500}
-              height={300}
-              layout="fixed"
+              layout="fill"
             />
           </MediaItem>
         ))}
@@ -61,6 +71,7 @@ const Album: React.FC<AlbumProps> = ({ album }) => {
 
 const Wrapper = styled.div`
   color: var(--clr-text-primary);
+  width: var(--width);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 64px;
@@ -71,8 +82,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const Content = styled.div`
-  grid-area: 1 / 2 / -1 / 6;
+const Content = styled.div<AlbumStyleType>`
+  grid-area: ${(props) =>
+    props.featured ? `1 / 3 / -1 / 6` : `1 / 2 / -1 / 6`};
 `;
 
 const Title = styled.h3`
@@ -87,8 +99,9 @@ const ButtonWrapper = styled.div`
   margin-top: 1em;
 `;
 
-const Media = styled.div`
-  grid-area: 1 / 7 / -1 / -1;
+const Media = styled.div<AlbumStyleType>`
+  grid-area: ${(props) =>
+    props.featured ? `1 / 6 / -1 / -2` : `1 / 7 / -1 / -1`};
   height: 300px;
   padding: 50px;
   position: relative;
@@ -97,8 +110,8 @@ const Media = styled.div`
 const MediaItem = styled.div`
   /* box-shadow: 0 0 10px 6px hsl(0deg 0% 0% / 0.1); */
   box-shadow: 5px 10px 8px hsl(0deg 0% 0% / 0.15);
-  width: 500px;
   height: 300px;
+  aspect-ratio: 5 / 3;
   position: absolute;
   top: 50px;
   left: 50px;
