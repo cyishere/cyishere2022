@@ -7,6 +7,7 @@ import { COLORS, QUERIES } from "@/styles/constants";
 import SectionTitle from "../SectionTitle";
 import Album from "../Album";
 import UnstyledButton from "../UnstyledButton";
+import { ButtonLink } from "../Button";
 
 const FeaturedProjects: React.FC = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -46,6 +47,12 @@ const FeaturedProjects: React.FC = () => {
           </Slider>
         </SliderContainer>
       </SectionContent>
+
+      <MoreWrapper>
+        <ButtonLink variant="primary" href="/portfolio">
+          More Project
+        </ButtonLink>
+      </MoreWrapper>
     </Wrapper>
   );
 };
@@ -80,9 +87,13 @@ const ArrowWrapper = styled(UnstyledButton)`
     transition: opacity 500ms;
   }
 
-  @media ${QUERIES.laptopAndSmaller} {
+  @media ${QUERIES.desktopAndSmaller} {
     top: auto;
-    bottom: -64px;
+    bottom: -128px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    bottom: 0;
   }
 `;
 
@@ -92,6 +103,11 @@ const LeftArrowWrapper = styled(ArrowWrapper)`
 
 const RightArrowWrapper = styled(ArrowWrapper)`
   right: 2rem;
+
+  @media ${QUERIES.desktopAndSmaller} {
+    right: auto;
+    left: calc(3rem + 64px);
+  }
 `;
 
 const SliderContainer = styled.div`
@@ -107,6 +123,21 @@ const Slider = styled.div`
   grid-template-columns: repeat(${ALBUMS.length}, 100%);
   transform: translateX(var(--translateX));
   transition: transform 1000ms ease-in;
+`;
+
+const MoreWrapper = styled.div`
+  padding-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media ${QUERIES.desktopAndSmaller} {
+    justify-content: flex-end;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    justify-content: center;
+  }
 `;
 
 export default FeaturedProjects;

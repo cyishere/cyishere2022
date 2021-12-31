@@ -44,9 +44,7 @@ const Album: React.FC<AlbumProps> = ({ album, featured = false }) => {
         <Title>{album.title}</Title>
         <Excerpt>{album.excerpt}</Excerpt>
         <ButtonWrapper>
-          <ButtonLink variant="primary" href={album.link}>
-            Checkout
-          </ButtonLink>
+          <ButtonLink href={album.link}>Checkout</ButtonLink>
         </ButtonWrapper>
       </Content>
       <Media featured={featured}>
@@ -78,13 +76,27 @@ const Wrapper = styled.div`
   align-items: center;
 
   @media ${QUERIES.laptopAndSmaller} {
-    gap: 49px;
+    /* gap: 49px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 `;
 
 const Content = styled.div<AlbumStyleType>`
   grid-area: ${(props) =>
     props.featured ? `1 / 3 / -1 / 6` : `1 / 2 / -1 / 6`};
+
+  @media ${QUERIES.laptopAndSmaller} {
+    grid-area: auto;
+    width: min(30rem, 100%);
+  }
 `;
 
 const Title = styled.h3`
@@ -105,6 +117,17 @@ const Media = styled.div<AlbumStyleType>`
   height: 300px;
   padding: 50px;
   position: relative;
+
+  @media ${QUERIES.laptopAndSmaller} {
+    grid-area: auto;
+    width: min(500px, 100%);
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    width: 300px;
+    height: auto;
+    aspect-ratio: 5 / 3;
+  }
 `;
 
 const MediaItem = styled.div`
@@ -119,6 +142,12 @@ const MediaItem = styled.div`
 
   &:first-of-type {
     z-index: 1;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    width: 300px;
+    height: auto;
+    aspect-ratio: 5 / 3;
   }
 `;
 
