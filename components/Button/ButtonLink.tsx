@@ -1,8 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-import { COLORS, FONT_SIZES } from "@/styles/constants";
-
 interface ButtonLinkProps {
   variant?: "default" | "primary";
 }
@@ -24,20 +22,33 @@ const ButtonLink: React.FC<LinkProps> = ({
 };
 
 const Wrapper = styled.a<ButtonLinkProps>`
-  display: inline-block;
-  font-size: ${FONT_SIZES.base};
-  color: ${COLORS.textPrimary};
+  color: ${(props) =>
+    props.variant === "primary"
+      ? `var(--clr-white)`
+      : `var(--clr-text-primary)`};
+  background-color: ${(props) =>
+    props.variant === "primary" ? `var(--clr-purple-primary)` : `transparent`};
+  font-size: var(--font-size-base);
   text-align: center;
   padding: 8px 20px;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: ${(p) =>
-    p.variant === "primary" ? COLORS.purplePrimary : COLORS.textSecondary};
-  background: ${(p) =>
-    p.variant === "primary" ? COLORS.purplePrimary : `transparent`};
-  color: ${(p) =>
-    p.variant === "primary" ? COLORS.white : COLORS.textPrimary};
+  border-color: ${(props) =>
+    props.variant === "primary"
+      ? `var(--clr-purple-primary)`
+      : `var(--clr-text-primary)`};
+  display: inline-block;
+  transition: background 300ms ease;
+
+  &:hover {
+    color: ${(props) =>
+      props.variant === "primary"
+        ? `var(--clr-purple-primary)`
+        : `var(--clr-white)`};
+    background-color: ${(props) =>
+      props.variant === "primary" ? `transparent` : `var(--clr-text-primary)`};
+  }
 `;
 
 export default ButtonLink;
