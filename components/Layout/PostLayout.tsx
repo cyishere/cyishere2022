@@ -6,7 +6,7 @@ import Prism from "prismjs";
 
 import { PostMetaType } from "@/utils/types";
 import SEO from "../SEO";
-import { Header } from "../Header";
+import Header from "../Header";
 import MDXComponents from "../MDXComponents";
 import Footer from "../Footer";
 

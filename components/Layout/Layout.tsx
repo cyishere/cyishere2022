@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 
 import SEO from "../SEO";
-import { Header } from "../Header";
+import Header from "../Header";
 import Footer from "../Footer";
 
 interface LayoutProps {

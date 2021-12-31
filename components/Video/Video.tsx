@@ -2,7 +2,7 @@ import { useRef } from "react";
 import styled from "styled-components";
 import { Play, Pause, VolumeX, Volume2 } from "react-feather";
 
-import useVideoPlayer from "@/hooks/useVideoPlayer";
+import useVideoPlayer from "@/hooks/use-video-player";
 import UnstyledButton from "../UnstyledButton";
 
 interface VideoProps {
