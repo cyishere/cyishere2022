@@ -55,6 +55,7 @@ const SEO: React.FC<Props> = ({ title, altTitle, description, pathname }) => {
         content={`${domainUrl}/images/og-default.png`}
       />
       <meta name="theme-color" content="hsl(246deg 62.5% 96.9%)" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
   );
 };
