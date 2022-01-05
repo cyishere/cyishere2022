@@ -25,9 +25,10 @@ const FeaturedProjects: React.FC = () => {
 
   /**
    * Fully hide non-visible slides by adding aria-hidden="true"
-   * and tabindex="-1" when they go out of view
+   * and tabindex="-1" when they go out of view.
+   * And show the current one.
    */
-  function hideNonVisibleSlides() {
+  function showCurrentSlide() {
     // Hiding all the projects and their content
     projectsRef.current.forEach((project) => {
       if (project) {
@@ -36,10 +37,6 @@ const FeaturedProjects: React.FC = () => {
         project.querySelector("a")?.setAttribute("tabindex", "-1");
       }
     });
-  }
-
-  function showCurrentSlide() {
-    hideNonVisibleSlides();
 
     // Make sure the current project not hide
     projectsRef.current[slideIndex].removeAttribute("aria-hidden");
@@ -50,14 +47,8 @@ const FeaturedProjects: React.FC = () => {
 
   useEffect(() => {
     if (projectsRef.current.length > 0) {
-      hideNonVisibleSlides();
+      showCurrentSlide();
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    showCurrentSlide();
   }, [slideIndex]);
 
   return (
