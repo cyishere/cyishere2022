@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
         <Copyright>
           <p>
             &copy;{" "}
-            {createdAt === thisYear ? createdAt : `${createdAt - thisYear}`}
+            {createdAt === thisYear ? thisYear : `${createdAt} - ${thisYear}`}
           </p>
           <p>
             Made with <Emoji name="coffee">☕</Emoji> &{" "}

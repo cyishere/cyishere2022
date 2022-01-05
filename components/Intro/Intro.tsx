@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { ExternalLink } from "../TextLink";
 
 const Intro: React.FC = () => {
   return (
@@ -15,11 +16,15 @@ const Intro: React.FC = () => {
         <p>
           I began re-building my knowledge and learning React in March 2020. In
           three months, I received{" "}
-          <Link href="/portfolio#fcc">
+          <Link href="/portfolio/fcc">
             <a>4 certifications</a>
           </Link>{" "}
-          from freeCodeCamp.org. And above are some projects I created whilst
-          learning the incredible React.
+          from{" "}
+          <ExternalLink href="https://www.freecodecamp.org">
+            freeCodeCamp.org
+          </ExternalLink>
+          . And above are some projects I created whilst learning the incredible
+          React.
         </p>
       </Container>
     </Wrapper>
@@ -38,6 +43,23 @@ const Container = styled.article`
 
   & > *:not(:last-of-type) {
     margin-bottom: 3rem;
+  }
+
+  & a {
+    background-image: linear-gradient(
+      to bottom,
+      var(--clr-purple-light) 0%,
+      var(--clr-purple-light) 100%
+    );
+    background-size: 100% 0;
+    border-bottom: 1px solid var(--clr-text-light);
+    transition: border 200ms ease-in, background 300ms ease;
+  }
+
+  & a:hover {
+    background-size: 100% 100%;
+    border-width: 3px;
+    border-color: currentColor;
   }
 `;
 

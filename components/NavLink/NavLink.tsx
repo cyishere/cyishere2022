@@ -18,31 +18,41 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
   };
 
   return (
-    <Wrapper id="primary-navigation">
+    <Wrapper role="navigation" aria-label="Main" id="primary-navigation">
       <NavLinkItem style={getBgImage(pathname === "/")}>
         <Link href="/" passHref>
-          <NavLinkAnchor data-content="home">home</NavLinkAnchor>
+          <NavLinkAnchor>
+            <Item data-content="home">home</Item>
+          </NavLinkAnchor>
         </Link>
       </NavLinkItem>
       <NavLinkItem style={getBgImage(pathname === "/portfolio")}>
         <Link href="/portfolio" passHref>
-          <NavLinkAnchor data-content="portfolio">portfolio</NavLinkAnchor>
+          <NavLinkAnchor>
+            <Item data-content="portfolio">portfolio</Item>
+          </NavLinkAnchor>
         </Link>
       </NavLinkItem>
       <NavLinkItem style={getBgImage(pathname === "/blog")}>
         <Link href="/blog" passHref>
-          <NavLinkAnchor data-content="blog">blog</NavLinkAnchor>
+          <NavLinkAnchor>
+            <Item data-content="blog">blog</Item>
+          </NavLinkAnchor>
         </Link>
       </NavLinkItem>
       <NavLinkItem style={getBgImage(pathname === "/about")}>
         <Link href="/about" passHref>
-          <NavLinkAnchor data-content="about">about</NavLinkAnchor>
+          <NavLinkAnchor>
+            <Item data-content="about">about</Item>
+          </NavLinkAnchor>
         </Link>
       </NavLinkItem>
       <NavLinkItem style={getBgImage(pathname === "/hire-me")}>
         <Link href="/hire-me" passHref>
-          <NavLinkAnchor data-content="hire me!">
-            <NavLinkAnchorEm>hire me!</NavLinkAnchorEm>
+          <NavLinkAnchor>
+            <Item data-content="hire me!">
+              <NavLinkAnchorEm>hire me!</NavLinkAnchorEm>
+            </Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
@@ -66,25 +76,11 @@ const Wrapper = styled.ul`
   }
 `;
 
-const NavLinkAnchor = styled.a`
-  /* This margin can push the outline out of the view */
-  margin-bottom: 1px;
+const Item = styled.span`
   display: block;
   position: relative;
   color: var(--clr-text-primary);
   transition: transform 300ms;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    margin-bottom: 0;
-  }
-
-  &:active {
-    outline: 0;
-  }
-
-  &:focus {
-    outline-offset: 0;
-  }
 
   &::before {
     content: attr(data-content);
@@ -96,31 +92,31 @@ const NavLinkAnchor = styled.a`
   }
 `;
 
+const NavLinkAnchor = styled.a`
+  display: block;
+  overflow: hidden;
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover ${Item} {
+      transform: translateY(-100%);
+    }
+  }
+`;
+
 const NavLinkItem = styled.li`
-  padding-left: 6px;
-  padding-right: 12px;
+  padding: 4px 12px 4px 6px;
   background-image: var(--backgroundImage);
   background-position: left center;
+  background-size: contain;
   background-repeat: no-repeat;
-  overflow: hidden;
 
   &:hover {
     background-image: none;
   }
 
-  @media ${QUERIES.tabletAndSmaller} {
-    background-size: contain;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     &:hover ${NavLinkAnchor} {
       color: var(--clr-cyan);
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    &:hover ${NavLinkAnchor} {
-      transform: translateY(-100%);
     }
   }
 `;

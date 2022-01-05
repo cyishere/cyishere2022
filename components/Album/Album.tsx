@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import type { CSSProperties, MutableRefObject } from "react";
 
 import { AlbumType } from "@/data/projects";
 import { QUERIES } from "@/styles/constants";
@@ -10,13 +10,20 @@ import { ButtonLink } from "../Button";
 interface AlbumProps {
   album: AlbumType;
   featured?: boolean;
+  totalNum: number;
+  projectsRef: MutableRefObject<HTMLDivElement[]>;
 }
 
 interface AlbumStyleType {
   featured: boolean;
 }
 
-const Album: React.FC<AlbumProps> = ({ album, featured = false }) => {
+const Album: React.FC<AlbumProps> = ({
+  album,
+  featured = false,
+  totalNum,
+  projectsRef,
+}) => {
   const mediaItemsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
@@ -34,11 +41,14 @@ const Album: React.FC<AlbumProps> = ({ album, featured = false }) => {
 
   return (
     <Wrapper
+      role="group"
+      aria-label={`project ${album.id} of ${totalNum}`}
       style={
         {
           "--width": featured ? `100vw` : `100%`,
         } as CSSProperties
       }
+      ref={(element: HTMLDivElement) => projectsRef.current.push(element)}
     >
       <Content featured={featured}>
         <Title>{album.title}</Title>
@@ -59,6 +69,7 @@ const Album: React.FC<AlbumProps> = ({ album, featured = false }) => {
               src={screenshot.src}
               alt={`Clone of ${screenshot.alt}`}
               layout="fill"
+              property="true"
             />
           </MediaItem>
         ))}

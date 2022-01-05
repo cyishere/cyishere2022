@@ -4,9 +4,7 @@ import SectionTitle from "../SectionTitle";
 import { posts as allPosts } from "@/utils/getAllPosts";
 import PostListItem from "../PostListItem";
 
-interface FeaturedPostsProps {}
-
-const FeaturedPosts: React.FC<FeaturedPostsProps> = () => {
+const FeaturedPosts: React.FC = () => {
   const posts: any[] = allPosts.slice(0, 6);
 
   return (

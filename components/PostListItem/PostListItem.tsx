@@ -47,7 +47,8 @@ const Wrapper = styled.a`
     margin-bottom: 2rem;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--clr-purple-light);
   }
 `;

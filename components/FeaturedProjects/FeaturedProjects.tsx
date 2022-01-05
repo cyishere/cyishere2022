@@ -1,6 +1,7 @@
-import { CSSProperties, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { ArrowLeft, ArrowRight } from "react-feather";
+import type { CSSProperties } from "react";
 
 import { ALBUMS } from "@/data/projects";
 import { COLORS, QUERIES } from "@/styles/constants";
@@ -8,9 +9,11 @@ import SectionTitle from "../SectionTitle";
 import Album from "../Album";
 import UnstyledButton from "../UnstyledButton";
 import { ButtonLink } from "../Button";
+import VisuallyHidden from "../VisuallyHidden";
 
 const FeaturedProjects: React.FC = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const projectsRef = useRef<HTMLDivElement[]>([]);
 
   const handleClick = (direction: "left" | "right") => {
     if (direction === "left") {
@@ -20,19 +23,54 @@ const FeaturedProjects: React.FC = () => {
     }
   };
 
+  /**
+   * Fully hide non-visible slides by adding aria-hidden="true"
+   * and tabindex="-1" when they go out of view
+   */
+  function hideNonVisibleSlides() {
+    // Hiding all the projects and their content
+    projectsRef.current.forEach((project) => {
+      if (project) {
+        project.setAttribute("aria-hidden", "true");
+
+        project.querySelector("a")?.setAttribute("tabindex", "-1");
+      }
+    });
+  }
+
+  function showCurrentSlide() {
+    // Make sure the current project not hide
+    projectsRef.current[slideIndex].removeAttribute("aria-hidden");
+    projectsRef.current[slideIndex]
+      .querySelector("a")
+      ?.removeAttribute("tabindex");
+  }
+
+  useEffect(() => {
+    if (projectsRef.current.length > 0) {
+      hideNonVisibleSlides();
+    }
+  }, []);
+
+  useEffect(() => {
+    showCurrentSlide();
+  }, [slideIndex]);
+
   return (
     <Wrapper>
       <SectionTitle variant="khaki" position="center">
         Projects
       </SectionTitle>
 
-      <SectionContent>
-        <LeftArrowWrapper>
-          <ArrowLeft size={64} onClick={() => handleClick("left")} />
+      <SectionContent aria-label="carousel">
+        <VisuallyHidden>
+          Carousel with one project at a time. Use the Previous and Next buttons
+          to navigate, or the slide dot buttons at the end to jump to slides.
+        </VisuallyHidden>
+        <LeftArrowWrapper onClick={() => handleClick("left")}>
+          <VisuallyHidden>Previous project</VisuallyHidden>
+          <ArrowLeft size={64} aria-hidden="true" />
         </LeftArrowWrapper>
-        <RightArrowWrapper>
-          <ArrowRight size={64} onClick={() => handleClick("right")} />
-        </RightArrowWrapper>
         <SliderContainer>
           <Slider
             style={
@@ -42,10 +80,20 @@ const FeaturedProjects: React.FC = () => {
             }
           >
             {ALBUMS.map((album) => (
-              <Album key={album.id} album={album} featured={true} />
+              <Album
+                key={album.id}
+                album={album}
+                featured={true}
+                totalNum={ALBUMS.length}
+                projectsRef={projectsRef}
+              />
             ))}
           </Slider>
         </SliderContainer>
+        <RightArrowWrapper onClick={() => handleClick("right")}>
+          <VisuallyHidden>Next project</VisuallyHidden>
+          <ArrowRight size={64} aria-hidden="true" />
+        </RightArrowWrapper>
       </SectionContent>
 
       <MoreWrapper>
@@ -82,7 +130,8 @@ const ArrowWrapper = styled(UnstyledButton)`
   transform: translateY(-50%);
   z-index: 1000;
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
     transition: opacity 500ms;
   }

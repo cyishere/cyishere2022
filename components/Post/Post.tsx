@@ -14,9 +14,21 @@ const Post = styled.article`
     margin-top: 4rem;
   }
 
+  & a {
+    background-image: linear-gradient(
+      to bottom,
+      var(--clr-purple-light) 0%,
+      var(--clr-purple-light) 100%
+    );
+    background-size: 100% 0;
+    border-bottom: 1px solid var(--clr-text-light);
+    transition: border 200ms ease-in, background 300ms ease;
+  }
+
   & a:hover {
-    border-bottom: 3px solid currentColor;
-    transition: border 200ms ease-in;
+    background-size: 100% 100%;
+    border-width: 3px;
+    border-color: currentColor;
   }
 `;
 

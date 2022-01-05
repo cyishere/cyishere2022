@@ -3,7 +3,7 @@ import { DialogOverlay } from "@reach/dialog";
 import { X } from "react-feather";
 
 import { COLORS } from "@/styles/constants";
-import { VisuallyHidden } from "../VisuallyHidden";
+import VisuallyHidden from "../VisuallyHidden";
 import MenuToggleButton from "../MenuToggleButton";
 import NavLink from "../NavLink";
 

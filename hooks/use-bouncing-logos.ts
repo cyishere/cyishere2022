@@ -1,4 +1,4 @@
-import { logoUrls } from "@/utils/logos";
+import { logoUrls } from "@/data/logos";
 import Matter, { Body } from "matter-js";
 import { useEffect, useRef } from "react";
 

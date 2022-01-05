@@ -41,6 +41,11 @@ const Wrapper = styled.a<ButtonLinkProps>`
   display: inline-block;
   transition: background 300ms ease;
 
+  &:focus {
+    outline-color: ${(props) =>
+      props.variant === "primary" ? `var(--clr-purple-primary)` : `inherit`};
+  }
+
   &:hover {
     color: ${(props) =>
       props.variant === "primary"

@@ -5,7 +5,7 @@ import { Menu } from "react-feather";
 
 import { QUERIES } from "@/styles/constants";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
-import { VisuallyHidden } from "../VisuallyHidden";
+import VisuallyHidden from "../VisuallyHidden";
 import { MobileNavbar, DesktopNavbar } from "../Navbar";
 import MenuToggleButton from "../MenuToggleButton";
 

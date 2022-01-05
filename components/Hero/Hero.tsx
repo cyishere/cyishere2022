@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import Emoji from "../Emoji";
+import BouncingLogos from "../BouncingLogos";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
-// import BouncingLogos from "../BouncingLogos";
 
 interface HeroProps {}
 
@@ -10,7 +10,7 @@ const Hero: React.FC<HeroProps> = () => {
   return (
     <Wrapper>
       <MaxWidthContainer>
-        {/* <BouncingLogos /> */}
+        <BouncingLogos />
         <IntroWraper>
           <Greeting>
             <Emoji name="Vulcan Salute">🖖🏻</Emoji> Hi, My name is Chen Yang, CY

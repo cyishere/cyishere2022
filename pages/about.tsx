@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import type { NextPage } from "next";
 
 import { Layout } from "@/components/Layout";
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
@@ -7,7 +8,7 @@ import Post from "@/components/Post";
 import Emoji from "@/components/Emoji";
 import { ExternalLink } from "@/components/TextLink";
 
-const About = () => (
+const About: NextPage = () => (
   <Layout title="About CY">
     <Wrapper as="main">
       <SectionTitle variant="salmon" position="center">
@@ -15,7 +16,8 @@ const About = () => (
       </SectionTitle>
       <Content>
         <p>
-          <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is CY.
+          <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is Chen Yang, CY
+          for short.
         </p>
         <p>
           I am a self-taught <em>front-end developer</em> who also makes{" "}
@@ -48,8 +50,8 @@ const About = () => (
           <ExternalLink href="https://scotch.io">🥃 scotch.io</ExternalLink>.
         </p>
         <p>
-          I spend last year catching up on the new tech stacks. Now, I&apos;m a
-          fan of React, GraphQL and Prisma.
+          I spend last two years catching up on the new tech stacks. Now,
+          I&apos;m a fan of React, GraphQL and Prisma.
         </p>
       </Content>
     </Wrapper>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+
 import { QUERIES } from "@/styles/constants";
 
 interface FigureProps {
@@ -9,7 +10,13 @@ interface FigureProps {
   height: number;
 }
 
-const Figure: React.FC<FigureProps> = ({ src, alt, width, height }) => {
+const Figure: React.FC<FigureProps> = ({
+  src,
+  alt,
+  width,
+  height,
+  ...delegated
+}) => {
   return (
     <Wrapper>
       <ImgWrapper>
@@ -19,6 +26,8 @@ const Figure: React.FC<FigureProps> = ({ src, alt, width, height }) => {
           layout="responsive"
           width={width}
           height={height}
+          placeholder="blur"
+          {...delegated}
         />
       </ImgWrapper>
       <Figcaption>{alt}</Figcaption>
