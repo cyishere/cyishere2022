@@ -6,7 +6,7 @@ import { Layout } from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
 import Emoji from "@/components/Emoji";
 import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
-import { ButtonLink } from "@/components/Button";
+import { ButtonLink, ExternalButtonLink } from "@/components/Button";
 import { QUERIES } from "@/styles/constants";
 
 const Portfolio: NextPage = () => {
@@ -60,10 +60,12 @@ const Portfolio: NextPage = () => {
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
                 <ButtonGroup>
-                  <ButtonLink variant="primary" href={project.link}>
+                  <ExternalButtonLink variant="primary" href={project.link}>
                     View More
-                  </ButtonLink>
-                  <ButtonLink href={project.demo!}>Live Demo</ButtonLink>
+                  </ExternalButtonLink>
+                  <ExternalButtonLink href={project.demo!}>
+                    Live Demo
+                  </ExternalButtonLink>
                 </ButtonGroup>
               </ReactProjectContent>
             </ReactProjectContainer>

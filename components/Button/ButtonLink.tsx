@@ -9,7 +9,7 @@ interface LinkProps extends ButtonLinkProps {
   href: string;
 }
 
-const ButtonLink: React.FC<LinkProps> = ({
+export const ButtonLink: React.FC<LinkProps> = ({
   variant = "default",
   href,
   children,
@@ -20,6 +20,16 @@ const ButtonLink: React.FC<LinkProps> = ({
     </Link>
   );
 };
+
+export const ExternalButtonLink: React.FC<LinkProps> = ({
+  variant = "default",
+  href,
+  children,
+}) => (
+  <Wrapper variant={variant} href={href} target="_blank" rel="noreferrer">
+    {children}
+  </Wrapper>
+);
 
 const Wrapper = styled.a<ButtonLinkProps>`
   color: ${(props) =>
@@ -55,5 +65,3 @@ const Wrapper = styled.a<ButtonLinkProps>`
       props.variant === "primary" ? `transparent` : `var(--clr-text-primary)`};
   }
 `;
-
-export default ButtonLink;
