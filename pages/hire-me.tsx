@@ -9,7 +9,7 @@ import Emoji from "@/components/Emoji";
 import Post from "@/components/Post";
 
 const HireMe: NextPage = () => (
-  <Layout title="I'm looking for a job">
+  <Layout title="I am looking for a job">
     <Wrapper as="main">
       <SectionTitle variant="khaki" position="center">
         Hire Me <Emoji name="Woman Technologist">👩🏻‍💻</Emoji>
@@ -20,7 +20,7 @@ const HireMe: NextPage = () => (
           <Emoji name="Thank you">🙏🏻</Emoji>
         </p>
         <p>
-          I'm looking for a job as <em>junior/mid-level Front-end</em>{" "}
+          I am looking for a job as <em>junior/mid-level Front-end</em>{" "}
           developer, or a <em>junior full-stack</em> developer.
         </p>
         <p>

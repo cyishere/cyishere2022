@@ -39,6 +39,8 @@ const FeaturedProjects: React.FC = () => {
   }
 
   function showCurrentSlide() {
+    hideNonVisibleSlides();
+
     // Make sure the current project not hide
     projectsRef.current[slideIndex].removeAttribute("aria-hidden");
     projectsRef.current[slideIndex]
@@ -50,6 +52,8 @@ const FeaturedProjects: React.FC = () => {
     if (projectsRef.current.length > 0) {
       hideNonVisibleSlides();
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

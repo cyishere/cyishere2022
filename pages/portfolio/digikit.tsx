@@ -22,16 +22,16 @@ const digikit: NextPage = () => {
           <Heading2>Project Purpose and Goal</Heading2>
           <p>
             I started to learn React.js and the whole concept of full-stack
-            development in March 2020. At the end of the year, I thought it's
-            time to make an app to fully embrace the knowledge that I've
-            learned. An e-commerce app seems the right one.
+            development in March 2020. At the end of the year, I thought
+            it&#39;s time to make an app to fully embrace the knowledge that
+            I&#39;ve learned. An e-commerce app seems the right one.
           </p>
           <p>
             It contains the CRUD methods through the REST API. With the front
-            end, I could fully practicality understand the "state management"
-            concept which is quite new to me. (I used to work as a frontend
-            developer 10 years ago with PHP developers in China, there was no
-            such thing back then.)
+            end, I could fully practicality understand the &#34;state
+            management&#34; concept which is quite new to me. (I used to work as
+            a frontend developer 10 years ago with PHP developers in China,
+            there was no such thing back then.)
           </p>
         </MdContainer>
         {/* with screenshot */}
@@ -42,22 +42,22 @@ const digikit: NextPage = () => {
               When I was working as a screenplay writer, my main entertainment
               was reading articles on{" "}
               <ExternalLink href="https://scotch.io">scotch.io</ExternalLink> to
-              learn the new tech concepts. So I'm familiar with Express REST API
-              for a while, this time I "finally" got the chance to make
+              learn the new tech concepts. So I&#39;m familiar with Express REST
+              API for a while, this time I finally got the chance to make
               something with it.
             </p>
             <p>
-              To be honest, I'm still not very sure about the idea of using a
-              state management tool to store the data locally, but with React
-              and Redux team up, it's very convenient to maintain the shopping
-              cart.
+              To be honest, I&#39;m still not very sure about the idea of using
+              a state management tool to store the data locally, but with React
+              and Redux team up, it&#39;s very convenient to maintain the
+              shopping cart.
             </p>
             <p>
-              The "component" development is also very new to me. Ten years ago,
-              "CSS is global scoped" never bothered us, on the contrary, it's
-              very helpful. So I took the opportunity to learn and implement
-              styled-components in this app. This helped me understand the
-              component more clearly.
+              The &#34;component&#34; development is also very new to me. Ten
+              years ago, &#34;CSS is global scoped&#34; never bothered us, on
+              the contrary, it&#39;s very helpful. So I took the opportunity to
+              learn and implement styled-components in this app. This helped me
+              understand the component more clearly.
             </p>
             <p>
               And the Storybook is a very helpful tool to make UI components.
@@ -101,10 +101,10 @@ const digikit: NextPage = () => {
         <MdContainer>
           <Heading2>Problem and Thought Process</Heading2>
           <p>
-            I thought it'd be smoothly making this app since I've learned tons
-            of tutorials about these tech stacks. But I still bumped into the
-            wall and stucked once in a while. Here are the main problems that
-            bothered me.
+            I thought it&#39;d be smoothly making this app since I&#39;ve
+            learned tons of tutorials about these tech stacks. But I still
+            bumped into the wall and stucked once in a while. Here are the main
+            problems that bothered me.
           </p>
           <h3>The Error Handling</h3>
           <p>
@@ -126,8 +126,9 @@ const digikit: NextPage = () => {
           </p>
           <h3>The Logic of Auth</h3>
           <p>
-            By making this app I found out there are two parts about "auth", one
-            is "authentication", the other is "authorization". I wrote{" "}
+            By making this app I found out there are two parts about
+            &#34;auth&#34;, one is &#34;authentication&#34;, the other is
+            &#34;authorization&#34;. I wrote{" "}
             <TextLink href="https://cyishere.dev/blog/auth-with-express-and-react">
               a blog post
             </TextLink>{" "}
@@ -135,30 +136,31 @@ const digikit: NextPage = () => {
           </p>
           <h3>The Logic of Shopping Cart with Redux</h3>
           <p>
-            Shopping cart on a website/webapp is like a "temporary zone", we put
-            some products in there but this data will never store in the
-            database. We read and write and do some calculations in this
-            temporary zone to achieve the functionality of a shopping cart. So
-            state management could make a temporary zone happen.
+            Shopping cart on a website/webapp is like a &#34;temporary
+            zone&#34;, we put some products in there but this data will never
+            store in the database. We read and write and do some calculations in
+            this temporary zone to achieve the functionality of a shopping cart.
+            So state management could make a temporary zone happen.
           </p>
           <h3>The Protection of Routes</h3>
           <p>
-            Generally speaking for some special routes, like the user's profile
-            page, we need to check whether there's a logged-in user when there
-            is one we display the page, if not we redirect to a login page. So
-            the logic is simple, but how do we implement this logic with React?
+            Generally speaking for some special routes, like the user&#39;s
+            profile page, we need to check whether there&#39;s a logged-in user
+            when there is one we display the page, if not we redirect to a login
+            page. So the logic is simple, but how do we implement this logic
+            with React?
           </p>
           <p>
             With the help of{" "}
             <ExternalLink href="https://reactrouter.com/">
               react-router-dom
             </ExternalLink>
-            , I check the user's status in a <CodeInLine>Route</CodeInLine>{" "}
-            component for whether there's a login status in the app's state and
-            use the <CodeInLine>if-else</CodeInLine> condition to show the right
-            component or re-direct to another location.{" "}
+            , I check the user&#39;s status in a <CodeInLine>Route</CodeInLine>{" "}
+            component for whether there&#39;s a login status in the app&#39;s
+            state and use the <CodeInLine>if-else</CodeInLine> condition to show
+            the right component or re-direct to another location.{" "}
             <ExternalLink href="https://github.com/cyishere/digikit/blob/main/frontend/src/app/ProtectedRoutes.js">
-              Here's the code
+              Here&#39;s the code
             </ExternalLink>{" "}
             for route protection.
           </p>
