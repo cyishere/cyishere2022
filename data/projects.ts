@@ -59,7 +59,7 @@ export const ALBUMS: AlbumType[] = [
     id: 2,
     title: "JavaScript 30 with React",
     excerpt: `I make the projects of Wes Bos' JavaScript 30 with React (and TypeScript). This let me think React more thoroughly, such as the component's closure.`,
-    link: "https://js30.cyishere.dev",
+    link: "https://github.com/cyishere/react-ts-30",
     screenshots: [
       {
         alt: "Interact with CSS Variables",
