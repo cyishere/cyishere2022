@@ -1,0 +1,196 @@
+import { PostLayout } from "@/components/Layout";
+import Figure from "@/components/Figure";
+import { ExternalLink } from "@/components/TextLink";
+
+export const meta = {
+  title: "Accessible Slideshow with React",
+  seoTitle: "Accessible Slideshow, Slider, Carousel with React",
+  description:
+    "Navigate slideshow, slider, carousel with keyboard. Slideshow, carousel for keyboard users.",
+  createdAt: "2022-01-08",
+  tags: ["accessibility", "react"],
+};
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+The author discusses accessibility in-depth in the article <ExternalLink href="https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp">"How to build a more accessible carousel or slider"</ExternalLink>, with examples in vanilla JavaScript. It helps me a lot; please read it to get a thorough understanding. In the article below, I demonstrated how to create an accessible slideshow with React.
+
+Or read the entire code <ExternalLink href="https://codesandbox.io/s/accessible-slideshow-158x8">on CodeSandbox</ExternalLink>.
+
+---
+
+Here's the screenshot of the example slideshow:
+
+<Figure
+  alt="slideshow screenshot"
+  src="/img/blog/accessible-slideshow-with-react/slideshow-screenshot.png"
+  width={900}
+  height={600}
+/>
+
+This is a simple one. The slideshow only has two buttons to navigate to the previous or the next slide. Every slide has one focusable element (`a` link).
+
+I wrote the HTML(JSX) with some ARIA attributes at first.
+
+```javascript
+<section aria-labelledby="carouselheading">
+  <h2 id="carouselheading">The List of "The Matrix" Series</h2>
+
+  {/* Add some introductions for this slideshow and visually hide it. */}
+  <p className="sr-only">
+    Carousel with one slide shown at a time. Use the Previous and Next buttons
+    to navigate.
+  </p>
+
+  {/* The Previous button */}
+  <button className="btn nav prev">
+    <span className="sr-only">Previous One</span>
+    <ChevronLeft size={64} />
+  </button>
+
+  {/* The group of slides */}
+  <div className="slides">
+    {MOVIES.map((movie, index) => (
+      <div
+        className="slide"
+        key={movie.id}
+        role="group"
+        aria-label={`slide ${index + 1} of ${MOVIES.length}`}
+        style={{
+          "--translateX": `-${slideIndex * 100}%`,
+        }}
+      >
+        <article>
+          <h3>{movie.title}</h3>
+          <p className="year">{movie.release_year}</p>
+          <p className="director">
+            Directed by <em>{movie.director}</em>
+          </p>
+          <a className="btn btn-primary" href={movie.link}>
+            Details
+          </a>
+        </article>
+        <figure>
+          <img src={movie.poster} alt={`${movie.title} poster`} />
+        </figure>
+      </div>
+    ))}
+  </div>
+
+  {/* The Next button */}
+  <button className="btn nav next">
+    <span className="sr-only">Next One</span>
+    <ChevronRight size={64} />
+  </button>
+</section>
+```
+
+<ExternalLink href="https://codesandbox.io/s/accessible-slideshow-158x8">
+  View the whole code on CodeSandbox
+</ExternalLink>
+
+Although I used SVG icons for the previous and next buttons, I also wrote the text and wrapped it in elements labeled with `sr-only` classes to visually hide the text for accessibility.
+
+For now, it is semantically accessible but not practical when used with a keyboard.
+
+<Figure
+  alt="Bad slideshow screenshot"
+  src="/img/blog/accessible-slideshow-with-react/bad-slider.gif"
+  width={640}
+  height={374}
+/>
+
+By using the keyboard to navigate it, we need some JavaScript. First, add `aria-hidden` to hide all the slide items from the accessibility devices. In this React app, I used `useRef` to access those `div` slide items.
+
+```javascript
+const App = () => {
+	const slidesRef = useRef([]);
+
+	const makeSlidesAccessible = () => {
+		// Hiding all the slides and their content
+		slidesRef.current.forEach((slide) => {
+			if (slide) {
+				slide.setAttribute("aria-hidden", "true");
+				slide.querySelector("a").setAttribute("tabindex", "-1");
+			}
+		});
+	};
+
+	useEffect(() => {
+		makeSlidesAccessible();
+	}, []);
+
+	return (
+		{/* omit */}
+		{MOVIES.map((movie, index) => (
+			<div
+				ref={(element) => slidesRef.current.push(element)}
+				className="slide"
+				key={movie.id}
+				role="group"
+				aria-label={`slide ${index + 1} of ${MOVIES.length}`}
+				style={{
+					"--translateX": `-${slideIndex * 100}%`
+				}}
+			>
+			{/* omit */}
+			</div>
+		))}
+		{/* omit */}
+	);
+};
+```
+
+In the code above, besides setting `aria-hidden` to `"true"` for all the slide items, I made every `a` link within those items "unfocusable" by setting `tabindex` to `"-1"` to prevent the keyboard event from focusing on any hidden slides.
+
+Next, by removing those added attributes, I made the **current** slide "visible" to accessibility devices.
+
+```javascript
+const App = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const slidesRef = useRef([]);
+
+  const makeSlidesAccessible = () => {
+    // Hiding all the projects and their content
+    slidesRef.current.forEach((slide) => {
+      if (slide) {
+        slide.setAttribute("aria-hidden", "true");
+        slide.querySelector("a").setAttribute("tabindex", "-1");
+      }
+    });
+
+    // Make sure the current slide not hide
+    slidesRef.current[slideIndex].removeAttribute("aria-hidden");
+    slidesRef.current[slideIndex]
+      .querySelector("a")
+      .removeAttribute("tabindex");
+  };
+
+  useEffect(() => {
+    makeSlidesAccessible();
+  }, [slideIndex]);
+
+  return {
+    /* omit */
+  };
+};
+```
+
+Then, everything works as expected.
+
+<Figure
+  alt="Good slideshow screenshot"
+  src="/img/blog/accessible-slideshow-with-react/good-slider.gif"
+  width={640}
+  height={433}
+/>
+
+---
+
+### More Readings
+
+- <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex">
+    `tabindex` on MDN
+  </ExternalLink>
