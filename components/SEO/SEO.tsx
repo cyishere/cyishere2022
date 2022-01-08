@@ -2,15 +2,15 @@ import Head from "next/head";
 
 interface Props {
   title: string;
-  altTitle?: string;
+  seoTitle?: string;
   description?: string;
   pathname: string;
 }
 
-const SEO: React.FC<Props> = ({ title, altTitle, description, pathname }) => {
+const SEO: React.FC<Props> = ({ title, seoTitle, description, pathname }) => {
   const domainUrl = "https://cyishere.dev";
 
-  const titleContent = altTitle ? altTitle : title;
+  const titleContent = seoTitle ? seoTitle : title;
 
   const descripitonContent = description
     ? description

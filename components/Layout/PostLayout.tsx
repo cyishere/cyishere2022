@@ -28,6 +28,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ meta, children }) => {
     <>
       <SEO
         title={meta.title}
+        seoTitle={meta.seoTitle}
         description={meta.description}
         pathname={pathname}
       />
