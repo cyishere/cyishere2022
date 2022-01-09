@@ -102,7 +102,7 @@ For now, it is semantically accessible but not practical when used with a keyboa
   height={374}
 />
 
-By using the keyboard to navigate it, we need some JavaScript. First, add `aria-hidden` to hide all the slide items from the accessibility devices. In this React app, I used `useRef` to access those `div` slide items.
+When we walk through the document with keyboard, the focus order depends on the order of the DOM. So, we need JavaScript to change the `tabindex` of the visually hidden slide items, also add `aria-hidden` to them from the accessibility devices. In this React app, I used `useRef` to access those `div` slide items.
 
 ```javascript
 const App = () => {
@@ -145,7 +145,7 @@ const App = () => {
 
 In the code above, besides setting `aria-hidden` to `"true"` for all the slide items, I made every `a` link within those items "unfocusable" by setting `tabindex` to `"-1"` to prevent the keyboard event from focusing on any hidden slides.
 
-Next, by removing those added attributes, I made the **current** slide "visible" to accessibility devices.
+Next, by removing those added attributes, I made the **current** slide "visible" to accessibility devices and the `a` link focusable again.
 
 ```javascript
 const App = () => {
