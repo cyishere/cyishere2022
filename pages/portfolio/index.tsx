@@ -17,7 +17,7 @@ const Portfolio: NextPage = () => {
         <SectionTitle variant="khaki" position="center">
           Portfolio <Emoji name="Atom Symbol">⚛️</Emoji>
         </SectionTitle>
-        <PageDescription>Projects learning by doing. dd</PageDescription>
+        <PageDescription>Projects learning by doing.</PageDescription>
 
         {/* Featured Section */}
         <FeaturedSection>
@@ -62,7 +62,7 @@ const Portfolio: NextPage = () => {
                 />
               </ReactProjectMedia>
               <ReactProjectContent>
-                <ProjectTitle>{project.title} 1</ProjectTitle>
+                <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
                 <ButtonGroup>
                   <ExternalButtonLink variant="primary" href={project.link}>
