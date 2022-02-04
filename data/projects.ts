@@ -57,26 +57,21 @@ export const ALBUMS: AlbumType[] = [
   },
   {
     id: 2,
-    title: "JavaScript 30 with React",
-    excerpt: `I make the projects of Wes Bos' JavaScript 30 with React (and TypeScript). This let me think React more thoroughly, such as the component's closure.`,
-    link: "https://github.com/cyishere/react-ts-30",
+    title: "React Apps",
+    excerpt: `These apps are made with React interacting with public APIs, and store data on Firebase or local storage.`,
+    link: "/portfolio#react-apps",
     screenshots: [
       {
-        alt: "Interact with CSS Variables",
-        src: "/screenshots/javascript-30/01-css-variables.png",
+        alt: "Covid-19 Tracker",
+        src: "/img/portfolio/covid-19-tracker/covid-19-tracker-screenshot.png",
       },
       {
-        alt: "Drum Kit",
-        src: "/screenshots/javascript-30/02-drum-kit.png",
-      },
-      { alt: "JS Clock", src: "/screenshots/javascript-30/03-clock.png" },
-      {
-        alt: "Click and Drag",
-        src: "/screenshots/javascript-30/04-click-and-drag.png",
+        alt: "Flashcard",
+        src: "/img/portfolio/flashcard/flashcard-screenshot.png",
       },
       {
-        alt: "Countdown Timer",
-        src: "/screenshots/javascript-30/05-countdown-timer.png",
+        alt: "JS Clock",
+        src: "/img/portfolio/find-a-movie/find-a-movie-screenshot.png",
       },
     ],
     cover: {

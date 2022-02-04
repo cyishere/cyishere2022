@@ -8,6 +8,7 @@ import Emoji from "@/components/Emoji";
 import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
 import { ButtonLink, ExternalButtonLink } from "@/components/Button";
 import { QUERIES } from "@/styles/constants";
+import VisuallyHidden from "@/components/VisuallyHidden";
 
 const Portfolio: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const Portfolio: NextPage = () => {
         <SectionTitle variant="khaki" position="center">
           Portfolio <Emoji name="Atom Symbol">⚛️</Emoji>
         </SectionTitle>
-        <PageDescription>Projects learning by doing.</PageDescription>
+        <PageDescription>Projects learning by doing. dd</PageDescription>
 
         {/* Featured Section */}
         <FeaturedSection>
@@ -43,8 +44,12 @@ const Portfolio: NextPage = () => {
             </FeaturedProjectContainer>
           ))}
         </FeaturedSection>
+
         {/* Small React Projects */}
         <ReactProjectSection>
+          <VisuallyHidden>
+            <h2 id="react-apps">React Apps</h2>
+          </VisuallyHidden>
           {REACT_PROJECTS.map((project) => (
             <ReactProjectContainer key={project.id}>
               <ReactProjectMedia>
@@ -57,7 +62,7 @@ const Portfolio: NextPage = () => {
                 />
               </ReactProjectMedia>
               <ReactProjectContent>
-                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectTitle>{project.title} 1</ProjectTitle>
                 <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
                 <ButtonGroup>
                   <ExternalButtonLink variant="primary" href={project.link}>
