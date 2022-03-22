@@ -112,6 +112,7 @@ const Wrapper = styled.main`
   padding-left: var(--padding-x);
   padding-right: var(--padding-x);
   padding-bottom: 6rem;
+  margin: 0 auto;
 `;
 
 const PageDescription = styled.p`
