@@ -2,12 +2,21 @@ import Head from "next/head";
 
 interface Props {
   title: string;
+  pathname: string;
   seoTitle?: string;
   description?: string;
-  pathname: string;
+  canonical?: string;
+  pageImage?: string;
 }
 
-const SEO: React.FC<Props> = ({ title, seoTitle, description, pathname }) => {
+const SEO: React.FC<Props> = ({
+  title,
+  seoTitle,
+  description,
+  pathname,
+  canonical,
+  pageImage,
+}) => {
   const domainUrl = "https://cyishere.dev";
 
   const titleContent = seoTitle ? seoTitle : title;
@@ -15,7 +24,14 @@ const SEO: React.FC<Props> = ({ title, seoTitle, description, pathname }) => {
   const descripitonContent = description
     ? description
     : "Frontend Developer: React, Gatsby, JavaScript, TypeScript, CSS-in-Js, Storybook, TDD & a tiny bit of Apollo/GraphQL/Prisma";
-  const canonical = pathname !== "/" ? `${domainUrl}${pathname}` : domainUrl;
+
+  const canonicalLink = canonical
+    ? canonical
+    : pathname !== "/"
+    ? `${domainUrl}${pathname}`
+    : domainUrl;
+
+  const image = pageImage ? pageImage : `${domainUrl}/images/og-default.png`;
 
   return (
     <Head>
@@ -24,8 +40,8 @@ const SEO: React.FC<Props> = ({ title, seoTitle, description, pathname }) => {
       <meta name="description" content={descripitonContent} />
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="canonical" href={canonical} />
-      <meta name="image" content={`${domainUrl}/images/og-default.png`} />
+      <link rel="canonical" href={canonicalLink} />
+      <meta name="image" content={image} />
       <meta name="image:alt" content={descripitonContent} />
       <meta property="og:title" content="Chen Yang, aka CY" />
       <meta
@@ -33,10 +49,7 @@ const SEO: React.FC<Props> = ({ title, seoTitle, description, pathname }) => {
         content="Frontend Developer: React, Gatsby, JavaScript, TypeScript, CSS-in-Js, Storybook, TDD & a tiny bit of Apollo/GraphQL/Prisma"
       />
       <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        content={`${domainUrl}/images/og-default.png`}
-      />
+      <meta property="og:image" content={image} />
       <meta
         property="og:image:alt"
         content="Banner for cyishere.dev, featuring many tech stack icons"
@@ -50,10 +63,7 @@ const SEO: React.FC<Props> = ({ title, seoTitle, description, pathname }) => {
         name="twitter:description"
         content="Articles about front-end and some full-stack development. Focus on React, CSS, and more!"
       />
-      <meta
-        name="twitter:image"
-        content={`${domainUrl}/images/og-default.png`}
-      />
+      <meta name="twitter:image" content={image} />
       <meta name="theme-color" content="hsl(246deg 62.5% 96.9%)" />
       <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
