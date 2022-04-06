@@ -71,6 +71,7 @@ const PostContent = styled.div``;
 
 const PostTitle = styled.h3`
   font-size: var(--font-size-xl);
+  max-width: 36ch;
   margin-top: 0;
   margin-bottom: 1rem;
 `;
