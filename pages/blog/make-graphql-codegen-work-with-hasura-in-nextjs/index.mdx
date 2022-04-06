@@ -19,27 +19,27 @@ As I used the <ExternalLink href="https://www.graphql-code-generator.com/">Graph
 
 ## Set Codegen Configurations for Hasura
 
-<ExternalLink href="https://hasura.io/learn/graphql/typescript-react-apollo/codegen/">
-  Hasura's official tutorial
-</ExternalLink> provides a settings code block which I modified some "special configurations"
-in it (with the ⛑️ indicator):
+The <ExternalLink href="https://hasura.io/learn/graphql/typescript-react-apollo/codegen/">
+Hasura's official tutorial</ExternalLink> provides a settings code block which I modified some "special configurations" in it (with the ⛑️ indicator):
 
 ```javascript
+// ./codegen.js
+
 // ⛑️ Change 1: import "dotenv"
 require("dotenv").config();
 
-// ⛑️ Change 2: Get Hasura's GraphQL API from enviroment variables
+// ⛑️ Change 2: Get Hasura's GraphQL API from environment variables
 const API = process.env.HASURA_GRAPHQL_API;
 
 module.exports = {
   schema: [
     {
-      // ⛑️ Change 3: Use the `API` varialbe that just defined
+      // ⛑️ Change 3: Use the `API` variable that just defined
       [API]: {
         headers: {
           // ⛑️ Change 4: Add content type
           "content-type": "application/json",
-          // ⛑️ Change 5: Add admin secret fro enviroment variables
+          // ⛑️ Change 5: Add admin secret from environment variables
           "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET,
         },
       },
@@ -101,4 +101,4 @@ Don't forget to add a script in the `package.json` file for using Codgen:
 
 ## More Infos
 
-This is a note from me about developing an application with Next.js and Hasura. The app is called DDD App, and it is a tool for remembering German nouns. You can learn more about it [here](/blog/ddd-app-a-neat-tool-for-remembering-german-nouns).
+This is a note from me about developing an application with Next.js and Hasura. The app is called <ExternalLink href="https://ddd.cyishere.dev">DDD App</ExternalLink>, and it is a tool for remembering German nouns. You can learn more about it [here](/blog/ddd-app-a-neat-tool-for-remembering-german-nouns).
