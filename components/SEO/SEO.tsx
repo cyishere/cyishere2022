@@ -43,26 +43,18 @@ const SEO: React.FC<Props> = ({
       <link rel="canonical" href={canonicalLink} />
       <meta name="image" content={image} />
       <meta name="image:alt" content={descripitonContent} />
-      <meta property="og:title" content="Chen Yang, aka CY" />
-      <meta
-        property="og:description"
-        content="Frontend Developer: React, Gatsby, JavaScript, TypeScript, CSS-in-Js, Storybook, TDD & a tiny bit of Apollo/GraphQL/Prisma"
-      />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Chen Yang, aka CY" />
+      <meta property="og:title" content={titleContent} />
+      <meta property="og:description" content={descripitonContent} />
       <meta property="og:image" content={image} />
-      <meta
-        property="og:image:alt"
-        content="Banner for cyishere.dev, featuring many tech stack icons"
-      />
+      <meta property="og:image:alt" content={titleContent} />
       <meta property="og:image:width" content="1280" />
       <meta property="og:image:height" content="675" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@cyishere" />
-      <meta name="twitter:title" content="Chen Yang, aka CY" />
-      <meta
-        name="twitter:description"
-        content="Articles about front-end and some full-stack development. Focus on React, CSS, and more!"
-      />
+      <meta name="twitter:title" content={titleContent} />
+      <meta name="twitter:description" content={descripitonContent} />
       <meta name="twitter:image" content={image} />
       <meta name="theme-color" content="hsl(246deg 62.5% 96.9%)" />
       <link rel="icon" type="image/png" href="/favicon.png" />

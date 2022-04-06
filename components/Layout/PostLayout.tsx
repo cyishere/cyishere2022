@@ -28,9 +28,11 @@ const PostLayout: React.FC<PostLayoutProps> = ({ meta, children }) => {
     <>
       <SEO
         title={meta.title}
+        pathname={pathname}
         seoTitle={meta.seoTitle}
         description={meta.description}
-        pathname={pathname}
+        canonical={meta.canonical}
+        pageImage={meta.pageImage}
       />
       <Header pathname="pathname" />
       <Wrapper>

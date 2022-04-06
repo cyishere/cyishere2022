@@ -5,4 +5,6 @@ export interface PostMetaType {
   excerpt?: string;
   createdAt: string;
   tags: string[];
+  canonical?: string;
+  pageImage?: string;
 }
