@@ -1,10 +1,10 @@
 export interface PostMetaType {
   title: string;
-  seoTitle?: string;
   description: string;
-  excerpt?: string;
-  createdAt: string;
   tags: string[];
+  createdAt: string;
+  seoTitle?: string;
+  excerpt?: string;
   canonical?: string;
   pageImage?: string;
 }
