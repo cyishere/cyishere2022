@@ -1,12 +1,13 @@
 import { PostLayout } from "@/components/Layout";
+import { ExternalLink } from "@/components/TextLink";
 
 export const meta = {
   title: "Set Headers Error with Next.js or Express",
   seoTitle:
     "Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client",
-  description: "The ways to fix errors when using Express or Next.js server.",
+  description: "Fix Next.js or Express headers re-send error.",
   createdAt: "2022-05-02",
-  tags: ["next.js", "express"],
+  tags: ["next.js"],
   pageImage:
     "https://res.cloudinary.com/cyishere/image/upload/v1651477868/cyishere/blog/set-headers-error-with-nextjs-or-express/ogImage_hzlyxt.png",
 };
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
 
 The problem in this code is: the code executes **TWO** `res.json(...)`, because there's no `return` after the user's id is verified and `true` the code executes the "scenario 1️", then it execute "scenario 2️", too. That's why the error says "Cannot ... after they are sent to the client", the "scenario 1️" is already send to the client.
 
-## Solution
+## The Solution
 
 **Solution 1**: only get one result from a condition by using `if ... else`:
 
