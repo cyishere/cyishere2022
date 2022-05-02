@@ -1,0 +1,115 @@
+import { PostLayout } from "@/components/Layout";
+import Figure from "@/components/Figure";
+import { ExternalLink } from "@/components/TextLink";
+
+export const meta = {
+  title: "MacOS Monterey Breaks Python, How to Fix it?",
+  seoTitle: "MacOS env: python: No such file or directory",
+  description:
+    "Python doesn't work after Mac has updated to Monterey. Here's how to fix it.",
+  createdAt: "2022-04-08",
+  tags: ["macos"],
+  pageImage:
+    "https://res.cloudinary.com/cyishere/image/upload/v1649420200/cyishere/blog/macos-monterey-breaks-python-how-to-fix-it/cover_eydy8q.png",
+};
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+After I updated my MacOS to Monterey, every time I changed the directory in the terminal this message below popped up:
+
+```bash
+env: python: No such file or directory
+```
+
+But I've already installed Python3. I googled out that Monterey removed Python2.7, but it cannot automatically point to Python3...
+
+It took me 2 hours to find the solution, here they are:
+
+## Step 1: Make Sure Python3 Is Installed
+
+Use `whereis python3` to make sure it is installed. At this time, it would show something like this:
+
+```bash
+python3: /usr/bin/python3
+```
+
+## Step 2: Find Out the Brew Info
+
+When installing Python3 with Home-brew, it also creates a `libexec` folder with unversioned symlinks, which can be found by this command: `brew info python`.
+
+After executing this command, there will be something like the below print out:
+
+```bash
+python@3.9: stable 3.9.7
+Interpreted, interactive, object-oriented programming language
+https://www.python.org/
+
+/usr/local/Cellar/python@3.9/3.9.7 (2,882 files, 49.3MB)
+
+Poured from bottle on 2021-09-15 at 22:09:14
+
+From: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/python@3.9.rb
+
+License: Python-2.0
+
+==> Dependencies
+
+Build: pkg-config ✔
+
+Required: gdbm ✔, mpdecimal ✔, openssl@1.1 ✔, readline ✔, sqlite ✔, xz ✔
+
+==> Caveats
+
+Python has been installed as
+
+/usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+
+/usr/local/opt/python@3.9/libexec/bin
+```
+
+I omit the rest of the print-out because the MOST IMPORTANT part of this is the _last line_.
+
+## Step 3: Update Your $PATH
+
+Put the directory path in that last line to your `.bash_profile` or `.zshrc`, depending on which one of them you're using. The complete syntax is:
+
+```bash
+export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
+```
+
+Save the file and update the shell environment:
+
+```bash
+source ~/.bash_profile
+
+# OR
+
+source ~/.zshrc
+```
+
+Voilà! The `env: python: No such file or directory` problem is solved!
+
+Now type `whereis python3` again, the result would be something like this: `python3: /usr/bin/python3 /usr/local/share/man/man1/python3.1`.
+
+## Summary
+
+Your situation may be different from mine, so for more references, I put some links here and hope these would help you.
+
+- <ExternalLink href="https://stackoverflow.com/questions/71468590/env-python-no-such-file-or-directory-when-building-app-with-xcode">
+    env: python: No such file or directory when building app with Xcode
+  </ExternalLink>
+
+- <ExternalLink href="https://stackoverflow.com/questions/70126868/macos-monterey-python3-as-default">
+    MacOs Monterey Python3 as default
+  </ExternalLink>
+
+- <ExternalLink href="https://stackoverflow.com/questions/71591971/how-to-fix-zsh-command-not-found-python-error-macos-monterey-12-3-python">
+    How to fix "zsh: command not found: python" error? (macOS Monterey 12.3,
+    python 3.10, Atom IDE, atom-python-run 0.9.7
+  </ExternalLink>
