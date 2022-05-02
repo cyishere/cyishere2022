@@ -22,20 +22,18 @@ When I wrote a server API with Next.js, I encountered this error: `Error [ERR_HT
 This is the simplified version of my code:
 
 ```javascript
-// /api/user/:id
+// /api/user/me
 
 export default async function handler(req, res) {
   const { id } = req.params;
 
-  // check whether this id of user in the database
+  // check whether there's this user in database
   const verified = checkIdWithDatabase(id);
 
-  // scenario 1️⃣
   if (verified) {
     res.status(200).json({ authenticated: true });
   }
 
-  // scenario 2️⃣
   res.status(200).json({ authenticated: false });
 }
 ```
@@ -68,7 +66,7 @@ if (verified) {
 
 res.status(200).json({ authenticated: false });
 
-// ============= OR ===========
+// ============== OR ================
 
 if (verified) {
   // 2️⃣
