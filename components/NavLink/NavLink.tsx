@@ -121,9 +121,9 @@ const NavLinkItem = styled.li`
   }
 `;
 
-const NavLinkAnchorEm = styled.em`
-  color: var(--clr-purple-primary);
-  font-style: italic;
-`;
+// const NavLinkAnchorEm = styled.em`
+//   color: var(--clr-purple-primary);
+//   font-style: italic;
+// `;
 
 export default NavLink;
