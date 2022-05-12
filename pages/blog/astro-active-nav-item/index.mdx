@@ -1,6 +1,4 @@
 import { PostLayout } from "@/components/Layout";
-import Figure from "@/components/Figure";
-import { ExternalLink } from "@/components/TextLink";
 
 export const meta = {
   title: "Active Nav Item Style with Astro",
@@ -15,7 +13,7 @@ export default ({ children }) => (
   <PostLayout meta={meta}>{children}</PostLayout>
 );
 
-This article is about how to give an active-state style to the navigation items for each page in the new static site generator - <ExternalLink href="https://astro.build">Astro</ExternalLink>. (What a long sentence. 😮‍💨)
+This article is about how to give an active-state style to the navigation items for each page in the new static site generator - [Astro](https://astro.build). (What a long sentence. 😮‍💨)
 
 And there are _two_ ways. (These code are written in [Astro Component](https://docs.astro.build/en/core-concepts/astro-components/#overview).)
 
@@ -23,7 +21,7 @@ And there are _two_ ways. (These code are written in [Astro Component](https://d
 
 In the code below, we write the vanilla JavaScript in a `script` tag, which tells Astro to give this code block to the browser. It will work in the regular way.
 
-```astro
+```javascript
 // src/components/Navbar.astro
 
 <nav>
@@ -58,7 +56,7 @@ In the code below, we write the vanilla JavaScript in a `script` tag, which tell
 
 We take advantage of Astro's Runtime API and get the pathname in Astro components' [component script](https://docs.astro.build/en/core-concepts/astro-components/#the-component-script).
 
-```astro
+```javascript
 // src/components/Navbar.astro
 
 ---

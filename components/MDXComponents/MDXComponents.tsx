@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Hash } from "react-feather";
+import { ExternalLink } from "../TextLink";
 
 /**
  * The component of <h2 />
@@ -73,6 +74,24 @@ export const UnorderList = styled.ul`
 `;
 
 /**
+ * The component of external link
+ */
+interface ExLinkProps {
+  children: string;
+  href: string;
+}
+
+const ExLink: React.FC<ExLinkProps> = ({ children, href }) => {
+  const external = /^http/.test(href);
+
+  if (external) {
+    return <ExternalLink href={href}>{children}</ExternalLink>;
+  }
+
+  return <a href={href}>{children}</a>;
+};
+
+/**
  * The default component
  */
 const MDXComponents = {
@@ -80,6 +99,7 @@ const MDXComponents = {
   hr: Hr,
   inlineCode: CodeInLine,
   ul: UnorderList,
+  a: ExLink,
 };
 
 export default MDXComponents;
