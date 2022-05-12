@@ -47,7 +47,7 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getBgImage(pathname === "/hire-me")}>
+      {/* <NavLinkItem style={getBgImage(pathname === "/hire-me")}>
         <Link href="/hire-me" passHref>
           <NavLinkAnchor>
             <Item data-content="hire me!">
@@ -55,7 +55,7 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
             </Item>
           </NavLinkAnchor>
         </Link>
-      </NavLinkItem>
+      </NavLinkItem> */}
     </Wrapper>
   );
 };

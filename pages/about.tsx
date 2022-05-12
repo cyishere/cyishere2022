@@ -50,9 +50,10 @@ const About: NextPage = () => (
           <ExternalLink href="https://scotch.io">🥃 scotch.io</ExternalLink>.
         </p>
         <p>
-          I spend last two years catching up on the new tech stacks. Now,
+          I spend the last two years catching up on the new tech stacks. Now,
           I&apos;m a fan of React, GraphQL and Prisma.
         </p>
+        <p>(Last update on May 12, 2020.)</p>
       </Content>
     </Wrapper>
   </Layout>
