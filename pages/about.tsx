@@ -53,7 +53,7 @@ const About: NextPage = () => (
           I spend the last two years catching up on the new tech stacks. Now,
           I&apos;m a fan of React, GraphQL and Prisma.
         </p>
-        <p>(Last update on May 12, 2020.)</p>
+        <p>(Last update on May 12, 2022.)</p>
       </Content>
     </Wrapper>
   </Layout>
