@@ -24,7 +24,7 @@ const PortfolioLayout: React.FC<PortfolioLayoutProps> = ({
     otherProject = ALBUMS.find((project) => project.title === otherProjectName);
   }
   return (
-    <Layout title={meta.title}>
+    <Layout title={meta.seoTitle ? meta.seoTitle : meta.title}>
       <Wrapper>
         {/* HEADER SECTION */}
         <Header>

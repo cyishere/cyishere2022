@@ -8,7 +8,7 @@ import FeaturedPosts from "@/components/FeaturedPosts";
 
 const Home: NextPage = () => {
   return (
-    <Layout title="Chen Yang, aka CY">
+    <Layout title="Chen Yang, aka CY - Frontend developer who also does full-stack stuff">
       <main>
         <Hero />
         <FeaturedProjects />

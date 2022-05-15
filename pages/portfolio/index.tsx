@@ -46,9 +46,9 @@ const Portfolio: NextPage = () => {
         </FeaturedSection>
 
         {/* Small React Projects */}
-        <ReactProjectSection>
+        <ReactProjectSection id="react-apps">
           <VisuallyHidden>
-            <h2 id="react-apps">React Apps</h2>
+            <h2>React Apps</h2>
           </VisuallyHidden>
           {REACT_PROJECTS.map((project) => (
             <ReactProjectContainer key={project.id}>

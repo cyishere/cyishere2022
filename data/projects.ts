@@ -14,6 +14,7 @@ export interface AlbumType {
 
 export interface ProjectType {
   title: string;
+  seoTitle?: string;
   description: string;
   cover: string;
   techStack?: {
@@ -75,7 +76,7 @@ export const ALBUMS: AlbumType[] = [
       },
     ],
     cover: {
-      imageUrl: "/screenshots/javascript-30/cover.png",
+      imageUrl: "/img/portfolio/react-apps-cover.png",
       width: 535,
       height: 416,
     },
@@ -83,7 +84,7 @@ export const ALBUMS: AlbumType[] = [
   {
     id: 3,
     title: "digiKIT",
-    excerpt: `"digiKIT" is a fake e-commerce web app to demonstrate how this kind of app works on both server-side and client-side. This is my first *full-stack* app.`,
+    excerpt: `"digiKIT" is a fake e-commerce web app to demonstrate how this kind of app works on both server-side and client-side. This is my first *full-stack* app. Build with React, Redux, Express and MongoDB.`,
     link: "/portfolio/digikit",
     screenshots: [
       { alt: "", src: "/img/portfolio/digikit/digikit-cover_l.jpg" },
@@ -151,7 +152,9 @@ export const REACT_PROJECTS: AlbumType[] = [
 
 export const digikit: ProjectType = {
   title: "digiKIT",
-  description: `"digiKIT" is an e-commerce app to demonstrate how to put "full-stack" development together. It contains the basic CRUD for products, shopping cart, and making orders, except actual purchase.`,
+  seoTitle:
+    "digiKIT - an e-commerce fullstack app with React, Redux, Express and MongoDB",
+  description: `"digiKIT" is an e-commerce app build with React, Redux, Express and MongoDB to demonstrate how to put "full-stack" development together. It contains the basic CRUD for products, shopping cart, and making orders, except actual purchase.`,
   cover: "/img/portfolio/digikit/digikit-cover_l.jpg",
   techStack: {
     backend: ["Node.js / Express.js", "MongoDB"],
@@ -162,6 +165,8 @@ export const digikit: ProjectType = {
 
 export const chatApp: ProjectType = {
   title: "Chat App",
+  seoTitle:
+    "Chat App - React and Apollo Client as frontend; GraphQL, Apollo Server and Prisma as backend",
   description: `This is a little app to demonstrate the subscription of GraphQL.`,
   cover: "/img/portfolio/chat-app/chat-app-cover_l.jpg",
   techStack: {
