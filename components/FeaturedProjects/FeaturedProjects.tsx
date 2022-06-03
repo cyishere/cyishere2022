@@ -49,6 +49,7 @@ const FeaturedProjects: React.FC = () => {
     if (projectsRef.current.length > 0) {
       showCurrentSlide();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slideIndex]);
 
   return (
