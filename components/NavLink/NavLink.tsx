@@ -12,8 +12,6 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
   const backgroundImage = `url(/images/decorator-cyan-small.svg)`;
 
   const getBgImage = (path: string, prefix: string) => {
-    // TODO need to delete this
-    console.log({ path });
     const homePage = path === prefix || null;
 
     let condition = homePage ?? path.slice(1).startsWith(prefix);

@@ -26,7 +26,6 @@ const Figure: React.FC<FigureProps> = ({
           layout="responsive"
           width={width}
           height={height}
-          placeholder="blur"
           {...delegated}
         />
       </ImgWrapper>

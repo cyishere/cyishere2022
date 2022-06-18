@@ -1,16 +1,9 @@
-import { PostLayout } from "@/components/Layout";
-
-export const meta = {
-  title: "Error Handling with Express.js",
-  description:
-    "Use middleware in Express.js to catch error messages and send them to frontend.",
-  createdAt: "2021-05-11",
-  tags: ["express"],
-};
-
-export default ({ children }) => (
-  <PostLayout meta={meta}>{children}</PostLayout>
-);
+---
+title: "Error Handling with Express.js"
+description: "Use middleware in Express.js to catch error messages and send them to frontend."
+createdAt: "2021-05-11"
+tags: ["express"]
+---
 
 I think error handling is a very tricky part of development. When I started as a self-taught Node.js full-stack developer, I know use `throw new Error` would throw out the errors in the terminal, but I don't know how to let my frontend "know" these errors and show them in the UI for users. I really struggled with this for a while.
 
@@ -20,7 +13,7 @@ In this article, I'll showcase how I deal with error handling in REST API with E
 
 I use a middleware like this:
 
-```js{2,4-6}
+```js
 const errorHandler = (err, req, res, next) => {
   const statusCode = err.statusCode || 500;
 

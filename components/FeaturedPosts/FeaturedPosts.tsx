@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+import type { Post } from "@/utils/types";
 import SectionTitle from "../SectionTitle";
-import { posts as allPosts } from "@/utils/getAllPosts";
 import PostListItem from "../PostListItem";
 
-const FeaturedPosts: React.FC = () => {
-  const posts: any[] = allPosts.slice(0, 6);
+interface FeaturedPostsProps {
+  posts: Post[];
+}
 
+const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
   return (
     <Wrapper>
       <Container>

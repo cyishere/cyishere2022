@@ -1,23 +1,14 @@
-import { PostLayout } from "@/components/Layout";
-import Figure from "@/components/Figure";
-import { ExternalLink } from "@/components/TextLink";
+---
+title: "Accessible Slideshow with React"
+seoTitle: "Accessible Slideshow, Slider, Carousel with React"
+description: "Navigate slideshow, slider, carousel with keyboard. Slideshow, carousel for keyboard users."
+createdAt: "2022-01-08"
+tags: ["accessibility", "react"]
+---
 
-export const meta = {
-  title: "Accessible Slideshow with React",
-  seoTitle: "Accessible Slideshow, Slider, Carousel with React",
-  description:
-    "Navigate slideshow, slider, carousel with keyboard. Slideshow, carousel for keyboard users.",
-  createdAt: "2022-01-08",
-  tags: ["accessibility", "react"],
-};
+The author discusses accessibility in-depth in the article ["How to build a more accessible carousel or slider"](https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp), with examples in vanilla JavaScript. It helps me a lot; please read it to get a thorough understanding. In the article below, I demonstrated how to create an accessible slideshow with React.
 
-export default ({ children }) => (
-  <PostLayout meta={meta}>{children}</PostLayout>
-);
-
-The author discusses accessibility in-depth in the article <ExternalLink href="https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp">"How to build a more accessible carousel or slider"</ExternalLink>, with examples in vanilla JavaScript. It helps me a lot; please read it to get a thorough understanding. In the article below, I demonstrated how to create an accessible slideshow with React.
-
-Or read the entire code <ExternalLink href="https://codesandbox.io/s/accessible-slideshow-158x8">on CodeSandbox</ExternalLink>.
+Or read the entire code [on CodeSandbox](https://codesandbox.io/s/accessible-slideshow-158x8).
 
 ---
 
@@ -87,9 +78,7 @@ I wrote the HTML(JSX) with some ARIA attributes at first.
 </section>
 ```
 
-<ExternalLink href="https://codesandbox.io/s/accessible-slideshow-158x8">
-  View the whole code on CodeSandbox
-</ExternalLink>
+[View the whole code on CodeSandbox](https://codesandbox.io/s/accessible-slideshow-158x8)
 
 Although I used SVG icons for the previous and next buttons, I also wrote the text and wrapped it in elements labeled with `sr-only` classes to visually hide the text for accessibility.
 
@@ -191,6 +180,4 @@ Then, everything works as expected.
 
 ### More Readings
 
-- <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex">
-    `tabindex` on MDN
-  </ExternalLink>
+- [`tabindex` on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
