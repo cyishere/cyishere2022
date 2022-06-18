@@ -1,3 +1,8 @@
+/**
+ * This file is deprecated.
+ * Place here only for reference.
+ */
+
 const importAllPosts = (files: any) => {
   const sortedFiles = files.keys().sort((a: any, b: any) => {
     return (
