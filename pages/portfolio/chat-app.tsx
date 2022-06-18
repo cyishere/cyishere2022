@@ -5,7 +5,7 @@ import { PortfolioLayout } from "@/components/Layout";
 import { MdContainer } from "@/components/Container";
 import { ExternalLink, TextLink } from "@/components/TextLink";
 import Figure from "@/components/Figure";
-import { CodeInLine } from "@/components/MDXComponents/MDXComponents";
+import { CodeInLine } from "@/components/CustomComponents";
 
 const ChatApp = () => {
   return (

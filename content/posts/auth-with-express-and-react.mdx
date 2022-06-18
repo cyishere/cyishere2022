@@ -1,18 +1,9 @@
-import { PostLayout } from "@/components/Layout";
-import Figure from "@/components/Figure";
-import { ExternalLink } from "@/components/TextLink";
-import Video from "@/components/Video";
-
-export const meta = {
-  title: "Auth with Express and React",
-  description: "What's authentication? What's authorization?",
-  createdAt: "2021-05-27",
-  tags: ["authentication", "authorization"],
-};
-
-export default ({ children }) => (
-  <PostLayout meta={meta}>{children}</PostLayout>
-);
+---
+title: "Auth with Express and React"
+description: "What's authentication? What's authorization?"
+createdAt: "2021-05-27"
+tags: ["authentication", "authorization"]
+---
 
 Accutally this is about the logic of "auth", because there're two parts in it: "authentication" and "authorization".
 
@@ -287,7 +278,7 @@ router.get("/:id", auth, (req, res, next) => {
 
 Please notice that we put the `auth` middleware in the `router`, because it's a middleware we can use it like this with Express.js. The difference between put it in a specified endpoint router method and in the main `server.js` file, such as `app.use(auth)`, is the latter effects every endpoint route.
 
-Thus, this is the logic of authorization. For more clear I add two behaviors in the example app, 1) see the team members. Every user could see the team members; 2) only Debbie Ocean could make a plan. The whole code of this example is in <ExternalLink href="https://github.com/cyishere/auth-with-express-and-react">this repo</ExternalLink>.
+Thus, this is the logic of authorization. For more clear I add two behaviors in the example app, 1) see the team members. Every user could see the team members; 2) only Debbie Ocean could make a plan. The whole code of this example is in [this repo](https://github.com/cyishere/auth-with-express-and-react).
 
 - `./client/src/components/Members.js` makes the HTTP request to get all the members (`getUsers`);
 - The backend API is in the `./server/routes/user.js` file.

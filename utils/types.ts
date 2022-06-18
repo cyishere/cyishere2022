@@ -8,3 +8,9 @@ export interface PostMetaType {
   canonical?: string;
   pageImage?: string;
 }
+
+export interface Post {
+  data: PostMetaType;
+  content: string;
+  slug: string;
+}

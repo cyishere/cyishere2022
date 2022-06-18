@@ -1,38 +1,31 @@
 import styled from "styled-components";
 import Link from "next/link";
 
+import type { Post } from "@/utils/types";
 import { QUERIES } from "@/styles/constants";
-import { PostMetaType } from "@/utils/types";
 
 interface PostListItemProps {
-  post: {
-    slug: string;
-    module: {
-      meta: PostMetaType;
-      default?: any;
-    };
-  };
+  post: Post;
 }
 
 const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
-  const {
-    slug,
-    module: { meta },
-  } = post;
+  const { slug, data } = post;
 
   return (
     <Link href={`/blog/${slug}`} passHref>
       <Wrapper>
         <PostItem>
           <PostContent>
-            <PostTitle>{meta.title}</PostTitle>
-            <PostTags>
-              {meta.tags.map((tag: string) => (
-                <Tag key={tag}>{tag}</Tag>
-              ))}
-            </PostTags>
+            <PostTitle>{data.title}</PostTitle>
+            {data.tags?.length > 0 ? (
+              <PostTags>
+                {data.tags.map((tag: string) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </PostTags>
+            ) : null}
           </PostContent>
-          <Date>{meta.createdAt}</Date>
+          <Date>{data.createdAt}</Date>
         </PostItem>
       </Wrapper>
     </Link>

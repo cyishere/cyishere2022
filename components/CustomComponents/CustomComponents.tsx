@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { Hash } from "react-feather";
 import { ExternalLink } from "../TextLink";
 
@@ -9,7 +10,7 @@ interface Heading2Props {
   children: string;
 }
 
-const Heading2: React.FC<Heading2Props> = ({ children }) => {
+const Heading2 = ({ children }: Heading2Props) => {
   const idText = children.replace(/ /g, "_").toLowerCase();
 
   return (
@@ -49,19 +50,6 @@ export const Hr = styled.hr`
 `;
 
 /**
- * The component of <code />
- */
-export const CodeInLine = styled.code`
-  --bg-color: #ccc5f6;
-  font-family: var(--ff-mono);
-  background-color: var(--bg-color);
-  color: var(--clr-purple-primary);
-  border-radius: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
-`;
-
-/**
  * The component of <ul />
  */
 export const UnorderList = styled.ul`
@@ -81,25 +69,28 @@ interface ExLinkProps {
   href: string;
 }
 
-const ExLink: React.FC<ExLinkProps> = ({ children, href }) => {
+export const ExLink = ({ children, href }: ExLinkProps) => {
   const external = /^http/.test(href);
 
   if (external) {
     return <ExternalLink href={href}>{children}</ExternalLink>;
   }
 
-  return <a href={href}>{children}</a>;
+  return (
+    <Link href={href} passHref>
+      <a>{children}</a>
+    </Link>
+  );
 };
 
 /**
  * The default component
  */
-const MDXComponents = {
+const CustomComponents = {
   h2: Heading2,
-  hr: Hr,
-  inlineCode: CodeInLine,
-  ul: UnorderList,
+  hr: () => <Hr />,
+  ul: (props: any) => <UnorderList {...props} />,
   a: ExLink,
 };
 
-export default MDXComponents;
+export default CustomComponents;

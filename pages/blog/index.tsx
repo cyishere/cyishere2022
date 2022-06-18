@@ -1,12 +1,17 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
 
+import type { Post } from "@/utils/types";
 import { Layout } from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
 import PostListItem from "@/components/PostListItem";
-import { posts } from "@/utils/getAllPosts";
+import { getPosts } from "@/utils/mdxUtils";
 
-const Home: NextPage = () => {
+interface HomePageProps {
+  posts: Post[];
+}
+
+const Home: NextPage<HomePageProps> = ({ posts }) => {
   const PAGE_TITLE = "Blog Posts";
 
   return (
@@ -43,3 +48,11 @@ const PostList = styled.div`
 `;
 
 export default Home;
+
+// =========
+
+export function getStaticProps() {
+  const posts = getPosts();
+
+  return { props: { posts } };
+}

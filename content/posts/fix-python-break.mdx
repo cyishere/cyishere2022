@@ -1,20 +1,11 @@
-import { PostLayout } from "@/components/Layout";
-import { ExternalLink } from "@/components/TextLink";
-
-export const meta = {
-  title: "MacOS Monterey Breaks Python, How to Fix it?",
-  seoTitle: "MacOS env: python: No such file or directory",
-  description:
-    "Python doesn't work after Mac has updated to Monterey. Here's how to fix it.",
-  createdAt: "2022-04-08",
-  tags: ["macos"],
-  pageImage:
-    "https://res.cloudinary.com/cyishere/image/upload/v1649420200/cyishere/blog/macos-monterey-breaks-python-how-to-fix-it/cover_eydy8q.png",
-};
-
-export default ({ children }) => (
-  <PostLayout meta={meta}>{children}</PostLayout>
-);
+---
+title: "MacOS Monterey Breaks Python, How to Fix it?"
+seoTitle: "MacOS env: python: No such file or directory"
+description: "Python doesn't work after Mac has updated to Monterey. Here's how to fix it."
+createdAt: "2022-04-08"
+tags: ["macos"]
+pageImage: "https://res.cloudinary.com/cyishere/image/upload/v1649420200/cyishere/blog/macos-monterey-breaks-python-how-to-fix-it/cover_eydy8q.png"
+---
 
 After I updated my MacOS to Monterey, every time I changed the directory in the terminal this message below popped up:
 
@@ -100,15 +91,7 @@ Now type `whereis python3` again, the result would be something like this: `pyth
 
 Your situation may be different from mine, so for more references, I put some links here and hope these would help you.
 
-- <ExternalLink href="https://stackoverflow.com/questions/71468590/env-python-no-such-file-or-directory-when-building-app-with-xcode">
-    env: python: No such file or directory when building app with Xcode
-  </ExternalLink>
-
-- <ExternalLink href="https://stackoverflow.com/questions/70126868/macos-monterey-python3-as-default">
-    MacOs Monterey Python3 as default
-  </ExternalLink>
-
-- <ExternalLink href="https://stackoverflow.com/questions/71591971/how-to-fix-zsh-command-not-found-python-error-macos-monterey-12-3-python">
-    How to fix "zsh: command not found: python" error? (macOS Monterey 12.3,
-    python 3.10, Atom IDE, atom-python-run 0.9.7
-  </ExternalLink>
+- [env: python: No such file or directory when building app with Xcode](https://stackoverflow.com/questions/71468590/env-python-no-such-file-or-directory-when-building-app-with-xcode)
+- [MacOs Monterey Python3 as default](https://stackoverflow.com/questions/70126868/macos-monterey-python3-as-default)
+- [How to fix "zsh: command not found: python" error? (macOS Monterey 12.3,
+  python 3.10, Atom IDE, atom-python-run 0.9.7](https://stackoverflow.com/questions/71591971/how-to-fix-zsh-command-not-found-python-error-macos-monterey-12-3-python)

@@ -1,21 +1,10 @@
-import { PostLayout } from "@/components/Layout";
-import Toc from "@/components/Toc";
-import { ExternalLink } from "@/components/TextLink";
-import Figure from "@/components/Figure";
-import { FlexCenter } from "@/components/Container";
-
-export const meta = {
-  title: "What I've Learned from Being a Copycat",
-  description:
-    "css round dashed garient border,css loop animation, frontend structure plan, re-usable components, frontend mobile-first",
-  excerpt: "Learn how to be a better developer by cloning a website.",
-  createdAt: "2021-07-15",
-  tags: ["frontend", "css"],
-};
-
-export default ({ children }) => (
-  <PostLayout meta={meta}>{children}</PostLayout>
-);
+---
+title: "What I've Learned from Being a Copycat"
+description: "css round dashed garient border,css loop animation, frontend structure plan, re-usable components, frontend mobile-first"
+excerpt: "Learn how to be a better developer by cloning a website."
+createdAt: "2021-07-15"
+tags: ["frontend", "css"]
+---
 
 <Toc>
   <li>
@@ -44,30 +33,26 @@ export default ({ children }) => (
 
 ---
 
-Last month when I was trying to look for a job and was afraid to take the first step, I immersed myself in building some practical frontend projects. I tried some <ExternalLink href="https://www.frontendmentor.io/profile/cyishere">Frontend Mentor's challenges</ExternalLink>, but I am not sure whether they're practical enough. So I decided to be a copycat and cloned <ExternalLink href="https://bejamas.io">bejamas.io</ExternalLink>, actually only the home page (the version before they updated their website at July 15, 2021). Bejamas is very beautiful and elegant in detail; I discovered it a year ago whilst looking up "what is jamstack" and instantly fell in love with this beautiful website. With a live website, I thought it would be definitely practical.
+Last month when I was trying to look for a job and was afraid to take the first step, I immersed myself in building some practical frontend projects. I tried some [Frontend Mentor's challenges](https://www.frontendmentor.io/profile/cyishere), but I am not sure whether they're practical enough. So I decided to be a copycat and cloned [bejamas.io](https://bejamas.io), actually only the home page (the version before they updated their website at July 15, 2021). Bejamas is very beautiful and elegant in detail; I discovered it a year ago whilst looking up "what is jamstack" and instantly fell in love with this beautiful website. With a live website, I thought it would be definitely practical.
 
 <FlexCenter>
-  <ExternalLink href="https://bejamas-clone.vercel.app/">
-    Live Demo Page
-  </ExternalLink>
-  <ExternalLink href="https://github.com/cyishere/bejamas-copycat">
-    Code on GitHub
-  </ExternalLink>
+  [Live Demo Page](https://bejamas-clone.vercel.app/)[Code on
+  GitHub](https://github.com/cyishere/bejamas-copycat)
 </FlexCenter>
 
-So I took Bejamas' home page as a design template and cloned it with <ExternalLink href="https://nextjs.org/">Next.js</ExternalLink>, <ExternalLink href="https://styled-components.com/">styled-components</ExternalLink>, and <ExternalLink href="https://www.sanity.io/">Sanity</ExternalLink> for the "services" and "blog posts" sections (taste some jam). I avoided looking at their source code except copied the CSS code for the box shadow and gradient (😬). It took me an unexpectedly long time to complete it, and some parts are still unfinished.
+So I took Bejamas' home page as a design template and cloned it with [Next.js](https://nextjs.org/), [styled-components](https://styled-components.com/), and [Sanity](https://www.sanity.io/) for the "services" and "blog posts" sections (taste some jam). I avoided looking at their source code except copied the CSS code for the box shadow and gradient (😬). It took me an unexpectedly long time to complete it, and some parts are still unfinished.
 
 I've learned a lot during the production process. The following are the lessons:
 
 ## Mobile-first, but not too first
 
-I've been reading articles about the mobile-first principle. As designers say it's "<ExternalLink href="https://medium.com/@Vincentxia77/what-is-mobile-first-design-why-its-important-how-to-make-it-7d3cf2e29d00">progress advancement</ExternalLink>". "First, we build a version for the relatively lower browser which includes the most basic functions and features. Then add interactions, more complicated effects on the basic version for tablet or PC." So I followed this principle to start, then I kinda stuck myself in a corner.
+I've been reading articles about the mobile-first principle. As designers say it's "[progress advancement](https://medium.com/@Vincentxia77/what-is-mobile-first-design-why-its-important-how-to-make-it-7d3cf2e29d00)". "First, we build a version for the relatively lower browser which includes the most basic functions and features. Then add interactions, more complicated effects on the basic version for tablet or PC." So I followed this principle to start, then I kinda stuck myself in a corner.
 
 Because I didn't consider the complexity of the desktop version when I started structuring the DOM. That means I'll have to create a completely new DOM structure for a larger screen rather than relying on CSS to do the fancy responsive work. So after spending a significant amount of time refactoring my code, I ended up using three `<header>`s and letting the media query in CSS decide which one would be displayed which other two would be `display: none;`. I think it's a little messy.
 
 The lesson I've learned here is **although starting with mobile-first, I need to think in the big picture, consider all the variants rather than "abandoning" the version for larger screens at first.**
 
-Notes: I attempted to use <ExternalLink href="https://github.com/contra/react-responsive">react-responsive</ExternalLink>, but due to SSG in Next.js it became a bit tricky. Here's <ExternalLink href="https://nitayneeman.com/posts/combining-server-side-rendering-and-responsive-design-using-react/">an article about server-side rendering and responsive design</ExternalLink>. I'd also like to try the dependency <ExternalLink href="https://github.com/artsy/fresnel">fresnel</ExternalLink>.
+Notes: I attempted to use [react-responsive](https://github.com/contra/react-responsive), but due to SSG in Next.js it became a bit tricky. Here's [an article about server-side rendering and responsive design](https://nitayneeman.com/posts/combining-server-side-rendering-and-responsive-design-using-react/). I'd also like to try the dependency [fresnel](https://github.com/artsy/fresnel).
 
 ## Plan first and document well
 
@@ -88,37 +73,7 @@ There are several tools for writing documents for React projects; however, becau
 
 Bejamas wraps some logos with a round dashed gradient border. It's a minor aesthetic detail, but I spend a lot of time on it, despite the fact that the solution is quite simple. I didn't find the right approach at first. And I put it here: **`border-image` cannot create a round border.**
 
-There're two solutions for this style, which I put in a codepen below. I used the second one in this project.
-
-<p
-  className="codepen"
-  data-height={300}
-  data-theme-id="light"
-  data-default-tab="html,result"
-  data-slug-hash="RwpXMGy"
-  data-user="cyishere"
-  style={{
-    height: "300px",
-    boxSizing: "border-box",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "2px solid",
-    margin: "1em 0",
-    padding: "1em",
-  }}
->
-  <span>
-    See the Pen{" "}
-    <a href="https://codepen.io/cyishere/pen/RwpXMGy">
-      Round Dashed Gradient Border with CSS
-    </a>{" "}
-    by Irini (<a href="https://codepen.io/cyishere">@cyishere</a>) on{" "}
-    <a href="https://codepen.io">CodePen</a>.
-  </span>
-</p>
-
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+There're two solutions for this style, which I put in a [Codepen](https://codepen.io/cyishere/pen/RwpXMGy). I used the second one in this project.
 
 The first is to use a full-color pseudo-element and place it beneath the main element. The main element has a dashed border that matches its background. As a result, the dashed border's gaps reveal the gradient color beneath, giving the appearance of a round dashed gradient border. The key here is to use `background-clip: padding-box;`.
 
@@ -139,7 +94,7 @@ The tricky part is that the "boxes" in CSS are a one-way stack. How could I mana
   height={400}
 />
 
-I considered using JavaScript to modify their `z-index` property but it seems too complicated...So in the end, I came up with a filler which is an extra block to cover up the top of the purple block. With the `animation-delay: 4s;` the filler starts at the second loop. <ExternalLink href="https://github.com/cyishere/bejamas-copycat/blob/main/components/Lego/Lego.tsx">Here's my code</ExternalLink>.
+I considered using JavaScript to modify their `z-index` property but it seems too complicated...So in the end, I came up with a filler which is an extra block to cover up the top of the purple block. With the `animation-delay: 4s;` the filler starts at the second loop. [Here's my code](https://github.com/cyishere/bejamas-copycat/blob/main/components/Lego/Lego.tsx).
 
 <Figure
   alt="Using a filler to cover up the purple one"
@@ -175,7 +130,7 @@ It's perfectly functional. Despite the fact that I don't know how to set up an `
 }
 ```
 
-They change the `z-index` during animation! I had no idea `z-index` could be modified in animation! Then I found out that there're <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">tons of CSS properties</ExternalLink>, not just those pertaining to position (2 dimensions) and appearance, are animatable. Even `flex` and `grid` are animatable!
+They change the `z-index` during animation! I had no idea `z-index` could be modified in animation! Then I found out that there're [tons of CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties), not just those pertaining to position (2 dimensions) and appearance, are animatable. Even `flex` and `grid` are animatable!
 
 Why didn't I look into if `z-index` could be animated? I just didn't...
 
@@ -193,4 +148,4 @@ Here're some parts in Bejamas' home page I haven't achieved:
 
 ---
 
-Whilst I was writing this summary blog post I read Josh Comeau's article "<ExternalLink href="https://www.joshwcomeau.com/blog/how-to-learn-stuff-quickly/">how to learn stuff quickly</ExternalLink>". I think that learning from creating a clone of a live website is similar to what he meant by "mixing guided and unguided learning". Making alternative solutions and intentional mistakes in order to learn and cultivate a mindset, rather than simply following along with something.
+Whilst I was writing this summary blog post I read Josh Comeau's article "[how to learn stuff quickly](https://www.joshwcomeau.com/blog/how-to-learn-stuff-quickly/)". I think that learning from creating a clone of a live website is similar to what he meant by "mixing guided and unguided learning". Making alternative solutions and intentional mistakes in order to learn and cultivate a mindset, rather than simply following along with something.

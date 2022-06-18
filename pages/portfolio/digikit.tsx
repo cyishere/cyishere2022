@@ -8,7 +8,7 @@ import Figure from "@/components/Figure";
 import styled from "styled-components";
 import { MdContainer, LgContainer } from "@/components/Container";
 import { QUERIES } from "@/styles/constants";
-import { CodeInLine } from "@/components/MDXComponents/MDXComponents";
+import { CodeInLine } from "@/components/CustomComponents";
 
 const digikit: NextPage = () => {
   return (

@@ -1,20 +1,13 @@
-import { PostLayout } from "@/components/Layout";
-import { ExternalLink } from "@/components/TextLink";
+---
+title: "Table of Contents for MDX with Next.js"
+description: "Add a table of contents for MDX/Markdown file with Next.js."
+createdAt: "2021-06-21"
+tags: ["mdx", "next.js"]
+---
 
-export const meta = {
-  title: "Table of Content for MDX with Next.js",
-  description: "Add a table of content for MDX/Markdown file with Next.js.",
-  createdAt: "2021-06-21",
-  tags: ["mdx", "next.js"],
-};
+I use Next.js & MDX for my personal website and some documents, I want to display a "table of contents", a list of headings, for each article.
 
-export default ({ children }) => (
-  <PostLayout meta={meta}>{children}</PostLayout>
-);
-
-I use Next.js & MDX for my personal website and some documents, I want to display a "table of content", a list of headings, for each article.
-
-I've tried the plugin <ExternalLink href="https://github.com/remarkjs/remark-toc">remark-toc</ExternalLink> but it's too complex (for me). I spend hours still couldn't make the toc work... So, I tried to write it by myself.
+I've tried the plugin [remark-toc](https://github.com/remarkjs/remark-toc) but it's too complex (for me). I spend hours still couldn't make the toc work... So, I tried to write it by myself.
 
 ## Get The List of Headings
 
@@ -97,4 +90,4 @@ const MDXComponents = {
 export default MDXComponents;
 ```
 
-Now, everything works as I expected. I made a Next.js & MDX starter, <ExternalLink href="https://github.com/cyishere/nextjs-starter">click here to visit the repo</ExternalLink> could find the whole code.
+Now, everything works as I expected. I made a Next.js & MDX starter, [click here to visit the repo](https://github.com/cyishere/nextjs-starter) could find the whole code.

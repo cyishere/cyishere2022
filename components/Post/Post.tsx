@@ -6,7 +6,8 @@ const Post = styled.article`
   margin-left: auto;
   margin-right: auto;
 
-  & > * + * {
+  & > * + *,
+  & pre[class*="language-"] {
     margin-top: 1.6em;
   }
 
@@ -29,6 +30,18 @@ const Post = styled.article`
     background-size: 100% 100%;
     border-width: 3px;
     border-color: currentColor;
+  }
+
+  & p code,
+  & ul code,
+  & ol code {
+    --bg-color: #ccc5f6;
+    font-family: var(--ff-mono);
+    background-color: var(--bg-color);
+    color: var(--clr-purple-primary);
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
   }
 `;
 

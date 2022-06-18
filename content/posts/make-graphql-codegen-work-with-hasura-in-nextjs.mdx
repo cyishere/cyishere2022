@@ -1,26 +1,16 @@
-import { PostLayout } from "@/components/Layout";
-import Figure from "@/components/Figure";
-import { ExternalLink } from "@/components/TextLink";
+---
+title: "Make GraphQL Codegen Work with Hasura in Next.js"
+description: "Configure GraphQL Code Generator for Hasura and Next.js"
+createdAt: "2022-04-06"
+tags: ["next.js", "graphql-codegen", "hasura"]
+pageImage: "https://res.cloudinary.com/cyishere/image/upload/v1649225933/cyishere/blog/make-graphql-codegen-work-with-hasura-in-nextjs/cover_ox8bgs.png"
+---
 
-export const meta = {
-  title: "Make GraphQL Codegen Work with Hasura in Next.js",
-  description: "Configure GraphQL Code Generator for Hasura and Next.js",
-  createdAt: "2022-04-06",
-  tags: ["next.js", "graphql-codegen", "hasura"],
-  pageImage:
-    "https://res.cloudinary.com/cyishere/image/upload/v1649225933/cyishere/blog/make-graphql-codegen-work-with-hasura-in-nextjs/cover_ox8bgs.png",
-};
-
-export default ({ children }) => (
-  <PostLayout meta={meta}>{children}</PostLayout>
-);
-
-As I used the <ExternalLink href="https://www.graphql-code-generator.com/">GraphQL Code Generator</ExternalLink> before, I found out that making this Codegen work with <ExternalLink href="https://hasura.io">Hasura</ExternalLink> in <ExternalLink href="https://nextjs.org/">Next.js</ExternalLink> needs some special configurations.
+As I used the [GraphQL Code Generator](https://www.graphql-code-generator.com/) before, I found out that making this Codegen work with [Hasura](https://hasura.io) in [Next.js](https://nextjs.org/) needs some special configurations.
 
 ## Set Codegen Configurations for Hasura
 
-The <ExternalLink href="https://hasura.io/learn/graphql/typescript-react-apollo/codegen/">
-Hasura's official tutorial</ExternalLink> provides a settings code block which I modified some "special configurations" in it (with the ⛑️ indicator):
+The [Hasura's official tutorial](https://hasura.io/learn/graphql/typescript-react-apollo/codegen/) provides a settings code block which I modified some "special configurations" in it (with the ⛑️ indicator):
 
 ```javascript
 // ./codegen.js
@@ -70,7 +60,7 @@ module.exports = {
 
 **Explain about these changes**:
 
-- Change 1: for this `codegen.js` file can get environment variables, we need to install <ExternalLink href="https://www.npmjs.com/package/dotenv">dotenv</ExternalLink> and import it into this file.
+- Change 1: for this `codegen.js` file can get environment variables, we need to install [dotenv](https://www.npmjs.com/package/dotenv) and import it into this file.
 - Change 2 & Change 3: these two are optional. I don't want to expose my Hasura GraphQL API, so I choose to store it as an environment variable. Whether add these is up to you.
 - Change 4 & Change 5: interacting with Hasura GraphQL API needs some permissions which are specified in the request `headers`.
 
@@ -81,7 +71,7 @@ module.exports = {
   height={275}
 />
 
-In the picture above, at default Hasura GraphQL API needs `content-type` and `x-hasura-admin-secret`. **This is why I make the "4" and "5" changes.** After setting the permissions in the database tables, we can interact with the API with `x-hasura-role` and `x-hasura-user-id`. More "permission" content could find in <ExternalLink href="https://hasura.io/learn/graphql/hasura/authorization/1-todos-table-permissions/">their official tutorials</ExternalLink>.
+In the picture above, at default Hasura GraphQL API needs `content-type` and `x-hasura-admin-secret`. **This is why I make the "4" and "5" changes.** After setting the permissions in the database tables, we can interact with the API with `x-hasura-role` and `x-hasura-user-id`. More "permission" content could find in [their official tutorials](https://hasura.io/learn/graphql/hasura/authorization/1-todos-table-permissions/).
 
 ## Special Attentions for Next.js
 
@@ -101,4 +91,4 @@ Don't forget to add a script in the `package.json` file for using Codgen:
 
 ## More Infos
 
-This is a note from me about developing an application with Next.js and Hasura. The app is called <ExternalLink href="https://ddd.cyishere.dev">DDD App</ExternalLink>, and it is a tool for remembering German nouns. You can learn more about it [here](/blog/ddd-app-a-neat-tool-for-remembering-german-nouns).
+This is a note from me about developing an application with Next.js and Hasura. The app is called [DDD App](https://ddd.cyishere.dev), and it is a tool for remembering German nouns. You can learn more about it [here](/blog/ddd-app-a-neat-tool-for-remembering-german-nouns).
