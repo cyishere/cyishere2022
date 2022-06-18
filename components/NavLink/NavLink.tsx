@@ -11,43 +11,49 @@ interface NavLinkProps {
 const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
   const backgroundImage = `url(/images/decorator-cyan-small.svg)`;
 
-  const getBgImage = (conditon: boolean) => {
+  const getBgImage = (path: string, prefix: string) => {
+    // TODO need to delete this
+    console.log({ path });
+    const homePage = path === prefix || null;
+
+    let condition = homePage ?? path.slice(1).startsWith(prefix);
+
     return {
-      "--backgroundImage": conditon ? backgroundImage : "none",
+      "--backgroundImage": condition ? backgroundImage : "none",
     } as CSSProperties;
   };
 
   return (
     <Wrapper role="navigation" aria-label="Main" id="primary-navigation">
-      <NavLinkItem style={getBgImage(pathname === "/")}>
+      <NavLinkItem style={getBgImage(pathname, "/")}>
         <Link href="/" passHref>
           <NavLinkAnchor>
             <Item data-content="home">home</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getBgImage(pathname === "/portfolio")}>
+      <NavLinkItem style={getBgImage(pathname, "portfolio")}>
         <Link href="/portfolio" passHref>
           <NavLinkAnchor>
             <Item data-content="portfolio">portfolio</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getBgImage(pathname === "/blog")}>
+      <NavLinkItem style={getBgImage(pathname, "blog")}>
         <Link href="/blog" passHref>
           <NavLinkAnchor>
             <Item data-content="blog">blog</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getBgImage(pathname === "/about")}>
+      <NavLinkItem style={getBgImage(pathname, "about")}>
         <Link href="/about" passHref>
           <NavLinkAnchor>
             <Item data-content="about">about</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      {/* <NavLinkItem style={getBgImage(pathname === "/hire-me")}>
+      {/* <NavLinkItem style={getBgImage(pathname, "hire-me")}>
         <Link href="/hire-me" passHref>
           <NavLinkAnchor>
             <Item data-content="hire me!">
