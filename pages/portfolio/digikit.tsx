@@ -8,7 +8,6 @@ import Figure from "@/components/Figure";
 import styled from "styled-components";
 import { MdContainer, LgContainer } from "@/components/Container";
 import { QUERIES } from "@/styles/constants";
-import { CodeInLine } from "@/components/CustomComponents";
 
 const digikit: NextPage = () => {
   return (
@@ -116,9 +115,8 @@ const digikit: NextPage = () => {
             I write a middleware to deal with errors in the backend with
             messages and HTTP status code. But I found out every time axios gets
             a status code that is non-2xx, it just breaks without any messages I
-            put in that error event. So I switched to{" "}
-            <CodeInLine>fetch</CodeInLine>, it makes more sense to me. I wrote
-            an article about{" "}
+            put in that error event. So I switched to <code>fetch</code>, it
+            makes more sense to me. I wrote an article about{" "}
             <TextLink href="https://cyishere.dev/blog/error-handling-with-express">
               this error handling thing
             </TextLink>
@@ -155,10 +153,10 @@ const digikit: NextPage = () => {
             <ExternalLink href="https://reactrouter.com/">
               react-router-dom
             </ExternalLink>
-            , I check the user&#39;s status in a <CodeInLine>Route</CodeInLine>{" "}
-            component for whether there&#39;s a login status in the app&#39;s
-            state and use the <CodeInLine>if-else</CodeInLine> condition to show
-            the right component or re-direct to another location.{" "}
+            , I check the user&#39;s status in a <code>Route</code> component
+            for whether there&#39;s a login status in the app&#39;s state and
+            use the <code>if-else</code> condition to show the right component
+            or re-direct to another location.{" "}
             <ExternalLink href="https://github.com/cyishere/digikit/blob/main/frontend/src/app/ProtectedRoutes.js">
               Here&#39;s the code
             </ExternalLink>{" "}
