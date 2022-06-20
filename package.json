@@ -1,7 +1,10 @@
 {
-  "name": "portfolio-of-cy",
-  "version": "0.1.0",
+  "name": "cyishere",
+  "description": "The personal website of Chen Yang.",
+  "version": "2.2.0",
   "private": true,
+  "author": "Chen Yang <cyishere@proton.me>",
+  "homepage": "https://cyishere.dev",
   "scripts": {
     "dev": "next dev",
     "dev:watch": "next-remote-watch",
