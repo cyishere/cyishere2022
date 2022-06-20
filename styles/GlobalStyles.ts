@@ -60,6 +60,7 @@ const GlobalStyles = createGlobalStyle`
     --clr-cyan: hsl(${COLORS.cyan});
     --clr-salmon: hsl(${COLORS.salmon});
     --clr-crimson: hsl(${COLORS.crimson});
+    --clr-info: hsl(${COLORS.info});
     --clr-purple-primary: hsl(${COLORS.purplePrimary});
     --clr-purple-secondary: hsl(${COLORS.purplePrimary} / 0.5);
     --clr-text-light: hsl(${COLORS.textLight});

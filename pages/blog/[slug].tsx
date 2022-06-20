@@ -129,6 +129,8 @@ export const getStaticProps = async ({
 
   const { content, data } = matter(source);
 
+  console.log({ source });
+
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],

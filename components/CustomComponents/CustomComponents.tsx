@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { Hash } from "react-feather";
+
+import type { VariantType } from "../BlockQuote/BlockQuote";
 import { ExternalLink } from "../TextLink";
+import BlockQuote from "../BlockQuote";
 
 /**
  * The component of <h2 />
@@ -84,6 +87,49 @@ export const ExLink = ({ children, href }: ExLinkProps) => {
 };
 
 /**
+ * Component for blockquote
+ */
+interface QuoteProps {
+  children: any[];
+}
+export const Quote = ({ children }: QuoteProps) => {
+  const OPTIONS = ["[!INFO] ", "[!WARNING] ", "[!ERROR] "];
+  let variant: VariantType = "default";
+  let content: any[] = [];
+
+  const pushContent = (i: any, option: string) => {
+    content.push({
+      ...i,
+      props: {
+        ...i.props,
+        children: i.props.children.replace(option, ""),
+      },
+    });
+  };
+
+  children.forEach((item) => {
+    if (item.hasOwnProperty("props")) {
+      if (item.props.children.startsWith(OPTIONS[0])) {
+        variant = "info";
+        pushContent(item, OPTIONS[0]);
+      } else if (item.props.children.startsWith(OPTIONS[1])) {
+        variant = "warning";
+        pushContent(item, OPTIONS[1]);
+      } else if (item.props.children.startsWith(OPTIONS[2])) {
+        variant = "error";
+        pushContent(item, OPTIONS[2]);
+      } else {
+        content.push(item);
+      }
+    } else {
+      content.push(item);
+    }
+  });
+
+  return <BlockQuote variant={variant}>{content}</BlockQuote>;
+};
+
+/**
  * The default component
  */
 const CustomComponents = {
@@ -91,6 +137,7 @@ const CustomComponents = {
   hr: () => <Hr />,
   ul: (props: any) => <UnorderList {...props} />,
   a: ExLink,
+  blockquote: (props: QuoteProps) => <Quote {...props} />,
 };
 
 export default CustomComponents;

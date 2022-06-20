@@ -34,6 +34,7 @@ export const COLORS = {
   cyan: "170.2deg 42.7% 72%",
   salmon: "1.3deg 87.3% 69.2%",
   crimson: "1deg 88% 55%",
+  info: "198deg 98% 60%",
   purplePrimary: "248.4deg 74.2% 47.1%",
   textLight: "218deg 11% 65%",
   textSecondary: "216deg 65% 18%",
