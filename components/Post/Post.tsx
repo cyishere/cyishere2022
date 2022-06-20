@@ -31,18 +31,6 @@ const Post = styled.article`
     border-width: 3px;
     border-color: currentColor;
   }
-
-  & p code,
-  & ul code,
-  & ol code {
-    --bg-color: #ccc5f6;
-    font-family: var(--ff-mono);
-    background-color: var(--bg-color);
-    color: var(--clr-purple-primary);
-    border-radius: 4px;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
 `;
 
 export default Post;

@@ -195,6 +195,17 @@ const GlobalStyles = createGlobalStyle`
   strong {
     font-weight: var(--font-weight-bold);
   }
+
+  article p code,
+  article ul code,
+  article ol code {
+    font-family: var(--ff-mono);
+    background-color: var(--clr-purple-light);
+    color: var(--clr-crimson);
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
 `;
 
 export default GlobalStyles;
