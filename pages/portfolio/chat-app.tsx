@@ -5,7 +5,6 @@ import { PortfolioLayout } from "@/components/Layout";
 import { MdContainer } from "@/components/Container";
 import { ExternalLink, TextLink } from "@/components/TextLink";
 import Figure from "@/components/Figure";
-import { CodeInLine } from "@/components/CustomComponents";
 
 const ChatApp = () => {
   return (
@@ -82,9 +81,8 @@ const ChatApp = () => {
           <p>
             Before I implemented the subscription, I managed how to display the
             newly sent message and update the state in the{" "}
-            <CodeInLine>useMutation</CodeInLine>. But when with the
-            subscription, we need to manage these with the response of{" "}
-            <CodeInLine>useSubscription</CodeInLine>.
+            <code>useMutation</code>. But when with the subscription, we need to
+            manage these with the response of <code>useSubscription</code>.
           </p>
           <p>
             I&#39;m not sure whether I described it correctly in English,{" "}
@@ -96,25 +94,22 @@ const ChatApp = () => {
 
           <Heading2>Lessons Learned</Heading2>
           <p>
-            Wire up Prisma in the resolver&#39;s{" "}
-            <CodeInLine>context</CodeInLine> argument;
+            Wire up Prisma in the resolver&#39;s <code>context</code> argument;
           </p>
           <p>
-            Do the authentication/authorization thing in{" "}
-            <CodeInLine>context</CodeInLine>;
+            Do the authentication/authorization thing in <code>context</code>;
           </p>
           <p>
-            The <CodeInLine>useReducer</CodeInLine> in React has the methodology
-            as the old school Redux, not{" "}
+            The <code>useReducer</code> in React has the methodology as the old
+            school Redux, not{" "}
             <ExternalLink href="https://redux-toolkit.js.org/">
               the new modern one
             </ExternalLink>
             ;
           </p>
           <p>
-            The <CodeInLine>context</CodeInLine> in React is very useful for
-            managing the state, and not every app needs an extra state
-            management tool.
+            The <code>context</code> in React is very useful for managing the
+            state, and not every app needs an extra state management tool.
           </p>
         </MdContainer>
       </Wrapper>
