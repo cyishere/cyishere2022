@@ -23,7 +23,6 @@ const Figure: React.FC<FigureProps> = ({
         <Image
           src={src}
           alt={alt}
-          layout="responsive"
           width={width}
           height={height}
           {...delegated}
@@ -49,7 +48,8 @@ const Wrapper = styled.figure`
 
 const ImgWrapper = styled.div`
   width: 100%;
-  display: block;
+  display: flex;
+  justify-content: center;
   position: relative;
 `;
 

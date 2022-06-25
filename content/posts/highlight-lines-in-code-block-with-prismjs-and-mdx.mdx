@@ -1,0 +1,97 @@
+---
+title: "Highlight Lines in Code Block with Prism.js and MDX"
+description: "Make lines highlighting with Prism.js in markdown(mdx) code block."
+createdAt: "2022-06-25"
+tags: ["mdx", "prismjs"]
+---
+
+## The Needs
+
+There are blogs, websites, online documents have their code block with some lines highlightened. Such as the screenshot below.
+
+<Figure
+  src="https://res.cloudinary.com/cyishere/image/upload/v1656157038/cyishere/blog/code-block-with-highlighting-lines_newky9.png"
+  alt="Screenshot: code block with highlighting lines"
+  width={664}
+  height={457}
+/>
+
+I alway want to implement this cool thing for my own blog which made of Next.js and MDX. I use [Prism.js](https://prismjs.com/) for highlighting syntax of code block. But I couldn't find a way to enable its [Line Highlight plugin](https://prismjs.com/plugins/line-highlight/).
+
+## The Flawed Way
+
+My old approach is calling Prism in `useEffect`:
+
+```js {2,5-9}
+// This is the blog post layout component
+import Prism from "prismjs";
+
+const BlogPost = (props) => {
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			Prism.highlightAll()
+		}
+	}, []);
+
+	return (
+		// omitted
+	)
+}
+```
+
+This approach cannot implement line highlight (at least I don't know how to do it.)
+
+## The Right Way
+
+After a VERY LONG time research, I finally find a way: instead using `prismjs` with `next-mdx-remote`, we can use [rehype-prism-plus](https://www.npmjs.com/package/rehype-prism-plus) with `next-mdx-remote`.
+
+As the `next-mdx-remote` [official document says](https://www.npmjs.com/package/rehype-prism-plus) when we serializing the MDX content, we can use `remarkPlugins` and `rehypePlugins`. `rehype-prism-plus` is one of the "rehypePlugins".
+
+So with putting `rehypePrism` in that `rehypePlugins` array, we can use `rehypePrism` just like it should be and without any further configurations. The code is something like this:
+
+```jsx {2,16}
+// This is the UPDATED blog post layout component
+import { serialize } from "next-mdx-remote/serialize";
+import rehypePrism from "rehype-prism-plus";
+
+const BlogPost = (props) => {
+  // omitted
+};
+
+export const getStaticProps = async ({ params }) => {
+  const content = {
+    // omitted, not really like this
+  };
+
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [rehypePrism],
+    },
+  });
+
+  return {
+    // omitted
+  };
+};
+```
+
+[Here](https://github.com/cyishere/cyishere2022/blob/main/pages/blog/%5Bslug%5D.tsx) is the whole code of my this blog post page.
+
+<Figure
+  src="https://res.cloudinary.com/cyishere/image/upload/v1656157038/cyishere/blog/dom-with-extra-class_mvv4lt.png"
+  alt="Screenshot: DOM with extra class"
+  width={516}
+  height={408}
+/>
+
+With this set up, if we inspect the code block with dev tool, we can see that line 2 and line 16 has an extra class `highlight-line` (as seen in the screenshot above). Make sure the stylesheet for code block has `highlight-inline` style defined.
+
+```css
+code[class*="language-"] .highlight-line {
+  background-color: hsl(256deg 100% 96%);
+  display: block;
+}
+```
+
+I import this stylesheet in the `_app.tsx` file to make it use globally.
