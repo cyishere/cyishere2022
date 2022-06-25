@@ -593,7 +593,7 @@ We could also see the message in terminal:
 
 According to Prisma's documentation, code `P2002` [specifies the unique constraint violation](https://www.prisma.io/docs/reference/api-reference/error-reference#p2002). So we can use it as a condition. Refactor the catch block like this:
 
-```js
+```js {6}
 // server/graphq/resolvers.js
 
 // ...
