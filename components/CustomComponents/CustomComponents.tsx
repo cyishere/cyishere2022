@@ -90,43 +90,66 @@ export const ExLink = ({ children, href }: ExLinkProps) => {
  * Component for blockquote
  */
 interface QuoteProps {
+  // Every line of this markdown blockquote will become an item of an array,
+  // which is this `children`
+  // If there's no other syntax in this line, it's a pure string;
+  // If there's other syntax, it becomes an array contains the text
+  // as pure string and React element which is the other syntax.
   children: any[];
 }
 export const Quote = ({ children }: QuoteProps) => {
-  const OPTIONS = ["[!INFO] ", "[!WARNING] ", "[!ERROR] "];
+  const TYPES = ["[!INFO] ", "[!WARNING] ", "[!ERROR] "];
   let variant: VariantType = "default";
-  let content: any[] = [];
 
-  const pushContent = (i: any, option: string) => {
-    content.push({
-      ...i,
+  // This is the formatted equivalent to the `children`
+  let items: any[] = [];
+
+  /**
+   * Remove the type string.
+   * @param element - The line with other syntax
+   * @param type - The type of this blockquote
+   */
+  const pushToItems = (element: any, type: string) => {
+    const kinds: any[] = [];
+    element.props.children.forEach((item: any, i: number) => {
+      if (i === 0) {
+        kinds.push(item.replace(type, ""));
+      } else {
+        kinds.push(item);
+      }
+    });
+
+    items.push({
+      ...element,
       props: {
-        ...i.props,
-        children: i.props.children.replace(option, ""),
+        children: kinds,
       },
     });
   };
 
   children.forEach((item) => {
+    // If this line has `props` property, it has other syntax
     if (item.hasOwnProperty("props")) {
-      if (item.props.children.startsWith(OPTIONS[0])) {
+      if (item?.props?.children[0]?.startsWith(TYPES[0])) {
         variant = "info";
-        pushContent(item, OPTIONS[0]);
-      } else if (item.props.children.startsWith(OPTIONS[1])) {
+        pushToItems(item, TYPES[0]);
+      } else if (item?.props?.children[0]?.startsWith(TYPES[1])) {
         variant = "warning";
-        pushContent(item, OPTIONS[1]);
-      } else if (item.props.children.startsWith(OPTIONS[2])) {
+        pushToItems(item, TYPES[1]);
+      } else if (item?.props?.children[0]?.startsWith(TYPES[2])) {
         variant = "error";
-        pushContent(item, OPTIONS[2]);
+        pushToItems(item, TYPES[2]);
       } else {
-        content.push(item);
+        items.push(item);
       }
+
+      // Otherwise, push this pure string line to `items`
     } else {
-      content.push(item);
+      items.push(item);
     }
   });
 
-  return <BlockQuote variant={variant}>{content}</BlockQuote>;
+  return <BlockQuote variant={variant}>{items}</BlockQuote>;
 };
 
 /**
