@@ -53,11 +53,18 @@ const PrismMaterialLight = createGlobalStyle`
     overflow: auto;
     position: relative;
     margin: 0.5em 0;
-    padding: 1.25em 1em;
+    /* padding: 1.25em 1em; */
+    padding: 1.25em 0;
+  }
+
+  code[class*="language-"] .code-line {
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
   code[class*="language-"] .highlight-line {
     background-color: hsl(256deg 100% 96%);
+    border-left: 3px solid hsl(256deg 100% 76%);
     display: block;
   }
 
