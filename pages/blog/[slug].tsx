@@ -4,11 +4,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
-import { useEffect } from "react";
 import styled from "styled-components";
 import { MDXProvider } from "@mdx-js/react";
-import Prism from "prismjs";
 import { MDXRemote } from "next-mdx-remote";
+import rehypePrism from "rehype-prism-plus";
 
 import type { PostMetaType } from "@/utils/types";
 import { postFilePaths, POSTS_PATH } from "@/utils/mdxUtils";
@@ -31,12 +30,6 @@ interface PostPageProps {
 
 const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
   const pathname = `/blog/${slug}`;
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      Prism.highlightAll();
-    }
-  }, []);
 
   const components = {
     ...CustomComponents,
@@ -132,7 +125,7 @@ export const getStaticProps = async ({
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: [rehypePrism],
     },
     scope: data,
   });
