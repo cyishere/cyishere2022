@@ -7,7 +7,7 @@ tags: ["mdx", "prismjs"]
 
 ## The Needs
 
-There are blogs, websites, online documents have their code block with some lines highlightened. Such as the screenshot below.
+There are blogs, websites, and online documents that have their code block with some lines highlighted. As in the screenshot below.
 
 <Figure
   src="https://res.cloudinary.com/cyishere/image/upload/v1656157038/cyishere/blog/code-block-with-highlighting-lines_newky9.png"
@@ -16,11 +16,11 @@ There are blogs, websites, online documents have their code block with some line
   height={457}
 />
 
-I alway want to implement this cool thing for my own blog which made of Next.js and MDX. I use [Prism.js](https://prismjs.com/) for highlighting syntax of code block. But I couldn't find a way to enable its [Line Highlight plugin](https://prismjs.com/plugins/line-highlight/).
+I always want to implement this cool thing for my own blog which is made of Next.js and MDX. I use [Prism.js](https://prismjs.com/) for highlighting the syntax of the code block. However, I couldn't find a way to enable its [Line Highlight plugin](https://prismjs.com/plugins/line-highlight/).
 
 ## The Flawed Way
 
-My old approach is calling Prism in `useEffect`:
+My old approach was calling Prism in `useEffect`:
 
 ```js {2,5-9}
 // This is the blog post layout component
@@ -39,15 +39,15 @@ const BlogPost = (props) => {
 }
 ```
 
-This approach cannot implement line highlight (at least I don't know how to do it.)
+This approach cannot implement line highlight (at least not that I am aware of).
 
 ## The Right Way
 
-After a VERY LONG time research, I finally find a way: instead using `prismjs` with `next-mdx-remote`, we can use [rehype-prism-plus](https://www.npmjs.com/package/rehype-prism-plus) with `next-mdx-remote`.
+After a VERY LONG time of research, I finally discovered a solution: instead of using `prismjs` with `next-mdx-remote`, we can use [rehype-prism-plus](https://www.npmjs.com/package/rehype-prism-plus) with `next-mdx-remote`.
 
-As the `next-mdx-remote` [official document says](https://www.npmjs.com/package/rehype-prism-plus) when we serializing the MDX content, we can use `remarkPlugins` and `rehypePlugins`. `rehype-prism-plus` is one of the "rehypePlugins".
+As the `next-mdx-remote` [official document says](https://www.npmjs.com/package/rehype-prism-plus) when we serialize the MDX content, we can use `remarkPlugins` and `rehypePlugins`. `rehype-prism-plus` is one of the "rehypePlugins".
 
-So with putting `rehypePrism` in that `rehypePlugins` array, we can use `rehypePrism` just like it should be and without any further configurations. The code is something like this:
+So with putting `rehypePrism` in that `rehypePlugins` array, we can use `rehypePrism` just like it should be and without any additional configurations. The code is something like this:
 
 ```jsx {2,16}
 // This is the UPDATED blog post layout component
@@ -76,7 +76,7 @@ export const getStaticProps = async ({ params }) => {
 };
 ```
 
-[Here](https://github.com/cyishere/cyishere2022/blob/main/pages/blog/%5Bslug%5D.tsx) is the whole code of my this blog post page.
+[Here](https://github.com/cyishere/cyishere2022/blob/main/pages/blog/%5Bslug%5D.tsx) is the whole code of this blog post page.
 
 <Figure
   src="https://res.cloudinary.com/cyishere/image/upload/v1656157038/cyishere/blog/dom-with-extra-class_mvv4lt.png"
@@ -85,7 +85,7 @@ export const getStaticProps = async ({ params }) => {
   height={408}
 />
 
-With this set up, if we inspect the code block with dev tool, we can see that line 2 and line 16 has an extra class `highlight-line` (as seen in the screenshot above). Make sure the stylesheet for code block has `highlight-inline` style defined.
+With this setup, if we inspect the code block with the Chrome dev tool, we can see that line 2 and line 16 have an extra class `highlight-line` (as seen in the screenshot above). Make sure the stylesheet for code block has `highlight-inline` style defined.
 
 ```css
 code[class*="language-"] .highlight-line {
