@@ -46,7 +46,7 @@ This approach cannot implement line highlight (at least not that I am aware of).
 
 After a VERY LONG time of research, I finally discovered a solution: instead of using `prismjs` with `next-mdx-remote`, we can use [rehype-prism-plus](https://www.npmjs.com/package/rehype-prism-plus) with `next-mdx-remote`.
 
-As the `next-mdx-remote` [official document says](https://www.npmjs.com/package/rehype-prism-plus) when we serialize the MDX content, we can use `remarkPlugins` and `rehypePlugins`. `rehype-prism-plus` is one of the "rehypePlugins".
+As the `next-mdx-remote` [official document says](https://github.com/hashicorp/next-mdx-remote#apis) when we serialize the MDX content, we can use `remarkPlugins` and `rehypePlugins`. `rehype-prism-plus` is one of the "rehypePlugins".
 
 So with putting `rehypePrism` in that `rehypePlugins` array, we can use `rehypePrism` just like it should be and without any additional configurations. The code is something like this:
 
