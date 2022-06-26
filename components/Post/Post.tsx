@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Post = styled.article`
+  flex: 1 1 686px;
   line-height: 1.8;
   max-width: min(686px, 100%);
   margin-left: auto;
