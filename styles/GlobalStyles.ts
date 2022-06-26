@@ -198,6 +198,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   article p code,
+  article h2 code,
+  article h3 code,
   article ul code,
   article ol code {
     font-family: var(--ff-mono);
