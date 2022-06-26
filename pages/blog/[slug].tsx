@@ -19,8 +19,8 @@ import CustomComponents from "@/components/CustomComponents";
 import Figure from "@/components/Figure";
 import Emoji from "@/components/Emoji";
 import Video from "@/components/Video";
-import Toc from "@/components/Toc";
 import { FlexCenter } from "@/components/Container";
+import TableOfContents from "@/components/TableOfContents";
 
 interface PostPageProps {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -31,14 +31,21 @@ interface PostPageProps {
 const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
   const pathname = `/blog/${slug}`;
 
+  const { toc } = meta;
+
   const components = {
     ...CustomComponents,
     Figure,
     Emoji,
     Video,
-    Toc,
     FlexCenter,
   } as MDXComponents;
+
+  const sidebar = toc ? (
+    <Sidebar>
+      <TableOfContents />
+    </Sidebar>
+  ) : null;
 
   return (
     <>
@@ -52,18 +59,21 @@ const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
       />
       <Header pathname={pathname} />
       <Wrapper>
-        <PostLayout>
-          <PostHeader>
-            <Title>{meta.title}</Title>
-            <Date>
-              <time>{meta.createdAt}</time>
-            </Date>
-            {meta.excerpt ? <Excerpt>{meta.excerpt}</Excerpt> : null}
-          </PostHeader>
-          <MDXProvider components={components}>
-            <MDXRemote {...source} />
-          </MDXProvider>
-        </PostLayout>
+        <PostHeader>
+          <Title>{meta.title}</Title>
+          <Date>
+            <time>{meta.createdAt}</time>
+          </Date>
+          {meta.excerpt ? <Excerpt>{meta.excerpt}</Excerpt> : null}
+        </PostHeader>
+        <PostContainer>
+          {sidebar}
+          <PostLayout>
+            <MDXProvider components={components}>
+              <MDXRemote {...source} />
+            </MDXProvider>
+          </PostLayout>
+        </PostContainer>
       </Wrapper>
       <Footer />
     </>
@@ -71,13 +81,23 @@ const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
 };
 
 const Wrapper = styled.main`
+  --maxW: 1100px;
   background-color: var(--clr-white);
   padding: 2rem 2rem 10rem 2rem;
 `;
 
+const PostContainer = styled.div`
+  max-width: var(--maxW);
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0 auto;
+`;
+
 const PostHeader = styled.header`
   text-align: center;
-  margin-bottom: 4rem;
+  width: 100%;
+  max-width: var(--maxW);
+  margin: 0 auto 4rem auto;
 
   & > * + * {
     margin-top: 1.6em;
@@ -95,6 +115,20 @@ const Date = styled.p`
 
 const Excerpt = styled.p`
   font-size: var(--font-size-lg);
+`;
+
+const Sidebar = styled.aside`
+  display: none;
+  flex: 0 100000 250px;
+  margin-left: auto;
+  position: sticky;
+  top: 148px;
+  height: calc(100vh - 148px);
+  overflow: auto;
+
+  @media (min-width: 1084px) {
+    display: block;
+  }
 `;
 
 export default PostPage;

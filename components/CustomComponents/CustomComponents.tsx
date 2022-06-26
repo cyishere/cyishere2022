@@ -14,10 +14,14 @@ interface Heading2Props {
 }
 
 const Heading2 = ({ children }: Heading2Props) => {
-  const idText = children.replace(/ /g, "_").toLowerCase();
+  const idText = children
+    .toString()
+    .replace(/[\W_]+/g, " ")
+    .toLowerCase()
+    .replace(/ /g, "-");
 
   return (
-    <H2Wrapper id={idText}>
+    <H2Wrapper id={idText} data-text={children}>
       {children}{" "}
       <Anchor href={`#${idText}`} className="hashtag hidden text-gray-300">
         <Hash />
@@ -36,6 +40,7 @@ const H2Wrapper = styled.h2`
 
   &:hover ${Anchor} {
     display: inline-block;
+    border: none;
   }
 `;
 

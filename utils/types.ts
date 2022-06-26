@@ -7,6 +7,7 @@ export interface PostMetaType {
   excerpt?: string;
   canonical?: string;
   pageImage?: string;
+  toc?: boolean;
 }
 
 export interface Post {
