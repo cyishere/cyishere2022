@@ -5,6 +5,7 @@ import { Hash } from "react-feather";
 import type { VariantType } from "../BlockQuote/BlockQuote";
 import { ExternalLink } from "../TextLink";
 import BlockQuote from "../BlockQuote";
+import { ReactElement } from "react";
 
 /**
  * The component of <h2 />
@@ -14,14 +15,43 @@ interface Heading2Props {
 }
 
 const Heading2 = ({ children }: Heading2Props) => {
-  const idText = children
-    .toString()
-    .replace(/[\W_]+/g, " ")
-    .toLowerCase()
-    .replace(/ /g, "-");
+  let sanitizedChildren = "";
+  let idText = "";
+  let text = "";
+
+  if (typeof children !== "string") {
+    /**
+     * if the content(children) has other syntax,
+     * it becomes an array.
+     * Each item in this array is either a string,
+     * or a ReactElement.
+     */
+    (children as []).forEach((item: ReactElement) => {
+      if (typeof item !== "string") {
+        sanitizedChildren += item.props.children;
+      } else {
+        sanitizedChildren += item;
+      }
+    });
+
+    idText = sanitizedChildren
+      .replace(/[\W_]+/g, " ")
+      .toLowerCase()
+      .replace(/ /g, "-");
+
+    text = sanitizedChildren;
+  } else {
+    idText = children
+      .toString()
+      .replace(/[\W_]+/g, " ")
+      .toLowerCase()
+      .replace(/ /g, "-");
+
+    text = children;
+  }
 
   return (
-    <H2Wrapper id={idText} data-text={children}>
+    <H2Wrapper id={idText} data-text={text}>
       {children}{" "}
       <Anchor href={`#${idText}`} className="hashtag hidden text-gray-300">
         <Hash />
@@ -37,6 +67,7 @@ const Anchor = styled.a`
 
 const H2Wrapper = styled.h2`
   font-size: var(--font-size-xl);
+  scroll-margin-top: 1em;
 
   &:hover ${Anchor} {
     display: inline-block;
@@ -95,11 +126,10 @@ export const ExLink = ({ children, href }: ExLinkProps) => {
  * Component for blockquote
  */
 interface QuoteProps {
-  // Every line of this markdown blockquote will become an item of an array,
+  // Every line of this markdown blockquote will become an array,
   // which is this `children`
-  // If there's no other syntax in this line, it's a pure string;
-  // If there's other syntax, it becomes an array contains the text
-  // as pure string and React element which is the other syntax.
+  // If there's no other syntax in a line, it's a pure string;
+  // If there's other syntax, it becomes an ReactElement;
   children: any[];
 }
 export const Quote = ({ children }: QuoteProps) => {
