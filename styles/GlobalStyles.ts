@@ -104,14 +104,18 @@ const GlobalStyles = createGlobalStyle`
     --ff-mono: ${FAMILIES.mono};
 
     font-size: 18px;
-    scroll-behavior: smooth;
+    
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
   }
   
-    @media ${QUERIES.tabletAndSmaller} {
-      html {
-        font-size: 16px;
-      }
+
+  @media ${QUERIES.tabletAndSmaller} {
+    html {
+      font-size: 16px;
     }
+  }
 
   body {
     font-family: var(--ff-main);

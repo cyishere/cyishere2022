@@ -21,6 +21,7 @@ import Emoji from "@/components/Emoji";
 import Video from "@/components/Video";
 import { FlexCenter } from "@/components/Container";
 import TableOfContents from "@/components/TableOfContents";
+import BuyMeCoffee from "@/components/BuyMeCoffee";
 
 interface PostPageProps {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -74,6 +75,9 @@ const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
             </MDXProvider>
           </PostLayout>
         </PostContainer>
+        <BmcWrapper>
+          <BuyMeCoffee />
+        </BmcWrapper>
       </Wrapper>
       <Footer />
     </>
@@ -82,8 +86,9 @@ const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
 
 const Wrapper = styled.main`
   --maxW: 1100px;
+  --spacingY: 96px;
   background-color: var(--clr-white);
-  padding: 2rem 2rem 10rem 2rem;
+  padding: 32px 32px var(--spacingY) 32px;
 `;
 
 const PostContainer = styled.div`
@@ -129,6 +134,12 @@ const Sidebar = styled.aside`
   @media (min-width: 1084px) {
     display: block;
   }
+`;
+
+const BmcWrapper = styled.aside`
+  margin-top: var(--spacingY);
+  display: grid;
+  place-content: center;
 `;
 
 export default PostPage;
