@@ -1,0 +1,59 @@
+---
+title: "Full Bleed within A Constrained Wrapper"
+description: "Solutions for a full-width element within a constrained-width column, like an edge-to-edge image within a narrower column"
+createdAt: "2022-06-27"
+tags: ["css"]
+pageImage: "https://res.cloudinary.com/cyishere/image/upload/v1656297251/cyishere/blog/full-bleed-ogImage_z7mbvj.png"
+---
+
+Yesterday people in the Discord of [CSS for JS Developers Course](https://css-for-js.dev) asked whether there's any solution to achieve a full-bleed image within a wrapper with a maximum width.
+
+## My Solution
+
+So I tried this out:
+
+```html
+<article>
+  <p>...</p>
+  <img class="full-bleed" src="" />
+  <p>...</p>
+  <p></p>
+</article>
+
+<style>
+  article {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .full-bleed {
+    max-width: 100vw;
+  }
+</style>
+```
+
+The entire code is in [this Codepen](https://codepen.io/cyishere/pen/RwMbPeX).
+
+## Other "Trick"
+
+Then [Josh](https://www.joshwcomeau.com/) shared [this solution](https://css-tricks.com/full-bleed/) posted on _CSS-Tricks_. I think the solution is very COOL.
+
+```css
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+```
+
+This does not require any additional settings. In my case, I set the elements in the `article` to Flexbox layout, which may cause some unexpected problems.
+
+## More Reading
+
+- [Full-Bleed Layout Using CSS Grid](https://www.joshwcomeau.com/css/full-bleed/)
