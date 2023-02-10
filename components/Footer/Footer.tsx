@@ -4,6 +4,7 @@ import { Twitter, GitHub, Codepen } from "react-feather";
 
 import Emoji from "../Emoji";
 import { QUERIES } from "@/styles/constants";
+import BuyMeCoffee from "../BuyMeCoffee";
 
 const Footer: React.FC = () => {
   const createdAt = new Date("2021").getFullYear();
@@ -39,6 +40,7 @@ const Footer: React.FC = () => {
               <Codepen size={30} />
             </SocialIcon>
           </Link>
+          <BuyMeCoffee />
         </SocialLinks>
       </Container>
     </Wrapper>
@@ -76,7 +78,14 @@ const Copyright = styled.div`
 
 const SocialLinks = styled.div`
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
   gap: 1rem;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const SocialIcon = styled.a`
