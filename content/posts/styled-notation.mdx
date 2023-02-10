@@ -1,0 +1,21 @@
+---
+title: "Why `styled()` Notation Doesn't Work"
+description: "How to make sure the styled() notation in styled-components works, and the reason of it."
+createdAt: "2023-02-10"
+tags: ["styled-components"]
+pageImage: ""
+---
+
+There's a `styled(SomeComponent)` notaion in [styled-components](https://styled-components.com) which a very handy tool to customize some components. But sometimes, it doesn't work. But how? And why?
+
+**TLTR**: `SomeComponent` must accept a passed-in `className`.
+
+See this [CodeSandbox](https://codesandbox.io/s/styled-notation-0br3z9), the `TextLinkA` component CANNOT be customized by `styled()`. But `TextLinkB` can!
+
+The difference between them is the `...rest` prop which also includes `className`❗
+
+In the styled-components [document](https://styled-components.com/docs/advanced#styling-normal-react-components), it says:
+
+> If you use the ` styled(MyComponent)` notation and `MyComponent` does not render the passed-in `className` prop, then no styles will be applied. To avoid this issue, make sure your component attaches the passed-in `className` to a DOM node.
+
+Because styled-components generates a random string as the `className` for each _StyledComponent_ (the component defined by styled-components). When use the `styled()` notaion to wrap a StyledComponent, a new `className` is generated, but if we don't pass this new `className` to the original StyledComponent, the styles wouldn't be applied.
