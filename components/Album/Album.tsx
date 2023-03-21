@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { CSSProperties, MutableRefObject } from "react";
 
 import { AlbumType } from "@/data/projects";
-import { QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 import { ButtonLink } from "../Button";
 
 interface AlbumProps {

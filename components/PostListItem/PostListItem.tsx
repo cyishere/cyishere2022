@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 import type { Post } from "@/utils/types";
-import { QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 
 interface PostListItemProps {
   post: Post;

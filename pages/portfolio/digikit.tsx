@@ -7,7 +7,7 @@ import Video from "@/components/Video";
 import Figure from "@/components/Figure";
 import styled from "styled-components";
 import { MdContainer, LgContainer } from "@/components/Container";
-import { QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 
 const digikit: NextPage = () => {
   return (

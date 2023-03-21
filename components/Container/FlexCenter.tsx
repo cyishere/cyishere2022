@@ -1,5 +1,6 @@
-import { QUERIES } from "@/styles/constants";
 import styled from "styled-components";
+
+import { QUERIES } from "@/styles/theme";
 
 interface FlexCenterProps {}
 

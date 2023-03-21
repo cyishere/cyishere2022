@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Twitter, GitHub, Codepen } from "react-feather";
 
 import Emoji from "../Emoji";
-import { QUERIES } from "@/styles/constants";
 import BuyMeCoffee from "../BuyMeCoffee";
+import { QUERIES } from "@/styles/theme";
 
 const Footer: React.FC = () => {
   const createdAt = new Date("2021").getFullYear();

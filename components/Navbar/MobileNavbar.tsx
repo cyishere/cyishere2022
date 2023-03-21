@@ -2,10 +2,10 @@ import styled, { keyframes } from "styled-components";
 import { DialogOverlay } from "@reach/dialog";
 import { X } from "react-feather";
 
-import { COLORS } from "@/styles/constants";
 import VisuallyHidden from "../VisuallyHidden";
 import MenuToggleButton from "../MenuToggleButton";
 import NavLink from "../NavLink";
+import { color } from "@/styles/helpers";
 
 interface MobileNavbarProps {
   isOpen: boolean;
@@ -46,7 +46,7 @@ const slideIn = keyframes`
 const Wrapper = styled(DialogOverlay)`
   position: fixed;
   inset: 0;
-  background-color: hsl(${COLORS.purpleLight} / 0.7);
+  background-color: ${color("base.200")};
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 

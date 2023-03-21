@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 import NavLink from "../NavLink";
 
 interface DesktopNavbarProps {

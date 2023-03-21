@@ -4,7 +4,7 @@ import type { Post } from "@/utils/types";
 import { getPosts } from "@/utils/mdxUtils";
 import { Layout } from "@/components/Layout";
 import Hero from "@/components/Hero";
-import FeaturedProjects from "@/components/FeaturedProjects";
+// import FeaturedProjects from "@/components/FeaturedProjects";
 import Intro from "@/components/Intro";
 import FeaturedPosts from "@/components/FeaturedPosts";
 
@@ -17,7 +17,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
     <Layout title="Chen Yang, aka CY - Frontend developer who also does full-stack stuff">
       <main>
         <Hero />
-        <FeaturedProjects />
+        {/* <FeaturedProjects /> */}
         <Intro />
         <FeaturedPosts posts={posts} />
       </main>

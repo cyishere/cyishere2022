@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { CSSProperties } from "react";
 
-import { QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 
 interface NavLinkProps {
   pathname: string;

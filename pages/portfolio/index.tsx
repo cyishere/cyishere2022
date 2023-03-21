@@ -2,12 +2,12 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 import Image from "next/image";
 
+import { QUERIES } from "@/styles/theme";
 import { Layout } from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
 import Emoji from "@/components/Emoji";
 import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
 import { ButtonLink, ExternalButtonLink } from "@/components/Button";
-import { QUERIES } from "@/styles/constants";
 import VisuallyHidden from "@/components/VisuallyHidden";
 
 const Portfolio: NextPage = () => {

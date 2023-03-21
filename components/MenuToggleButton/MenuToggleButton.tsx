@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ButtonHTMLAttributes } from "react";
 
-import { QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 
 interface MenuToggleButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {}

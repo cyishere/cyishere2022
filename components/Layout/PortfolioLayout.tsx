@@ -4,10 +4,10 @@ import Link from "next/link";
 import { ArrowRight } from "react-feather";
 
 import { ALBUMS, AlbumType, ProjectType } from "@/data/projects";
-import { QUERIES } from "@/styles/constants";
 import { Layout } from ".";
 import { ExternalLink } from "../TextLink";
 import Emoji from "../Emoji";
+import { QUERIES } from "@/styles/theme";
 
 interface PortfolioLayoutProps {
   meta: ProjectType;

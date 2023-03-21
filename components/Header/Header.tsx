@@ -3,11 +3,11 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Menu } from "react-feather";
 
-import { QUERIES } from "@/styles/constants";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
 import VisuallyHidden from "../VisuallyHidden";
 import { MobileNavbar, DesktopNavbar } from "../Navbar";
 import MenuToggleButton from "../MenuToggleButton";
+import { QUERIES } from "@/styles/theme";
 
 interface HeaderProps {
   pathname: string;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ExternalLink } from "@/components/TextLink";
 import { PortfolioLayout } from "@/components/Layout";
 import { fcc as meta, fccProjects as projects } from "@/data/projects";
-import { QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 
 const fcc = () => {
   return (
