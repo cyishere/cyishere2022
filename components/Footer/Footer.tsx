@@ -5,6 +5,7 @@ import { Twitter, GitHub, Codepen } from "react-feather";
 import Emoji from "../Emoji";
 import BuyMeCoffee from "../BuyMeCoffee";
 import { QUERIES } from "@/styles/theme";
+import { color } from "@/styles/helpers";
 
 const Footer: React.FC = () => {
   const createdAt = new Date("2021").getFullYear();
@@ -49,10 +50,10 @@ const Footer: React.FC = () => {
 
 const Wrapper = styled.footer`
   padding: 0.5rem 2rem;
+  background-color: ${color("base.200")};
 `;
 
 const Container = styled.div`
-  background: url(/images/footer-top-line.svg) center 4px no-repeat;
   max-width: min(1100px, 100%);
   margin: 0 auto;
   padding: 3rem 0;
@@ -89,8 +90,8 @@ const SocialLinks = styled.div`
 `;
 
 const SocialIcon = styled.a`
-  background-color: var(--clr-black);
-  color: var(--clr-white);
+  background-color: ${color("base.100")};
+  color: ${color("text.main")};
   border-radius: 50%;
   width: 46px;
   height: 46px;
@@ -99,7 +100,7 @@ const SocialIcon = styled.a`
   transition: background 500ms ease-in, transform 500ms ease-in;
 
   &:hover {
-    background-color: var(--clr-purple-primary);
+    background-color: ${color("accent.main")};
     transform: rotate(360deg);
   }
 `;

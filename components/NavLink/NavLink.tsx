@@ -1,57 +1,61 @@
+import { CSSProperties, useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { CSSProperties } from "react";
+import { Moon, Sun } from "react-feather";
 
 import { QUERIES } from "@/styles/theme";
+import { color, fontSize } from "@/styles/helpers";
+import UnstyledButton from "../UnstyledButton";
+import VisuallyHidden from "../VisuallyHidden";
+import { ThemeContext } from "pages/_app";
 
 interface NavLinkProps {
   pathname: string;
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
-  const backgroundImage = `url(/images/decorator-cyan-small.svg)`;
-
-  const getBgImage = (path: string, prefix: string) => {
+  const ctx = useContext(ThemeContext);
+  const getActiveStyles = (path: string, prefix: string) => {
     const homePage = path === prefix || null;
 
     let condition = homePage ?? path.slice(1).startsWith(prefix);
 
     return {
-      "--backgroundImage": condition ? backgroundImage : "none",
+      "--activeColor": condition ? "var(--clr-accent-main)" : "transparent",
     } as CSSProperties;
   };
 
   return (
     <Wrapper role="navigation" aria-label="Main" id="primary-navigation">
-      <NavLinkItem style={getBgImage(pathname, "/")}>
+      <NavLinkItem style={getActiveStyles(pathname, "/")}>
         <Link href="/" passHref>
           <NavLinkAnchor>
             <Item data-content="home">home</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getBgImage(pathname, "portfolio")}>
+      <NavLinkItem style={getActiveStyles(pathname, "portfolio")}>
         <Link href="/portfolio" passHref>
           <NavLinkAnchor>
             <Item data-content="portfolio">portfolio</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getBgImage(pathname, "blog")}>
+      <NavLinkItem style={getActiveStyles(pathname, "blog")}>
         <Link href="/blog" passHref>
           <NavLinkAnchor>
             <Item data-content="blog">blog</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getBgImage(pathname, "about")}>
+      <NavLinkItem style={getActiveStyles(pathname, "about")}>
         <Link href="/about" passHref>
           <NavLinkAnchor>
             <Item data-content="about">about</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      {/* <NavLinkItem style={getBgImage(pathname, "hire-me")}>
+      {/* <NavLinkItem style={getActiveStyles(pathname, "hire-me")}>
         <Link href="/hire-me" passHref>
           <NavLinkAnchor>
             <Item data-content="hire me!">
@@ -60,6 +64,14 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
           </NavLinkAnchor>
         </Link>
       </NavLinkItem> */}
+      <NavLinkItem>
+        <UnstyledButton onClick={() => ctx?.setIsLight(!ctx.isLight)}>
+          <VisuallyHidden>
+            {ctx?.isLight ? "Change to dark theme" : "Change to light theme"}
+          </VisuallyHidden>
+          {ctx?.isLight ? <Moon /> : <Sun />}
+        </UnstyledButton>
+      </NavLinkItem>
     </Wrapper>
   );
 };
@@ -74,7 +86,7 @@ const Wrapper = styled.ul`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: var(--font-size-lg);
+    font-size: ${fontSize("lg")};
     padding-top: var(--gap);
     padding-left: var(--gap);
   }
@@ -83,15 +95,15 @@ const Wrapper = styled.ul`
 const Item = styled.span`
   display: block;
   position: relative;
-  color: var(--clr-text-primary);
+  color: ${color("text.main")};
   transition: transform 300ms;
 
-  &::before {
+  &::after {
     content: attr(data-content);
     position: absolute;
     top: 0;
     left: 0;
-    color: var(--clr-cyan);
+    color: ${color("primary.main")};
     transform: translateY(100%);
   }
 `;
@@ -108,25 +120,29 @@ const NavLinkAnchor = styled.a`
 `;
 
 const NavLinkItem = styled.li`
-  padding: 4px 12px 4px 6px;
-  background-image: var(--backgroundImage);
-  background-position: left center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  padding: 4px 6px;
+  position: relative;
 
-  &:hover {
-    background-image: none;
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: var(--activeColor);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    &:hover ${NavLinkAnchor} {
-      color: var(--clr-cyan);
+  &:hover {
+    &::after {
+      display: none;
     }
   }
 `;
 
 // const NavLinkAnchorEm = styled.em`
-//   color: var(--clr-purple-primary);
+//   color: var(--clr-primary-main);
 //   font-style: italic;
 // `;
 

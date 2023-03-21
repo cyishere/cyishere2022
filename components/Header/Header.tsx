@@ -8,6 +8,7 @@ import VisuallyHidden from "../VisuallyHidden";
 import { MobileNavbar, DesktopNavbar } from "../Navbar";
 import MenuToggleButton from "../MenuToggleButton";
 import { QUERIES } from "@/styles/theme";
+import { color, font, fontSize, fontWeight } from "@/styles/helpers";
 
 interface HeaderProps {
   pathname: string;
@@ -59,10 +60,10 @@ const Wrapper = styled.header`
 `;
 
 const Logo = styled.a`
-  font-family: var(--ff-logo);
-  font-weight: var(--font-weight-normal);
-  font-size: var(--font-size-big);
-  color: var(--clr-text-primary);
+  font-family: ${font("logo")};
+  font-weight: ${fontWeight("normal")};
+  font-size: ${fontSize("big")};
+  color: ${color("text.main")};
   letter-spacing: 4px;
 `;
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ButtonHTMLAttributes } from "react";
 
 import { QUERIES } from "@/styles/theme";
+import { color } from "@/styles/helpers";
 
 interface MenuToggleButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {}
@@ -22,6 +23,7 @@ const MenuToggleButton: React.FC<MenuToggleButtonProps> = ({
 };
 
 const Wrapper = styled.button`
+  color: ${color("text.main")};
   display: none;
   cursor: pointer;
 

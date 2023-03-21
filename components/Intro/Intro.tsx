@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { ExternalLink } from "../TextLink";
+import { color, fontSize } from "@/styles/helpers";
 
 const Intro: React.FC = () => {
   return (
@@ -32,12 +33,12 @@ const Intro: React.FC = () => {
 };
 
 const Wrapper = styled.section`
-  background-color: var(--clr-white);
+  background-color: ${color("base.200")};
   padding: 10rem 2rem;
 `;
 
 const Container = styled.article`
-  font-size: var(--font-size-lg);
+  font-size: ${fontSize("lg")};
   max-width: ${1000 / 16}rem;
   margin: 0 auto;
 
@@ -48,15 +49,16 @@ const Container = styled.article`
   & a {
     background-image: linear-gradient(
       to bottom,
-      var(--clr-purple-light) 0%,
-      var(--clr-purple-light) 100%
+      ${color("accent.main")} 0%,
+      ${color("accent.dark")} 100%
     );
     background-size: 100% 0;
-    border-bottom: 1px solid var(--clr-text-light);
+    border-bottom: 1px solid var(--clr-text-main);
     transition: border 200ms ease-in, background 300ms ease;
   }
 
   & a:hover {
+    color: ${color("base.100")};
     background-size: 100% 100%;
     border-width: 3px;
     border-color: currentColor;
