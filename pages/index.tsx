@@ -17,9 +17,9 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
     <Layout title="Chen Yang, aka CY - Frontend developer who also does full-stack stuff">
       <main>
         <Hero />
+        <FeaturedPosts posts={posts} />
         {/* <FeaturedProjects /> */}
         <Intro />
-        <FeaturedPosts posts={posts} />
       </main>
     </Layout>
   );

@@ -33,7 +33,7 @@ const Intro: React.FC = () => {
 };
 
 const Wrapper = styled.section`
-  background-color: ${color("base.200")};
+  background-color: ${color("base.100")};
   padding: 10rem 2rem;
 `;
 

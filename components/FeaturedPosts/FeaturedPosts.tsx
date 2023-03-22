@@ -3,6 +3,7 @@ import styled from "styled-components";
 import type { Post } from "@/utils/types";
 import SectionTitle from "../SectionTitle";
 import PostListItem from "../PostListItem";
+import { color } from "@/styles/helpers";
 
 interface FeaturedPostsProps {
   posts: Post[];
@@ -12,7 +13,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
   return (
     <Wrapper>
       <Container>
-        <SectionTitle variant="cyan">Blog Posts</SectionTitle>
+        <SectionTitle>Blog Posts</SectionTitle>
         <PostList>
           {posts.map((post) => (
             <PostListItem key={post.slug} post={post} />
@@ -24,6 +25,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
 };
 
 const Wrapper = styled.section`
+  background-color: ${color("base.200")};
   padding: 10rem 2rem;
 `;
 
