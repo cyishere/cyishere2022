@@ -1,67 +1,72 @@
-import Link from "next/link";
 import styled from "styled-components";
+import Link from "next/link";
+
+import { color, fontSize } from "@/styles/helpers";
 
 interface ButtonLinkProps {
   variant?: "default" | "primary";
-}
-
-interface LinkProps extends ButtonLinkProps {
   href: string;
+  children: React.ReactNode;
 }
 
-export const ButtonLink: React.FC<LinkProps> = ({
+const ButtonLink: React.FunctionComponent<ButtonLinkProps> = ({
   variant = "default",
   href,
   children,
 }) => {
+  const styles = {
+    "--bg": variant === "primary" ? `${color("button.bg")}` : "transparent",
+    "--color":
+      variant === "primary"
+        ? `${color("button.text")}`
+        : `${color("button.bg")}`,
+    "--borderColor":
+      variant === "primary" ? `${color("button.bg")}` : `${color("button.bg")}`,
+    "--bgHover":
+      variant === "primary" ? "transparent" : `${color("button.bg")}`,
+    "--colorHover":
+      variant === "primary"
+        ? `${color("button.bg")}`
+        : `${color("button.text")}`,
+    "--borderColorHover":
+      variant === "primary" ? `${color("button.bg")}` : `${color("button.bg")}`,
+  } as React.CSSProperties;
+
+  if (href.startsWith("http")) {
+    return (
+      <Link href={href} passHref>
+        <Wrapper style={styles} target="_blank" rel="noreferrer">
+          {children}
+        </Wrapper>
+      </Link>
+    );
+  }
+
   return (
     <Link href={href} passHref>
-      <Wrapper variant={variant}>{children}</Wrapper>
+      <Wrapper style={styles}>{children}</Wrapper>
     </Link>
   );
 };
 
-export const ExternalButtonLink: React.FC<LinkProps> = ({
-  variant = "default",
-  href,
-  children,
-}) => (
-  <Wrapper variant={variant} href={href} target="_blank" rel="noreferrer">
-    {children}
-  </Wrapper>
-);
+export default ButtonLink;
 
-const Wrapper = styled.a<ButtonLinkProps>`
-  color: ${(props) =>
-    props.variant === "primary"
-      ? `var(--clr-white)`
-      : `var(--clr-text-primary)`};
-  background-color: ${(props) =>
-    props.variant === "primary" ? `var(--clr-purple-primary)` : `transparent`};
-  font-size: var(--font-size-base);
+const Wrapper = styled.a`
+  font-size: ${fontSize("base")};
   text-align: center;
   padding: 8px 20px;
-  border-radius: 4px;
+  background-color: var(--bg);
+  color: var(--color);
+  border-color: var(--borderColor);
+  border-radius: 1000px;
   border-width: 1px;
   border-style: solid;
-  border-color: ${(props) =>
-    props.variant === "primary"
-      ? `var(--clr-purple-primary)`
-      : `var(--clr-text-primary)`};
   display: inline-block;
   transition: background 300ms ease;
 
-  &:focus {
-    outline-color: ${(props) =>
-      props.variant === "primary" ? `var(--clr-purple-primary)` : `inherit`};
-  }
-
   &:hover {
-    color: ${(props) =>
-      props.variant === "primary"
-        ? `var(--clr-purple-primary)`
-        : `var(--clr-white)`};
-    background-color: ${(props) =>
-      props.variant === "primary" ? `transparent` : `var(--clr-text-primary)`};
+    background-color: var(--bgHover);
+    color: var(--colorHover);
+    border-color: var(--borderColorHover);
   }
 `;

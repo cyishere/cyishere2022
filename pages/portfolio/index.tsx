@@ -7,14 +7,14 @@ import { Layout } from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
 import Emoji from "@/components/Emoji";
 import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
-import { ButtonLink, ExternalButtonLink } from "@/components/Button";
+import { ButtonLink } from "@/components/Button";
 import VisuallyHidden from "@/components/VisuallyHidden";
 
 const Portfolio: NextPage = () => {
   return (
     <Layout title="Portfolio | React Projects">
       <Wrapper>
-        <SectionTitle variant="khaki" position="center">
+        <SectionTitle position="center">
           Portfolio <Emoji name="Atom Symbol">⚛️</Emoji>
         </SectionTitle>
         <PageDescription>Projects learning by doing.</PageDescription>
@@ -65,12 +65,10 @@ const Portfolio: NextPage = () => {
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
                 <ButtonGroup>
-                  <ExternalButtonLink variant="primary" href={project.link}>
+                  <ButtonLink variant="primary" href={project.link}>
                     View More
-                  </ExternalButtonLink>
-                  <ExternalButtonLink href={project.demo!}>
-                    Live Demo
-                  </ExternalButtonLink>
+                  </ButtonLink>
+                  <ButtonLink href={project.demo!}>Live Demo</ButtonLink>
                 </ButtonGroup>
               </ReactProjectContent>
             </ReactProjectContainer>

@@ -11,7 +11,7 @@ import { ExternalLink } from "@/components/TextLink";
 const About: NextPage = () => (
   <Layout title="About CY">
     <Wrapper as="main">
-      <SectionTitle variant="salmon" position="center">
+      <SectionTitle position="center">
         About Me <Emoji name="Woman Technologist">👩🏻‍💻</Emoji>
       </SectionTitle>
       <Content>

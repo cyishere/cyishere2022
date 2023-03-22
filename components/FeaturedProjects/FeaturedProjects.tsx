@@ -4,12 +4,13 @@ import { ArrowLeft, ArrowRight } from "react-feather";
 import type { CSSProperties } from "react";
 
 import { ALBUMS } from "@/data/projects";
-import { COLORS, QUERIES } from "@/styles/constants";
+import { QUERIES } from "@/styles/theme";
 import SectionTitle from "../SectionTitle";
 import Album from "../Album";
 import UnstyledButton from "../UnstyledButton";
 import { ButtonLink } from "../Button";
 import VisuallyHidden from "../VisuallyHidden";
+import ShowMore from "../MoreWrapper";
 
 const FeaturedProjects: React.FC = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -54,9 +55,7 @@ const FeaturedProjects: React.FC = () => {
 
   return (
     <Wrapper>
-      <SectionTitle variant="khaki" position="center">
-        Projects
-      </SectionTitle>
+      <SectionTitle position="center">Projects</SectionTitle>
 
       <SectionContent aria-label="carousel">
         <VisuallyHidden>
@@ -92,11 +91,11 @@ const FeaturedProjects: React.FC = () => {
         </RightArrowWrapper>
       </SectionContent>
 
-      <MoreWrapper>
+      <ShowMore>
         <ButtonLink variant="primary" href="/portfolio">
           More Project
         </ButtonLink>
-      </MoreWrapper>
+      </ShowMore>
     </Wrapper>
   );
 };
@@ -104,13 +103,11 @@ const FeaturedProjects: React.FC = () => {
 const Wrapper = styled.section`
   padding-top: 10rem;
   padding-bottom: 6rem;
-  background-color: var(--clr-yellow-light);
-  box-shadow: 0px -5px 25px 1px hsl(${COLORS.textSecondary} / 0.1);
+  box-shadow: 0px -5px 25px 1px hsl(216 65% 18% / 0.1);
 `;
 
 const SectionContent = styled.div`
   margin-top: 2rem;
-  margin-bottom: 2rem;
   /* padding: 64px 96px; */
   position: relative;
 `;
@@ -168,21 +165,6 @@ const Slider = styled.div`
   grid-template-columns: repeat(${ALBUMS.length}, 100%);
   transform: translateX(var(--translateX));
   transition: transform 1000ms ease-in;
-`;
-
-const MoreWrapper = styled.div`
-  padding-right: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media ${QUERIES.desktopAndSmaller} {
-    justify-content: flex-end;
-  }
-
-  @media ${QUERIES.phoneAndSmaller} {
-    justify-content: center;
-  }
 `;
 
 export default FeaturedProjects;

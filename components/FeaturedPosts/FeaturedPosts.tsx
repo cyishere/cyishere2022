@@ -4,6 +4,8 @@ import type { Post } from "@/utils/types";
 import SectionTitle from "../SectionTitle";
 import PostListItem from "../PostListItem";
 import { color } from "@/styles/helpers";
+import { ButtonLink } from "../Button";
+import ShowMore from "../MoreWrapper";
 
 interface FeaturedPostsProps {
   posts: Post[];
@@ -19,6 +21,11 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
             <PostListItem key={post.slug} post={post} />
           ))}
         </PostList>
+        <ShowMore>
+          <ButtonLink variant="primary" href="/blog">
+            Read more...
+          </ButtonLink>
+        </ShowMore>
       </Container>
     </Wrapper>
   );

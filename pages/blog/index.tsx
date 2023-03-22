@@ -18,9 +18,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
     <Layout title={PAGE_TITLE}>
       <Wrapper>
         <Container>
-          <SectionTitle variant="cyan" position="center">
-            {PAGE_TITLE}
-          </SectionTitle>
+          <SectionTitle position="center">{PAGE_TITLE}</SectionTitle>
           <PostList>
             {posts.map((post: any) => (
               <PostListItem key={post.slug} post={post} />
