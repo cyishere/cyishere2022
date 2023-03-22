@@ -37,9 +37,14 @@ const Wrapper = styled.a`
   background-color: ${color("base.100")};
   border-radius: 4px;
   display: block;
+  transition: transform 500ms;
 
   &:not(:last-of-type) {
     margin-bottom: 2rem;
+  }
+
+  &:hover {
+    transform: rotate(-0.5deg);
   }
 `;
 
