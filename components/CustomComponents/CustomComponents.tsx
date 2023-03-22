@@ -6,6 +6,7 @@ import type { VariantType } from "../BlockQuote/BlockQuote";
 import { ExternalLink } from "../TextLink";
 import BlockQuote from "../BlockQuote";
 import { ReactElement } from "react";
+import { fontSize } from "@/styles/helpers";
 
 /**
  * The component of <h2 />
@@ -66,7 +67,7 @@ const Anchor = styled.a`
 `;
 
 const H2Wrapper = styled.h2`
-  font-size: var(--font-size-xl);
+  font-size: ${fontSize("lg")};
   scroll-margin-top: 1em;
 
   &:hover ${Anchor} {

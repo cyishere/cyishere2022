@@ -8,6 +8,7 @@ import Figure from "@/components/Figure";
 import styled from "styled-components";
 import { MdContainer, LgContainer } from "@/components/Container";
 import { QUERIES } from "@/styles/theme";
+import { H2 } from "@/components/Headings";
 
 const digikit: NextPage = () => {
   return (
@@ -18,7 +19,7 @@ const digikit: NextPage = () => {
             src="https://res.cloudinary.com/cyishere/video/upload/v1623059549/cyishere/portfolio/digikit-demo-wark-through_wgbadk.mp4"
             description="digiKIT demo walk-through"
           />
-          <Heading2>Project Purpose and Goal</Heading2>
+          <H2>Project Purpose and Goal</H2>
           <p>
             I started to learn React.js and the whole concept of full-stack
             development in March 2020. At the end of the year, I thought
@@ -36,7 +37,7 @@ const digikit: NextPage = () => {
         {/* with screenshot */}
         <TwoColumn>
           <TwoColumnContent>
-            <Heading2>Web Stack and Explanation</Heading2>
+            <H2>Web Stack and Explanation</H2>
             <p>
               When I was working as a screenplay writer, my main entertainment
               was reading articles on{" "}
@@ -98,7 +99,7 @@ const digikit: NextPage = () => {
         </ThreeColumn>
 
         <MdContainer>
-          <Heading2>Problem and Thought Process</Heading2>
+          <H2>Problem and Thought Process</H2>
           <p>
             I thought it&#39;d be smoothly making this app since I&#39;ve
             learned tons of tutorials about these tech stacks. But I still
@@ -172,10 +173,6 @@ const Wrapper = styled.article`
   padding-left: 2rem;
   padding-right: 2rem;
   margin: 3rem auto;
-`;
-
-const Heading2 = styled.h2`
-  font-size: var(--font-size-xl);
 `;
 
 const TwoColumn = styled(LgContainer)`

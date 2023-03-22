@@ -9,6 +9,7 @@ import Emoji from "@/components/Emoji";
 import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
 import { ButtonLink } from "@/components/Button";
 import VisuallyHidden from "@/components/VisuallyHidden";
+import { color } from "@/styles/helpers";
 
 const Portfolio: NextPage = () => {
   return (
@@ -134,7 +135,7 @@ const Media = styled.div`
 
 // Featured Section
 const FeaturedSection = styled.section`
-  background-color: var(--clr-white);
+  background-color: ${color("base.200")};
   padding: calc(var(--padding-x) + 2rem);
   margin-left: calc(var(--padding-x) * -1);
   margin-right: calc(var(--padding-x) * -1);
@@ -256,7 +257,7 @@ const ButtonGroup = styled.div`
 
 // Fcc
 const FccSection = styled.section`
-  background-color: var(--clr-white);
+  background-color: ${color("base.200")};
   padding: 4rem 0;
   margin-left: calc(var(--padding-x) * -1);
   margin-right: calc(var(--padding-x) * -1);

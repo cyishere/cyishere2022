@@ -21,6 +21,7 @@ import Emoji from "@/components/Emoji";
 import Video from "@/components/Video";
 import { FlexCenter } from "@/components/Container";
 import TableOfContents from "@/components/TableOfContents";
+import { color, fontSize } from "@/styles/helpers";
 
 interface PostPageProps {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -85,7 +86,6 @@ export default PostPage;
 const Wrapper = styled.main`
   --maxW: 1100px;
   --spacingY: 96px;
-  background-color: var(--clr-white);
   padding: 32px 32px var(--spacingY) 32px;
 `;
 
@@ -108,16 +108,16 @@ const PostHeader = styled.header`
 `;
 
 const Title = styled.h1`
-  font-size: var(--font-size-xxxl);
+  font-size: ${fontSize("xxxl")};
 `;
 
 const Date = styled.p`
-  font-size: var(--font-size-sm);
-  color: var(--clr-text-light);
+  font-size: ${fontSize("sm")};
+  color: ${color("text.light")};
 `;
 
 const Excerpt = styled.p`
-  font-size: var(--font-size-lg);
+  font-size: ${fontSize("lg")};
 `;
 
 const Sidebar = styled.aside`

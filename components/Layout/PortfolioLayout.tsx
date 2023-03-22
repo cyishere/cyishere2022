@@ -8,6 +8,7 @@ import { Layout } from ".";
 import { ExternalLink } from "../TextLink";
 import Emoji from "../Emoji";
 import { QUERIES } from "@/styles/theme";
+import { color, fontSize } from "@/styles/helpers";
 
 interface PortfolioLayoutProps {
   meta: ProjectType;
@@ -99,7 +100,6 @@ const PortfolioLayout: React.FC<PortfolioLayoutProps> = ({
 };
 
 const Wrapper = styled.main`
-  background-color: var(--clr-white);
   padding-top: 5rem;
   padding-bottom: 5rem;
 `;
@@ -131,12 +131,12 @@ const HeaderContent = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: var(--font-size-xxxl);
+  font-size: ${fontSize("xxxl")};
   margin-top: 0;
 `;
 
 const Excerpt = styled.p`
-  font-size: var(--font-size-md);
+  font-size: ${fontSize("md")};
 `;
 
 const CoverWrapper = styled.div`
@@ -194,17 +194,17 @@ const OtherProjectSection = styled.section`
 `;
 const OtherProjectSectionTitle = styled.h2`
   text-align: center;
-  font-size: var(--font-size-xl);
+  font-size: ${fontSize("xl")};
 `;
 
 const OtherProjectWrapper = styled.a`
-  background-color: var(--clr-purple-light);
+  background-color: ${color("base.200")};
   border-radius: 0.5rem;
   padding: 1rem 2rem;
   display: block;
 
   &:hover {
-    background-color: var(--clr-khaki-light);
+    background-color: transparent;
   }
 `;
 
@@ -221,7 +221,7 @@ const IconWrapper = styled.span`
 `;
 
 const OtherProjectExcerpt = styled.p`
-  color: var(--clr-text-light);
+  color: ${color("text.light")};
 `;
 
 export default PortfolioLayout;

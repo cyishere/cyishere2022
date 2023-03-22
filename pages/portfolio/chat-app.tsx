@@ -5,6 +5,7 @@ import { PortfolioLayout } from "@/components/Layout";
 import { MdContainer } from "@/components/Container";
 import { ExternalLink, TextLink } from "@/components/TextLink";
 import Figure from "@/components/Figure";
+import { H2 } from "@/components/Headings";
 
 const ChatApp = () => {
   return (
@@ -17,7 +18,7 @@ const ChatApp = () => {
             width={800}
             height={450}
           />
-          <Heading2>Project Purpose and Goal</Heading2>
+          <H2>Project Purpose and Goal</H2>
           <p>
             I started to learn React.js and the whole concept of full-stack
             development in March 2020. During that time, I found out GraphQL
@@ -28,7 +29,7 @@ const ChatApp = () => {
             can try out the subscription too!
           </p>
 
-          <Heading2>Web Stack and Explanation</Heading2>
+          <H2>Web Stack and Explanation</H2>
           <p>
             I use Apollo Server and Apollo Client/React because this is the
             first time I use a GraphQL API, there are tons of tutorials and
@@ -64,7 +65,7 @@ const ChatApp = () => {
             but the app still looks great.
           </p>
 
-          <Heading2>Problem and Thought Process</Heading2>
+          <H2>Problem and Thought Process</H2>
           <p>
             There are very few problems in the backend, the whole Apollo
             Server/Prisma thing is super logical to understand. But a lot of
@@ -92,7 +93,7 @@ const ChatApp = () => {
             .
           </p>
 
-          <Heading2>Lessons Learned</Heading2>
+          <H2>Lessons Learned</H2>
           <p>
             Wire up Prisma in the resolver&#39;s <code>context</code> argument;
           </p>
@@ -121,10 +122,6 @@ const Wrapper = styled.article`
   padding-left: 2rem;
   padding-right: 2rem;
   margin: 3rem auto;
-`;
-
-const Heading2 = styled.h2`
-  font-size: var(--font-size-xl);
 `;
 
 export default ChatApp;

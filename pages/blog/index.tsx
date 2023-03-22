@@ -6,6 +6,7 @@ import { Layout } from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
 import PostListItem from "@/components/PostListItem";
 import { getPosts } from "@/utils/mdxUtils";
+import { color } from "@/styles/helpers";
 
 interface HomePageProps {
   posts: Post[];
@@ -31,8 +32,8 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
 };
 
 const Wrapper = styled.main`
-  padding-left: 2rem;
-  padding-right: 2rem;
+  background-color: ${color("base.200")};
+  padding: 2rem;
   padding-bottom: 10rem;
 `;
 
