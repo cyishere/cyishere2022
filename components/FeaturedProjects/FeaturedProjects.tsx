@@ -10,7 +10,7 @@ import Album from "../Album";
 import UnstyledButton from "../UnstyledButton";
 import { ButtonLink } from "../Button";
 import VisuallyHidden from "../VisuallyHidden";
-import ShowMore from "../MoreWrapper";
+import ShowMore from "../ShowMore";
 
 const FeaturedProjects: React.FC = () => {
   const [slideIndex, setSlideIndex] = useState(0);

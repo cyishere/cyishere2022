@@ -5,7 +5,7 @@ import SectionTitle from "../SectionTitle";
 import PostListItem from "../PostListItem";
 import { color } from "@/styles/helpers";
 import { ButtonLink } from "../Button";
-import ShowMore from "../MoreWrapper";
+import ShowMore from "../ShowMore";
 
 interface FeaturedPostsProps {
   posts: Post[];
