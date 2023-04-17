@@ -1,31 +1,28 @@
 import styled from "styled-components";
-import Link from "next/link";
-import { ExternalLink } from "../TextLink";
+
 import { color, fontSize } from "@/styles/helpers";
+import TextLink from "../TextLink";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Intro: React.FC = () => {
   return (
     <Wrapper>
       <Container>
+        <SectionTitle position="center">The bit about myself</SectionTitle>
         <p>
           I was a frontend developer from 2007-2010 and a UX designer from
           2010-2012. Then I changed my career path, and in recent years I&#39;ve
-          worked as a screenwriter and producer. So there&#39;re a lot of new
-          tech stacks for me to catch up in order to relaunch my career as a
-          developer.
+          worked as a screenwriter and producer.
         </p>
         <p>
           I began re-building my knowledge and learning React in March 2020. In
           three months, I received{" "}
-          <Link href="/portfolio/fcc">
-            <a>4 certifications</a>
-          </Link>{" "}
-          from{" "}
-          <ExternalLink href="https://www.freecodecamp.org">
+          <TextLink href="/portfolio/fcc">4 certifications</TextLink> from{" "}
+          <TextLink href="https://www.freecodecamp.org">
             freeCodeCamp.org
-          </ExternalLink>
-          . And above are some projects I created whilst learning the incredible
-          React.
+          </TextLink>
+          . And <TextLink href="/portfolio">these are some projects</TextLink> I
+          created whilst learning the incredible React.
         </p>
       </Container>
     </Wrapper>
@@ -42,8 +39,8 @@ const Container = styled.article`
   max-width: ${1000 / 16}rem;
   margin: 0 auto;
 
-  & > *:not(:last-of-type) {
-    margin-bottom: 3rem;
+  & > * + * {
+    margin-top: 1em;
   }
 
   & a {
