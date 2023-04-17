@@ -3,13 +3,13 @@ import styled from "styled-components";
 import Image from "next/image";
 
 import { QUERIES } from "@/styles/theme";
+import { color } from "@/styles/helpers";
 import { Layout } from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
 import Emoji from "@/components/Emoji";
 import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
-import { ButtonLink } from "@/components/Button";
+import Button from "@/components/Button";
 import VisuallyHidden from "@/components/VisuallyHidden";
-import { color } from "@/styles/helpers";
 
 const Portfolio: NextPage = () => {
   return (
@@ -28,9 +28,7 @@ const Portfolio: NextPage = () => {
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
                 <CheckoutButton>
-                  <ButtonLink variant="primary" href={project.link}>
-                    View More
-                  </ButtonLink>
+                  <Button href={project.link}>View More</Button>
                 </CheckoutButton>
               </FeaturedProjectContent>
               <ProjectMedia>
@@ -66,10 +64,10 @@ const Portfolio: NextPage = () => {
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
                 <ButtonGroup>
-                  <ButtonLink variant="primary" href={project.link}>
-                    View More
-                  </ButtonLink>
-                  <ButtonLink href={project.demo!}>Live Demo</ButtonLink>
+                  <Button href={project.link}>View More</Button>
+                  <Button variant="secondary" href={project.demo!}>
+                    Live Demo
+                  </Button>
                 </ButtonGroup>
               </ReactProjectContent>
             </ReactProjectContainer>
@@ -86,9 +84,7 @@ const Portfolio: NextPage = () => {
                 <li key={item}>{item}</li>
               ))}
             </List>
-            <ButtonLink variant="primary" href="/portfolio/fcc">
-              Details
-            </ButtonLink>
+            <Button href="/portfolio/fcc">Details</Button>
           </FccContent>
           <FccMedia>
             <Image

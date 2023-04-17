@@ -81,6 +81,10 @@ export const cupcakeTheme: DefaultTheme = {
       bg: "var(--clr-text-main)",
       text: "#DFAFF8",
     },
+    "button-secondary": {
+      bg: "var(--clr-text-main)",
+      text: "#DFAFF8",
+    },
   },
 };
 
@@ -107,6 +111,10 @@ export const draculaTheme: DefaultTheme = {
     button: {
       bg: "#414558",
       text: "var(--clr-text-light)",
+    },
+    "button-secondary": {
+      bg: "var(--clr-text-main)",
+      text: "var(--clr-base-100)",
     },
   },
 };

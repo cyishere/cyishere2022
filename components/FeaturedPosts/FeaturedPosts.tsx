@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 import type { Post } from "@/utils/types";
+import { color } from "@/styles/helpers";
 import SectionTitle from "../SectionTitle";
 import PostListItem from "../PostListItem";
-import { color } from "@/styles/helpers";
-import { ButtonLink } from "../Button";
+import Button from "../Button";
 import ShowMore from "../ShowMore";
 
 interface FeaturedPostsProps {
@@ -22,9 +22,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
           ))}
         </PostList>
         <ShowMore>
-          <ButtonLink variant="primary" href="/blog">
-            Read more...
-          </ButtonLink>
+          <Button href="/blog">Read more...</Button>
         </ShowMore>
       </Container>
     </Wrapper>

@@ -5,7 +5,7 @@ import type { CSSProperties, MutableRefObject } from "react";
 
 import { AlbumType } from "@/data/projects";
 import { QUERIES } from "@/styles/theme";
-import { ButtonLink } from "../Button";
+import Button from "../Button";
 
 interface AlbumProps {
   album: AlbumType;
@@ -54,7 +54,7 @@ const Album: React.FC<AlbumProps> = ({
         <Title>{album.title}</Title>
         <Excerpt>{album.excerpt}</Excerpt>
         <ButtonWrapper>
-          <ButtonLink href={album.link}>Checkout</ButtonLink>
+          <Button href={album.link}>Checkout</Button>
         </ButtonWrapper>
       </Content>
       <Media featured={featured}>

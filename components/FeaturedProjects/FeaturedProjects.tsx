@@ -8,7 +8,7 @@ import { QUERIES } from "@/styles/theme";
 import SectionTitle from "../SectionTitle";
 import Album from "../Album";
 import UnstyledButton from "../UnstyledButton";
-import { ButtonLink } from "../Button";
+import Button from "../Button";
 import VisuallyHidden from "../VisuallyHidden";
 import ShowMore from "../ShowMore";
 
@@ -92,9 +92,7 @@ const FeaturedProjects: React.FC = () => {
       </SectionContent>
 
       <ShowMore>
-        <ButtonLink variant="primary" href="/portfolio">
-          More Project
-        </ButtonLink>
+        <Button href="/portfolio">More Project</Button>
       </ShowMore>
     </Wrapper>
   );

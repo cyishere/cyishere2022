@@ -14,8 +14,8 @@ const Hero: React.FC<HeroProps> = () => {
         <BouncingLogos />
         <IntroWraper>
           <Greeting>
-            <Emoji name="Vulcan Salute">🖖🏻</Emoji> Hi, My name is Chen Yang, CY
-            for short.
+            <Emoji name="Vulcan Salute">🖖🏻</Emoji> Hi, My name is{" "}
+            <Name>Chen Yang</Name>, CY for short.
           </Greeting>
 
           <Callout>I make websites.</Callout>
@@ -48,6 +48,10 @@ const Greeting = styled.p`
   letter-spacing: 2px;
   color: ${color("accent.main")};
   font-weight: ${fontWeight("medium")};
+`;
+
+const Name = styled.em`
+  color: ${color("accent.main")};
 `;
 
 const Callout = styled.h1`

@@ -23,6 +23,10 @@ export type Colors = {
     bg: string;
     text: string;
   };
+  "button-secondary": {
+    bg: string;
+    text: string;
+  };
 };
 
 export type ColorBase = Colors["base"];

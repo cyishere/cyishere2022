@@ -16,8 +16,8 @@ const About: NextPage = () => (
       </SectionTitle>
       <Content>
         <p>
-          <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is Chen Yang, CY
-          for short.
+          <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is{" "}
+          <em>Chen Yang</em>, CY for short.
         </p>
         <p>
           I am a self-taught <em>front-end developer</em> who also makes{" "}
