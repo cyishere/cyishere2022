@@ -5,6 +5,7 @@ import { Moon, Sun } from "react-feather";
 
 import { QUERIES } from "@/styles/theme";
 import { color, fontSize } from "@/styles/helpers";
+import { LOCAL_THEME_NAME, THEME_NAMES } from "@/utils/constants";
 import UnstyledButton from "../UnstyledButton";
 import VisuallyHidden from "../VisuallyHidden";
 import { ThemeContext } from "pages/_app";
@@ -23,6 +24,14 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
     return {
       "--activeColor": condition ? "var(--clr-accent-main)" : "transparent",
     } as CSSProperties;
+  };
+
+  const themeHandler = () => {
+    ctx?.setIsLight(!ctx.isLight);
+    localStorage.setItem(
+      LOCAL_THEME_NAME,
+      ctx?.isLight ? THEME_NAMES.dark : THEME_NAMES.light
+    );
   };
 
   return (
@@ -65,7 +74,7 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
         </Link>
       </NavLinkItem> */}
       <NavLinkItem>
-        <UnstyledButton onClick={() => ctx?.setIsLight(!ctx.isLight)}>
+        <UnstyledButton onClick={themeHandler}>
           <VisuallyHidden>
             {ctx?.isLight ? "Change to dark theme" : "Change to light theme"}
           </VisuallyHidden>
