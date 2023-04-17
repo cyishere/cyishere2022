@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import styled from "styled-components";
 import { AlertTriangle, Info, XOctagon } from "react-feather";
+import { color } from "@/styles/helpers";
 
 export type VariantType = "default" | "info" | "warning" | "error";
 
@@ -12,7 +13,8 @@ interface BlockQuoteProps {
 const SHARED_STYLES = {
   "--padding": "0",
   "--subPadding": "32px",
-  "--borderColor": "var(--clr-info)",
+  "--headerTextColor": `${color("reverse.main")}`,
+  "--borderColor": `${color("accent.main")}`,
   "--borderWidth": "1px",
   "--borderRadius": "10px",
   "--fontStyle": "normal",
@@ -24,9 +26,9 @@ const getStyles = (type: VariantType) => {
       return {
         "--padding": "16px 32px",
         "--subPadding": "0",
-        "--borderColor": "var(--clr-purple-primary)",
+        "--borderColor": `${color("accent.main")}`,
         "--borderWidth": "0 0 0 5px",
-        "--bgColor": "var(--clr-khaki-light)",
+        "--bgColor": "transparent",
         "--borderRadius": "0",
         "--fontStyle": "italic",
       };
@@ -34,19 +36,19 @@ const getStyles = (type: VariantType) => {
     case "info":
       return {
         ...SHARED_STYLES,
-        "--borderColor": "var(--clr-info)",
+        "--borderColor": `${color("info.main")}`,
       };
 
     case "warning":
       return {
         ...SHARED_STYLES,
-        "--borderColor": "var(--clr-khaki)",
+        "--borderColor": `${color("warning.main")}`,
       };
 
     case "error":
       return {
         ...SHARED_STYLES,
-        "--borderColor": "var(--clr-salmon)",
+        "--borderColor": `${color("error.main")}`,
       };
 
     default:
@@ -107,12 +109,13 @@ const getTitle = (type: VariantType) => {
 const BlockQuote: React.FC<BlockQuoteProps> = ({
   children,
   variant = "default",
+  ...rest
 }) => {
   const styles = getStyles(variant);
   const title = getTitle(variant);
 
   return (
-    <Wrapper style={styles as CSSProperties}>
+    <Wrapper style={styles as CSSProperties} {...rest}>
       {variant === "default" ? null : (
         <Header style={{ "--bgColor": "var(--borderColor)" } as CSSProperties}>
           {title}
@@ -137,7 +140,7 @@ const Wrapper = styled.blockquote`
 const Header = styled.header`
   font-size: var(--font-size-md);
   font-family: var(--ff-heading);
-  color: var(--clr-text-secondary);
+  color: var(--headerTextColor);
   background-color: var(--bgColor);
   padding: 4px var(--subPadding);
   display: flex;

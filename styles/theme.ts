@@ -85,6 +85,18 @@ export const cupcakeTheme: DefaultTheme = {
       bg: "var(--clr-text-main)",
       text: "#DFAFF8",
     },
+    info: {
+      main: "#39bff8",
+    },
+    warning: {
+      main: "#fabd22",
+    },
+    error: {
+      main: "#f87272",
+    },
+    reverse: {
+      main: "var(--clr-base-100)",
+    },
   },
 };
 
@@ -115,6 +127,18 @@ export const draculaTheme: DefaultTheme = {
     "button-secondary": {
       bg: "var(--clr-text-main)",
       text: "var(--clr-base-100)",
+    },
+    info: {
+      main: "#8ae9fd",
+    },
+    warning: {
+      main: "#f1fa8c",
+    },
+    error: {
+      main: "#ff5555",
+    },
+    reverse: {
+      main: "var(--clr-button-bg)",
     },
   },
 };

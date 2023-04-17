@@ -27,6 +27,18 @@ export type Colors = {
     bg: string;
     text: string;
   };
+  info: {
+    main: string;
+  };
+  warning: {
+    main: string;
+  };
+  error: {
+    main: string;
+  };
+  reverse: {
+    main: string;
+  };
 };
 
 export type ColorBase = Colors["base"];
