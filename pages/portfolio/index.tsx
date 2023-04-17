@@ -10,6 +10,7 @@ import Emoji from "@/components/Emoji";
 import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
 import Button from "@/components/Button";
 import VisuallyHidden from "@/components/VisuallyHidden";
+import BlockQuote from "@/components/BlockQuote/BlockQuote";
 
 const Portfolio: NextPage = () => {
   return (
@@ -19,6 +20,13 @@ const Portfolio: NextPage = () => {
           Portfolio <Emoji name="Atom Symbol">⚛️</Emoji>
         </SectionTitle>
         <PageDescription>Projects learning by doing.</PageDescription>
+
+        <SpecialInfo variant="info">
+          These projects were all completed between 2021 and the first half of
+          2022. These are all out of date now that I&#39;ve made big progress
+          with React and Next.js. I&#39;m working on some new projects to
+          demonstrate my expertise.
+        </SpecialInfo>
 
         {/* Featured Section */}
         <FeaturedSection>
@@ -108,6 +116,11 @@ const Wrapper = styled.main`
   padding-right: var(--padding-x);
   padding-bottom: 6rem;
   margin: 0 auto;
+`;
+
+const SpecialInfo = styled(BlockQuote)`
+  max-width: 800px;
+  margin: 2em auto 0 auto;
 `;
 
 const PageDescription = styled.p`
