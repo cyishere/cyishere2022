@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { chatApp as meta } from "@/data/projects";
 import { PortfolioLayout } from "@/components/Layout";
 import { MdContainer } from "@/components/Container";
-import { ExternalLink, TextLink } from "@/components/TextLink";
+import TextLink from "@/components/TextLink";
 import Figure from "@/components/Figure";
 import { H2 } from "@/components/Headings";
 
@@ -35,18 +35,18 @@ const ChatApp = () => {
             first time I use a GraphQL API, there are tons of tutorials and
             well-written documents about Apollo which make me feel
             &#34;safe&#34;. I also watched{" "}
-            <ExternalLink href="https://www.youtube.com/watch?v=LvfJ2wEpMrs&list=PLMhAeHCz8S3_VYiYxpcXtMz96vePOuOX3">
+            <TextLink href="https://www.youtube.com/watch?v=LvfJ2wEpMrs&list=PLMhAeHCz8S3_VYiYxpcXtMz96vePOuOX3">
               this tutorial series on YouTube
-            </ExternalLink>{" "}
+            </TextLink>{" "}
             first to help me get the whole picture of this kind of app, then I
             implemented everything by myself.
           </p>
           <p>
             I found Prisma by accident, but I fell in love with it immediately.
             I had no experience with ORM before, and I&#39;ve only made{" "}
-            <ExternalLink href="https://github.com/cyishere/dragonstack">
+            <TextLink href="https://github.com/cyishere/dragonstack">
               one app with PostgreSQL
-            </ExternalLink>{" "}
+            </TextLink>{" "}
             following along with a tutorial. Prisma makes me interact with
             PostgreSQL happier.
           </p>
@@ -87,9 +87,9 @@ const ChatApp = () => {
           </p>
           <p>
             I&#39;m not sure whether I described it correctly in English,{" "}
-            <ExternalLink href="https://github.com/cyishere/chat-app/blob/main/client/src/components/ChatWindow/InputBox.js">
+            <TextLink href="https://github.com/cyishere/chat-app/blob/main/client/src/components/ChatWindow/InputBox.js">
               here&#39;s the code
-            </ExternalLink>
+            </TextLink>
             .
           </p>
 
@@ -103,9 +103,9 @@ const ChatApp = () => {
           <p>
             The <code>useReducer</code> in React has the methodology as the old
             school Redux, not{" "}
-            <ExternalLink href="https://redux-toolkit.js.org/">
+            <TextLink href="https://redux-toolkit.js.org/">
               the new modern one
-            </ExternalLink>
+            </TextLink>
             ;
           </p>
           <p>

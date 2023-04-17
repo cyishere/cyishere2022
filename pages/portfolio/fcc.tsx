@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-import { ExternalLink } from "@/components/TextLink";
-import { PortfolioLayout } from "@/components/Layout";
 import { fcc as meta, fccProjects as projects } from "@/data/projects";
 import { QUERIES } from "@/styles/theme";
+import { PortfolioLayout } from "@/components/Layout";
+import TextLink from "@/components/TextLink";
 
 const fcc = () => {
   return (
@@ -19,7 +19,7 @@ const fcc = () => {
                   {project.projects.map((p) =>
                     p.url ? (
                       <li key={p.name}>
-                        <ExternalLink href={p.url}>{p.name}</ExternalLink>
+                        <TextLink href={p.url}>{p.name}</TextLink>
                       </li>
                     ) : (
                       <li key={p.name}>{p.name}</li>

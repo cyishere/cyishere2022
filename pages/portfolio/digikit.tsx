@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 import { digikit as meta } from "@/data/projects";
 import { PortfolioLayout } from "@/components/Layout";
-import { ExternalLink, TextLink } from "@/components/TextLink";
+import TextLink from "@/components/TextLink";
 import Video from "@/components/Video";
 import Figure from "@/components/Figure";
 import styled from "styled-components";
@@ -41,10 +41,10 @@ const digikit: NextPage = () => {
             <p>
               When I was working as a screenplay writer, my main entertainment
               was reading articles on{" "}
-              <ExternalLink href="https://scotch.io">scotch.io</ExternalLink> to
-              learn the new tech concepts. So I&#39;m familiar with Express REST
-              API for a while, this time I finally got the chance to make
-              something with it.
+              <TextLink href="https://scotch.io">scotch.io</TextLink> to learn
+              the new tech concepts. So I&#39;m familiar with Express REST API
+              for a while, this time I finally got the chance to make something
+              with it.
             </p>
             <p>
               To be honest, I&#39;m still not very sure about the idea of using
@@ -151,16 +151,16 @@ const digikit: NextPage = () => {
           </p>
           <p>
             With the help of{" "}
-            <ExternalLink href="https://reactrouter.com/">
+            <TextLink href="https://reactrouter.com/">
               react-router-dom
-            </ExternalLink>
+            </TextLink>
             , I check the user&#39;s status in a <code>Route</code> component
             for whether there&#39;s a login status in the app&#39;s state and
             use the <code>if-else</code> condition to show the right component
             or re-direct to another location.{" "}
-            <ExternalLink href="https://github.com/cyishere/digikit/blob/main/frontend/src/app/ProtectedRoutes.js">
+            <TextLink href="https://github.com/cyishere/digikit/blob/main/frontend/src/app/ProtectedRoutes.js">
               Here&#39;s the code
-            </ExternalLink>{" "}
+            </TextLink>{" "}
             for route protection.
           </p>
         </MdContainer>

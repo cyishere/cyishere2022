@@ -6,7 +6,7 @@ import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
 import SectionTitle from "@/components/SectionTitle";
 import Post from "@/components/Post";
 import Emoji from "@/components/Emoji";
-import { ExternalLink } from "@/components/TextLink";
+import TextLink from "@/components/TextLink";
 
 const About: NextPage = () => (
   <Layout title="About CY">
@@ -47,7 +47,7 @@ const About: NextPage = () => (
           on films and take programming as entertainment. When I didn’t study
           films, I read articles about web development and follow along with the
           tutorials on{" "}
-          <ExternalLink href="https://scotch.io">🥃 scotch.io</ExternalLink>.
+          <TextLink href="https://scotch.io">🥃 scotch.io</TextLink>.
         </p>
         <p>
           I spend the last two years catching up on the new tech stacks. Now,

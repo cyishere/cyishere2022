@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import Link from "next/link";
 import { Hash } from "react-feather";
 
 import type { VariantType } from "../BlockQuote/BlockQuote";
-import { ExternalLink } from "../TextLink";
+import TextLink from "../TextLink";
 import BlockQuote from "../BlockQuote";
 import { ReactElement } from "react";
 import { fontSize } from "@/styles/helpers";
@@ -102,28 +101,6 @@ export const UnorderList = styled.ul`
 `;
 
 /**
- * The component of external link
- */
-interface ExLinkProps {
-  children: string;
-  href: string;
-}
-
-export const ExLink = ({ children, href }: ExLinkProps) => {
-  const external = /^http/.test(href);
-
-  if (external) {
-    return <ExternalLink href={href}>{children}</ExternalLink>;
-  }
-
-  return (
-    <Link href={href} passHref>
-      <a>{children}</a>
-    </Link>
-  );
-};
-
-/**
  * Component for blockquote
  */
 interface QuoteProps {
@@ -195,7 +172,7 @@ const CustomComponents = {
   h2: Heading2,
   hr: () => <Hr />,
   ul: (props: any) => <UnorderList {...props} />,
-  a: ExLink,
+  a: TextLink,
   blockquote: (props: QuoteProps) => <Quote {...props} />,
 };
 

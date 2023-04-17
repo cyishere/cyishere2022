@@ -5,7 +5,7 @@ import { ArrowRight } from "react-feather";
 
 import { ALBUMS, AlbumType, ProjectType } from "@/data/projects";
 import { Layout } from ".";
-import { ExternalLink } from "../TextLink";
+import TextLink from "../TextLink";
 import Emoji from "../Emoji";
 import { QUERIES } from "@/styles/theme";
 import { color, fontSize } from "@/styles/helpers";
@@ -61,9 +61,9 @@ const PortfolioLayout: React.FC<PortfolioLayoutProps> = ({
                   </TechStackList>
                 </TechStackColumn>
                 <TechStackColumn>
-                  <ExternalLink href={meta.techStack.github}>
+                  <TextLink href={meta.techStack.github}>
                     Code on GitHub
-                  </ExternalLink>
+                  </TextLink>
                 </TechStackColumn>
               </TechStackContent>
             </TechStackWrapper>
