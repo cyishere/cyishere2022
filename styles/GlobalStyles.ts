@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 import {
   color,
   createColorProps,
@@ -6,8 +6,8 @@ import {
   font,
   fontSize,
   fontWeight,
-} from "./helpers";
-import { FONTS, FONT_SIZES, FONT_WEIGHTS, LOGO_COLORS, QUERIES } from "./theme";
+} from './helpers';
+import { FONTS, FONT_SIZES, FONT_WEIGHTS, LOGO_COLORS, QUERIES } from './theme';
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -78,12 +78,12 @@ const GlobalStyles = createGlobalStyle`
     --clr-gsap: hsl(${LOGO_COLORS.gsap});
 
     /* Font Weights */
-    ${createCssProps(FONT_WEIGHTS, "--fw")}
+    ${createCssProps(FONT_WEIGHTS, '--fw')}
     /* Font Sizes */
-    ${createCssProps(FONT_SIZES, "--fs")}
+    ${createCssProps(FONT_SIZES, '--fs')}
 
     /* Font Families */
-    ${createCssProps(FONTS, "--ff")}
+    ${createCssProps(FONTS, '--ff')}
 
     font-size: 18px;
     
@@ -100,12 +100,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: ${font("main")};
-    font-size: ${fontSize("base")};
-    font-weight: ${fontWeight("normal")};
+    font-family: ${font('main')};
+    font-size: ${fontSize('base')};
+    font-weight: ${fontWeight('normal')};
     line-height: 1.5;
-    background-color: ${color("base.100")};
-    color: ${color("text.main")};
+    background-color: ${color('base.100')};
+    color: ${color('text.main')};
   }
 
   #__next {
@@ -113,8 +113,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::selection {
-    color: ${color("base.100")};
-    background-color: ${color("accent.dark")};
+    color: ${color('base.100')};
+    background-color: ${color('accent.dark')};
   }
 
   :focus {
@@ -128,30 +128,30 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${color("accent.dark")};
+    color: ${color('accent.dark')};
   }
 
   h1, h2, h3, h4 {
-    font-family: ${font("heading")};
+    font-family: ${font('heading')};
     line-height: 1.2;
-    color: ${color("text.main")};
+    color: ${color('text.main')};
     margin-top: 1.5em;
   }
 
   h1, h2 {
-    font-weight: ${fontWeight("bold")};
+    font-weight: ${fontWeight('bold')};
   }
 
   h3, h4 {
-    font-weight: ${fontWeight("semiBold")};
+    font-weight: ${fontWeight('semiBold')};
   }
 
   h1 {
-    font-size: ${fontSize("xl")};
+    font-size: ${fontSize('xl')};
   }
 
   h3 {
-    font-size: ${fontSize("lg")};
+    font-size: ${fontSize('lg')};
   }
 
   button {
@@ -169,18 +169,18 @@ const GlobalStyles = createGlobalStyle`
 
   @media ${QUERIES.tabletAndSmaller} {
     h1, h2 {
-      font-size: ${fontSize("big")};
+      font-size: ${fontSize('big')};
     }
   }
 
   em {
-    --accent-color: ${color("secondary.main")};
+    --accent-color: ${color('secondary.main')};
     font-style: italic;
     color: var(--accent-color);
   }
 
   strong {
-    font-weight: ${fontWeight("bold")};
+    font-weight: ${fontWeight('bold')};
   }
 
   article p code,
@@ -188,9 +188,9 @@ const GlobalStyles = createGlobalStyle`
   article h3 code,
   article ul code,
   article ol code {
-    font-family: ${font("mono")};
-    background-color: ${color("button.bg")};
-    color: ${color("button.text")};
+    font-family: ${font('mono')};
+    background-color: ${color('button.bg')};
+    color: ${color('button.text')};
     border-radius: 4px;
     padding-left: 4px;
     padding-right: 4px;

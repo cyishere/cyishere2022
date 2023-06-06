@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface ButtonPropsType {
-  display?: "inline-block" | "block";
+  display?: 'inline-block' | 'block';
 }
 
 export default styled.button<ButtonPropsType>`
@@ -10,7 +10,7 @@ export default styled.button<ButtonPropsType>`
   color: inherit;
   background: transparent;
   border: none;
-  display: ${(props) => props.display || "block"};
+  display: ${(props) => props.display || 'block'};
   margin: 0;
   padding: 0;
   cursor: pointer;

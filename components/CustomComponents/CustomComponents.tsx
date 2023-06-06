@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { Hash } from "react-feather";
+import styled from 'styled-components';
+import { Hash } from 'react-feather';
 
-import type { VariantType } from "../BlockQuote/BlockQuote";
-import TextLink from "../TextLink";
-import BlockQuote from "../BlockQuote";
-import { ReactElement } from "react";
-import { fontSize } from "@/styles/helpers";
+import type { VariantType } from '../BlockQuote/BlockQuote';
+import TextLink from '../TextLink';
+import BlockQuote from '../BlockQuote';
+import { ReactElement } from 'react';
+import { fontSize } from '@/styles/helpers';
 
 /**
  * The component of <h2 />
@@ -15,11 +15,11 @@ interface Heading2Props {
 }
 
 const Heading2 = ({ children }: Heading2Props) => {
-  let sanitizedChildren = "";
-  let idText = "";
-  let text = "";
+  let sanitizedChildren = '';
+  let idText = '';
+  let text = '';
 
-  if (typeof children !== "string") {
+  if (typeof children !== 'string') {
     /**
      * if the content(children) has other syntax,
      * it becomes an array.
@@ -27,7 +27,7 @@ const Heading2 = ({ children }: Heading2Props) => {
      * or a ReactElement.
      */
     (children as []).forEach((item: ReactElement) => {
-      if (typeof item !== "string") {
+      if (typeof item !== 'string') {
         sanitizedChildren += item.props.children;
       } else {
         sanitizedChildren += item;
@@ -35,24 +35,24 @@ const Heading2 = ({ children }: Heading2Props) => {
     });
 
     idText = sanitizedChildren
-      .replace(/[\W_]+/g, " ")
+      .replace(/[\W_]+/g, ' ')
       .toLowerCase()
-      .replace(/ /g, "-");
+      .replace(/ /g, '-');
 
     text = sanitizedChildren;
   } else {
     idText = children
       .toString()
-      .replace(/[\W_]+/g, " ")
+      .replace(/[\W_]+/g, ' ')
       .toLowerCase()
-      .replace(/ /g, "-");
+      .replace(/ /g, '-');
 
     text = children;
   }
 
   return (
     <H2Wrapper id={idText} data-text={text}>
-      {children}{" "}
+      {children}{' '}
       <Anchor href={`#${idText}`} className="hashtag hidden text-gray-300">
         <Hash />
       </Anchor>
@@ -66,7 +66,7 @@ const Anchor = styled.a`
 `;
 
 const H2Wrapper = styled.h2`
-  font-size: ${fontSize("lg")};
+  font-size: ${fontSize('lg')};
   scroll-margin-top: 1em;
 
   &:hover ${Anchor} {
@@ -111,8 +111,8 @@ interface QuoteProps {
   children: any[];
 }
 export const Quote = ({ children }: QuoteProps) => {
-  const TYPES = ["[!INFO] ", "[!WARNING] ", "[!ERROR] "];
-  let variant: VariantType = "default";
+  const TYPES = ['[!INFO] ', '[!WARNING] ', '[!ERROR] '];
+  let variant: VariantType = 'default';
 
   // This is the formatted equivalent to the `children`
   let items: any[] = [];
@@ -126,7 +126,7 @@ export const Quote = ({ children }: QuoteProps) => {
     const kinds: any[] = [];
     element.props.children.forEach((item: any, i: number) => {
       if (i === 0) {
-        kinds.push(item.replace(type, ""));
+        kinds.push(item.replace(type, ''));
       } else {
         kinds.push(item);
       }
@@ -142,15 +142,15 @@ export const Quote = ({ children }: QuoteProps) => {
 
   children.forEach((item) => {
     // If this line has `props` property, it has other syntax
-    if (item.hasOwnProperty("props")) {
+    if (item.hasOwnProperty('props')) {
       if (item?.props?.children[0]?.startsWith(TYPES[0])) {
-        variant = "info";
+        variant = 'info';
         pushToItems(item, TYPES[0]);
       } else if (item?.props?.children[0]?.startsWith(TYPES[1])) {
-        variant = "warning";
+        variant = 'warning';
         pushToItems(item, TYPES[1]);
       } else if (item?.props?.children[0]?.startsWith(TYPES[2])) {
-        variant = "error";
+        variant = 'error';
         pushToItems(item, TYPES[2]);
       } else {
         items.push(item);

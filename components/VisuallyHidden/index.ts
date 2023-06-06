@@ -1,1 +1,1 @@
-export { default } from "./VisuallyHidden";
+export { default } from './VisuallyHidden';

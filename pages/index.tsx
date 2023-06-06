@@ -1,12 +1,12 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next';
 
-import type { Post } from "@/utils/types";
-import { getPosts } from "@/utils/mdxUtils";
-import { Layout } from "@/components/Layout";
-import Hero from "@/components/Hero";
+import type { Post } from '@/utils/types';
+import { getPosts } from '@/utils/mdxUtils';
+import { Layout } from '@/components/Layout';
+import Hero from '@/components/Hero';
 // import FeaturedProjects from "@/components/FeaturedProjects";
-import Intro from "@/components/Intro";
-import FeaturedPosts from "@/components/FeaturedPosts";
+import Intro from '@/components/Intro';
+import FeaturedPosts from '@/components/FeaturedPosts';
 
 interface HomePageProps {
   posts: Post[];

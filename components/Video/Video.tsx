@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import styled from "styled-components";
-import { Play, Pause, VolumeX, Volume2 } from "react-feather";
+import { useRef } from 'react';
+import styled from 'styled-components';
+import { Play, Pause, VolumeX, Volume2 } from 'react-feather';
 
-import useVideoPlayer from "@/hooks/use-video-player";
-import UnstyledButton from "../UnstyledButton";
+import useVideoPlayer from '@/hooks/use-video-player';
+import UnstyledButton from '../UnstyledButton';
 
 interface VideoProps {
   src: string;

@@ -1,16 +1,16 @@
-import type { NextPage } from "next";
-import styled from "styled-components";
-import Image from "next/image";
+import type { NextPage } from 'next';
+import styled from 'styled-components';
+import Image from 'next/image';
 
-import { QUERIES } from "@/styles/theme";
-import { color } from "@/styles/helpers";
-import { Layout } from "@/components/Layout";
-import SectionTitle from "@/components/SectionTitle";
-import Emoji from "@/components/Emoji";
-import { ALBUMS, fcc, REACT_PROJECTS } from "@/data/projects";
-import Button from "@/components/Button";
-import VisuallyHidden from "@/components/VisuallyHidden";
-import BlockQuote from "@/components/BlockQuote/BlockQuote";
+import { QUERIES } from '@/styles/theme';
+import { color } from '@/styles/helpers';
+import { Layout } from '@/components/Layout';
+import SectionTitle from '@/components/SectionTitle';
+import Emoji from '@/components/Emoji';
+import { ALBUMS, fcc, REACT_PROJECTS } from '@/data/projects';
+import Button from '@/components/Button';
+import VisuallyHidden from '@/components/VisuallyHidden';
+import BlockQuote from '@/components/BlockQuote/BlockQuote';
 
 const Portfolio: NextPage = () => {
   return (
@@ -144,7 +144,7 @@ const Media = styled.div`
 
 // Featured Section
 const FeaturedSection = styled.section`
-  background-color: ${color("base.200")};
+  background-color: ${color('base.200')};
   padding: calc(var(--padding-x) + 2rem);
   margin-left: calc(var(--padding-x) * -1);
   margin-right: calc(var(--padding-x) * -1);
@@ -188,8 +188,8 @@ const FeaturedProjectContainer = styled.article`
     grid-template-rows: 1fr auto;
     row-gap: 2rem;
     grid-template-areas:
-      "featuredMedia"
-      "featuredContent";
+      'featuredMedia'
+      'featuredContent';
   }
 `;
 
@@ -266,7 +266,7 @@ const ButtonGroup = styled.div`
 
 // Fcc
 const FccSection = styled.section`
-  background-color: ${color("base.200")};
+  background-color: ${color('base.200')};
   padding: 4rem 0;
   margin-left: calc(var(--padding-x) * -1);
   margin-right: calc(var(--padding-x) * -1);

@@ -1,6 +1,6 @@
-import { logoUrls } from "@/data/logos";
-import Matter, { Body } from "matter-js";
-import { useEffect, useRef } from "react";
+import { logoUrls } from '@/data/logos';
+import Matter, { Body } from 'matter-js';
+import { useEffect, useRef } from 'react';
 
 const useBouncingLogos = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -44,7 +44,7 @@ const useBouncingLogos = () => {
       options: {
         width,
         height,
-        background: "transparent",
+        background: 'transparent',
         wireframes: false,
       },
     });
@@ -58,8 +58,8 @@ const useBouncingLogos = () => {
     const boundaryOptions = {
       isStatic: true,
       render: {
-        fillStyle: "transparent",
-        strokeStyle: "transparent",
+        fillStyle: 'transparent',
+        strokeStyle: 'transparent',
       },
     };
 

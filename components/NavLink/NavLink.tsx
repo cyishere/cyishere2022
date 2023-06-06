@@ -1,14 +1,14 @@
-import { CSSProperties, useContext } from "react";
-import styled from "styled-components";
-import Link from "next/link";
-import { Moon, Sun } from "react-feather";
+import { CSSProperties, useContext } from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
+import { Moon, Sun } from 'react-feather';
 
-import { QUERIES } from "@/styles/theme";
-import { color, fontSize } from "@/styles/helpers";
-import { LOCAL_THEME_NAME, THEME_NAMES } from "@/utils/constants";
-import UnstyledButton from "../UnstyledButton";
-import VisuallyHidden from "../VisuallyHidden";
-import { ThemeContext } from "pages/_app";
+import { QUERIES } from '@/styles/theme';
+import { color, fontSize } from '@/styles/helpers';
+import { LOCAL_THEME_NAME, THEME_NAMES } from '@/utils/constants';
+import UnstyledButton from '../UnstyledButton';
+import VisuallyHidden from '../VisuallyHidden';
+import { ThemeContext } from 'pages/_app';
 
 interface NavLinkProps {
   pathname: string;
@@ -22,7 +22,7 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
     let condition = homePage ?? path.slice(1).startsWith(prefix);
 
     return {
-      "--activeColor": condition ? "var(--clr-accent-main)" : "transparent",
+      '--activeColor': condition ? 'var(--clr-accent-main)' : 'transparent',
     } as CSSProperties;
   };
 
@@ -36,28 +36,28 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
 
   return (
     <Wrapper role="navigation" aria-label="Main" id="primary-navigation">
-      <NavLinkItem style={getActiveStyles(pathname, "/")}>
+      <NavLinkItem style={getActiveStyles(pathname, '/')}>
         <Link href="/" passHref>
           <NavLinkAnchor>
             <Item data-content="home">home</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getActiveStyles(pathname, "portfolio")}>
+      <NavLinkItem style={getActiveStyles(pathname, 'portfolio')}>
         <Link href="/portfolio" passHref>
           <NavLinkAnchor>
             <Item data-content="portfolio">portfolio</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getActiveStyles(pathname, "blog")}>
+      <NavLinkItem style={getActiveStyles(pathname, 'blog')}>
         <Link href="/blog" passHref>
           <NavLinkAnchor>
             <Item data-content="blog">blog</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      <NavLinkItem style={getActiveStyles(pathname, "about")}>
+      <NavLinkItem style={getActiveStyles(pathname, 'about')}>
         <Link href="/about" passHref>
           <NavLinkAnchor>
             <Item data-content="about">about</Item>
@@ -76,7 +76,7 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
       <NavLinkItem>
         <UnstyledButton onClick={themeHandler}>
           <VisuallyHidden>
-            {ctx?.isLight ? "Change to dark theme" : "Change to light theme"}
+            {ctx?.isLight ? 'Change to dark theme' : 'Change to light theme'}
           </VisuallyHidden>
           {ctx?.isLight ? <Moon /> : <Sun />}
         </UnstyledButton>
@@ -95,7 +95,7 @@ const Wrapper = styled.ul`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: ${fontSize("lg")};
+    font-size: ${fontSize('lg')};
     padding-top: var(--gap);
     padding-left: var(--gap);
   }
@@ -104,7 +104,7 @@ const Wrapper = styled.ul`
 const Item = styled.span`
   display: block;
   position: relative;
-  color: ${color("text.main")};
+  color: ${color('text.main')};
   transition: transform 300ms;
 
   &::after {
@@ -112,7 +112,7 @@ const Item = styled.span`
     position: absolute;
     top: 0;
     left: 0;
-    color: ${color("primary.main")};
+    color: ${color('primary.main')};
     transform: translateY(100%);
   }
 `;
@@ -133,7 +133,7 @@ const NavLinkItem = styled.li`
   position: relative;
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     height: 5px;
     background-color: var(--activeColor);

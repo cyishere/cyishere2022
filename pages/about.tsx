@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import type { NextPage } from "next";
+import styled from 'styled-components';
+import type { NextPage } from 'next';
 
-import { Layout } from "@/components/Layout";
-import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
-import SectionTitle from "@/components/SectionTitle";
-import Post from "@/components/Post";
-import Emoji from "@/components/Emoji";
-import TextLink from "@/components/TextLink";
+import { Layout } from '@/components/Layout';
+import { MaxWidthWrapper } from '@/components/MaxWidthWrapper';
+import SectionTitle from '@/components/SectionTitle';
+import Post from '@/components/Post';
+import Emoji from '@/components/Emoji';
+import TextLink from '@/components/TextLink';
 
 const About: NextPage = () => (
   <Layout title="About CY">
@@ -16,18 +16,18 @@ const About: NextPage = () => (
       </SectionTitle>
       <Content>
         <p>
-          <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is{" "}
+          <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is{' '}
           <em>Chen Yang</em>, CY for short.
         </p>
         <p>
-          I am a self-taught <em>front-end developer</em> who also makes{" "}
+          I am a self-taught <em>front-end developer</em> who also makes{' '}
           <em>full-stack</em> stuff.
         </p>
         <p>
           The first time I encountered “web development” was about 15 years ago
           when I changed my blogpost blog’s background color with CSS, that’s
-          amazed me a lot!{" "}
-          <strong>I thought it’s very cool, the internet is the future!</strong>{" "}
+          amazed me a lot!{' '}
+          <strong>I thought it’s very cool, the internet is the future!</strong>{' '}
           Around that time, I just graduated from college, and despite I studied
           finance I decided to change my career to web development. So I started
           to learn programming by myself, reading books, articles, and
@@ -46,7 +46,7 @@ const About: NextPage = () => (
           lot. Developers work on code and take films as entertainment, I worked
           on films and take programming as entertainment. When I didn’t study
           films, I read articles about web development and follow along with the
-          tutorials on{" "}
+          tutorials on{' '}
           <TextLink href="https://scotch.io">🥃 scotch.io</TextLink>.
         </p>
         <p>

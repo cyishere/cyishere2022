@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "react-feather";
+import styled from 'styled-components';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'react-feather';
 
-import { ALBUMS, AlbumType, ProjectType } from "@/data/projects";
-import { Layout } from ".";
-import TextLink from "../TextLink";
-import Emoji from "../Emoji";
-import { QUERIES } from "@/styles/theme";
-import { color, fontSize } from "@/styles/helpers";
+import { ALBUMS, AlbumType, ProjectType } from '@/data/projects';
+import { Layout } from '.';
+import TextLink from '../TextLink';
+import Emoji from '../Emoji';
+import { QUERIES } from '@/styles/theme';
+import { color, fontSize } from '@/styles/helpers';
 
 interface PortfolioLayoutProps {
   meta: ProjectType;
@@ -76,13 +76,13 @@ const PortfolioLayout: React.FC<PortfolioLayoutProps> = ({
         {otherProject ? (
           <OtherProjectSection>
             <OtherProjectSectionTitle>
-              <Emoji name="sparkles">✨</Emoji> Other Project{" "}
+              <Emoji name="sparkles">✨</Emoji> Other Project{' '}
               <Emoji name="sparkles">✨</Emoji>
             </OtherProjectSectionTitle>
             <Link href={otherProject.link} passHref>
               <OtherProjectWrapper>
                 <OtherProjectTitle>
-                  {otherProject.title}{" "}
+                  {otherProject.title}{' '}
                   <IconWrapper>
                     <ArrowRight />
                   </IconWrapper>
@@ -131,12 +131,12 @@ const HeaderContent = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: ${fontSize("xxxl")};
+  font-size: ${fontSize('xxxl')};
   margin-top: 0;
 `;
 
 const Excerpt = styled.p`
-  font-size: ${fontSize("md")};
+  font-size: ${fontSize('md')};
 `;
 
 const CoverWrapper = styled.div`
@@ -194,11 +194,11 @@ const OtherProjectSection = styled.section`
 `;
 const OtherProjectSectionTitle = styled.h2`
   text-align: center;
-  font-size: ${fontSize("xl")};
+  font-size: ${fontSize('xl')};
 `;
 
 const OtherProjectWrapper = styled.a`
-  background-color: ${color("base.200")};
+  background-color: ${color('base.200')};
   border-radius: 0.5rem;
   padding: 1rem 2rem;
   display: block;
@@ -221,7 +221,7 @@ const IconWrapper = styled.span`
 `;
 
 const OtherProjectExcerpt = styled.p`
-  color: ${color("text.light")};
+  color: ${color('text.light')};
 `;
 
 export default PortfolioLayout;

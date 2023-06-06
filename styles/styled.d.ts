@@ -1,9 +1,9 @@
-import "styled-components";
+import 'styled-components';
 
 export type Colors = {
   base: {
-    "100": string;
-    "200": string;
+    '100': string;
+    '200': string;
   };
   text: {
     main: string;
@@ -23,7 +23,7 @@ export type Colors = {
     bg: string;
     text: string;
   };
-  "button-secondary": {
+  'button-secondary': {
     bg: string;
     text: string;
   };
@@ -41,14 +41,14 @@ export type Colors = {
   };
 };
 
-export type ColorBase = Colors["base"];
-export type ColorText = Colors["text"];
-export type ColorAccent = Colors["accent"];
-export type ColorPrimary = Colors["primary"];
-export type ColorSecondary = Colors["secondary"];
-export type ColorButton = Colors["button"];
+export type ColorBase = Colors['base'];
+export type ColorText = Colors['text'];
+export type ColorAccent = Colors['accent'];
+export type ColorPrimary = Colors['primary'];
+export type ColorSecondary = Colors['secondary'];
+export type ColorButton = Colors['button'];
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
     colors: Colors;
   }

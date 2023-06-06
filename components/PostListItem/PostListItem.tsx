@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import Link from "next/link";
+import styled from 'styled-components';
+import Link from 'next/link';
 
-import type { Post } from "@/utils/types";
-import { QUERIES } from "@/styles/theme";
-import { color, fontSize } from "@/styles/helpers";
+import type { Post } from '@/utils/types';
+import { QUERIES } from '@/styles/theme';
+import { color, fontSize } from '@/styles/helpers';
 
 interface PostListItemProps {
   post: Post;
@@ -34,7 +34,7 @@ const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
 };
 
 const Wrapper = styled.a`
-  background-color: ${color("base.100")};
+  background-color: ${color('base.100')};
   border-radius: 4px;
   display: block;
   transition: transform 500ms;
@@ -65,14 +65,14 @@ const PostItem = styled.article`
 const PostContent = styled.div``;
 
 const PostTitle = styled.h3`
-  font-size: ${fontSize("lg")};
+  font-size: ${fontSize('lg')};
   max-width: 36ch;
   margin-top: 0;
   margin-bottom: 1rem;
 `;
 
 const PostTags = styled.div`
-  font-size: ${fontSize("sm")};
+  font-size: ${fontSize('sm')};
 `;
 
 const Tag = styled.span`
@@ -82,8 +82,8 @@ const Tag = styled.span`
 `;
 
 const Date = styled.div`
-  color: ${color("text.light")};
-  font-size: ${fontSize("sm")};
+  color: ${color('text.light')};
+  font-size: ${fontSize('sm')};
 `;
 
 export default PostListItem;

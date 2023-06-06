@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 
 export interface HeadingType {
   text: string;
@@ -19,28 +19,28 @@ const TableOfContents = () => {
         const activeHeading = entry.target;
 
         links.forEach((link) => {
-          const href = link?.href.split("#")[1];
+          const href = link?.href.split('#')[1];
 
           if (entry.isIntersecting && href === activeHeading.id) {
-            links.forEach((l) => l?.classList.remove("active"));
-            link?.classList.add("active");
+            links.forEach((l) => l?.classList.remove('active'));
+            link?.classList.add('active');
           }
         });
 
         if (!firstVisibleLink.current) {
-          links[0]?.classList.add("active");
+          links[0]?.classList.add('active');
           firstVisibleLink.current = links[0];
         }
       });
     };
 
     const observer = new IntersectionObserver(obsvCallback, {
-      rootMargin: "0px 0px -70% 0px",
+      rootMargin: '0px 0px -70% 0px',
       threshold: [1.0],
     });
 
     const h2Headings = Array.from(
-      document.querySelectorAll("article > h2")
+      document.querySelectorAll('article > h2')
     ) as HTMLElement[];
 
     const h2s: HeadingType[] = h2Headings.map((h2) => {
@@ -48,7 +48,7 @@ const TableOfContents = () => {
 
       return {
         text: h2.dataset.text!,
-        anchor: "#" + h2.id,
+        anchor: '#' + h2.id,
       };
     });
 

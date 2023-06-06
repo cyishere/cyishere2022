@@ -17,7 +17,7 @@ const importAllPosts = (files: any) => {
   // console.log({ sortedFiles });
 
   return sortedFiles.map((file: any) => ({
-    slug: file.split("/")[1],
+    slug: file.split('/')[1],
     module: files(file),
   }));
 };
@@ -29,5 +29,5 @@ export const posts = importAllPosts(
    *
    * see: https://github.com/webpack/webpack/issues/12087
    */
-  require.context("../pages/blog/", true, /\.\/.*\.mdx$/)
+  require.context('../pages/blog/', true, /\.\/.*\.mdx$/)
 );

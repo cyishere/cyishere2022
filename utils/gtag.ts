@@ -8,7 +8,7 @@ declare global {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: any) => {
-  window.gtag("config", GA_TRACKING_ID, {
+  window.gtag('config', GA_TRACKING_ID, {
     page_path: url,
   });
 };
@@ -22,7 +22,7 @@ interface EventProps {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = ({ action, category, label, value }: EventProps) => {
-  window.gtag("event", action, {
+  window.gtag('event', action, {
     event_category: category,
     event_label: label,
     value: value,

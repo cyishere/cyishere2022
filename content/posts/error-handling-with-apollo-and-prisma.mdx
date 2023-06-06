@@ -1,8 +1,8 @@
 ---
-title: "Error Handling with Apollo and Prisma"
-description: "Error handling in a GraphQL API with the help of Apollo and Prisma"
-createdAt: "2021-05-14"
-tags: ["graphql", "apollo", "prisma"]
+title: 'Error Handling with Apollo and Prisma'
+description: 'Error handling in a GraphQL API with the help of Apollo and Prisma'
+createdAt: '2021-05-14'
+tags: ['graphql', 'apollo', 'prisma']
 toc: true
 ---
 
@@ -88,7 +88,7 @@ Let's add some code then.
 ```js
 // server/graphql/resolvers.js
 
-const { UserInputError } = require("apollo-server");
+const { UserInputError } = require('apollo-server');
 
 const resolvers = {
   // ...
@@ -99,7 +99,7 @@ const resolvers = {
         // ...
       } catch (err) {
         console.log(err);
-        throw new UserInputError("Bad Request", { errors: err });
+        throw new UserInputError('Bad Request', { errors: err });
       }
     },
   },
@@ -151,10 +151,10 @@ Add a new file `./client/src/ApolloProvider.js`, and import it to `./client/src/
 ```js
 // client/src/ApolloProvider.js
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000", // this points to our server url
+  uri: 'http://localhost:4000', // this points to our server url
   cache: new InMemoryCache(),
 });
 
@@ -168,17 +168,17 @@ export default Provider;
 ```js
 // client/src/index.js
 
-import React from "react";
-import ReactDOM from "react-dom";
-import ApolloProvider from "./ApolloProvider";
-import App from "./App";
-import "semantic-ui-css/semantic.min.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ApolloProvider from './ApolloProvider';
+import App from './App';
+import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <ApolloProvider>
     <App />
   </ApolloProvider>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 ```
 
@@ -191,9 +191,9 @@ In the `./client/src/components/RegisterForm.js`, we use the `useMutation` hook 
 ```js
 // client/src/components/RegisterForm.js
 
-import { useState } from "react";
-import { gql, useMutation } from "@apollo/client";
-import { Button, Form, Message } from "semantic-ui-react";
+import { useState } from 'react';
+import { gql, useMutation } from '@apollo/client';
+import { Button, Form, Message } from 'semantic-ui-react';
 
 const REGISTER = gql`
   mutation Register(
@@ -217,10 +217,10 @@ const REGISTER = gql`
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
-    username: "",
-    email: "",
-    password: "",
-    passconf: "",
+    username: '',
+    email: '',
+    password: '',
+    passconf: '',
   });
 
   const handleChange = (e) => {
@@ -238,8 +238,8 @@ const Register = () => {
     console.log(userInfo);
   };
 
-  console.log("data:", data);
-  console.log("error:", error);
+  console.log('data:', data);
+  console.log('error:', error);
 
   return (
     <>
@@ -303,7 +303,7 @@ const Register = () => {
 
   const [doRegister, { loading, error, data }] = useMutation(REGISTER, {
     onError: (err) => {
-      console.log("onError:", err.graphQLErrors[0].extensions.errors);
+      console.log('onError:', err.graphQLErrors[0].extensions.errors);
     },
   });
 
@@ -336,17 +336,17 @@ const Register = () => {
 
   // add a new state to store the error messages
   const [errors, setErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
-    passconf: "",
+    username: '',
+    email: '',
+    password: '',
+    passconf: '',
   });
 
   // ...
 
   return (
     <>
-      {error && error.message !== "Bad User Input" && (
+      {error && error.message !== 'Bad User Input' && (
         <Message negative>{error.message}</Message>
       )}
 
@@ -354,7 +354,7 @@ const Register = () => {
         {/* change the JSX to `Form.Input` */}
         <Form.Input
           // conditional show the label content
-          label={errors.username ? errors.username : "Username:"}
+          label={errors.username ? errors.username : 'Username:'}
           type="text"
           name="username"
           value={userInfo.username}
@@ -364,7 +364,7 @@ const Register = () => {
           error={errors.username ? true : false}
         />
         <Form.Input
-          label={errors.email ? errors.email : "E-mail:"}
+          label={errors.email ? errors.email : 'E-mail:'}
           type="email"
           name="email"
           value={userInfo.email}
@@ -373,7 +373,7 @@ const Register = () => {
           error={errors.email ? true : false}
         />
         <Form.Input
-          label={errors.password ? errors.password : "Password:"}
+          label={errors.password ? errors.password : 'Password:'}
           type="password"
           name="password"
           value={userInfo.password}
@@ -382,7 +382,7 @@ const Register = () => {
           error={errors.password ? true : false}
         />
         <Form.Input
-          label={errors.passconf ? errors.passconf : "Confirm Password:"}
+          label={errors.passconf ? errors.passconf : 'Confirm Password:'}
           type="password"
           name="passconf"
           value={userInfo.passconf}
@@ -423,8 +423,8 @@ const RegisterForm = () => {
   // ...
   // add a new state to store the register result
   const [registerResult, setRegisterResult] = useState({
-    username: "",
-    email: "",
+    username: '',
+    email: '',
   });
 
   const [doRegister, { loading, error }] = useMutation(REGISTER, {
@@ -447,7 +447,7 @@ const RegisterForm = () => {
         <Message positive>
           <Message.Header>Register Successfully!</Message.Header>
           <p>
-            You&#39;re <strong>{registerResult.username}</strong> with{" "}
+            You&#39;re <strong>{registerResult.username}</strong> with{' '}
             <em>{registerResult.email}</em>.
           </p>
           <p>
@@ -472,10 +472,10 @@ Sum up our first part of error handling. Using the guard clause concept, we put 
 // ...
 let errors = {};
 try {
-  if (email.trim() === "") errors.email = "Email must not be empty.";
-  if (username.trim() === "") errors.username = "Username must not be empty.";
-  if (password === "") errors.password = "Password must not be empty.";
-  if (passconf !== password) errors.passconf = "Passwords must match.";
+  if (email.trim() === '') errors.email = 'Email must not be empty.';
+  if (username.trim() === '') errors.username = 'Username must not be empty.';
+  if (password === '') errors.password = 'Password must not be empty.';
+  if (passconf !== password) errors.passconf = 'Passwords must match.';
 
   if (Object.keys(errors).length > 0) {
     // now `errors` will throw to the `catch` block
@@ -484,7 +484,7 @@ try {
 
   // ...
 } catch (err) {
-  throw new UserInputError("Bad User Input", { errors: err });
+  throw new UserInputError('Bad User Input', { errors: err });
 }
 
 // ...
@@ -500,10 +500,10 @@ In the front end, we use the `useMutation` hook from Apollo Client to store erro
 const Register = () => {
   // ...
   const [errors, setErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
-    passconf: "",
+    username: '',
+    email: '',
+    password: '',
+    passconf: '',
   });
 
   // ...
@@ -525,22 +525,22 @@ const Register = () => {
       {/* ... */}
       <Form onSubmit={registerSubmit}>
         <Form.Input
-          label={errors.username ? errors.username : "Username:"}
+          label={errors.username ? errors.username : 'Username:'}
           // ...
           error={errors.username ? true : false}
         />
         <Form.Input
-          label={errors.email ? errors.email : "E-mail:"}
+          label={errors.email ? errors.email : 'E-mail:'}
           // ...
           error={errors.email ? true : false}
         />
         <Form.Input
-          label={errors.password ? errors.password : "Password:"}
+          label={errors.password ? errors.password : 'Password:'}
           // ...
           error={errors.password ? true : false}
         />
         <Form.Input
-          label={errors.passconf ? errors.passconf : "Confirm Password:"}
+          label={errors.passconf ? errors.passconf : 'Confirm Password:'}
           // ...
           error={errors.passconf ? true : false}
         />

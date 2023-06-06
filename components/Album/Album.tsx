@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react";
-import styled from "styled-components";
-import Image from "next/image";
-import type { CSSProperties, MutableRefObject } from "react";
+import { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import Image from 'next/image';
+import type { CSSProperties, MutableRefObject } from 'react';
 
-import { AlbumType } from "@/data/projects";
-import { QUERIES } from "@/styles/theme";
-import Button from "../Button";
+import { AlbumType } from '@/data/projects';
+import { QUERIES } from '@/styles/theme';
+import Button from '../Button';
 
 interface AlbumProps {
   album: AlbumType;
@@ -45,7 +45,7 @@ const Album: React.FC<AlbumProps> = ({
       aria-label={`project ${album.id} of ${totalNum}`}
       style={
         {
-          "--width": featured ? `100vw` : `100%`,
+          '--width': featured ? `100vw` : `100%`,
         } as CSSProperties
       }
       ref={(element: HTMLDivElement) => projectsRef.current.push(element)}

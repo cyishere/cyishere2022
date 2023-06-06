@@ -1,27 +1,27 @@
-import type { MDXRemoteSerializeResult } from "next-mdx-remote";
-import type { MDXComponents } from "mdx/types";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import styled from "styled-components";
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRemote } from "next-mdx-remote";
-import rehypePrism from "rehype-prism-plus";
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import type { MDXComponents } from 'mdx/types';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+import styled from 'styled-components';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRemote } from 'next-mdx-remote';
+import rehypePrism from 'rehype-prism-plus';
 
-import type { PostMetaType } from "@/utils/types";
-import { postFilePaths, POSTS_PATH } from "@/utils/mdxUtils";
-import SEO from "@/components/SEO";
-import Header from "@/components/Header";
-import PostLayout from "@/components/Post";
-import Footer from "@/components/Footer";
-import CustomComponents from "@/components/CustomComponents";
-import Figure from "@/components/Figure";
-import Emoji from "@/components/Emoji";
-import Video from "@/components/Video";
-import { FlexCenter } from "@/components/Container";
-import TableOfContents from "@/components/TableOfContents";
-import { color, fontSize } from "@/styles/helpers";
+import type { PostMetaType } from '@/utils/types';
+import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
+import SEO from '@/components/SEO';
+import Header from '@/components/Header';
+import PostLayout from '@/components/Post';
+import Footer from '@/components/Footer';
+import CustomComponents from '@/components/CustomComponents';
+import Figure from '@/components/Figure';
+import Emoji from '@/components/Emoji';
+import Video from '@/components/Video';
+import { FlexCenter } from '@/components/Container';
+import TableOfContents from '@/components/TableOfContents';
+import { color, fontSize } from '@/styles/helpers';
 
 interface PostPageProps {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -108,16 +108,16 @@ const PostHeader = styled.header`
 `;
 
 const Title = styled.h1`
-  font-size: ${fontSize("xxxl")};
+  font-size: ${fontSize('xxxl')};
 `;
 
 const Date = styled.p`
-  font-size: ${fontSize("sm")};
-  color: ${color("text.light")};
+  font-size: ${fontSize('sm')};
+  color: ${color('text.light')};
 `;
 
 const Excerpt = styled.p`
-  font-size: ${fontSize("lg")};
+  font-size: ${fontSize('lg')};
 `;
 
 const Sidebar = styled.aside`
@@ -138,7 +138,7 @@ const Sidebar = styled.aside`
 
 export const getStaticPaths = () => {
   const paths = postFilePaths
-    .map((path) => path.replace(/\.mdx?$/, ""))
+    .map((path) => path.replace(/\.mdx?$/, ''))
     .map((slug) => ({ params: { slug } }));
 
   return {

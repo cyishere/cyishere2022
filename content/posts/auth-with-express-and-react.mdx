@@ -1,8 +1,8 @@
 ---
-title: "Auth with Express and React"
+title: 'Auth with Express and React'
 description: "What's authentication? What's authorization?"
-createdAt: "2021-05-27"
-tags: ["authentication", "authorization"]
+createdAt: '2021-05-27'
+tags: ['authentication', 'authorization']
 ---
 
 Accutally this is about the logic of "auth", because there're two parts in it: "authentication" and "authorization".
@@ -62,23 +62,23 @@ When backend receives the login request, it checks the info in database, then re
 ```javascript
 // ./server/routes/user.js
 
-const router = require("express").Router();
-const jwt = require("jsonwebtoken");
-const { users } = require("../utils/data");
-const SECRET = "thisSupposeToBeSecrectNotForPublic";
+const router = require('express').Router();
+const jwt = require('jsonwebtoken');
+const { users } = require('../utils/data');
+const SECRET = 'thisSupposeToBeSecrectNotForPublic';
 
 /**
  * @feature Login
  * @route POST /api/user
  * @access Public
  */
-router.post("/", async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const { name, password } = req.body;
 
     // check if there are name and password
-    if (name.trim() === "" || password.trim() === "") {
-      const error = new Error("Name and password must not be empty.");
+    if (name.trim() === '' || password.trim() === '') {
+      const error = new Error('Name and password must not be empty.');
       error.statusCode = 400;
       throw error;
     }
@@ -86,14 +86,14 @@ router.post("/", async (req, res, next) => {
     // check is there's a user in the database
     const user = users.find((u) => u.name === name);
     if (!user) {
-      const error = new Error("No such user.");
+      const error = new Error('No such user.');
       error.statusCode = 400;
       throw error;
     }
 
     // check whether the password is correct
     if (password !== user.password) {
-      const error = new Error("Incorrect password...");
+      const error = new Error('Incorrect password...');
       error.statusCode = 400;
       throw error;
     }
@@ -146,15 +146,15 @@ const Profile = ({ userId, token }) => {
 
   const getUserInfo = (tokenPassport) => {
     return fetch(`${api}/${userId}`, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + tokenPassport, // send the token in request header
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + tokenPassport, // send the token in request header
       },
     })
       .then((response) => response.json())
       .then((result) => {
-        if (result.type !== "error") {
+        if (result.type !== 'error') {
           setUser(result.user);
           setMessage(null);
         } else {
@@ -183,9 +183,9 @@ If it's an invalid user, she can't do what she cannot do.
 
 ```javascript
 // ./server/utils/middlewares.js
-const jwt = require("jsonwebtoken");
-const { SECRET } = require("./helpers");
-const { users } = require("./data");
+const jwt = require('jsonwebtoken');
+const { SECRET } = require('./helpers');
+const { users } = require('./data');
 
 /**
  * Authorization
@@ -200,16 +200,16 @@ const unauthorizedError = (errorMsg) => {
 const auth = (req, res, next) => {
   try {
     // check whether there's authorization property in the request header
-    const reqHeaderAuth = req.header("Authorization");
+    const reqHeaderAuth = req.header('Authorization');
     if (!reqHeaderAuth) {
-      unauthorizedError("No authorization...");
+      unauthorizedError('No authorization...');
     }
 
     // get the token string,
     // if the format of the token is not right,
     // jsonwebtoken will throw an error
     // with "jwt malformed" message
-    const token = reqHeaderAuth.split(" ")[1];
+    const token = reqHeaderAuth.split(' ')[1];
 
     // verify the token with our "secret"
     // if the token is invalid,
@@ -221,7 +221,7 @@ const auth = (req, res, next) => {
     // check whether there's a user with this name in our database
     const user = users.find((u) => u.name === decoded.name);
     if (!user) {
-      unauthorizedError("Invalid token...");
+      unauthorizedError('Invalid token...');
     }
 
     // when authorized, assign the user id to the `request`
@@ -242,7 +242,7 @@ Now we know this is a valid user who is in our database, let's get some further 
 // ./server/routes/user.js
 
 // ...
-const { auth, unauthorizedError } = require("../utils/middlewares");
+const { auth, unauthorizedError } = require('../utils/middlewares');
 
 // ...
 
@@ -252,7 +252,7 @@ const { auth, unauthorizedError } = require("../utils/middlewares");
  * @access Private
  */
 // 🔴 NOTE: put the `auth` middleware here (router argument) to use it
-router.get("/:id", auth, (req, res, next) => {
+router.get('/:id', auth, (req, res, next) => {
   try {
     // in the data.json, the user ids are number,
     // so convert string to number first

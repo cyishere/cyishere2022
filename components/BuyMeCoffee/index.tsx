@@ -1,1 +1,1 @@
-export { default } from "./BuyMeCoffee";
+export { default } from './BuyMeCoffee';

@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import type { Post } from "@/utils/types";
-import { color } from "@/styles/helpers";
-import SectionTitle from "../SectionTitle";
-import PostListItem from "../PostListItem";
-import Button from "../Button";
-import ShowMore from "../ShowMore";
+import type { Post } from '@/utils/types';
+import { color } from '@/styles/helpers';
+import SectionTitle from '../SectionTitle';
+import PostListItem from '../PostListItem';
+import Button from '../Button';
+import ShowMore from '../ShowMore';
 
 interface FeaturedPostsProps {
   posts: Post[];
@@ -30,7 +30,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
 };
 
 const Wrapper = styled.section`
-  background-color: ${color("base.200")};
+  background-color: ${color('base.200')};
   padding: 10rem 2rem;
 `;
 

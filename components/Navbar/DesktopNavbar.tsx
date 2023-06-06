@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { QUERIES } from "@/styles/theme";
-import NavLink from "../NavLink";
+import { QUERIES } from '@/styles/theme';
+import NavLink from '../NavLink';
 
 interface DesktopNavbarProps {
   pathname: string;

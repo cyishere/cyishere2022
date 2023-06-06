@@ -1,8 +1,8 @@
 ---
-title: "Table of Contents for MDX with Next.js"
-description: "Add a table of contents for MDX/Markdown file with Next.js."
-createdAt: "2021-06-21"
-tags: ["mdx", "next.js"]
+title: 'Table of Contents for MDX with Next.js'
+description: 'Add a table of contents for MDX/Markdown file with Next.js.'
+createdAt: '2021-06-21'
+tags: ['mdx', 'next.js']
 ---
 
 I use Next.js & MDX for my personal website and some documents, I want to display a "table of contents", a list of headings, for each article.
@@ -16,10 +16,10 @@ Here's the code for getting the list of headings:
 ```javascript
 // ./components/PostLayout.js
 
-import { renderToString } from "react-dom/server";
-import { MDXProvider } from "@mdx-js/react";
+import { renderToString } from 'react-dom/server';
+import { MDXProvider } from '@mdx-js/react';
 
-import MDXComponents from "./MDXComponents";
+import MDXComponents from './MDXComponents';
 
 const PostLayout = ({ children }) => {
   const contentString = renderToString(children);
@@ -29,9 +29,9 @@ const PostLayout = ({ children }) => {
 
     if (source.match(regex)) {
       return source.match(regex).map((heading) => {
-        const headingText = heading.replace("<h2>", "").replace("</h2>", "");
+        const headingText = heading.replace('<h2>', '').replace('</h2>', '');
 
-        const link = "#" + headingText.replace(/ /g, "_").toLowerCase();
+        const link = '#' + headingText.replace(/ /g, '_').toLowerCase();
 
         return {
           text: headingText,
@@ -77,7 +77,7 @@ Here's the customized `h2`:
 // ./components/MDXComponents.js
 
 const Heading2 = ({ children }) => {
-  const idText = children.replace(/ /g, "_").toLowerCase();
+  const idText = children.replace(/ /g, '_').toLowerCase();
 
   return <h2 id={idText}>{children}</h2>;
 };

@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import useBouncingLogos from "@/hooks/use-bouncing-logos";
-import { QUERIES } from "@/styles/theme";
+import useBouncingLogos from '@/hooks/use-bouncing-logos';
+import { QUERIES } from '@/styles/theme';
 
 const BouncingLogos: React.FC = () => {
   const { canvasRef } = useBouncingLogos();

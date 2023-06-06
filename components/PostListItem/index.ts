@@ -1,1 +1,1 @@
-export { default } from "./PostListItem";
+export { default } from './PostListItem';

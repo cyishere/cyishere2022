@@ -1,9 +1,9 @@
 ---
-title: "Make GraphQL Codegen Work with Hasura in Next.js"
-description: "Configure GraphQL Code Generator for Hasura and Next.js"
-createdAt: "2022-04-06"
-tags: ["next.js", "graphql-codegen", "hasura"]
-pageImage: "https://res.cloudinary.com/cyishere/image/upload/v1649225933/cyishere/blog/make-graphql-codegen-work-with-hasura-in-nextjs/cover_ox8bgs.png"
+title: 'Make GraphQL Codegen Work with Hasura in Next.js'
+description: 'Configure GraphQL Code Generator for Hasura and Next.js'
+createdAt: '2022-04-06'
+tags: ['next.js', 'graphql-codegen', 'hasura']
+pageImage: 'https://res.cloudinary.com/cyishere/image/upload/v1649225933/cyishere/blog/make-graphql-codegen-work-with-hasura-in-nextjs/cover_ox8bgs.png'
 ---
 
 As I used the [GraphQL Code Generator](https://www.graphql-code-generator.com/) before, I found out that making this Codegen work with [Hasura](https://hasura.io) in [Next.js](https://nextjs.org/) needs some special configurations.
@@ -16,7 +16,7 @@ The [Hasura's official tutorial](https://hasura.io/learn/graphql/typescript-reac
 // ./codegen.js
 
 // ⛑️ Change 1: import "dotenv"
-require("dotenv").config();
+require('dotenv').config();
 
 // ⛑️ Change 2: Get Hasura's GraphQL API from environment variables
 const API = process.env.HASURA_GRAPHQL_API;
@@ -28,21 +28,21 @@ module.exports = {
       [API]: {
         headers: {
           // ⛑️ Change 4: Add content type
-          "content-type": "application/json",
+          'content-type': 'application/json',
           // ⛑️ Change 5: Add admin secret from environment variables
-          "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET,
+          'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET,
         },
       },
     },
   ],
-  documents: ["./src/**/*.tsx", "./src/**/*.ts"],
+  documents: ['./src/**/*.tsx', './src/**/*.ts'],
   overwrite: true,
   generates: {
-    "./src/generated/graphql.tsx": {
+    './src/generated/graphql.tsx': {
       plugins: [
-        "typescript",
-        "typescript-operations",
-        "typescript-react-apollo",
+        'typescript',
+        'typescript-operations',
+        'typescript-react-apollo',
       ],
       config: {
         skipTypename: false,
@@ -51,8 +51,8 @@ module.exports = {
         withComponent: false,
       },
     },
-    "./graphql.schema.json": {
-      plugins: ["introspection"],
+    './graphql.schema.json': {
+      plugins: ['introspection'],
     },
   },
 };

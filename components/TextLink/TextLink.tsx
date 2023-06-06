@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import Link from "next/link";
-import { ExternalLink as ExternalIcon } from "react-feather";
+import styled from 'styled-components';
+import Link from 'next/link';
+import { ExternalLink as ExternalIcon } from 'react-feather';
 
 interface TextLinkProps {
   href: string;
 }
 
 const TextLink: React.FC<TextLinkProps> = ({ href, children }) => {
-  if (href.startsWith("http")) {
+  if (href.startsWith('http')) {
     return (
       <Wrapper href={href} target="_blank" rel="noreferrer">
         {children}

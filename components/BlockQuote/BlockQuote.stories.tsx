@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import BlockQuote from ".";
+import BlockQuote from '.';
 
 export default {
-  title: "Design System/BlockQuote",
+  title: 'Design System/BlockQuote',
   component: BlockQuote,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 } as ComponentMeta<typeof BlockQuote>;
 
@@ -27,15 +27,15 @@ export const Default = Template.bind({});
 
 export const Info = Template.bind({});
 Info.args = {
-  variant: "info",
+  variant: 'info',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  variant: "warning",
+  variant: 'warning',
 };
 
 export const Error = Template.bind({});
 Error.args = {
-  variant: "error",
+  variant: 'error',
 };

@@ -1,14 +1,14 @@
-import { useState } from "react";
-import Link from "next/link";
-import styled from "styled-components";
-import { Menu } from "react-feather";
+import { useState } from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
+import { Menu } from 'react-feather';
 
-import { MaxWidthWrapper } from "../MaxWidthWrapper";
-import VisuallyHidden from "../VisuallyHidden";
-import { MobileNavbar, DesktopNavbar } from "../Navbar";
-import MenuToggleButton from "../MenuToggleButton";
-import { QUERIES } from "@/styles/theme";
-import { color, font, fontSize, fontWeight } from "@/styles/helpers";
+import { MaxWidthWrapper } from '../MaxWidthWrapper';
+import VisuallyHidden from '../VisuallyHidden';
+import { MobileNavbar, DesktopNavbar } from '../Navbar';
+import MenuToggleButton from '../MenuToggleButton';
+import { QUERIES } from '@/styles/theme';
+import { color, font, fontSize, fontWeight } from '@/styles/helpers';
 
 interface HeaderProps {
   pathname: string;
@@ -60,10 +60,10 @@ const Wrapper = styled.header`
 `;
 
 const Logo = styled.a`
-  font-family: ${font("logo")};
-  font-weight: ${fontWeight("normal")};
-  font-size: ${fontSize("big")};
-  color: ${color("text.main")};
+  font-family: ${font('logo')};
+  font-weight: ${fontWeight('normal')};
+  font-size: ${fontSize('big')};
+  color: ${color('text.main')};
   letter-spacing: 4px;
 `;
 

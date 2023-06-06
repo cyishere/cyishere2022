@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Post = styled.article`
   flex: 1 1 686px;
@@ -8,7 +8,7 @@ const Post = styled.article`
   margin-right: auto;
 
   & > * + *,
-  & pre[class*="language-"] {
+  & pre[class*='language-'] {
     margin-top: 1.6em;
   }
 

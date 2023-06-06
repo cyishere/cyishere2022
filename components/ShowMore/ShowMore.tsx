@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { QUERIES } from "@/styles/theme";
+import { QUERIES } from '@/styles/theme';
 
 interface ShowMoreProps {
   children: React.ReactNode;

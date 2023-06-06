@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from 'react';
 
 export interface PlayerStateType {
   isPlaying: boolean;

@@ -1,8 +1,8 @@
 ---
-title: "Error Handling with Express.js"
-description: "Use middleware in Express.js to catch error messages and send them to frontend."
-createdAt: "2021-05-11"
-tags: ["express"]
+title: 'Error Handling with Express.js'
+description: 'Use middleware in Express.js to catch error messages and send them to frontend.'
+createdAt: '2021-05-11'
+tags: ['express']
 ---
 
 I think error handling is a very tricky part of development. When I started as a self-taught Node.js full-stack developer, I know use `throw new Error` would throw out the errors in the terminal, but I don't know how to let my frontend "know" these errors and show them in the UI for users. I really struggled with this for a while.
@@ -18,7 +18,7 @@ const errorHandler = (err, req, res, next) => {
   const statusCode = err.statusCode || 500;
 
   res.status(statusCode).json({
-    type: "error",
+    type: 'error',
     message: err.message,
   });
 
@@ -29,11 +29,11 @@ const errorHandler = (err, req, res, next) => {
 In the business logic, when there's an error occurred, I handle it this way (code below), use the guard clause concept throw the error, and catch it by the middleware.
 
 ```js
-router.post("/", (req, res, next) => {
+router.post('/', (req, res, next) => {
   try {
     // register a new user, but the username is already taken
     if (usernameUsed) {
-      const error = new Error("The username is taken.");
+      const error = new Error('The username is taken.');
       error.statusCode = 409;
       throw error;
     }
@@ -51,16 +51,16 @@ In the front end, I use `fetch` to communicate with the server. I don't like `ax
 
 ```js
 const addNewUser = (userInfo) => {
-  return fetch("/register", {
-    method: "POST",
+  return fetch('/register', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(userInfo),
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data.type === "error") {
+      if (data.type === 'error') {
         // the `type` we defined in the backend middleware
         alert(data.message);
       }

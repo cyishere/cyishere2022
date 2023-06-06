@@ -1,9 +1,9 @@
 ---
-title: "Highlight Lines in Code Block with Prism.js and MDX"
-description: "Make lines highlighting with Prism.js in markdown(mdx) code block."
-createdAt: "2022-06-25"
-tags: ["mdx", "prismjs"]
-pageImage: "https://res.cloudinary.com/cyishere/image/upload/v1656159596/cyishere/blog/highlight-lines-ogImage_ld0w4s.png"
+title: 'Highlight Lines in Code Block with Prism.js and MDX'
+description: 'Make lines highlighting with Prism.js in markdown(mdx) code block.'
+createdAt: '2022-06-25'
+tags: ['mdx', 'prismjs']
+pageImage: 'https://res.cloudinary.com/cyishere/image/upload/v1656159596/cyishere/blog/highlight-lines-ogImage_ld0w4s.png'
 ---
 
 ## The Needs
@@ -52,8 +52,8 @@ So with putting `rehypePrism` in that `rehypePlugins` array, we can use `rehypeP
 
 ```jsx {2,17}
 // This is the UPDATED blog post layout component
-import { serialize } from "next-mdx-remote/serialize";
-import rehypePrism from "rehype-prism-plus";
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypePrism from 'rehype-prism-plus';
 
 const BlogPost = (props) => {
   // omitted
@@ -89,7 +89,7 @@ export const getStaticProps = async ({ params }) => {
 With this setup, if we inspect the code block with the Chrome dev tool, we can see that line 2 and line 16 have an extra class `highlight-line` (as seen in the screenshot above). Make sure the stylesheet for code block has `highlight-inline` style defined.
 
 ```css
-code[class*="language-"] .highlight-line {
+code[class*='language-'] .highlight-line {
   background-color: hsl(256deg 100% 96%);
   display: block;
 }

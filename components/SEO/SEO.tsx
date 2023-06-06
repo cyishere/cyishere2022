@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 interface Props {
   title: string;
@@ -17,17 +17,17 @@ const SEO: React.FC<Props> = ({
   canonical,
   pageImage,
 }) => {
-  const domainUrl = "https://cyishere.dev";
+  const domainUrl = 'https://cyishere.dev';
 
   const titleContent = seoTitle ? seoTitle : title;
 
   const descripitonContent = description
     ? description
-    : "Frontend Developer: React, Gatsby, JavaScript, TypeScript, CSS-in-Js, Storybook, TDD & a tiny bit of Apollo/GraphQL/Prisma";
+    : 'Frontend Developer: React, Gatsby, JavaScript, TypeScript, CSS-in-Js, Storybook, TDD & a tiny bit of Apollo/GraphQL/Prisma';
 
   const canonicalLink = canonical
     ? canonical
-    : pathname !== "/"
+    : pathname !== '/'
     ? `${domainUrl}${pathname}`
     : domainUrl;
 

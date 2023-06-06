@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { chatApp as meta } from "@/data/projects";
-import { PortfolioLayout } from "@/components/Layout";
-import { MdContainer } from "@/components/Container";
-import TextLink from "@/components/TextLink";
-import Figure from "@/components/Figure";
-import { H2 } from "@/components/Headings";
+import { chatApp as meta } from '@/data/projects';
+import { PortfolioLayout } from '@/components/Layout';
+import { MdContainer } from '@/components/Container';
+import TextLink from '@/components/TextLink';
+import Figure from '@/components/Figure';
+import { H2 } from '@/components/Headings';
 
 const ChatApp = () => {
   return (
@@ -22,7 +22,7 @@ const ChatApp = () => {
           <p>
             I started to learn React.js and the whole concept of full-stack
             development in March 2020. During that time, I found out GraphQL
-            which I think is very cool and efficient. After I made{" "}
+            which I think is very cool and efficient. After I made{' '}
             <TextLink href="/portfolio/digikit">digiKIT</TextLink> with a REST
             API, I decided to try something with GraphQL, and a chat app popped
             into my head, because there&#39;s a &#34;real-time&#34; thing, so I
@@ -34,19 +34,19 @@ const ChatApp = () => {
             I use Apollo Server and Apollo Client/React because this is the
             first time I use a GraphQL API, there are tons of tutorials and
             well-written documents about Apollo which make me feel
-            &#34;safe&#34;. I also watched{" "}
+            &#34;safe&#34;. I also watched{' '}
             <TextLink href="https://www.youtube.com/watch?v=LvfJ2wEpMrs&list=PLMhAeHCz8S3_VYiYxpcXtMz96vePOuOX3">
               this tutorial series on YouTube
-            </TextLink>{" "}
+            </TextLink>{' '}
             first to help me get the whole picture of this kind of app, then I
             implemented everything by myself.
           </p>
           <p>
             I found Prisma by accident, but I fell in love with it immediately.
-            I had no experience with ORM before, and I&#39;ve only made{" "}
+            I had no experience with ORM before, and I&#39;ve only made{' '}
             <TextLink href="https://github.com/cyishere/dragonstack">
               one app with PostgreSQL
-            </TextLink>{" "}
+            </TextLink>{' '}
             following along with a tutorial. Prisma makes me interact with
             PostgreSQL happier.
           </p>
@@ -81,12 +81,12 @@ const ChatApp = () => {
           </p>
           <p>
             Before I implemented the subscription, I managed how to display the
-            newly sent message and update the state in the{" "}
+            newly sent message and update the state in the{' '}
             <code>useMutation</code>. But when with the subscription, we need to
             manage these with the response of <code>useSubscription</code>.
           </p>
           <p>
-            I&#39;m not sure whether I described it correctly in English,{" "}
+            I&#39;m not sure whether I described it correctly in English,{' '}
             <TextLink href="https://github.com/cyishere/chat-app/blob/main/client/src/components/ChatWindow/InputBox.js">
               here&#39;s the code
             </TextLink>
@@ -102,7 +102,7 @@ const ChatApp = () => {
           </p>
           <p>
             The <code>useReducer</code> in React has the methodology as the old
-            school Redux, not{" "}
+            school Redux, not{' '}
             <TextLink href="https://redux-toolkit.js.org/">
               the new modern one
             </TextLink>

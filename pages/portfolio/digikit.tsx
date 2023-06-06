@@ -1,14 +1,14 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next';
 
-import { digikit as meta } from "@/data/projects";
-import { PortfolioLayout } from "@/components/Layout";
-import TextLink from "@/components/TextLink";
-import Video from "@/components/Video";
-import Figure from "@/components/Figure";
-import styled from "styled-components";
-import { MdContainer, LgContainer } from "@/components/Container";
-import { QUERIES } from "@/styles/theme";
-import { H2 } from "@/components/Headings";
+import { digikit as meta } from '@/data/projects';
+import { PortfolioLayout } from '@/components/Layout';
+import TextLink from '@/components/TextLink';
+import Video from '@/components/Video';
+import Figure from '@/components/Figure';
+import styled from 'styled-components';
+import { MdContainer, LgContainer } from '@/components/Container';
+import { QUERIES } from '@/styles/theme';
+import { H2 } from '@/components/Headings';
 
 const digikit: NextPage = () => {
   return (
@@ -40,7 +40,7 @@ const digikit: NextPage = () => {
             <H2>Web Stack and Explanation</H2>
             <p>
               When I was working as a screenplay writer, my main entertainment
-              was reading articles on{" "}
+              was reading articles on{' '}
               <TextLink href="https://scotch.io">scotch.io</TextLink> to learn
               the new tech concepts. So I&#39;m familiar with Express REST API
               for a while, this time I finally got the chance to make something
@@ -117,7 +117,7 @@ const digikit: NextPage = () => {
             messages and HTTP status code. But I found out every time axios gets
             a status code that is non-2xx, it just breaks without any messages I
             put in that error event. So I switched to <code>fetch</code>, it
-            makes more sense to me. I wrote an article about{" "}
+            makes more sense to me. I wrote an article about{' '}
             <TextLink href="https://cyishere.dev/blog/error-handling-with-express">
               this error handling thing
             </TextLink>
@@ -127,10 +127,10 @@ const digikit: NextPage = () => {
           <p>
             By making this app I found out there are two parts about
             &#34;auth&#34;, one is &#34;authentication&#34;, the other is
-            &#34;authorization&#34;. I wrote{" "}
+            &#34;authorization&#34;. I wrote{' '}
             <TextLink href="https://cyishere.dev/blog/auth-with-express-and-react">
               a blog post
-            </TextLink>{" "}
+            </TextLink>{' '}
             about the whole logic of them.
           </p>
           <h3>The Logic of Shopping Cart with Redux</h3>
@@ -150,17 +150,17 @@ const digikit: NextPage = () => {
             with React?
           </p>
           <p>
-            With the help of{" "}
+            With the help of{' '}
             <TextLink href="https://reactrouter.com/">
               react-router-dom
             </TextLink>
             , I check the user&#39;s status in a <code>Route</code> component
             for whether there&#39;s a login status in the app&#39;s state and
             use the <code>if-else</code> condition to show the right component
-            or re-direct to another location.{" "}
+            or re-direct to another location.{' '}
             <TextLink href="https://github.com/cyishere/digikit/blob/main/frontend/src/app/ProtectedRoutes.js">
               Here&#39;s the code
-            </TextLink>{" "}
+            </TextLink>{' '}
             for route protection.
           </p>
         </MdContainer>

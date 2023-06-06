@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface MaxWidthWrapperProps {
   className?: string;
@@ -6,7 +6,7 @@ interface MaxWidthWrapperProps {
 
 const MaxWidthWrapper: React.FC<MaxWidthWrapperProps> = ({
   children,
-  className = "",
+  className = '',
   ...rest
 }) => {
   return (

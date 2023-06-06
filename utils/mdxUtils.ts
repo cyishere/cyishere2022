@@ -1,9 +1,9 @@
-import type { Post } from "./types";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import type { Post } from './types';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-export const POSTS_PATH = path.join(process.cwd(), "content/posts");
+export const POSTS_PATH = path.join(process.cwd(), 'content/posts');
 
 export const postFilePaths = fs
   .readdirSync(POSTS_PATH)
@@ -17,7 +17,7 @@ export const getPosts = (n?: number) => {
     return {
       content,
       data,
-      slug: filePath.split(".")[0],
+      slug: filePath.split('.')[0],
     };
   }) as Post[];
 

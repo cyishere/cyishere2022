@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import Link from "next/link";
-import { Twitter, GitHub, Codepen } from "react-feather";
+import styled from 'styled-components';
+import Link from 'next/link';
+import { Twitter, GitHub, Codepen } from 'react-feather';
 
-import Emoji from "../Emoji";
-import BuyMeCoffee from "../BuyMeCoffee";
-import { QUERIES } from "@/styles/theme";
-import { color } from "@/styles/helpers";
+import Emoji from '../Emoji';
+import BuyMeCoffee from '../BuyMeCoffee';
+import { QUERIES } from '@/styles/theme';
+import { color } from '@/styles/helpers';
 
 const Footer: React.FC = () => {
-  const createdAt = new Date("2021").getFullYear();
+  const createdAt = new Date('2021').getFullYear();
   const today = new Date();
   const thisYear = today.getFullYear();
 
@@ -17,11 +17,11 @@ const Footer: React.FC = () => {
       <Container>
         <Copyright>
           <p>
-            &copy;{" "}
+            &copy;{' '}
             {createdAt === thisYear ? thisYear : `${createdAt} - ${thisYear}`}
           </p>
           <p>
-            Made with <Emoji name="coffee">☕</Emoji> &{" "}
+            Made with <Emoji name="coffee">☕</Emoji> &{' '}
             <Emoji name="cat">🐈</Emoji> in Tianjin, China.
           </p>
         </Copyright>
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
 const Wrapper = styled.footer`
   padding: 0.5rem 2rem;
-  background-color: ${color("base.200")};
+  background-color: ${color('base.200')};
 `;
 
 const Container = styled.div`
@@ -90,8 +90,8 @@ const SocialLinks = styled.div`
 `;
 
 const SocialIcon = styled.a`
-  background-color: ${color("base.100")};
-  color: ${color("text.main")};
+  background-color: ${color('base.100')};
+  color: ${color('text.main')};
   border-radius: 50%;
   width: 46px;
   height: 46px;
@@ -100,7 +100,7 @@ const SocialIcon = styled.a`
   transition: background 500ms ease-in, transform 500ms ease-in;
 
   &:hover {
-    background-color: ${color("accent.main")};
+    background-color: ${color('accent.main')};
     transform: rotate(360deg);
   }
 `;

@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import Image from "next/image";
+import styled from 'styled-components';
+import Image from 'next/image';
 
-import { QUERIES } from "@/styles/theme";
+import { QUERIES } from '@/styles/theme';
 
 interface FigureProps {
   src: string;

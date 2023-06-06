@@ -1,9 +1,9 @@
-import type { CSSProperties, ReactNode } from "react";
-import styled from "styled-components";
-import { AlertTriangle, Info, XOctagon } from "react-feather";
-import { color } from "@/styles/helpers";
+import type { CSSProperties, ReactNode } from 'react';
+import styled from 'styled-components';
+import { AlertTriangle, Info, XOctagon } from 'react-feather';
+import { color } from '@/styles/helpers';
 
-export type VariantType = "default" | "info" | "warning" | "error";
+export type VariantType = 'default' | 'info' | 'warning' | 'error';
 
 interface BlockQuoteProps {
   variant?: VariantType;
@@ -11,44 +11,44 @@ interface BlockQuoteProps {
 }
 
 const SHARED_STYLES = {
-  "--padding": "0",
-  "--subPadding": "32px",
-  "--headerTextColor": `${color("reverse.main")}`,
-  "--borderColor": `${color("accent.main")}`,
-  "--borderWidth": "1px",
-  "--borderRadius": "10px",
-  "--fontStyle": "normal",
+  '--padding': '0',
+  '--subPadding': '32px',
+  '--headerTextColor': `${color('reverse.main')}`,
+  '--borderColor': `${color('accent.main')}`,
+  '--borderWidth': '1px',
+  '--borderRadius': '10px',
+  '--fontStyle': 'normal',
 };
 
 const getStyles = (type: VariantType) => {
   switch (type) {
-    case "default":
+    case 'default':
       return {
-        "--padding": "16px 32px",
-        "--subPadding": "0",
-        "--borderColor": `${color("accent.main")}`,
-        "--borderWidth": "0 0 0 5px",
-        "--bgColor": "transparent",
-        "--borderRadius": "0",
-        "--fontStyle": "italic",
+        '--padding': '16px 32px',
+        '--subPadding': '0',
+        '--borderColor': `${color('accent.main')}`,
+        '--borderWidth': '0 0 0 5px',
+        '--bgColor': 'transparent',
+        '--borderRadius': '0',
+        '--fontStyle': 'italic',
       };
 
-    case "info":
+    case 'info':
       return {
         ...SHARED_STYLES,
-        "--borderColor": `${color("info.main")}`,
+        '--borderColor': `${color('info.main')}`,
       };
 
-    case "warning":
+    case 'warning':
       return {
         ...SHARED_STYLES,
-        "--borderColor": `${color("warning.main")}`,
+        '--borderColor': `${color('warning.main')}`,
       };
 
-    case "error":
+    case 'error':
       return {
         ...SHARED_STYLES,
-        "--borderColor": `${color("error.main")}`,
+        '--borderColor': `${color('error.main')}`,
       };
 
     default:
@@ -58,21 +58,21 @@ const getStyles = (type: VariantType) => {
 
 const getTitle = (type: VariantType) => {
   switch (type) {
-    case "default":
+    case 'default':
       return <>Default</>;
-    case "info":
+    case 'info':
       return (
         <>
           <Info /> Info
         </>
       );
-    case "warning":
+    case 'warning':
       return (
         <>
           <AlertTriangle /> Warning
         </>
       );
-    case "error":
+    case 'error':
       return (
         <>
           <XOctagon /> Error
@@ -108,7 +108,7 @@ const getTitle = (type: VariantType) => {
   */
 const BlockQuote: React.FC<BlockQuoteProps> = ({
   children,
-  variant = "default",
+  variant = 'default',
   ...rest
 }) => {
   const styles = getStyles(variant);
@@ -116,8 +116,8 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
 
   return (
     <Wrapper style={styles as CSSProperties} {...rest}>
-      {variant === "default" ? null : (
-        <Header style={{ "--bgColor": "var(--borderColor)" } as CSSProperties}>
+      {variant === 'default' ? null : (
+        <Header style={{ '--bgColor': 'var(--borderColor)' } as CSSProperties}>
           {title}
         </Header>
       )}

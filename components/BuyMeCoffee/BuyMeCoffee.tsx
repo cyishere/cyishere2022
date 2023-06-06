@@ -1,6 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
-import BmcIcon from "./BmcIcon";
+import BmcIcon from './BmcIcon';
 
 const BuyMeCoffee = () => {
   return (
@@ -30,7 +30,7 @@ const shake = keyframes`
 `;
 
 const Link = styled.a`
-  font-family: "Cookie", cursive;
+  font-family: 'Cookie', cursive;
   font-size: 32px;
   line-height: 1;
   color: #000;

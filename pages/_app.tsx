@@ -1,12 +1,12 @@
-import type { AppProps } from "next/app";
+import type { AppProps } from 'next/app';
 
-import { createContext, useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
+import { createContext, useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import GlobalStyles from "@/styles/GlobalStyles";
-import { PrismLucario, PrismMaterialLight } from "@/styles/PrismThemes";
-import { cupcakeTheme, draculaTheme } from "@/styles/theme";
-import { LOCAL_THEME_NAME, THEME_NAMES } from "@/utils/constants";
+import GlobalStyles from '@/styles/GlobalStyles';
+import { PrismLucario, PrismMaterialLight } from '@/styles/PrismThemes';
+import { cupcakeTheme, draculaTheme } from '@/styles/theme';
+import { LOCAL_THEME_NAME, THEME_NAMES } from '@/utils/constants';
 
 interface ContextValue {
   isLight: boolean;

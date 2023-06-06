@@ -5,8 +5,8 @@ import {
   ColorPrimary,
   ColorSecondary,
   ColorText,
-} from "./styled";
-import { cupcakeTheme, FONTS, FONT_SIZES, FONT_WEIGHTS } from "./theme";
+} from './styled';
+import { cupcakeTheme, FONTS, FONT_SIZES, FONT_WEIGHTS } from './theme';
 
 export const createCssProps = (
   object:
@@ -26,7 +26,7 @@ export const createCssProps = (
       .map(([key, value]) => {
         return `${prefix}-${key}: ${value}`;
       })
-      .join(";") + ";"
+      .join(';') + ';'
   );
 };
 
@@ -36,7 +36,7 @@ export const createColorProps = (colors: typeof cupcakeTheme.colors) => {
       .map(([name, items]) => {
         return createCssProps(items, `--clr-${name}`);
       })
-      .join(";") + ";"
+      .join(';') + ';'
   );
 };
 
@@ -61,7 +61,7 @@ type RecursiveKeyOfHandleValue<TValue, Text extends string> =
     ? `${Text}${RecursiveKeyOfInner<TValue>}`
     : Text;
 
-type ColorName = RecursiveKeyOf<typeof cupcakeTheme["colors"]>;
+type ColorName = RecursiveKeyOf<typeof cupcakeTheme['colors']>;
 
 /**
  * Create a CSS custom property string for a color.
@@ -69,8 +69,8 @@ type ColorName = RecursiveKeyOf<typeof cupcakeTheme["colors"]>;
  * @returns A string which is also a CSS custom property for this color.
  */
 export const color = (n: ColorName) => {
-  const name = n.split(".")[0];
-  const variation = n.split(".")[1];
+  const name = n.split('.')[0];
+  const variation = n.split('.')[1];
 
   return `var(--clr-${name}-${variation})`;
 };

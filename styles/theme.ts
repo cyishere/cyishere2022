@@ -1,4 +1,4 @@
-import { DefaultTheme } from "styled-components";
+import { DefaultTheme } from 'styled-components';
 
 export const FONTS = {
   main: `'Poppins', sans-serif;`,
@@ -21,10 +21,10 @@ export const FONT_SIZES = {
 };
 
 export const FONT_WEIGHTS = {
-  normal: "400",
-  medium: "500",
-  semiBold: "600",
-  bold: "700",
+  normal: '400',
+  medium: '500',
+  semiBold: '600',
+  bold: '700',
 };
 
 export const BREAKPOINTS = {
@@ -42,60 +42,60 @@ export const QUERIES = {
 };
 
 export const LOGO_COLORS = {
-  react: "192.9deg 95.1% 68.2%",
-  html: "13deg 77.1% 52%",
-  css: "205.3deg 79.3% 39.8%",
-  javascript: "53.4deg 93.1% 54.3%",
-  typescript: "211.4deg 60.3% 48.4%",
-  gatsby: "270deg 50% 40%",
-  apollo: "251.8deg 65.6% 32%",
-  graphql: "319.5deg 100% 44.1%",
-  prisma: "217.8deg 23.1% 22.9%",
-  mongodb: "120.7deg 39.1% 45.7%",
-  posgresql: "225deg 72.7% 56.9%",
-  styled: "340.4deg 59.8% 64.9%",
-  gsap: "80.6deg 98.1% 40.8%",
+  react: '192.9deg 95.1% 68.2%',
+  html: '13deg 77.1% 52%',
+  css: '205.3deg 79.3% 39.8%',
+  javascript: '53.4deg 93.1% 54.3%',
+  typescript: '211.4deg 60.3% 48.4%',
+  gatsby: '270deg 50% 40%',
+  apollo: '251.8deg 65.6% 32%',
+  graphql: '319.5deg 100% 44.1%',
+  prisma: '217.8deg 23.1% 22.9%',
+  mongodb: '120.7deg 39.1% 45.7%',
+  posgresql: '225deg 72.7% 56.9%',
+  styled: '340.4deg 59.8% 64.9%',
+  gsap: '80.6deg 98.1% 40.8%',
 };
 
 export const cupcakeTheme: DefaultTheme = {
   colors: {
     base: {
-      "100": "#FAF7F5",
-      "200": "#EFEAE6",
+      '100': '#FAF7F5',
+      '200': '#EFEAE6',
     },
     text: {
-      main: "#291334",
-      light: "hsl(280 46% 14% / 0.7)",
+      main: '#291334',
+      light: 'hsl(280 46% 14% / 0.7)',
     },
     accent: {
-      main: "#65C3C8",
-      dark: "#3FACB1",
+      main: '#65C3C8',
+      dark: '#3FACB1',
     },
     primary: {
-      main: "#EF9FBC",
+      main: '#EF9FBC',
     },
     secondary: {
-      main: "#EEAF3A",
+      main: '#EEAF3A',
     },
     button: {
-      bg: "var(--clr-text-main)",
-      text: "#DFAFF8",
+      bg: 'var(--clr-text-main)',
+      text: '#DFAFF8',
     },
-    "button-secondary": {
-      bg: "var(--clr-text-main)",
-      text: "#DFAFF8",
+    'button-secondary': {
+      bg: 'var(--clr-text-main)',
+      text: '#DFAFF8',
     },
     info: {
-      main: "#39bff8",
+      main: '#39bff8',
     },
     warning: {
-      main: "#fabd22",
+      main: '#fabd22',
     },
     error: {
-      main: "#f87272",
+      main: '#f87272',
     },
     reverse: {
-      main: "var(--clr-base-100)",
+      main: 'var(--clr-base-100)',
     },
   },
 };
@@ -103,42 +103,42 @@ export const cupcakeTheme: DefaultTheme = {
 export const draculaTheme: DefaultTheme = {
   colors: {
     base: {
-      "100": "#272A36",
-      "200": "#21222C",
+      '100': '#272A36',
+      '200': '#21222C',
     },
     text: {
-      main: "#F8F8F2",
-      light: "#C2CBF4",
+      main: '#F8F8F2',
+      light: '#C2CBF4',
     },
     accent: {
-      main: "#FF79C6",
-      dark: "#FF2EA6",
+      main: '#FF79C6',
+      dark: '#FF2EA6',
     },
     primary: {
-      main: "#BD93F9",
+      main: '#BD93F9',
     },
     secondary: {
-      main: "#FFB86C",
+      main: '#FFB86C',
     },
     button: {
-      bg: "#414558",
-      text: "var(--clr-text-light)",
+      bg: '#414558',
+      text: 'var(--clr-text-light)',
     },
-    "button-secondary": {
-      bg: "var(--clr-text-main)",
-      text: "var(--clr-base-100)",
+    'button-secondary': {
+      bg: 'var(--clr-text-main)',
+      text: 'var(--clr-base-100)',
     },
     info: {
-      main: "#8ae9fd",
+      main: '#8ae9fd',
     },
     warning: {
-      main: "#f1fa8c",
+      main: '#f1fa8c',
     },
     error: {
-      main: "#ff5555",
+      main: '#ff5555',
     },
     reverse: {
-      main: "var(--clr-button-bg)",
+      main: 'var(--clr-button-bg)',
     },
   },
 };

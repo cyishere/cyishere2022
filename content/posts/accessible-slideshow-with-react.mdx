@@ -1,9 +1,9 @@
 ---
-title: "Accessible Slideshow with React"
-seoTitle: "Accessible Slideshow, Slider, Carousel with React"
-description: "Navigate slideshow, slider, carousel with keyboard. Slideshow, carousel for keyboard users."
-createdAt: "2022-01-08"
-tags: ["accessibility", "react"]
+title: 'Accessible Slideshow with React'
+seoTitle: 'Accessible Slideshow, Slider, Carousel with React'
+description: 'Navigate slideshow, slider, carousel with keyboard. Slideshow, carousel for keyboard users.'
+createdAt: '2022-01-08'
+tags: ['accessibility', 'react']
 ---
 
 The author discusses accessibility in-depth in the article ["How to build a more accessible carousel or slider"](https://dev.to/jasonwebb/how-to-build-a-more-accessible-carousel-or-slider-35lp), with examples in vanilla JavaScript. It helps me a lot; please read it to get a thorough understanding. In the article below, I demonstrated how to create an accessible slideshow with React.
@@ -50,7 +50,7 @@ I wrote the HTML(JSX) with some ARIA attributes at first.
         role="group"
         aria-label={`slide ${index + 1} of ${MOVIES.length}`}
         style={{
-          "--translateX": `-${slideIndex * 100}%`,
+          '--translateX': `-${slideIndex * 100}%`,
         }}
       >
         <article>
@@ -145,16 +145,16 @@ const App = () => {
     // Hiding all the projects and their content
     slidesRef.current.forEach((slide) => {
       if (slide) {
-        slide.setAttribute("aria-hidden", "true");
-        slide.querySelector("a").setAttribute("tabindex", "-1");
+        slide.setAttribute('aria-hidden', 'true');
+        slide.querySelector('a').setAttribute('tabindex', '-1');
       }
     });
 
     // Make sure the current slide not hide
-    slidesRef.current[slideIndex].removeAttribute("aria-hidden");
+    slidesRef.current[slideIndex].removeAttribute('aria-hidden');
     slidesRef.current[slideIndex]
-      .querySelector("a")
-      .removeAttribute("tabindex");
+      .querySelector('a')
+      .removeAttribute('tabindex');
   };
 
   useEffect(() => {

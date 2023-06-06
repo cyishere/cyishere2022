@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { color, fontSize } from "@/styles/helpers";
-import TextLink from "../TextLink";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import { color, fontSize } from '@/styles/helpers';
+import TextLink from '../TextLink';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 const Intro: React.FC = () => {
   return (
@@ -16,8 +16,8 @@ const Intro: React.FC = () => {
         </p>
         <p>
           I began re-building my knowledge and learning React in March 2020. In
-          three months, I received{" "}
-          <TextLink href="/portfolio/fcc">4 certifications</TextLink> from{" "}
+          three months, I received{' '}
+          <TextLink href="/portfolio/fcc">4 certifications</TextLink> from{' '}
           <TextLink href="https://www.freecodecamp.org">
             freeCodeCamp.org
           </TextLink>
@@ -30,12 +30,12 @@ const Intro: React.FC = () => {
 };
 
 const Wrapper = styled.section`
-  background-color: ${color("base.100")};
+  background-color: ${color('base.100')};
   padding: 10rem 2rem;
 `;
 
 const Container = styled.article`
-  font-size: ${fontSize("lg")};
+  font-size: ${fontSize('lg')};
   max-width: ${1000 / 16}rem;
   margin: 0 auto;
 
@@ -46,8 +46,8 @@ const Container = styled.article`
   & a {
     background-image: linear-gradient(
       to bottom,
-      ${color("accent.main")} 0%,
-      ${color("accent.dark")} 100%
+      ${color('accent.main')} 0%,
+      ${color('accent.dark')} 100%
     );
     background-size: 100% 0;
     border-bottom: 1px solid var(--clr-text-main);
@@ -55,7 +55,7 @@ const Container = styled.article`
   }
 
   & a:hover {
-    color: ${color("base.100")};
+    color: ${color('base.100')};
     background-size: 100% 100%;
     border-width: 3px;
     border-color: currentColor;

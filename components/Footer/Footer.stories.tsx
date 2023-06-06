@@ -1,12 +1,12 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Footer from ".";
+import Footer from '.';
 
 export default {
-  title: "Design System/Footer",
+  title: 'Design System/Footer',
   component: Footer,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 } as ComponentMeta<typeof Footer>;
 

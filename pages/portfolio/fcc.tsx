@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import Image from "next/image";
+import styled from 'styled-components';
+import Image from 'next/image';
 
-import { fcc as meta, fccProjects as projects } from "@/data/projects";
-import { QUERIES } from "@/styles/theme";
-import { PortfolioLayout } from "@/components/Layout";
-import TextLink from "@/components/TextLink";
+import { fcc as meta, fccProjects as projects } from '@/data/projects';
+import { QUERIES } from '@/styles/theme';
+import { PortfolioLayout } from '@/components/Layout';
+import TextLink from '@/components/TextLink';
 
 const fcc = () => {
   return (
@@ -54,7 +54,7 @@ const Grid = styled.div`
   --gap: 4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "media content";
+  grid-template-areas: 'media content';
   gap: var(--gap);
 
   @media ${QUERIES.desktopAndSmaller} {
@@ -70,8 +70,8 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
     grid-template-areas:
-      "media media"
-      "content content";
+      'media media'
+      'content content';
   }
 `;
 const Section = styled.section`
@@ -81,12 +81,12 @@ const Section = styled.section`
   padding-right: 72px;
 
   &:nth-of-type(2n) ${Grid} {
-    grid-template-areas: "content media";
+    grid-template-areas: 'content media';
 
     @media ${QUERIES.tabletAndSmaller} {
       grid-template-areas:
-        "media media"
-        "content content";
+        'media media'
+        'content content';
     }
   }
 

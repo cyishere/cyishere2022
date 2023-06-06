@@ -1,1 +1,1 @@
-export { default } from "./BouncingLogos";
+export { default } from './BouncingLogos';

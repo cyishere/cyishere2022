@@ -1,23 +1,23 @@
-import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
-import { ArrowLeft, ArrowRight } from "react-feather";
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+import { ArrowLeft, ArrowRight } from 'react-feather';
+import type { CSSProperties } from 'react';
 
-import { ALBUMS } from "@/data/projects";
-import { QUERIES } from "@/styles/theme";
-import SectionTitle from "../SectionTitle";
-import Album from "../Album";
-import UnstyledButton from "../UnstyledButton";
-import Button from "../Button";
-import VisuallyHidden from "../VisuallyHidden";
-import ShowMore from "../ShowMore";
+import { ALBUMS } from '@/data/projects';
+import { QUERIES } from '@/styles/theme';
+import SectionTitle from '../SectionTitle';
+import Album from '../Album';
+import UnstyledButton from '../UnstyledButton';
+import Button from '../Button';
+import VisuallyHidden from '../VisuallyHidden';
+import ShowMore from '../ShowMore';
 
 const FeaturedProjects: React.FC = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const projectsRef = useRef<HTMLDivElement[]>([]);
 
-  const handleClick = (direction: "left" | "right") => {
-    if (direction === "left") {
+  const handleClick = (direction: 'left' | 'right') => {
+    if (direction === 'left') {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : ALBUMS.length - 1);
     } else {
       setSlideIndex(slideIndex < ALBUMS.length - 1 ? slideIndex + 1 : 0);
@@ -33,17 +33,17 @@ const FeaturedProjects: React.FC = () => {
     // Hiding all the projects and their content
     projectsRef.current.forEach((project) => {
       if (project) {
-        project.setAttribute("aria-hidden", "true");
+        project.setAttribute('aria-hidden', 'true');
 
-        project.querySelector("a")?.setAttribute("tabindex", "-1");
+        project.querySelector('a')?.setAttribute('tabindex', '-1');
       }
     });
 
     // Make sure the current project not hide
-    projectsRef.current[slideIndex].removeAttribute("aria-hidden");
+    projectsRef.current[slideIndex].removeAttribute('aria-hidden');
     projectsRef.current[slideIndex]
-      .querySelector("a")
-      ?.removeAttribute("tabindex");
+      .querySelector('a')
+      ?.removeAttribute('tabindex');
   }
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const FeaturedProjects: React.FC = () => {
           Carousel with one project at a time. Use the Previous and Next buttons
           to navigate, or the slide dot buttons at the end to jump to slides.
         </VisuallyHidden>
-        <LeftArrowWrapper onClick={() => handleClick("left")}>
+        <LeftArrowWrapper onClick={() => handleClick('left')}>
           <VisuallyHidden>Previous project</VisuallyHidden>
           <ArrowLeft size={64} aria-hidden="true" />
         </LeftArrowWrapper>
@@ -70,7 +70,7 @@ const FeaturedProjects: React.FC = () => {
           <Slider
             style={
               {
-                "--translateX": `-${slideIndex * 100}%`,
+                '--translateX': `-${slideIndex * 100}%`,
               } as CSSProperties
             }
           >
@@ -85,7 +85,7 @@ const FeaturedProjects: React.FC = () => {
             ))}
           </Slider>
         </SliderContainer>
-        <RightArrowWrapper onClick={() => handleClick("right")}>
+        <RightArrowWrapper onClick={() => handleClick('right')}>
           <VisuallyHidden>Next project</VisuallyHidden>
           <ArrowRight size={64} aria-hidden="true" />
         </RightArrowWrapper>
