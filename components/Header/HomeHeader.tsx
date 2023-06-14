@@ -1,82 +1,58 @@
 import styled from 'styled-components';
-import Link from 'next/link';
-import { Moon, Sun } from 'react-feather';
+import { Menu } from 'react-feather';
 
-import { color } from '@/styles/helpers';
-import { MaxWidthWrapper } from '../MaxWidthWrapper';
-import UnstyledButton from '../UnstyledButton/UnstyledButton';
-import { useContext } from 'react';
-import { ThemeContext } from 'pages/_app';
+import useMobileMenu from '@/hooks/use-mobile-menu';
+import NavLink from '../NavLink';
+import { MobileNavbar } from '../Navbar';
+import MenuToggleButton from '../MenuToggleButton/MenuToggleButton';
 import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
+import { QUERIES } from '@/styles/theme';
 
-const HomeHeader = () => {
-  const ctx = useContext(ThemeContext);
+type HomeHeaderProps = {
+  pathname: string;
+};
+
+const HomeHeader: React.FC<HomeHeaderProps> = ({ pathname }) => {
+  const { isOpen, toggleMobileMenu } = useMobileMenu();
 
   return (
     <Wrapper>
       <Nav as="nav">
-        <List>
-          <li>
-            <Link href="/" passHref>
-              <Anchor>Home</Anchor>
-            </Link>
-          </li>
-          <li>
-            <Link href="/portfolio" passHref>
-              <Anchor>Portfolio</Anchor>
-            </Link>
-          </li>
-          <li>
-            <Link href="/blog" passHref>
-              <Anchor>Blog</Anchor>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" passHref>
-              <Anchor>About</Anchor>
-            </Link>
-          </li>
-          <li>
-            <UnstyledButton>
-              {ctx?.isLight ? (
-                <>
-                  <VisuallyHidden>Swith to dark theme</VisuallyHidden>
-                  <Moon onClick={() => ctx?.setIsLight(false)} />
-                </>
-              ) : (
-                <>
-                  <VisuallyHidden>Swith to light theme</VisuallyHidden>
-                  <Sun onClick={() => ctx?.setIsLight(true)} />
-                </>
-              )}
-            </UnstyledButton>
-          </li>
-        </List>
+        <NavLink pathname={pathname} />
       </Nav>
+
+      <MobileNavbar
+        isOpen={isOpen}
+        pathname={pathname}
+        toggleMobileMenu={toggleMobileMenu}
+      />
+
+      <MenuToggleButton
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+        onClick={toggleMobileMenu}
+      >
+        <VisuallyHidden>Menu</VisuallyHidden>
+        <Menu />
+      </MenuToggleButton>
     </Wrapper>
   );
 };
 
 export default HomeHeader;
 
-export const Wrapper = styled.header`
+const Wrapper = styled.header`
   padding: 32px;
 `;
 
-export const Nav = styled(MaxWidthWrapper)`
+const Nav = styled.nav`
+  max-width: var(--max-w);
   margin: 0 auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
 
-export const List = styled.ul`
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
-  gap: 48px;
-`;
-
-export const Anchor = styled.a`
-  color: ${color('text.main')};
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
 `;

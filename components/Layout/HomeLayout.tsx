@@ -16,7 +16,7 @@ const HomeLayout: React.FC<LayoutProps> = ({
   return (
     <Fragment>
       <SEO title={title} description={description} pathname={pathname} />
-      <HomeHeader />
+      <HomeHeader pathname={pathname} />
       {children}
       <Footer />
     </Fragment>
