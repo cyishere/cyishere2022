@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { Menu } from 'react-feather';
 
@@ -20,7 +21,12 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
     <Container>
       <Wrapper>
         <Link href="/" passHref>
-          <Logo>Chen Yang</Logo>
+          <LogoContainer>
+            <Img>
+              <Image src="/favicon.png" alt="" width="32px" height="32px" />
+            </Img>
+            <Logo>Chen Yang</Logo>
+          </LogoContainer>
         </Link>
 
         <DesktopNavbar pathname={pathname} />
@@ -62,7 +68,19 @@ const Wrapper = styled.header`
   }
 `;
 
-const Logo = styled.a`
+const LogoContainer = styled.a`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+`;
+
+const Img = styled.div`
+  flex: 1;
+  height: 32px;
+`;
+
+const Logo = styled.span`
   font-family: ${font('logo')};
   font-weight: ${fontWeight('normal')};
   font-size: ${fontSize('xxl')};
