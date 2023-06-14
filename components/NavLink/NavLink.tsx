@@ -1,14 +1,15 @@
-import { CSSProperties, useContext } from 'react';
+import type { CSSProperties } from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { Moon, Sun } from 'react-feather';
 
+import { ThemeContext } from 'pages/_app';
 import { QUERIES } from '@/styles/theme';
 import { color, fontSize } from '@/styles/helpers';
 import { LOCAL_THEME_NAME, THEME_NAMES } from '@/utils/constants';
 import UnstyledButton from '../UnstyledButton';
 import VisuallyHidden from '../VisuallyHidden';
-import { ThemeContext } from 'pages/_app';
 
 interface NavLinkProps {
   pathname: string;
@@ -39,28 +40,28 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
       <NavLinkItem style={getActiveStyles(pathname, '/')}>
         <Link href="/" passHref>
           <NavLinkAnchor>
-            <Item data-content="home">home</Item>
+            <Item data-content="Home">Home</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
       <NavLinkItem style={getActiveStyles(pathname, 'portfolio')}>
         <Link href="/portfolio" passHref>
           <NavLinkAnchor>
-            <Item data-content="portfolio">portfolio</Item>
+            <Item data-content="Portfolio">Portfolio</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
       <NavLinkItem style={getActiveStyles(pathname, 'blog')}>
         <Link href="/blog" passHref>
           <NavLinkAnchor>
-            <Item data-content="blog">blog</Item>
+            <Item data-content="Blog">Blog</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
       <NavLinkItem style={getActiveStyles(pathname, 'about')}>
         <Link href="/about" passHref>
           <NavLinkAnchor>
-            <Item data-content="about">about</Item>
+            <Item data-content="About">About</Item>
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
@@ -120,6 +121,7 @@ const Item = styled.span`
 const NavLinkAnchor = styled.a`
   display: block;
   overflow: hidden;
+  color: ${color('text.main')};
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover ${Item} {

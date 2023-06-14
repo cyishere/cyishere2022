@@ -22,7 +22,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
           <SectionTitle position="center">{PAGE_TITLE}</SectionTitle>
           <PostList>
             {posts.map((post: any) => (
-              <PostListItem key={post.slug} post={post} />
+              <PostListItem key={post.slug} post={post} row={false} />
             ))}
           </PostList>
         </Container>

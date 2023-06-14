@@ -85,6 +85,9 @@ const GlobalStyles = createGlobalStyle`
     /* Font Families */
     ${createCssProps(FONTS, '--ff')}
 
+    /* Misc */
+    --max-w: 1100px;
+
     @media (prefers-reduced-motion: no-preference) {
       scroll-behavior: smooth;
     }

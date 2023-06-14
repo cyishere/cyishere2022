@@ -7,15 +7,22 @@ import { color, fontSize } from '@/styles/helpers';
 
 interface PostListItemProps {
   post: Post;
+  row?: boolean;
 }
 
-const PostListItem: React.FC<PostListItemProps> = ({ post, ...rest }) => {
+const PostListItem: React.FC<PostListItemProps> = ({
+  post,
+  row = true,
+  ...rest
+}) => {
   const { slug, data } = post;
+  const Container = row ? PostItem : PostItemColumn;
+  const DateContainer = row ? Date : DateInColumn;
 
   return (
     <Link href={`/blog/${slug}`} passHref>
       <Wrapper {...rest}>
-        <PostItem>
+        <Container>
           <PostContent>
             <PostTitle>{data.title}</PostTitle>
             {data.tags?.length > 0 ? (
@@ -26,8 +33,8 @@ const PostListItem: React.FC<PostListItemProps> = ({ post, ...rest }) => {
               </PostTags>
             ) : null}
           </PostContent>
-          <Date>{data.createdAt}</Date>
-        </PostItem>
+          <DateContainer>{data.createdAt}</DateContainer>
+        </Container>
       </Wrapper>
     </Link>
   );
@@ -43,22 +50,22 @@ const Wrapper = styled.a`
   display: block;
   transition: box-shadow 300ms, border 200ms;
   box-shadow:
-    1px 1px 0 0 var(--box-shadow-color),
-    2px 2px 0 0 var(--box-shadow-color),
-    3px 3px 0 0 var(--box-shadow-color),
-    4px 4px 0 0 var(--box-shadow-color),
-    5px 5px 0 0 var(--box-shadow-color),
-    6px 6px 0 0 var(--box-shadow-color);
-
+  1px 1px 0 0 var(--box-shadow-color),
+  2px 2px 0 0 var(--box-shadow-color),
+  3px 3px 0 0 var(--box-shadow-color),
+  4px 4px 0 0 var(--box-shadow-color),
+  5px 5px 0 0 var(--box-shadow-color),
+  6px 6px 0 0 var(--box-shadow-color);
+  
   &:not(:last-of-type) {
     margin-bottom: 2rem;
   }
-
+  
   &:hover {
     box-shadow: none;
     border-width: 1px;
   }
-`;
+  `;
 
 const PostItem = styled.article`
   padding: 2rem;
@@ -72,6 +79,11 @@ const PostItem = styled.article`
     justify-content: flex-start;
     align-items: flex-start;
   }
+`;
+
+const PostItemColumn = styled(PostItem)`
+  flex-direction: column-reverse;
+  align-items: stretch;
 `;
 
 const PostContent = styled.div``;
@@ -94,8 +106,14 @@ const Tag = styled.span`
 `;
 
 const Date = styled.div`
+  width: 120px;
+  text-align: right;
   color: ${color('text.light')};
   font-size: ${fontSize('sm')};
+`;
+
+const DateInColumn = styled(Date)`
+  text-align: left;
 `;
 
 export default PostListItem;

@@ -6,8 +6,6 @@ import SEO from '../SEO';
 import Header from '../Header';
 import Footer from '../Footer';
 
-
-
 const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
   const pathname = useRouter().pathname;
 

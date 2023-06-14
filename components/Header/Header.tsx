@@ -1,29 +1,26 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { Menu } from 'react-feather';
 
-import { MaxWidthWrapper } from '../MaxWidthWrapper';
+import { QUERIES } from '@/styles/theme';
+import { color, font, fontSize, fontWeight } from '@/styles/helpers';
+import useMobileMenu from '@/hooks/use-mobile-menu';
 import VisuallyHidden from '../VisuallyHidden';
 import { MobileNavbar, DesktopNavbar } from '../Navbar';
 import MenuToggleButton from '../MenuToggleButton';
-import { QUERIES } from '@/styles/theme';
-import { color, font, fontSize, fontWeight } from '@/styles/helpers';
 
 interface HeaderProps {
   pathname: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ pathname }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMobileMenu = () => setIsOpen(!isOpen);
+  const { isOpen, toggleMobileMenu } = useMobileMenu();
 
   return (
-    <MaxWidthWrapper>
+    <Container>
       <Wrapper>
         <Link href="/" passHref>
-          <Logo>CY is here.</Logo>
+          <Logo>Chen Yang</Logo>
         </Link>
 
         <DesktopNavbar pathname={pathname} />
@@ -43,16 +40,22 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
           <Menu />
         </MenuToggleButton>
       </Wrapper>
-    </MaxWidthWrapper>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  background-color: ${color('base.200')};
+`;
+
 const Wrapper = styled.header`
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-top: 32px;
+  padding-bottom: 96px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 48px;
-  margin-bottom: 96px;
 
   @media ${QUERIES.tabletAndSmaller} {
     padding-top: 0;
@@ -62,7 +65,7 @@ const Wrapper = styled.header`
 const Logo = styled.a`
   font-family: ${font('logo')};
   font-weight: ${fontWeight('normal')};
-  font-size: ${fontSize('big')};
+  font-size: ${fontSize('xxl')};
   color: ${color('text.main')};
   letter-spacing: 4px;
 `;
