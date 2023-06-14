@@ -20,7 +20,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
 
 const Wrapper = styled.h2`
   font-family: ${font('special')};
-  font-size: ${fontSize('xxl')};
+  font-size: ${fontSize('big')};
   margin-top: 0;
   text-align: var(--text-align);
 `;

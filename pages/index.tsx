@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 
 import type { Post } from '@/utils/types';
 import { getPosts } from '@/utils/mdxUtils';
-import { Layout } from '@/components/Layout';
+import { HomeLayout } from '@/components/Layout';
 import Hero from '@/components/Hero';
 // import FeaturedProjects from "@/components/FeaturedProjects";
 import Intro from '@/components/Intro';
@@ -14,14 +14,14 @@ interface HomePageProps {
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
-    <Layout title="Chen Yang, aka CY - Frontend developer who also does full-stack stuff">
+    <HomeLayout title="Chen Yang, aka CY - Frontend developer who also does full-stack stuff">
       <main>
         <Hero />
         <FeaturedPosts posts={posts} />
         {/* <FeaturedProjects /> */}
         <Intro />
       </main>
-    </Layout>
+    </HomeLayout>
   );
 };
 

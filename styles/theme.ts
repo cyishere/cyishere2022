@@ -61,7 +61,8 @@ export const cupcakeTheme: DefaultTheme = {
   colors: {
     base: {
       '100': '#FAF7F5',
-      '200': '#EFEAE6',
+      '200': '#fbf4e9',
+      // '200': '#EFEAE6',
     },
     text: {
       main: '#291334',
@@ -95,7 +96,7 @@ export const cupcakeTheme: DefaultTheme = {
       main: '#f87272',
     },
     reverse: {
-      main: 'var(--clr-base-100)',
+      main: '#fff',
     },
   },
 };

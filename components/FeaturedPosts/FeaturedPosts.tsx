@@ -18,7 +18,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
         <SectionTitle>Blog Posts</SectionTitle>
         <PostList>
           {posts.map((post) => (
-            <PostListItem key={post.slug} post={post} />
+            <PostItem key={post.slug} post={post} />
           ))}
         </PostList>
         <ShowMore>
@@ -29,13 +29,15 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
   );
 };
 
+export default FeaturedPosts;
+
 const Wrapper = styled.section`
   background-color: ${color('base.200')};
   padding: 10rem 2rem;
 `;
 
 const Container = styled.div`
-  max-width: ${800 / 16}rem;
+  max-width: ${860 / 16}rem;
   margin: 0 auto;
 `;
 
@@ -43,4 +45,8 @@ const PostList = styled.div`
   padding-top: 3rem;
 `;
 
-export default FeaturedPosts;
+const PostItem = styled(PostListItem)`
+  --color: ${color('secondary.main')};
+  --border-color: var(--color);
+  --box-shadow-color: var(--color);
+`;

@@ -50,7 +50,8 @@ const Footer: React.FC = () => {
 
 const Wrapper = styled.footer`
   padding: 0.5rem 2rem;
-  background-color: ${color('base.200')};
+  background-color: ${color('reverse.main')};
+  border-top: 2px solid ${color('text.main')};
 `;
 
 const Container = styled.div`
@@ -90,7 +91,7 @@ const SocialLinks = styled.div`
 `;
 
 const SocialIcon = styled.a`
-  background-color: ${color('base.100')};
+  background-color: ${color('base.200')};
   color: ${color('text.main')};
   border-radius: 50%;
   width: 46px;

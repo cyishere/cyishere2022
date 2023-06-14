@@ -85,23 +85,14 @@ const GlobalStyles = createGlobalStyle`
     /* Font Families */
     ${createCssProps(FONTS, '--ff')}
 
-    font-size: 18px;
-    
     @media (prefers-reduced-motion: no-preference) {
       scroll-behavior: smooth;
     }
   }
   
-
-  @media ${QUERIES.tabletAndSmaller} {
-    html {
-      font-size: 16px;
-    }
-  }
-
   body {
     font-family: ${font('main')};
-    font-size: ${fontSize('base')};
+    font-size: 18px;
     font-weight: ${fontWeight('normal')};
     line-height: 1.5;
     background-color: ${color('base.100')};

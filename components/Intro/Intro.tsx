@@ -10,9 +10,10 @@ const Intro: React.FC = () => {
       <Container>
         <SectionTitle position="center">The bit about myself</SectionTitle>
         <p>
-          I was a frontend developer from 2007-2010 and a UX designer from
-          2010-2012. Then I changed my career path, and in recent years I&#39;ve
-          worked as a screenwriter and producer.
+          I was a frontend developer from 2007-2010 and{' '}
+          <strong>a UX designer</strong> from 2010-2012. Then I changed my
+          career path, and in recent years I&#39;d worked as a screenwriter and
+          producer.
         </p>
         <p>
           I began re-building my knowledge and learning React in March 2020. In
@@ -22,7 +23,8 @@ const Intro: React.FC = () => {
             freeCodeCamp.org
           </TextLink>
           . And <TextLink href="/portfolio">these are some projects</TextLink> I
-          created whilst learning the incredible React.
+          created whilst learning the incredible React. Now, I&#39;m a frontend
+          developer in <TextLink href="https://flixed.io">Flixed</TextLink>.
         </p>
       </Container>
     </Wrapper>
@@ -30,7 +32,7 @@ const Intro: React.FC = () => {
 };
 
 const Wrapper = styled.section`
-  background-color: ${color('base.100')};
+  background-color: ${color('button.text')};
   padding: 10rem 2rem;
 `;
 
@@ -44,18 +46,13 @@ const Container = styled.article`
   }
 
   & a {
-    background-image: linear-gradient(
-      to bottom,
-      ${color('accent.main')} 0%,
-      ${color('accent.dark')} 100%
-    );
-    background-size: 100% 0;
+    color: ${color('base.200')};
     border-bottom: 1px solid var(--clr-text-main);
-    transition: border 200ms ease-in, background 300ms ease;
+    transition: border 200ms ease-in, color 300ms ease;
   }
 
   & a:hover {
-    color: ${color('base.100')};
+    color: ${color('text.main')};
     background-size: 100% 100%;
     border-width: 3px;
     border-color: currentColor;

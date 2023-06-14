@@ -18,10 +18,8 @@ const MaxWidthWrapper: React.FC<MaxWidthWrapperProps> = ({
 
 const Wrapper = styled.div`
   max-width: 1100px;
-  padding-left: 32px;
-  padding-right: 32px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 0;
 `;
 
 export default MaxWidthWrapper;
