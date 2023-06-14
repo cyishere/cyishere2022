@@ -43,10 +43,15 @@ const Container = styled.div`
 
 const PostList = styled.div`
   padding-top: 3rem;
+
+  & a:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const PostItem = styled(PostListItem)`
   --color: ${color('secondary.main')};
   --border-color: var(--color);
   --box-shadow-color: var(--color);
+  padding: 2rem;
 `;

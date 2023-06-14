@@ -19,10 +19,15 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
     <Layout title={PAGE_TITLE}>
       <Wrapper>
         <Container>
-          <SectionTitle position="center">{PAGE_TITLE}</SectionTitle>
+          <SectionTitle>{PAGE_TITLE}</SectionTitle>
           <PostList>
             {posts.map((post: any) => (
-              <PostListItem key={post.slug} post={post} row={false} />
+              <PostItem
+                key={post.slug}
+                post={post}
+                row={false}
+                formatDate={true}
+              />
             ))}
           </PostList>
         </Container>
@@ -38,12 +43,18 @@ const Wrapper = styled.main`
 `;
 
 const Container = styled.div`
-  max-width: ${800 / 16}rem;
+  max-width: ${860 / 16}rem;
   margin: 0 auto;
 `;
 
 const PostList = styled.div`
-  padding-top: 3rem;
+  margin-top: 3rem;
+`;
+
+const PostItem = styled(PostListItem)`
+  border-bottom: 1px dashed ${color('hr.main')};
+  margin: 0;
+  padding: 2.5rem 0;
 `;
 
 export default Home;

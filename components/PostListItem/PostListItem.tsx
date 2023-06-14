@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import dayjs from 'dayjs';
 
 import type { Post } from '@/utils/types';
 import { QUERIES } from '@/styles/theme';
@@ -8,11 +9,13 @@ import { color, fontSize } from '@/styles/helpers';
 interface PostListItemProps {
   post: Post;
   row?: boolean;
+  formatDate?: boolean;
 }
 
 const PostListItem: React.FC<PostListItemProps> = ({
   post,
   row = true,
+  formatDate = false,
   ...rest
 }) => {
   const { slug, data } = post;
@@ -33,7 +36,11 @@ const PostListItem: React.FC<PostListItemProps> = ({
               </PostTags>
             ) : null}
           </PostContent>
-          <DateContainer>{data.createdAt}</DateContainer>
+          <DateContainer>
+            {formatDate
+              ? dayjs(data.createdAt).format('MMMM DD, YYYY')
+              : data.createdAt}
+          </DateContainer>
         </Container>
       </Wrapper>
     </Link>
@@ -57,10 +64,6 @@ const Wrapper = styled.a`
   5px 5px 0 0 var(--box-shadow-color),
   6px 6px 0 0 var(--box-shadow-color);
   
-  &:not(:last-of-type) {
-    margin-bottom: 2rem;
-  }
-  
   &:hover {
     box-shadow: none;
     border-width: 1px;
@@ -68,7 +71,6 @@ const Wrapper = styled.a`
   `;
 
 const PostItem = styled.article`
-  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -109,11 +111,12 @@ const Date = styled.div`
   width: 120px;
   text-align: right;
   color: ${color('text.light')};
-  font-size: ${fontSize('sm')};
+  font-size: ${fontSize('md')};
 `;
 
 const DateInColumn = styled(Date)`
   text-align: left;
+  width: auto;
 `;
 
 export default PostListItem;
