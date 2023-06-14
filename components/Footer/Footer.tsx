@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
 const Wrapper = styled.footer`
   padding: 0.5rem 2rem;
   background-color: ${color('reverse.main')};
-  border-top: 2px solid ${color('text.main')};
+  border-top: 2px solid ${color('hr.main')};
 `;
 
 const Container = styled.div`

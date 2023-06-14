@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from '@/styles/GlobalStyles';
 import { PrismLucario, PrismMaterialLight } from '@/styles/PrismThemes';
-import { cupcakeTheme, draculaTheme } from '@/styles/theme';
+import { auroraTheme, cupcakeTheme } from '@/styles/theme';
 import { LOCAL_THEME_NAME, THEME_NAMES } from '@/utils/constants';
 
 interface ContextValue {
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeContext.Provider value={{ isLight, setIsLight }}>
-      <ThemeProvider theme={isLight ? cupcakeTheme : draculaTheme}>
+      <ThemeProvider theme={isLight ? cupcakeTheme : auroraTheme}>
         <GlobalStyles />
         <Component {...pageProps} />
         {isLight ? <PrismMaterialLight /> : <PrismLucario />}

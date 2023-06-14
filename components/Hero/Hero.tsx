@@ -30,7 +30,7 @@ const Hero = () => {
 const Wrapper = styled.section`
   padding-left: 32px;
   padding-right: 32px;
-  border-bottom: 2px solid ${color('text.main')};
+  border-bottom: 2px solid ${color('hr.main')};
 `;
 
 const MaxWidthContainer = styled(MaxWidthWrapper)`

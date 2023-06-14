@@ -19,6 +19,9 @@ export type Colors = {
   secondary: {
     main: string;
   };
+  hr: {
+    main: string;
+  };
   button: {
     bg: string;
     text: string;

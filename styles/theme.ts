@@ -78,6 +78,9 @@ export const cupcakeTheme: DefaultTheme = {
     secondary: {
       main: '#EEAF3A',
     },
+    hr: {
+      main: 'var(--clr-text-main)',
+    },
     button: {
       bg: 'var(--clr-text-main)',
       text: '#DFAFF8',
@@ -120,6 +123,55 @@ export const draculaTheme: DefaultTheme = {
     },
     secondary: {
       main: '#FFB86C',
+    },
+    hr: {
+      main: 'var(--clr-text-main)',
+    },
+    button: {
+      bg: '#414558',
+      text: 'var(--clr-text-light)',
+    },
+    'button-secondary': {
+      bg: 'var(--clr-text-main)',
+      text: 'var(--clr-base-100)',
+    },
+    info: {
+      main: '#8ae9fd',
+    },
+    warning: {
+      main: '#f1fa8c',
+    },
+    error: {
+      main: '#ff5555',
+    },
+    reverse: {
+      main: 'var(--clr-button-bg)',
+    },
+  },
+};
+
+export const auroraTheme: DefaultTheme = {
+  colors: {
+    base: {
+      '100': '#272A36',
+      '200': '#21222C',
+    },
+    text: {
+      main: '#F8F8F2',
+      light: '#C2CBF4',
+    },
+    accent: {
+      main: '#FF79C6',
+      dark: '#FF2EA6',
+    },
+    primary: {
+      main: '#BD93F9',
+    },
+    secondary: {
+      main: '#FFB86C',
+    },
+    hr: {
+      main: '#051113',
     },
     button: {
       bg: '#414558',
