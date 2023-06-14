@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import { Moon, Sun } from 'react-feather';
 
 import { color } from '@/styles/helpers';
 import { MaxWidthWrapper } from '../MaxWidthWrapper';
+import UnstyledButton from '../UnstyledButton/UnstyledButton';
+import { useContext } from 'react';
+import { ThemeContext } from 'pages/_app';
+import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
 
 const HomeHeader = () => {
+  const ctx = useContext(ThemeContext);
+
   return (
     <Wrapper>
       <Nav as="nav">
@@ -28,6 +35,21 @@ const HomeHeader = () => {
             <Link href="/about" passHref>
               <Anchor>About</Anchor>
             </Link>
+          </li>
+          <li>
+            <UnstyledButton>
+              {ctx?.isLight ? (
+                <>
+                  <VisuallyHidden>Swith to dark theme</VisuallyHidden>
+                  <Moon onClick={() => ctx?.setIsLight(false)} />
+                </>
+              ) : (
+                <>
+                  <VisuallyHidden>Swith to light theme</VisuallyHidden>
+                  <Sun onClick={() => ctx?.setIsLight(true)} />
+                </>
+              )}
+            </UnstyledButton>
           </li>
         </List>
       </Nav>
