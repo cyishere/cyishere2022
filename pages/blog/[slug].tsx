@@ -11,6 +11,7 @@ import rehypePrism from 'rehype-prism-plus';
 
 import type { PostMetaType } from '@/utils/types';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
+import { getBg } from '@/utils/helperts';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import PostLayout from '@/components/Post';
@@ -58,7 +59,7 @@ const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
         canonical={meta.canonical}
         pageImage={meta.pageImage}
       />
-      <Header pathname={pathname} />
+      <Header pathname={pathname} bg={getBg(pathname)} />
       <Wrapper>
         <PostHeader>
           <Title>{meta.title}</Title>
