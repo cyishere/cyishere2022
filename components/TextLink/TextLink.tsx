@@ -6,10 +6,10 @@ interface TextLinkProps {
   href: string;
 }
 
-const TextLink: React.FC<TextLinkProps> = ({ href, children }) => {
+const TextLink: React.FC<TextLinkProps> = ({ href, children, ...rest }) => {
   if (href.startsWith('http')) {
     return (
-      <Wrapper href={href} target="_blank" rel="noreferrer">
+      <Wrapper href={href} target="_blank" rel="noreferrer" {...rest}>
         {children}
         <IconWrapper>
           <ExternalIcon size={16} />
@@ -20,7 +20,7 @@ const TextLink: React.FC<TextLinkProps> = ({ href, children }) => {
 
   return (
     <Link href={href} passHref>
-      <Wrapper>{children}</Wrapper>
+      <Wrapper {...rest}>{children}</Wrapper>
     </Link>
   );
 };

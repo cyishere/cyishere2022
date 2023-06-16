@@ -2,27 +2,63 @@ import styled from 'styled-components';
 import type { NextPage } from 'next';
 
 import { Layout } from '@/components/Layout';
-import { MaxWidthWrapper } from '@/components/MaxWidthWrapper';
 import SectionTitle from '@/components/SectionTitle';
 import Post from '@/components/Post';
 import Emoji from '@/components/Emoji';
 import TextLink from '@/components/TextLink';
+import { color, fontSize } from '@/styles/helpers';
+
+const TECHNOLOGIES = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Next.js',
+  'GraphQL',
+  'Prisma',
+  'styled-components',
+];
 
 const About: NextPage = () => (
   <Layout title="About CY">
-    <Wrapper as="main">
-      <SectionTitle position="center">
-        About Me <Emoji name="Woman Technologist">👩🏻‍💻</Emoji>
-      </SectionTitle>
+    <Wrapper>
+      <Hero>
+        <HeroContainer>
+          <SectionTitle>
+            About Me <Emoji name="Woman Technologist">👩🏻‍💻</Emoji>
+          </SectionTitle>
+          <HeroContent>
+            <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is Chen Yang,{' '}
+            <strong>CY</strong> for short. I am a self-taught front-end
+            developer who also makes full-stack stuff.
+          </HeroContent>
+          <HeroContent>
+            Currently I work at{' '}
+            <TextLink href="https://flixed.io">Flixed</TextLink> as a front-end
+            developer.
+          </HeroContent>
+          <HeroMeta>
+            If you want to contact, please e-mail me at{' '}
+            <HeroMetaLink href="mailto:cyishere@proton.me">
+              cyishere@proton.me
+            </HeroMetaLink>
+            .
+          </HeroMeta>
+        </HeroContainer>
+      </Hero>
       <Content>
         <p>
-          <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is{' '}
-          <em>Chen Yang</em>, CY for short.
+          I&#39;m passionate about web development. Now I&#39;m learning about
+          accessibility, dataviz, and building ethical technology.
         </p>
-        <p>
-          I am a self-taught <em>front-end developer</em> who also makes{' '}
-          <em>full-stack</em> stuff.
-        </p>
+        <SectionTitle>Skill Stack</SectionTitle>
+        <TagList>
+          {TECHNOLOGIES.map((tech) => (
+            <Tag key={tech}>{tech}</Tag>
+          ))}
+        </TagList>
+        <SectionTitle>How I Become a Developer</SectionTitle>
         <p>
           The first time I encountered “web development” was about 15 years ago
           when I changed my blogpost blog’s background color with CSS, that’s
@@ -59,13 +95,52 @@ const About: NextPage = () => (
   </Layout>
 );
 
-const Wrapper = styled(MaxWidthWrapper)`
-  background-color: var(--clr-white);
-  padding: 2rem 2rem 10rem 2rem;
+const Wrapper = styled.main``;
+
+const Hero = styled.section`
+  background-color: ${color('reverse.main')};
+  padding: 0 32px;
+`;
+
+const HeroContainer = styled.div`
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 64px 0;
+
+  & > * + * {
+    margin-top: var(--flow-space, 1em);
+  }
+`;
+
+const HeroContent = styled.p`
+  font-size: ${fontSize('lg')};
+`;
+
+const HeroMeta = styled.p`
+  font-size: ${fontSize('base')};
+`;
+
+const HeroMetaLink = styled(TextLink)`
+  color: inherit;
+  text-decoration: underline;
 `;
 
 const Content = styled(Post)`
-  margin-top: 4rem;
+  margin-top: 64px;
+  padding-bottom: 64px;
+`;
+
+const TagList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+`;
+
+const Tag = styled.li`
+  padding: 8px 16px;
+  background-color: ${color('reverse.main')};
+  border: 1px solid ${color('text.light')};
+  border-radius: 3px;
 `;
 
 export default About;

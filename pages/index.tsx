@@ -14,7 +14,7 @@ interface HomePageProps {
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
-    <HomeLayout title="Chen Yang, aka CY - Frontend developer who also does full-stack stuff">
+    <HomeLayout title="Chen Yang, aka CY">
       <main>
         <Hero />
         <FeaturedPosts posts={posts} />

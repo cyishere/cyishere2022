@@ -16,93 +16,99 @@ const Portfolio: NextPage = () => {
   return (
     <Layout title="Portfolio | React Projects">
       <Wrapper>
-        <SectionTitle position="center">
-          Portfolio <Emoji name="Atom Symbol">⚛️</Emoji>
-        </SectionTitle>
-        <PageDescription>Projects learning by doing.</PageDescription>
-
-        <SpecialInfo variant="info">
-          These projects were all completed between 2021 and the first half of
-          2022. These are all out of date now that I&#39;ve made big progress
-          with React and Next.js. I&#39;m working on some new projects to
-          demonstrate my expertise.
-        </SpecialInfo>
+        <Hero>
+          <SectionContainer>
+            <SectionTitle position="center">
+              Portfolio <Emoji name="Atom Symbol">⚛️</Emoji>
+            </SectionTitle>
+            <PageDescription>Projects learning by doing.</PageDescription>
+            <SpecialInfo variant="info">
+              These projects were all completed between 2021 and the first half
+              of 2022 which are all out of date now since I&#39;ve made big
+              progress with React and Next.js. I&#39;m working on some new
+              projects to demonstrate my expertise.
+            </SpecialInfo>
+          </SectionContainer>
+        </Hero>
 
         {/* Featured Section */}
         <FeaturedSection>
-          {ALBUMS.map((project) => (
-            <FeaturedProjectContainer key={project.id}>
-              <FeaturedProjectContent>
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
-                <CheckoutButton>
-                  <Button href={project.link}>View More</Button>
-                </CheckoutButton>
-              </FeaturedProjectContent>
-              <ProjectMedia>
-                <Image
-                  src={project.cover!.imageUrl!}
-                  alt=""
-                  width={project.cover!.width!}
-                  height={project.cover!.height!}
-                  layout="responsive"
-                />
-              </ProjectMedia>
-            </FeaturedProjectContainer>
-          ))}
+          <FeaturedSectionContainer>
+            {ALBUMS.map((project) => (
+              <FeaturedProjectContainer key={project.id}>
+                <FeaturedProjectContent>
+                  <ProjectTitle>{project.title}</ProjectTitle>
+                  <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
+                  <CheckoutButton>
+                    <Button href={project.link}>View More</Button>
+                  </CheckoutButton>
+                </FeaturedProjectContent>
+                <ProjectMedia>
+                  <Image
+                    src={project.cover!.imageUrl!}
+                    alt=""
+                    width={project.cover!.width!}
+                    height={project.cover!.height!}
+                    layout="responsive"
+                  />
+                </ProjectMedia>
+              </FeaturedProjectContainer>
+            ))}
+          </FeaturedSectionContainer>
         </FeaturedSection>
 
         {/* Small React Projects */}
         <ReactProjectSection id="react-apps">
-          <VisuallyHidden>
-            <h2>React Apps</h2>
-          </VisuallyHidden>
-          {REACT_PROJECTS.map((project) => (
-            <ReactProjectContainer key={project.id}>
-              <ReactProjectMedia>
-                <Image
-                  src={project.screenshots[0].src}
-                  alt=""
-                  width={600}
-                  height={337}
-                  layout="responsive"
-                />
-              </ReactProjectMedia>
-              <ReactProjectContent>
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
-                <ButtonGroup>
-                  <Button href={project.link}>View More</Button>
-                  <Button variant="secondary" href={project.demo!}>
-                    Live Demo
-                  </Button>
-                </ButtonGroup>
-              </ReactProjectContent>
-            </ReactProjectContainer>
-          ))}
+          <ReactSectionContainer>
+            <VisuallyHidden>
+              <h2>React Apps</h2>
+            </VisuallyHidden>
+            {REACT_PROJECTS.map((project) => (
+              <ReactProjectContainer key={project.id}>
+                <ReactProjectMedia>
+                  <Image
+                    src={project.screenshots[0].src}
+                    alt=""
+                    width={600}
+                    height={337}
+                    layout="responsive"
+                  />
+                </ReactProjectMedia>
+                <ReactProjectContent>
+                  <ProjectTitle>{project.title}</ProjectTitle>
+                  <ProjectExcerpt>{project.excerpt}</ProjectExcerpt>
+                  <ButtonGroup>
+                    <Button href={project.link}>View More</Button>
+                  </ButtonGroup>
+                </ReactProjectContent>
+              </ReactProjectContainer>
+            ))}
+          </ReactSectionContainer>
         </ReactProjectSection>
 
         {/* Fcc */}
         <FccSection>
-          <FccContent>
-            <ProjectTitle>{fcc.title}</ProjectTitle>
-            <ProjectExcerpt>{fcc.excerpt}</ProjectExcerpt>
-            <List>
-              {fcc.contentList?.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </List>
-            <Button href="/portfolio/fcc">Details</Button>
-          </FccContent>
-          <FccMedia>
-            <Image
-              src={fcc.cover}
-              alt=""
-              width={534}
-              height={300}
-              layout="responsive"
-            />
-          </FccMedia>
+          <FccSectionContainer>
+            <FccContent>
+              <ProjectTitle>{fcc.title}</ProjectTitle>
+              <ProjectExcerpt>{fcc.excerpt}</ProjectExcerpt>
+              <List>
+                {fcc.contentList?.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </List>
+              <Button href="/portfolio/fcc">Details</Button>
+            </FccContent>
+            <FccMedia>
+              <Image
+                src={fcc.cover}
+                alt=""
+                width={534}
+                height={300}
+                layout="responsive"
+              />
+            </FccMedia>
+          </FccSectionContainer>
         </FccSection>
       </Wrapper>
     </Layout>
@@ -110,11 +116,20 @@ const Portfolio: NextPage = () => {
 };
 
 const Wrapper = styled.main`
-  --padding-x: 2rem;
-  max-width: 1440px;
-  padding-left: var(--padding-x);
-  padding-right: var(--padding-x);
-  padding-bottom: 6rem;
+  --px: 32px;
+  --py: 64px;
+  --border-t: 2px solid ${color('hr.main')};
+  margin: 0 auto;
+`;
+
+const Hero = styled.section`
+  background-color: ${color('reverse.main')};
+  padding-bottom: var(--py);
+`;
+
+const SectionContainer = styled.div`
+  max-width: var(--max-w);
+  padding: 0 var(--px);
   margin: 0 auto;
 `;
 
@@ -144,14 +159,16 @@ const Media = styled.div`
 
 // Featured Section
 const FeaturedSection = styled.section`
-  background-color: ${color('base.200')};
-  padding: calc(var(--padding-x) + 2rem);
-  margin-left: calc(var(--padding-x) * -1);
-  margin-right: calc(var(--padding-x) * -1);
-  margin-top: 6rem;
+  background-color: ${color('button.text')};
+  border-top: var(--border-t);
+  padding: var(--py) 0;
+`;
+
+const FeaturedSectionContainer = styled(SectionContainer)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 4rem;
+  row-gap: var(--py);
+  column-gap: var(--py);
 
   @media ${QUERIES.laptopAndSmaller} {
     grid-template-columns: 1fr;
@@ -162,7 +179,6 @@ const FeaturedSection = styled.section`
 
 const FeaturedProjectContainer = styled.article`
   border-radius: 0.5em;
-  padding: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
@@ -227,9 +243,12 @@ const ProjectMedia = styled(Media)`
 
 // Small React Projects
 const ReactProjectSection = styled.section`
-  max-width: 1100px;
+  padding: var(--py) var(--px);
+  border-top: var(--border-t);
+`;
+
+const ReactSectionContainer = styled(SectionContainer)`
   margin: 0 auto;
-  padding: 4rem 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 2rem;
@@ -266,10 +285,13 @@ const ButtonGroup = styled.div`
 
 // Fcc
 const FccSection = styled.section`
-  background-color: ${color('base.200')};
-  padding: 4rem 0;
-  margin-left: calc(var(--padding-x) * -1);
-  margin-right: calc(var(--padding-x) * -1);
+  background-color: ${color('warning.main')};
+  border-top: var(--border-t);
+  padding: var(--py) var(--px);
+`;
+
+const FccSectionContainer = styled(SectionContainer)`
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr;

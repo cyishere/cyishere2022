@@ -198,13 +198,13 @@ const OtherProjectSectionTitle = styled.h2`
 `;
 
 const OtherProjectWrapper = styled.a`
-  background-color: ${color('base.200')};
+  background-color: ${color('primary.main')};
   border-radius: 0.5rem;
   padding: 1rem 2rem;
   display: block;
 
   &:hover {
-    background-color: transparent;
+    background-color: ${color('accent.main')};
   }
 `;
 

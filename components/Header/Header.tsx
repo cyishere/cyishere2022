@@ -12,13 +12,14 @@ import MenuToggleButton from '../MenuToggleButton';
 
 interface HeaderProps {
   pathname: string;
+  bg: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ pathname }) => {
+const Header: React.FC<HeaderProps> = ({ pathname, bg }) => {
   const { isOpen, toggleMobileMenu } = useMobileMenu();
 
   return (
-    <Container>
+    <Container style={{ '--bg': bg } as React.CSSProperties}>
       <Wrapper>
         <Link href="/" passHref>
           <LogoContainer>
@@ -51,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ pathname }) => {
 };
 
 const Container = styled.div`
-  background-color: ${color('base.200')};
+  background-color: var(--bg);
 `;
 
 const Wrapper = styled.header`
@@ -68,20 +69,20 @@ const Wrapper = styled.header`
   }
 `;
 
-const LogoContainer = styled.a`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 16px;
-`;
-
 const Img = styled.div`
   flex: 1;
   height: 32px;
 `;
 
+const LogoContainer = styled.a`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+`;
+
 const Logo = styled.span`
-  font-family: ${font('logo')};
+  font-family: ${font('special')};
   font-weight: ${fontWeight('normal')};
   font-size: ${fontSize('xxl')};
   color: ${color('text.main')};

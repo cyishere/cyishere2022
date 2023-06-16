@@ -4,7 +4,7 @@ export const FONTS = {
   main: `'Poppins', sans-serif;`,
   heading: `'Barlow', sans-serif;`,
   special: `'Aleo', serif`,
-  logo: `'Aref Ruqaa', serif`,
+  logo: `'Marcellus SC', serif`,
   mono: "'IBM Plex Mono', monospace",
   chinese: `'Noto Serif SC', serif`,
 };

@@ -95,7 +95,7 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     font-family: ${font('main')};
-    font-size: 18px;
+    font-size: ${fontSize('md')};
     font-weight: ${fontWeight('normal')};
     line-height: 1.5;
     background-color: ${color('base.100')};
