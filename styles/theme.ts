@@ -165,7 +165,7 @@ export const auroraTheme: DefaultTheme = {
       dark: '#FF2EA6',
     },
     primary: {
-      main: '#BD93F9',
+      main: '#a46bf5',
     },
     secondary: {
       main: '#FFB86C',
@@ -185,7 +185,7 @@ export const auroraTheme: DefaultTheme = {
       main: '#8ae9fd',
     },
     warning: {
-      main: '#f1fa8c',
+      main: '#e7ca0e',
     },
     error: {
       main: '#ff5555',

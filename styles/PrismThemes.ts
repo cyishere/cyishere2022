@@ -349,4 +349,10 @@ export const PrismLucario = createGlobalStyle`
   .token.entity {
     cursor: help;
   }
+
+  code[class*="language-"] .highlight-line {
+    background-color: hsl(256deg 6.5% 21.58%);
+    border-left: 3px solid hsl(256deg 34.45% 43.77%);
+    display: block;
+  }
 `;
