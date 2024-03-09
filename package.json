@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "dev:watch": "next-remote-watch",
-    "build": "next build",
+    "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next build",
     "start": "next start",
     "lint": "next lint",
     "sb": "start-storybook -p 6006",

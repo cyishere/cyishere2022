@@ -1,10 +1,10 @@
-import styled from 'styled-components';
 import type { NextPage } from 'next';
+import styled from 'styled-components';
 
-import { Layout } from '@/components/Layout';
-import SectionTitle from '@/components/SectionTitle';
-import Post from '@/components/Post';
 import Emoji from '@/components/Emoji';
+import { Layout } from '@/components/Layout';
+import Post from '@/components/Post';
+import SectionTitle from '@/components/SectionTitle';
 import TextLink from '@/components/TextLink';
 import { color, fontSize } from '@/styles/helpers';
 
@@ -25,9 +25,9 @@ const About: NextPage = () => (
     <Wrapper>
       <Hero>
         <HeroContainer>
-          <SectionTitle>
+          <Title>
             About Me <Emoji name="Woman Technologist">👩🏻‍💻</Emoji>
-          </SectionTitle>
+          </Title>
           <HeroContent>
             <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is Chen Yang,{' '}
             <strong>CY</strong> for short. I am a self-taught front-end
@@ -52,13 +52,13 @@ const About: NextPage = () => (
           I&#39;m passionate about web development. Now I&#39;m learning about
           accessibility, dataviz, and building ethical technology.
         </p>
-        <SectionTitle>Skill Stack</SectionTitle>
+        <Title>Skill Stack</Title>
         <TagList>
           {TECHNOLOGIES.map((tech) => (
             <Tag key={tech}>{tech}</Tag>
           ))}
         </TagList>
-        <SectionTitle>How I Become a Developer</SectionTitle>
+        <Title>How I Become a Developer</Title>
         <p>
           The first time I encountered “web development” was about 15 years ago
           when I changed my blogpost blog’s background color with CSS, that’s
@@ -128,6 +128,10 @@ const HeroMetaLink = styled(TextLink)`
 const Content = styled(Post)`
   margin-top: 64px;
   padding-bottom: 64px;
+`;
+
+const Title = styled(SectionTitle)`
+  --mt: 1em;
 `;
 
 const TagList = styled.ul`
