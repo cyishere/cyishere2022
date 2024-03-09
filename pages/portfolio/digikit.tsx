@@ -1,14 +1,14 @@
 import type { NextPage } from 'next';
 
-import { digikit as meta } from '@/data/projects';
+import { LgContainer, MdContainer } from '@/components/Container';
+import Figure from '@/components/Figure';
+import { H2 } from '@/components/Headings';
 import { PortfolioLayout } from '@/components/Layout';
 import TextLink from '@/components/TextLink';
 import Video from '@/components/Video';
-import Figure from '@/components/Figure';
-import styled from 'styled-components';
-import { MdContainer, LgContainer } from '@/components/Container';
+import { digikit as meta } from '@/data/projects';
 import { QUERIES } from '@/styles/theme';
-import { H2 } from '@/components/Headings';
+import styled from 'styled-components';
 
 const digikit: NextPage = () => {
   return (
@@ -187,7 +187,7 @@ const TwoColumn = styled(LgContainer)`
 
 const TwoColumnContent = styled.div`
   & > p {
-    margin-top: 1.6em;
+    margin-top: var(--space-flow, 1.6em);
   }
 `;
 

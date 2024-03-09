@@ -9,7 +9,7 @@ const Post = styled.article`
 
   & > * + *,
   & pre[class*='language-'] {
-    margin-top: 1.6em;
+    margin-top: var(--space-flow, 1.6em);
   }
 
   & hr {

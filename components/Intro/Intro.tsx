@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 import { color, fontSize } from '@/styles/helpers';
-import TextLink from '../TextLink';
 import SectionTitle from '../SectionTitle/SectionTitle';
+import TextLink from '../TextLink';
 
 const Intro: React.FC = () => {
   return (
@@ -22,9 +22,9 @@ const Intro: React.FC = () => {
           <TextLink href="https://www.freecodecamp.org">
             freeCodeCamp.org
           </TextLink>
-          . And <TextLink href="/portfolio">these are some projects</TextLink> I
-          created whilst learning the incredible React. Now, I&#39;m a frontend
-          developer in <TextLink href="https://flixed.io">Flixed</TextLink>.
+          . Since May 2022, I had been a <strong>frontend engineer</strong> in{' '}
+          <TextLink href="https://flixed.io">Flixed</TextLink> for almost two
+          years.
         </p>
       </Container>
     </Wrapper>

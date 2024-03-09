@@ -6,7 +6,7 @@ import { Layout } from '@/components/Layout';
 import Post from '@/components/Post';
 import SectionTitle from '@/components/SectionTitle';
 import TextLink from '@/components/TextLink';
-import { color, fontSize } from '@/styles/helpers';
+import { color, font, fontSize } from '@/styles/helpers';
 
 const TECHNOLOGIES = [
   'HTML',
@@ -25,26 +25,18 @@ const About: NextPage = () => (
     <Wrapper>
       <Hero>
         <HeroContainer>
-          <Title>
+          <SectionTitle>
             About Me <Emoji name="Woman Technologist">👩🏻‍💻</Emoji>
-          </Title>
+          </SectionTitle>
           <HeroContent>
             <Emoji name="vulcan salute">🖖🏻</Emoji> Hello, my name is Chen Yang,{' '}
             <strong>CY</strong> for short. I am a self-taught front-end
             developer who also makes full-stack stuff.
           </HeroContent>
-          <HeroContent>
-            Currently I work at{' '}
-            <TextLink href="https://flixed.io">Flixed</TextLink> as a front-end
-            developer.
-          </HeroContent>
-          <HeroMeta>
-            If you want to contact, please e-mail me at{' '}
-            <HeroMetaLink href="mailto:cyishere@proton.me">
-              cyishere@proton.me
-            </HeroMetaLink>
-            .
-          </HeroMeta>
+          <p>
+            If you&#39;d like to contact, please e-mail me at{' '}
+            <em>cyishere[at]proton.me</em>.
+          </p>
         </HeroContainer>
       </Hero>
       <Content>
@@ -63,8 +55,10 @@ const About: NextPage = () => (
           The first time I encountered “web development” was about 15 years ago
           when I changed my blogpost blog’s background color with CSS, that’s
           amazed me a lot!{' '}
-          <strong>I thought it’s very cool, the internet is the future!</strong>{' '}
-          Around that time, I just graduated from college, and despite I studied
+          <strong>
+            I thought it was very cool, the internet is the future!
+          </strong>{' '}
+          Around that time, I just graduated from college, and despite studying
           finance I decided to change my career to web development. So I started
           to learn programming by myself, reading books, articles, and
           discussions online.
@@ -77,19 +71,25 @@ const About: NextPage = () => (
         </p>
         <p>
           Later I switched my career path and started a production company with
-          my friends. I was a screenplay writer in the last four years (
+          my friends. I was a screenplay writer for the last four years (
           <strong>also self-taught</strong>). But I still love web development a
           lot. Developers work on code and take films as entertainment, I worked
           on films and take programming as entertainment. When I didn’t study
-          films, I read articles about web development and follow along with the
-          tutorials on{' '}
+          films, I read articles about web development and followed along with
+          the tutorials on{' '}
           <TextLink href="https://scotch.io">🥃 scotch.io</TextLink>.
         </p>
         <p>
-          I spend the last two years catching up on the new tech stacks. Now,
-          I&apos;m a fan of React, GraphQL and Prisma.
+          I had spent two years, from 2020 to 2022, catching up on the new tech
+          stacks, then because of{' '}
+          <TextLink href="/blog/toc-for-mdx-with-nextjs">
+            this blog post
+          </TextLink>
+          , I got a job at <TextLink href="https://flixed.io">Flixed</TextLink>{' '}
+          as a frontend engineer for almost two years.
         </p>
-        <p>(Last update on May 12, 2022.)</p>
+        <p>Now, I&apos;m a fan of React, GraphQL, and Prisma.</p>
+        <p>(Last update on March 9, 2024.)</p>
       </Content>
     </Wrapper>
   </Layout>
@@ -116,22 +116,15 @@ const HeroContent = styled.p`
   font-size: ${fontSize('lg')};
 `;
 
-const HeroMeta = styled.p`
-  font-size: ${fontSize('base')};
-`;
-
-const HeroMetaLink = styled(TextLink)`
-  color: inherit;
-  text-decoration: underline;
-`;
-
 const Content = styled(Post)`
+  --space-flow: 1em;
   margin-top: 64px;
   padding-bottom: 64px;
 `;
 
-const Title = styled(SectionTitle)`
-  --mt: 1em;
+const Title = styled.h2`
+  font-family: ${font('special')};
+  font-size: ${fontSize('big')};
 `;
 
 const TagList = styled.ul`

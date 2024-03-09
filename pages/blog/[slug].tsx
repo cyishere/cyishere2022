@@ -1,28 +1,28 @@
-import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import type { MDXComponents } from 'mdx/types';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
-import styled from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
+import fs from 'fs';
+import matter from 'gray-matter';
+import type { MDXComponents } from 'mdx/types';
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import path from 'path';
 import rehypePrism from 'rehype-prism-plus';
+import styled from 'styled-components';
 
-import type { PostMetaType } from '@/utils/types';
-import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
-import { getBg } from '@/utils/helperts';
-import SEO from '@/components/SEO';
+import { FlexCenter } from '@/components/Container';
+import CustomComponents from '@/components/CustomComponents';
+import Emoji from '@/components/Emoji';
+import Figure from '@/components/Figure';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import PostLayout from '@/components/Post';
-import Footer from '@/components/Footer';
-import CustomComponents from '@/components/CustomComponents';
-import Figure from '@/components/Figure';
-import Emoji from '@/components/Emoji';
-import Video from '@/components/Video';
-import { FlexCenter } from '@/components/Container';
+import SEO from '@/components/SEO';
 import TableOfContents from '@/components/TableOfContents';
+import Video from '@/components/Video';
 import { color, fontSize } from '@/styles/helpers';
+import { getBg } from '@/utils/helperts';
+import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
+import type { PostMetaType } from '@/utils/types';
 
 interface PostPageProps {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -104,7 +104,7 @@ const PostHeader = styled.header`
   margin: 0 auto 4rem auto;
 
   & > * + * {
-    margin-top: 1.6em;
+    margin-top: var(--space-flow, 1.6em);
   }
 `;
 

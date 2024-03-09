@@ -4,7 +4,7 @@ const Container = styled.div`
   margin: 0 auto;
 
   & > * + * {
-    margin-top: 1.6em;
+    margin-top: var(--space-flow, 1.6em);
   }
 `;
 

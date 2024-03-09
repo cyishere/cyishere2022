@@ -1,14 +1,14 @@
-import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'react-feather';
+import styled from 'styled-components';
 
 import { ALBUMS, AlbumType, ProjectType } from '@/data/projects';
-import { Layout } from '.';
-import TextLink from '../TextLink';
-import Emoji from '../Emoji';
-import { QUERIES } from '@/styles/theme';
 import { color, fontSize } from '@/styles/helpers';
+import { QUERIES } from '@/styles/theme';
+import { Layout } from '.';
+import Emoji from '../Emoji';
+import TextLink from '../TextLink';
 
 interface PortfolioLayoutProps {
   meta: ProjectType;
@@ -156,7 +156,7 @@ const TechStackWrapper = styled.div`
   margin: auto;
 
   & > * + * {
-    margin-top: 1.6em;
+    margin-top: var(--space-flow, 1.6em);
   }
 `;
 
@@ -189,7 +189,7 @@ const OtherProjectSection = styled.section`
   margin: 0 auto;
 
   & > * + * {
-    margin-top: 1.6em;
+    margin-top: var(--space-flow, 1.6em);
   }
 `;
 const OtherProjectSectionTitle = styled.h2`
