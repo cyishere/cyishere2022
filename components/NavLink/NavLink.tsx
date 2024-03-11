@@ -1,13 +1,13 @@
+import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { useContext } from 'react';
+import { Moon, Rss, Sun } from 'react-feather';
 import styled from 'styled-components';
-import Link from 'next/link';
-import { Moon, Sun } from 'react-feather';
 
-import { ThemeContext } from 'pages/_app';
-import { QUERIES } from '@/styles/theme';
 import { color, fontSize } from '@/styles/helpers';
+import { QUERIES } from '@/styles/theme';
 import { LOCAL_THEME_NAME, THEME_NAMES } from '@/utils/constants';
+import { ThemeContext } from 'pages/_app';
 import UnstyledButton from '../UnstyledButton';
 import VisuallyHidden from '../VisuallyHidden';
 
@@ -74,6 +74,12 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
           </NavLinkAnchor>
         </Link>
       </NavLinkItem> */}
+      <NavLinkItem>
+        <NavLinkAnchor href="/rss.xml" rel="noreferrer" target="_blank">
+          <VisuallyHidden>RSS</VisuallyHidden>
+          <Rss />
+        </NavLinkAnchor>
+      </NavLinkItem>
       <NavLinkItem>
         <UnstyledButton onClick={themeHandler}>
           <VisuallyHidden>
