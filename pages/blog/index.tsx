@@ -1,12 +1,13 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 
-import type { Post } from '@/utils/types';
 import { Layout } from '@/components/Layout';
-import SectionTitle from '@/components/SectionTitle';
 import PostListItem from '@/components/PostListItem';
-import { getPosts } from '@/utils/mdxUtils';
+import SectionTitle from '@/components/SectionTitle';
 import { color } from '@/styles/helpers';
+import { getPosts } from '@/utils/mdxUtils';
+import { generateRssFeed } from '@/utils/rss';
+import type { Post } from '@/utils/types';
 
 interface HomePageProps {
   posts: Post[];
@@ -61,8 +62,9 @@ export default Home;
 
 // =========
 
-export function getStaticProps() {
+export async function getStaticProps() {
   const posts = getPosts();
+  await generateRssFeed(posts);
 
   return { props: { posts } };
 }
