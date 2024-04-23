@@ -143,7 +143,7 @@ export const darkTheme: DefaultTheme = {
 };
 ```
 
-When each of these theme objects is assigned to the `value` of the `<ThemeProvider />` of `styled-components`' ([see in the docs](https://styled-components.com/docs/api#themeprovider)), their values would pass to `${({ theme }) => createCssProps(theme.colors, '--color')}`. That's why I said the color values would automatically switch.
+When each of these theme objects is assigned to the `theme` of the `<ThemeProvider />` of `styled-components`' ([see in the docs](https://styled-components.com/docs/api#themeprovider)), their values would pass to `${({ theme }) => createCssProps(theme.colors, '--color')}`. That's why I said the color values would automatically switch.
 
 In [this code sandbox](https://codesandbox.io/p/devbox/late-firefly-jhkjyv), I create a `styled.d.ts` file to define the `DefaultTheme` interface as I wanted because, by default, the `DefaultTheme` is empty. We can define it any way we want, any way to suit our own project. Such as for a compact theme or a loose theme, we can also put spacing tokens into it.
 
