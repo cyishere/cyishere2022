@@ -7,7 +7,7 @@ import { Post } from './types';
 export const generateRssFeed = async (posts: Post[]) => {
   const feedOptions = {
     title: 'Chen Yang',
-    description: 'A blog about web development and fronend developer.',
+    description: 'A blog about web development and frontend developer.',
     id: SITE_URL,
     link: SITE_URL,
     image: `${SITE_URL}/favicon.png`,
@@ -25,7 +25,7 @@ export const generateRssFeed = async (posts: Post[]) => {
   posts.map((post: Post) => {
     feed.addItem({
       title: post.data.title,
-      description: post.data.description,
+      description: post.data.excerpt || post.data.description,
       id: `${SITE_URL}/blog/${post.slug}`,
       link: `${SITE_URL}/blog/${post.slug}`,
       date: new Date(post.data.createdAt),
