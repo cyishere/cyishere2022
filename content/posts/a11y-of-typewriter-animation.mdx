@@ -11,9 +11,9 @@ related:
 coverUrl:
 ---
 
-There's a typewriter effect in the hero section of the SkyPorch landing page. After I added that JavaScript animation I'd always worried about it with the accessibility - how could screen readers would read it? The words are consistently changed. Finally, I refactored that part yesterday. Here's the process.
+There's a typewriter effect in the hero section of [the SkyPorch landing page](https://skyporch.co). After I added that JavaScript animation I'd always worried about it with the accessibility - how could screen readers would read it? The words are consistently changed. Finally, I refactored that part yesterday. Here's the process.
 
-The code is written in React; here's the previous structure. I created a component for the typewriter content and its JavaScript animation.
+The code is written in React; here's the previous structure. I created a component for the typewriter content and its JavaScript animation.
 
 ```js
 // omit other parts
@@ -135,7 +135,7 @@ return (
 );
 ```
 
-The definition on MDN is "The `aria-label` attribute defines a string value that labels an interactive element." The most common usage is when we use an svg icon for a button and to provide helpful information, such as with a button that only has a bird icon, provides a "link to Twitter account", etc. So, the screen readers wouldn't read the content inside that element but only read the content given to the `aria-label`.
+[The definition on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-description) is "The `aria-label` attribute defines a string value that labels an interactive element." The most common usage is when we use an svg icon for a button and to provide helpful information, such as with a button that only has a bird icon, provides a "link to Twitter account", etc. So, the screen readers wouldn't read the content inside that element but only read the content given to the `aria-label`.
 
 ```html
 <button aria-label="link to Twitter account">
