@@ -174,8 +174,6 @@ export const getStaticProps = async ({
     scope: data as any,
   });
 
-  console.log({ tags: data.tags });
-
   const relatedPosts: PostBasicInfo[] = [];
 
   if (data.related && data.related.length > 0) {
