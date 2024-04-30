@@ -1,0 +1,150 @@
+---
+title: 'Accessible Typewriter Animations: Using aria-label for Better Screen Reader Experience'
+seoTitle:
+description: Improve web accessibility by making typewriter animations friendly to screen readers and how to achieve them using aria-label and accessible hiding.
+excerpt: This piece covers the challenges of making dynamic animations accessible, particularly for screen readers. It walks through failed attempts at using aria-hidden before demonstrating how aria-label, while unconventional for headings, solved the accessibility issue.
+createdAt: '2024-04-30'
+tags:
+  - accessibility
+related:
+  - accessible-slideshow-with-react
+coverUrl:
+---
+
+There's a typewriter effect in the hero section of the SkyPorch landing page. After I added that JavaScript animation I'd always worried about it with the accessibility - how could screen readers would read it? The words are consistently changed. Finally, I refactored that part yesterday. Here's the process.
+
+The code is written in React; here's the previous structure. I created a component for the typewriter content and its JavaScript animation.
+
+```js
+// omit other parts
+
+const WORDS = ['ship', 'love', 'live'];
+
+return (
+  <h1>
+    We <TypewriterEffect words={words} /> software
+  </h1>
+);
+
+// omit the js animation
+const TypewritterEffect = ({ words }) => {
+  const typewritterRef = useRef(null);
+  const cursorRef = useRef(null);
+  // omit the js animations
+
+  return (
+    <>
+      <em ref={typewriterRef} />
+      <noscript>{words[0]}</noscript>
+      {/* the cursor */}
+      <span ref={cursorRef} className="no-js-hidden">
+        _
+      </span>
+      {/*
+				I used to put here a button to control 
+				the animation pause or play.
+				This is a highly simplified version of that.
+			*/}
+      <button>Pause the animation</button>
+    </>
+  );
+};
+```
+
+In the JSX part, the `em` element, which contains the words, is empty by default. I use GSAP to put the words into it dynamically. There's a `noscript` tag for showing the content when JavaScript is disabled in the browser; the `no-js-hidden` class hides the cursor when JavaScript is disabled.
+
+So with this code, the screen readers read the content as <em>"Heading 1 - we shi \_ Pause the animation software"</em>. (I knew the button there was a bad practice for semantic HTML; I needed to fix that, too.) The screen readers sometimes read the animation part as "love" or "live" because of the changing words.
+
+## First Attempt and Failed
+
+Added the `aria-hidden` attribute.
+
+In the beginning, I thought I could add an `aria-hidden="true"` to that `em` element and the button and the cursor, also add the correct content and visually hide it. `aria-hidden="true"` makes the content inside that HTML element **not visible or announced to users of assistive technology such as screen readers**. Here's the code:
+
+```jsx
+// omit others
+return (
+  <>
+    <em aria-hidden="true" ref={typewriterRef} />
+    <span className="visually-hidden">{words.join(', ')}</span>
+    <noscript>{words[0]}</noscript>
+    {/* the cursor */}
+    <span aria-hidden="true" ref={cursorRef} className="no-js-hidden">
+      _
+    </span>
+    <button aria-hidden="true">Pause the animation</button>
+  </>
+);
+```
+
+> [!INFO] `visually-hidden` is a utility class that hides content visually, the same as the `sr-only` class in Bootstrap or TailwindCSS. This is called _accessible hiding_.
+>
+> My `visually-hidden` class:
+
+```css
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+```
+
+But this doesn't work. And NONE OF IT works. The screen readers still read this as <em>"Heading 1 - we shi \_ Pause the animation software"</em>.
+
+I assume that because of the animation, the component re-renders for every letter, and the `aria-hidden="true"` can't work. But how to fix it?
+
+## Second Attempt and Failed
+
+Added the `aria-hidden` attribute to the parent element.
+
+Then I tried to add the `aria-hidden="true"` on their parent - the `h1` tag. Because this attribute can make the element and **all the elements inside it** invisible to the screen readers (assistive technologies). I removed all the Aria attributes in the `TypewriterEffect` component, and that visually hidden span made the change to the `h1`:
+
+```jsx
+return (
+  <>
+    <h1 aria-hidden="true">
+      We <TypewriterEffect words={words} /> software
+    </h1>
+    <h1 className="visually-hidden">We {words.join(', ')} software.</h1>
+  </>
+);
+```
+
+This still doesn't work! The animation messes up everything.
+
+## Third Attempt and Finally Succeed
+
+Added `aria-label` attribute instead of `aria-hidden`.
+
+After reading some articles, I finally found a way to solve it - instead of adding `aria-hidden`, I added `aria-label` to the `h1` element.
+
+```jsx
+return (
+  <>
+    <h1 aria-label={`We ${WORDS.join(', ')} software.`}>
+      We <TypewriterEffect words={words} /> software
+    </h1>
+    {/* and I pull out that button */}
+    <button aria-hidden="true">Pause the animation</button>
+  </>
+);
+```
+
+The definition on MDN is "The `aria-label` attribute defines a string value that labels an interactive element." The most common usage is when we use an svg icon for a button and to provide helpful information, such as with a button that only has a bird icon, provides a "link to Twitter account", etc. So, the screen readers wouldn't read the content inside that element but only read the content given to the `aria-label`.
+
+```html
+<button aria-label="link to Twitter account">
+  <svg>...</svg>
+</button>
+```
+
+It needs to be noted that, first, the `h1` heading isn't an "interactive element"; second, by using `aria-label`, all the text content inside that element will be replaced by the value of `aria-label`, so it should be used when only necessary.
+
+And this is a "when only necessary" situation. We don't need to hide the content from the visual user by the need to hide it from screen readers because it's "unstable".
+
+That's it. This is how I fix the accessibility issue of the typewriter animation.
