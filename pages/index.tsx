@@ -17,7 +17,12 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
     <HomeLayout title="Chen Yang, aka CY">
       <main>
         <Hero />
-        <FeaturedPosts posts={posts} />
+        <FeaturedPosts
+          data-component-position="homepage"
+          posts={posts}
+          title="Blog Posts"
+          showMore={true}
+        />
         {/* <FeaturedProjects /> */}
         <Intro />
       </main>

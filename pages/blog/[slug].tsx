@@ -1,11 +1,8 @@
 import { MDXProvider } from '@mdx-js/react';
-import fs from 'fs';
-import matter from 'gray-matter';
 import type { MDXComponents } from 'mdx/types';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import path from 'path';
 import rehypePrism from 'rehype-prism-plus';
 import styled from 'styled-components';
 
@@ -21,16 +18,27 @@ import TableOfContents from '@/components/TableOfContents';
 import Video from '@/components/Video';
 import { color, fontSize } from '@/styles/helpers';
 import { getBg } from '@/utils/helperts';
-import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
-import type { PostMetaType } from '@/utils/types';
+import {
+  getBasicPostInfo,
+  getPostBySlug,
+  postFilePaths,
+} from '@/utils/mdxUtils';
+import type { PostBasicInfo, PostMetaType } from '@/utils/types';
+import FeaturedPosts from '@/components/FeaturedPosts';
 
 interface PostPageProps {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
   meta: PostMetaType;
   slug: string;
+  relatedPosts: PostBasicInfo[];
 }
 
-const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
+const PostPage: React.FC<PostPageProps> = ({
+  source,
+  meta,
+  slug,
+  relatedPosts,
+}) => {
   const pathname = `/blog/${slug}`;
 
   const { toc } = meta;
@@ -76,6 +84,9 @@ const PostPage: React.FC<PostPageProps> = ({ source, meta, slug }) => {
             </MDXProvider>
           </PostLayout>
         </PostContainer>
+        {relatedPosts.length > 0 && (
+          <FeaturedPosts posts={relatedPosts} title="Related Posts" />
+        )}
       </Wrapper>
       <Footer />
     </>
@@ -153,24 +164,34 @@ export const getStaticProps = async ({
 }: {
   params: { slug: string };
 }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
-
-  const { content, data } = matter(source);
+  const { content, data } = getPostBySlug(params.slug);
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
       rehypePlugins: [rehypePrism],
     },
-    scope: data,
+    scope: data as any,
   });
+
+  console.log({ tags: data.tags });
+
+  const relatedPosts: PostBasicInfo[] = [];
+
+  if (data.related && data.related.length > 0) {
+    data.related.forEach((slug) => {
+      const post = getPostBySlug(slug);
+
+      relatedPosts.push({ ...getBasicPostInfo(post), slug });
+    });
+  }
 
   return {
     props: {
       source: mdxSource,
       meta: data,
       slug: params.slug,
+      relatedPosts,
     },
   };
 };

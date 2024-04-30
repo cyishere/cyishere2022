@@ -9,21 +9,30 @@ import ShowMore from '../ShowMore';
 
 interface FeaturedPostsProps {
   posts: PostBasicInfo[];
+  title: string;
+  showMore?: boolean;
 }
 
-const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
+const FeaturedPosts: React.FC<FeaturedPostsProps> = ({
+  posts,
+  title,
+  showMore = false,
+  ...rest
+}) => {
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <Container>
-        <SectionTitle>Blog Posts</SectionTitle>
+        <SectionTitle>{title}</SectionTitle>
         <PostList>
           {posts.map((post) => (
             <PostItem key={post.slug} {...post} />
           ))}
         </PostList>
-        <ShowMore>
-          <Button href="/blog">Read more...</Button>
-        </ShowMore>
+        {showMore && (
+          <ShowMore>
+            <Button href="/blog">Read more...</Button>
+          </ShowMore>
+        )}
       </Container>
     </Wrapper>
   );
@@ -32,8 +41,13 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
 export default FeaturedPosts;
 
 const Wrapper = styled.section`
-  background-color: ${color('base.200')};
-  padding: 10rem 2rem;
+  background-color: var(--featuredPost-bg-color);
+  padding: var(--featuredPost-padding, 8rem 0 3rem 0);
+
+  &[data-component-position='homepage'] {
+    --featuredPost-bg-color: ${color('base.200')};
+    --featuredPost-padding: 10rem 2rem;
+  }
 `;
 
 const Container = styled.div`
