@@ -8,10 +8,18 @@ export interface PostMetaType {
   canonical?: string;
   pageImage?: string;
   toc?: boolean;
+  related?: string[];
 }
 
 export interface Post {
   data: PostMetaType;
   content: string;
   slug: string;
+}
+
+export interface PostBasicInfo {
+  title: string;
+  slug: string;
+  createdAt: string;
+  tags?: string[];
 }

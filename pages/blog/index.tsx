@@ -5,12 +5,12 @@ import { Layout } from '@/components/Layout';
 import PostListItem from '@/components/PostListItem';
 import SectionTitle from '@/components/SectionTitle';
 import { color } from '@/styles/helpers';
-import { getPosts } from '@/utils/mdxUtils';
+import { getBasicPostInfo, getPosts } from '@/utils/mdxUtils';
 import { generateRssFeed } from '@/utils/rss';
-import type { Post } from '@/utils/types';
+import type { PostBasicInfo } from '@/utils/types';
 
 interface HomePageProps {
-  posts: Post[];
+  posts: PostBasicInfo[];
 }
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
@@ -25,9 +25,9 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
             {posts.map((post: any) => (
               <PostItem
                 key={post.slug}
-                post={post}
                 row={false}
                 formatDate={true}
+                {...post}
               />
             ))}
           </PostList>
@@ -66,5 +66,5 @@ export async function getStaticProps() {
   const posts = getPosts();
   await generateRssFeed(posts);
 
-  return { props: { posts } };
+  return { props: { posts: posts.map((post) => getBasicPostInfo(post)) } };
 }

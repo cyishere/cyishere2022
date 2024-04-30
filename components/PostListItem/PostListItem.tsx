@@ -2,23 +2,24 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 
-import type { Post } from '@/utils/types';
+import type { PostBasicInfo } from '@/utils/types';
 import { QUERIES } from '@/styles/theme';
 import { color, fontSize } from '@/styles/helpers';
 
-interface PostListItemProps {
-  post: Post;
+interface PostListItemProps extends PostBasicInfo {
   row?: boolean;
   formatDate?: boolean;
 }
 
 const PostListItem: React.FC<PostListItemProps> = ({
-  post,
+  title,
+  slug,
+  createdAt,
+  tags,
   row = true,
   formatDate = false,
   ...rest
 }) => {
-  const { slug, data } = post;
   const Container = row ? PostItem : PostItemColumn;
   const DateContainer = row ? Date : DateInColumn;
 
@@ -27,19 +28,17 @@ const PostListItem: React.FC<PostListItemProps> = ({
       <Wrapper {...rest}>
         <Container>
           <PostContent>
-            <PostTitle>{data.title}</PostTitle>
-            {data.tags?.length > 0 ? (
+            <PostTitle>{title}</PostTitle>
+            {tags && tags.length > 0 ? (
               <PostTags>
-                {data.tags.map((tag: string) => (
+                {tags.map((tag: string) => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
               </PostTags>
             ) : null}
           </PostContent>
           <DateContainer>
-            {formatDate
-              ? dayjs(data.createdAt).format('MMMM DD, YYYY')
-              : data.createdAt}
+            {formatDate ? dayjs(createdAt).format('MMMM DD, YYYY') : createdAt}
           </DateContainer>
         </Container>
       </Wrapper>

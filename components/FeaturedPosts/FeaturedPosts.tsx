@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import type { Post } from '@/utils/types';
+import type { PostBasicInfo } from '@/utils/types';
 import { color } from '@/styles/helpers';
 import SectionTitle from '../SectionTitle';
 import PostListItem from '../PostListItem';
@@ -8,7 +8,7 @@ import Button from '../Button';
 import ShowMore from '../ShowMore';
 
 interface FeaturedPostsProps {
-  posts: Post[];
+  posts: PostBasicInfo[];
 }
 
 const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
@@ -18,7 +18,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
         <SectionTitle>Blog Posts</SectionTitle>
         <PostList>
           {posts.map((post) => (
-            <PostItem key={post.slug} post={post} />
+            <PostItem key={post.slug} {...post} />
           ))}
         </PostList>
         <ShowMore>

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
-import type { Post } from '@/utils/types';
-import { getPosts } from '@/utils/mdxUtils';
+import type { PostBasicInfo } from '@/utils/types';
+import { getBasicPostInfo, getPosts } from '@/utils/mdxUtils';
 import { HomeLayout } from '@/components/Layout';
 import Hero from '@/components/Hero';
 // import FeaturedProjects from "@/components/FeaturedProjects";
@@ -9,7 +9,7 @@ import Intro from '@/components/Intro';
 import FeaturedPosts from '@/components/FeaturedPosts';
 
 interface HomePageProps {
-  posts: Post[];
+  posts: PostBasicInfo[];
 }
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
@@ -28,7 +28,11 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
 export function getStaticProps() {
   const posts = getPosts(6);
 
-  return { props: { posts } };
+  const postInfos = posts.map((post) => {
+    return getBasicPostInfo(post);
+  });
+
+  return { props: { posts: postInfos } };
 }
 
 export default Home;
