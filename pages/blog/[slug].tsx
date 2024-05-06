@@ -16,7 +16,7 @@ import PostLayout from '@/components/Post';
 import SEO from '@/components/SEO';
 import TableOfContents from '@/components/TableOfContents';
 import Video from '@/components/Video';
-import { color, fontSize } from '@/styles/helpers';
+import { color, font, fontSize } from '@/styles/helpers';
 import { getBg } from '@/utils/helperts';
 import {
   getBasicPostInfo,
@@ -130,6 +130,10 @@ const Date = styled.p`
 
 const Excerpt = styled.p`
   font-size: ${fontSize('lg')};
+  font-family: ${font('mono')};
+  text-align: left;
+  max-width: 65ch;
+  margin-inline: auto;
 `;
 
 const Sidebar = styled.aside`

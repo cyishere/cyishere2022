@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 const Post = styled.article`
-  flex: 1 1 686px;
+  --post-w: 65ch;
+  flex: 1 1 var(--post-w);
+  font-size: 1.25rem;
   line-height: 1.8;
-  max-width: min(686px, 100%);
+  max-width: min(var(--post-w), 100%);
   margin-left: auto;
   margin-right: auto;
 
