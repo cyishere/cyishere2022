@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import dayjs from 'dayjs';
 
 import type { PostBasicInfo } from '@/utils/types';
 import { QUERIES } from '@/styles/theme';
 import { color, fontSize } from '@/styles/helpers';
+import { getFormattedDate } from '@/utils/helperts';
 
 interface PostListItemProps extends PostBasicInfo {
   row?: boolean;
@@ -38,7 +38,7 @@ const PostListItem: React.FC<PostListItemProps> = ({
             ) : null}
           </PostContent>
           <DateContainer>
-            {formatDate ? dayjs(createdAt).format('MMMM DD, YYYY') : createdAt}
+            {formatDate ? getFormattedDate(createdAt) : createdAt}
           </DateContainer>
         </Container>
       </Wrapper>

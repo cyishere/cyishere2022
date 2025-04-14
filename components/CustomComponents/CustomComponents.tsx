@@ -62,16 +62,18 @@ const Heading2 = ({ children }: Heading2Props) => {
 
 const Anchor = styled.a`
   color: var(--clr-text-light);
-  display: none;
+  display: inline-block;
+  opacity: 0;
 `;
 
 const H2Wrapper = styled.h2`
-  font-size: ${fontSize('lg')};
+  font-size: ${fontSize('xl')};
   scroll-margin-top: 1em;
 
   &:hover ${Anchor} {
-    display: inline-block;
-    border: none;
+    border-color: transparent;
+    opacity: 1;
+    transition: opacity 300ms cubic-bezier(0.17, 0.67, 0.47, 1);
   }
 `;
 

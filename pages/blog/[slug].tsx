@@ -25,6 +25,7 @@ import {
 } from '@/utils/mdxUtils';
 import type { PostBasicInfo, PostMetaType } from '@/utils/types';
 import FeaturedPosts from '@/components/FeaturedPosts';
+import Datetime from '@/components/Datetime';
 
 interface PostPageProps {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -72,7 +73,7 @@ const PostPage: React.FC<PostPageProps> = ({
         <PostHeader>
           <Title>{meta.title}</Title>
           <Date>
-            <time>{meta.createdAt}</time>
+            <Datetime createdAt={meta.createdAt} updatedAt={meta.updatedAt} />
           </Date>
           {meta.excerpt ? <Excerpt>{meta.excerpt}</Excerpt> : null}
         </PostHeader>
@@ -126,6 +127,7 @@ const Title = styled.h1`
 const Date = styled.p`
   font-size: ${fontSize('sm')};
   color: ${color('text.light')};
+  font-style: italic;
 `;
 
 const Excerpt = styled.p`

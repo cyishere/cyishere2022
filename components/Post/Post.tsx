@@ -5,6 +5,7 @@ const Post = styled.article`
   flex: 1 1 var(--post-w);
   font-size: 1.25rem;
   line-height: 1.8;
+  word-wrap: break-word;
   max-width: min(var(--post-w), 100%);
   margin-left: auto;
   margin-right: auto;

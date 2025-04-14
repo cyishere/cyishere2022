@@ -2,15 +2,36 @@
 title: 'Highlight Nav Link for Current Page in Astro'
 description: 'Highligh navlink, nav items with active states for current page in Astro.'
 createdAt: '2022-05-12'
+updatedAt: '2025-04-14'
 tags: ['astro']
 pageImage: 'https://res.cloudinary.com/cyishere/image/upload/v1663984259/cyishere/blog/astro-active-nav-item/lighlight-nav-link-in-astro_hkehuu.png'
 ---
+
+## Update in 2025
+
+This article was first written in 2022, when Astro was very new. Now in 2025, it has evolved significantly and has a new built-in way to achieve the active state. The code is shown below, but I'll keep the older methods for reference.
+
+```javascript
+// in the JavaScpit part:
+// the `pathname` is sth like - "/about"
+const { pathname } = Astro.url;
+```
+
+```jsx
+// in the HTML part:
+// such as the `slug` is "about"
+<a class={pathname.slice(1) === slug ? 'active' : ''} href={`/${slub}`}>
+  About
+</a>
+```
+
+## The Old Methods
 
 This article is about how to give the navigation items for each page in the new static site generator - [Astro](https://astro.build) - an active-state style. (What a long sentence. 😮‍💨)
 
 And there are _two_ ways. (These code are written in [Astro Component](https://docs.astro.build/en/core-concepts/astro-components/#overview).)
 
-## The Old Good JavaScript Way
+### The Old Good JavaScript Way
 
 In the code below, we write the vanilla JavaScript in a `script` tag, which tells Astro to give this code block to the browser. It will work in a regular way.
 
@@ -45,7 +66,7 @@ In the code below, we write the vanilla JavaScript in a `script` tag, which tell
 </script>
 ```
 
-## The Astro Way
+### The Astro Way
 
 We take advantage of Astro's [Runtime API](https://docs.astro.build/en/reference/api-reference/#astrorequest) and get the pathname in Astro components' [component script](https://docs.astro.build/en/core-concepts/astro-components/#the-component-script).
 

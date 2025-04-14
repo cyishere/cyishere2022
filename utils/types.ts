@@ -3,6 +3,7 @@ export interface PostMetaType {
   description: string;
   tags: string[];
   createdAt: string;
+  updatedAt?: string;
   seoTitle?: string;
   excerpt?: string;
   canonical?: string;
@@ -21,5 +22,6 @@ export interface PostBasicInfo {
   title: string;
   slug: string;
   createdAt: string;
+  updatedAt?: string;
   tags?: string[];
 }
