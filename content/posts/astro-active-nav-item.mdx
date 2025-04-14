@@ -9,7 +9,7 @@ pageImage: 'https://res.cloudinary.com/cyishere/image/upload/v1663984259/cyisher
 
 ## Update in 2025
 
-This article was first written in 2022, when Astro was very new. Now in 2025, it has evolved significantly and has a new built-in way to achieve the active state. The code is shown below, but I'll keep the older methods for reference.
+This article was first written in 2022, when Astro was very new. Now in 2025, it has evolved significantly and has a new built-in way to get the active state. The code is shown below, but I'll keep the older methods for reference.
 
 ```javascript
 // in the JavaScpit part:
@@ -20,7 +20,7 @@ const { pathname } = Astro.url;
 ```jsx
 // in the HTML part:
 // such as the `slug` is "about"
-<a class={pathname.slice(1) === slug ? 'active' : ''} href={`/${slub}`}>
+<a class={pathname.slice(1) === slug ? 'active' : ''} href={`/${slug}`}>
   About
 </a>
 ```
