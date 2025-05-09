@@ -2,7 +2,7 @@
 title: 'Highlight Nav Link for Current Page in Astro'
 description: 'Highligh navlink, nav items with active states for current page in Astro.'
 createdAt: '2022-05-12'
-updatedAt: '2025-04-14'
+updatedAt: '2025-05-09'
 tags: ['astro']
 pageImage: 'https://res.cloudinary.com/cyishere/image/upload/v1663984259/cyishere/blog/astro-active-nav-item/lighlight-nav-link-in-astro_hkehuu.png'
 ---
@@ -24,6 +24,27 @@ const { pathname } = Astro.url;
   About
 </a>
 ```
+
+### Accessibility Practice
+
+For better accessibility, we can enhance our navigation by using the `aria-current` attribute instead of just CSS classes. While CSS classes like `.active` only provide visual feedback, `aria-current` can communicate the current page both visually and semantically to assistive technologies.
+
+```jsx
+// in the HTML part:
+<a
+  aria-current={pathname.slice(1) === slug ? 'page' : 'false'}
+  href={`/${slug}`}
+>
+  {name}
+</a>
+
+// in the CSS part:
+a[aria-current="page"] {
+  /* the styles for the active nav item */
+}
+```
+
+The `aria-current` attribute accepts several values, but for navigation we use `"page"` to indicate the current page, or `"false"` for non-current pages. This provides a more semantic way to mark the active navigation item compared to CSS classes. Learn more about it on [the MDN Docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current).
 
 ## The Old Methods
 
