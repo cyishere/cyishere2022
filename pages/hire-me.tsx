@@ -20,7 +20,7 @@ const HireMe: NextPage = () => (
           <Emoji name="Thank you">🙏🏻</Emoji>
         </p>
         <p>
-          I am looking for a <strong>part-time</strong> position as a{' '}
+          I am looking for a <strong>part-time remote</strong> position as a{' '}
           <em>Front-end</em> developer or <em>full-stack</em> developer, with a
           focus on the JavaScript ecosystem.
         </p>
