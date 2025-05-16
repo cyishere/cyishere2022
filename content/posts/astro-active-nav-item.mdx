@@ -19,8 +19,7 @@ const { pathname } = Astro.url;
 
 ```jsx
 // in the HTML part:
-// such as the `slug` is "about"
-<a class={pathname.slice(1) === slug ? 'active' : ''} href={`/${slug}`}>
+<a class={pathname.slice(1) === 'about' ? 'active' : ''} href="/about">
   About
 </a>
 ```
@@ -32,10 +31,10 @@ For better accessibility, we can enhance our navigation by using the `aria-curre
 ```jsx
 // in the HTML part:
 <a
-  aria-current={pathname.slice(1) === slug ? 'page' : 'false'}
-  href={`/${slug}`}
+  aria-current={pathname.slice(1) === 'about' ? 'page' : 'false'}
+  href="/about"
 >
-  {name}
+  About
 </a>
 
 // in the CSS part:
