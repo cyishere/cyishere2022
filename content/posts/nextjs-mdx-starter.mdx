@@ -1,0 +1,33 @@
+---
+title: 'A Next.js + MDX Starter'
+seoTitle: 'Make MDX Work with Next.js 15'
+description: Here is an example on how to make MDX work with Next.js 15, also with light/dark theme switcher.
+excerpt:
+createdAt: '2025-05-16'
+tags: ['mdx', 'next.js']
+related:
+  - next-mdx-or-next-mdx-remote
+pageImage: ''
+---
+
+I've created [a Next.js + MDX starter](https://github.com/cyishere/nextjs-mdx-starter) to help developers quickly set up MDX-powered blogs with Next.js.
+
+Originally built 4 years ago, I recently considered archiving the repository. However, seeing that it had garnered 11 stars and 3 forks from the community, I decided to give it new life by updating it to work with Next.js 15.
+
+When building this starter project, I wanted to create something that would make it easy for developers to get started with MDX in Next.js. I found inspiration in the beautifully crafted [Hylia Starter Kit](https://hylia.website/) for Eleventy, which helped shape the direction of this project.
+
+## Key Setup
+
+At its core, this starter leverages [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to handle MDX processing and rendering, providing a seamless experience for writing content in MDX format. I wrote about [why I prefer `next-mdx-remote` over other parsers](/blog/next-mdx-or-next-mdx-remote); it's very handy, please take a look.
+
+> [!INFO] Some of the more essential and advanced features, like file handling utilities and the dark/light theme switching, were learned from the excellent work done in [the Joy of React course exercise](https://github.com/joy-of-react/project-blog). These implementations have been adapted to fit seamlessly into this starter project.
+
+## Styling
+
+There're many different ways for styling, I try to find a simple one for people to easier to switch to other prefered styling solution. This is a combination of vanilla CSS and CSS Modules. People could remove all the `src/styles/` folder and all the `*.module.css` files, no more extra configuration to deal with. But I'd also like to introduce this current styling architecture a little bit.
+
+It's following the [CUBE CSS](https://cube.fyi/) methodology. This approach, which I learned about through [Piccalilli's detailed blog post](https://piccalil.li/blog/cube-css/), offers a pragmatic and consistent way to structure styles. The beauty of this setup is that it's flexible enough to accommodate different styling preferences.
+
+## Code Block Highlighting
+
+When it comes to code presentation, I've integrated [Bright](https://bright.codehike.org/), a modern syntax highlighting solution that's specifically optimized for React Server Components. Maybe it's not as customizable as others, but it's good for now.
