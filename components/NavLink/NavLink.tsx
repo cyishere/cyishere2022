@@ -65,7 +65,7 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
           </NavLinkAnchor>
         </Link>
       </NavLinkItem>
-      {/* <NavLinkItem style={getActiveStyles(pathname, "hire-me")}>
+      <NavLinkItem style={getActiveStyles(pathname, 'hire-me')}>
         <Link href="/hire-me" passHref>
           <NavLinkAnchor>
             <Item data-content="hire me!">
@@ -73,7 +73,7 @@ const NavLink: React.FC<NavLinkProps> = ({ pathname }) => {
             </Item>
           </NavLinkAnchor>
         </Link>
-      </NavLinkItem> */}
+      </NavLinkItem>
       <NavLinkItem>
         <NavLinkAnchor href="/rss.xml" rel="noreferrer" target="_blank">
           <VisuallyHidden>RSS</VisuallyHidden>
@@ -158,9 +158,11 @@ const NavLinkItem = styled.li`
   }
 `;
 
-// const NavLinkAnchorEm = styled.em`
-//   color: var(--clr-primary-main);
-//   font-style: italic;
-// `;
+const NavLinkAnchorEm = styled.em`
+  color: var(--clr-primary-main);
+  font-style: italic;
+  padding-left: 4px;
+  padding-right: 4px;
+`;
 
 export default NavLink;
