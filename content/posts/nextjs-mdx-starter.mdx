@@ -21,7 +21,7 @@ When building this starter project, I wanted to create something that would make
 
 ### Configuration
 
-Add the setting below to `next.config.ts` to ensure the `content/` folder is accessible to Vercel's serverless functions after deployment. This will prevent an error like "Error: ENOENT: no such file or directory." Otherwise, Vercel couldn't "see" its existence.
+Add the setting below to `next.config.ts` to ensure the `content/` folder is accessible to Vercel's serverless functions after deployment. This will prevent an error like `Error: ENOENT: no such file or directory` Otherwise, Vercel couldn't "see" its existence.
 
 ```ts
 const nextConfig: NextConfig = {
