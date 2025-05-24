@@ -1,9 +1,10 @@
 ---
 title: 'A Next.js + MDX Starter'
 seoTitle: 'Make MDX Work with Next.js 15'
-description: Here is an example on how to make MDX work with Next.js 15, also with light/dark theme switcher.
+description: 'Here is an example on how to make MDX work with Next.js 15, also with light/dark theme switcher. Also a solution for Error: ENOENT: no such file or directory on Vercel'
 excerpt:
 createdAt: '2025-05-16'
+updatedAt: '2025-05-24'
 tags: ['mdx', 'next.js']
 related:
   - next-mdx-or-next-mdx-remote
@@ -17,6 +18,20 @@ Originally built 4 years ago, I recently considered archiving the repository. Ho
 When building this starter project, I wanted to create something that would make it easy for developers to get started with MDX in Next.js. I found inspiration in the beautifully crafted [Hylia Starter Kit](https://hylia.website/) for Eleventy, which helped shape the direction of this project.
 
 ## Key Setup
+
+### Configuration
+
+Add the setting below to `next.config.ts` to ensure the `content/` folder is accessible to Vercel's serverless functions after deployment, otherwise Vercel couldn't "see" its existence.
+
+```ts
+const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    '/*': ['./content/**/*'],
+  },
+};
+```
+
+### MDX Processing
 
 At its core, this starter leverages [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to handle MDX processing and rendering, providing a seamless experience for writing content in MDX format. I wrote about [why I prefer `next-mdx-remote` over other parsers](/blog/next-mdx-or-next-mdx-remote); it's very handy, please take a look.
 
